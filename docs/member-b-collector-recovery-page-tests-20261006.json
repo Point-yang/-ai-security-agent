@@ -1,0 +1,71 @@
+{
+  "checked_at": "2026-10-07T01:55:59.193Z",
+  "status": "passed",
+  "isolated": true,
+  "cloud_generation": false,
+  "real_embedding_inference": false,
+  "steps": [
+    {
+      "scenario": "failure",
+      "result": {
+        "scenario": "failure",
+        "isolated": true,
+        "cloud_generation": false,
+        "real_embedding_inference": false
+      }
+    },
+    {
+      "scenario": "recovered",
+      "result": {
+        "scenario": "recovered",
+        "isolated": true,
+        "cloud_generation": false,
+        "real_embedding_inference": false
+      }
+    },
+    {
+      "scenario": "stale",
+      "result": {
+        "scenario": "stale",
+        "isolated": true,
+        "cloud_generation": false,
+        "real_embedding_inference": false
+      }
+    },
+    {
+      "scenario": "recovered",
+      "result": {
+        "scenario": "recovered",
+        "isolated": true,
+        "cloud_generation": false,
+        "real_embedding_inference": false
+      }
+    },
+    {
+      "scenario": "incomplete",
+      "result": {
+        "scenario": "incomplete",
+        "isolated": true,
+        "cloud_generation": false,
+        "real_embedding_inference": false
+      }
+    }
+  ],
+  "screenshots": [
+    "01-network-failure-desktop-focus.png",
+    "01-network-failure-desktop.png",
+    "02-recovered-desktop-focus.png",
+    "02-recovered-desktop.png",
+    "03-recovered-mobile-focus.png",
+    "03-recovered-mobile.png",
+    "04-api-ready-source-stale-answer-focus.png",
+    "04-api-ready-source-stale-answer.png",
+    "05-fresh-answer-focus.png",
+    "05-fresh-answer.png",
+    "06-index-incomplete-lexical-answer-focus.png",
+    "06-index-incomplete-lexical-answer.png",
+    "07-catalog-live-replay-boundary-focus.png",
+    "07-catalog-live-replay-boundary.png"
+  ],
+  "js_errors": []
+}

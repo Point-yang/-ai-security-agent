@@ -1,0 +1,52 @@
+{
+  "version": "member-b-week3-v1",
+  "cases": [
+    {
+      "id": "cvss-multiple-scores",
+      "question": "vLLM 未初始化资源公告的 CVSS 是多少？",
+      "query": "Use of Uninitialized Resource",
+      "pool": "formal",
+      "top_k": 5,
+      "expected_external_ids": ["GHSA-x368-4g9h-fvv4"],
+      "expected_status": "evidence",
+      "expected_constraint_codes": [
+        "selected_cvss_display_only",
+        "cvss_multiple_scores"
+      ],
+      "entity_type": "ghsa",
+      "entity_value": "GHSA-x368-4g9h-fvv4"
+    },
+    {
+      "id": "opaque-version-range",
+      "question": "stop_token_ids 绕过问题的修复版本是什么？",
+      "query": "stop_token_ids bypass",
+      "pool": "formal",
+      "top_k": 5,
+      "expected_external_ids": ["GHSA-qff2-492f-9fm4"],
+      "expected_status": "evidence",
+      "expected_constraint_codes": ["unparsed_version_range"],
+      "quality_flag": "unparsed_version_range"
+    },
+    {
+      "id": "unanswerable-question",
+      "question": "不存在的组件 zzzznosuchrecord20999999 是否受影响？",
+      "query": "zzzznosuchrecord20999999",
+      "pool": "formal",
+      "top_k": 5,
+      "expected_external_ids": [],
+      "expected_status": "no_evidence",
+      "expected_constraint_codes": ["insufficient_evidence"]
+    },
+    {
+      "id": "cpe-is-not-asset-match",
+      "question": "CVE-2026-48746 是否命中了我的资产？",
+      "query": "CVE-2026-48746",
+      "pool": "formal",
+      "top_k": 5,
+      "expected_external_ids": ["CVE-2026-48746"],
+      "expected_status": "evidence",
+      "expected_constraint_codes": ["cpe_condition_not_asset_match"],
+      "cpe": "cpe:2.3:a:vllm:vllm:*:*:*:*:*:*:*:*"
+    }
+  ]
+}

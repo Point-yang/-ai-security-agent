@@ -1,0 +1,45 @@
+{
+  "status": "passed",
+  "targets": [
+    {
+      "target": "cisa-ai",
+      "status": "completed",
+      "error": null,
+      "pages": 1,
+      "records": 7,
+      "created": 0,
+      "updated": 7,
+      "unchanged": 0
+    },
+    {
+      "target": "federal-register-ai-index",
+      "status": "completed",
+      "error": null,
+      "pages": 1,
+      "records": 1,
+      "created": 0,
+      "updated": 0,
+      "unchanged": 1
+    },
+    {
+      "target": "nuclei-cve-index",
+      "status": "completed",
+      "error": null,
+      "pages": 1,
+      "records": 23,
+      "created": 0,
+      "updated": 0,
+      "unchanged": 23
+    },
+    {
+      "target": "nist-ai-rmf-100-1",
+      "status": "completed",
+      "error": null,
+      "pages": 1,
+      "records": 1,
+      "created": 0,
+      "updated": 1,
+      "unchanged": 0
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+#source{width:180px}
+.audit-panel{margin-top:18px;padding:18px}
+.audit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}
+.audit-card{background:#f7faf8;border:1px solid #e3ebe6;border-radius:7px;padding:12px;font-size:12px}
+.audit-card strong{display:block;margin-bottom:5px}
+.audit-card p{margin:4px 0}
+.audit-answer{white-space:pre-wrap;max-height:100px;overflow:auto;color:#536a60}
+@media(max-width:750px){#source{width:100%}}

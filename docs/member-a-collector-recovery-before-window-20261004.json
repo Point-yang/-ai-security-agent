@@ -1,0 +1,141 @@
+{
+  "schema_version": "monitoring-window-v1",
+  "window_start": "2026-10-03T12:23:43.590496+00:00",
+  "window_end": "2026-10-04T12:23:43.590496+00:00",
+  "hours": 24,
+  "targets": [
+    {
+      "target_id": "ghsa-vllm",
+      "config_hash": "45b751c3da2766dd0fd2cee92b31a5fca48e42ff5ed1d1ea4e70c1977302c610",
+      "success_runs": 0,
+      "failed_runs": 4,
+      "freshness_horizon_seconds": 3600,
+      "freshness_covered_seconds": 0,
+      "freshness_coverage": 0.0,
+      "intervals": []
+    },
+    {
+      "target_id": "ghsa-langchain",
+      "config_hash": "45a8d36c12cd7869ce293dce92223f1f22517f67ed04051f9021c0be4f71cb5c",
+      "success_runs": 0,
+      "failed_runs": 4,
+      "freshness_horizon_seconds": 3600,
+      "freshness_covered_seconds": 0,
+      "freshness_coverage": 0.0,
+      "intervals": []
+    },
+    {
+      "target_id": "vllm-official",
+      "config_hash": "c1d8fab26e3f35ab6e0a924b0d38132b3a1f20f16c43409860704caca3354972",
+      "success_runs": 2,
+      "failed_runs": 9,
+      "freshness_horizon_seconds": 7200,
+      "freshness_covered_seconds": 11793.447,
+      "freshness_coverage": 0.136498,
+      "intervals": [
+        {
+          "from": "2026-10-03T14:47:12.688610+00:00",
+          "to": "2026-10-03T18:03:46.135216+00:00"
+        }
+      ]
+    },
+    {
+      "target_id": "nvd-vllm",
+      "config_hash": "5a9b9cd43ddb11e445f5c10a3715245a9b3da0afec4267325aa0512095a0d7f1",
+      "success_runs": 0,
+      "failed_runs": 4,
+      "freshness_horizon_seconds": 14400,
+      "freshness_covered_seconds": 0,
+      "freshness_coverage": 0.0,
+      "intervals": []
+    },
+    {
+      "target_id": "cisa-ai",
+      "config_hash": "cca8edadb5e760ad4d4098ff39fc1d3aff58c0659943f35c0db698680a1525e6",
+      "success_runs": 0,
+      "failed_runs": 4,
+      "freshness_horizon_seconds": 7200,
+      "freshness_covered_seconds": 0,
+      "freshness_coverage": 0.0,
+      "intervals": []
+    },
+    {
+      "target_id": "papers-prompt-injection",
+      "config_hash": "22b9d6d7054ac3e941176b3e45cac782e164dd9424f5cb01aea7caa04a0b909a",
+      "success_runs": 1,
+      "failed_runs": 5,
+      "freshness_horizon_seconds": 43200,
+      "freshness_covered_seconds": 43200.0,
+      "freshness_coverage": 0.5,
+      "intervals": [
+        {
+          "from": "2026-10-03T14:13:17.523819+00:00",
+          "to": "2026-10-04T02:13:17.523819+00:00"
+        }
+      ]
+    },
+    {
+      "target_id": "hf-blog-index",
+      "config_hash": "facceb5a9b65d542e63e7b5c720e6bf7f8f024994a22de2a7045d36366a71f28",
+      "success_runs": 0,
+      "failed_runs": 6,
+      "freshness_horizon_seconds": 43200,
+      "freshness_covered_seconds": 0,
+      "freshness_coverage": 0.0,
+      "intervals": []
+    },
+    {
+      "target_id": "nist-ai-rmf-100-1",
+      "config_hash": "cacece3ff0594752d2f55c56943c6f527eddb9386b892a13c3c6e76845ba2aa5",
+      "success_runs": 2,
+      "failed_runs": 4,
+      "freshness_horizon_seconds": 172800,
+      "freshness_covered_seconds": 82599.107,
+      "freshness_coverage": 0.956008,
+      "intervals": [
+        {
+          "from": "2026-10-03T12:23:43.590496+00:00",
+          "to": "2026-10-03T13:09:57.652607+00:00"
+        },
+        {
+          "from": "2026-10-03T14:13:18.546098+00:00",
+          "to": "2026-10-04T12:23:43.590496+00:00"
+        }
+      ]
+    },
+    {
+      "target_id": "federal-register-ai-index",
+      "config_hash": "4b49722a99a99cfa3c2c2c0d8f42c476191a64f5cea2b8d45856ccf9309abfd1",
+      "success_runs": 1,
+      "failed_runs": 5,
+      "freshness_horizon_seconds": 43200,
+      "freshness_covered_seconds": 43200.0,
+      "freshness_coverage": 0.5,
+      "intervals": [
+        {
+          "from": "2026-10-03T15:03:30.186163+00:00",
+          "to": "2026-10-04T03:03:30.186163+00:00"
+        }
+      ]
+    },
+    {
+      "target_id": "nuclei-cve-index",
+      "config_hash": "b591525bacee3a98904615efb13e25f69e501c34f1f8194f20cc3c09c7640a3b",
+      "success_runs": 1,
+      "failed_runs": 5,
+      "freshness_horizon_seconds": 43200,
+      "freshness_covered_seconds": 43200.0,
+      "freshness_coverage": 0.5,
+      "intervals": [
+        {
+          "from": "2026-10-03T15:12:58.872057+00:00",
+          "to": "2026-10-04T03:12:58.872057+00:00"
+        }
+      ]
+    }
+  ],
+  "status": "insufficient_coverage",
+  "process_uptime_measured": false,
+  "publication_latency_sla_proven": false,
+  "note": "Coverage uses successful polls and two configured intervals. It is not worker uptime, source availability or a <=6h publication SLA."
+}

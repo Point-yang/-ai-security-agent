@@ -1,0 +1,16 @@
+{
+  "dataset_sha256": "9db16599779a4c48d802cf9b21343a540a34f39aadd6a585b86bca01094261c3",
+  "router_sha256": "1e2297c97f3c0dd66fe668c01e6507efb1d9e09939b38d403b6242fcc839e114",
+  "split_counts": {
+    "train": 339,
+    "test": 102,
+    "development": 133
+  },
+  "training_performed": false,
+  "parameter_search_performed": false,
+  "label_status": "human_pending; source_grounded_characterization",
+  "selected_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "model_digest": "546177efd53c466b176e9a51e76e73e11d4bdbab28a33f09c3d3dea4a4479f83",
+  "selection_reason": "official multilingual model download unavailable; available English baseline selected before score measurement",
+  "held_out_policy": "no tuning on held-out groups; official scores withheld until independent review"
+}

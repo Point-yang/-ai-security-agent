@@ -1,0 +1,102 @@
+{
+  "schema_version": "monitoring-window-v1",
+  "window_start": "2026-09-23T07:56:14.631061+00:00",
+  "window_end": "2026-09-24T07:56:14.631061+00:00",
+  "hours": 24,
+  "targets": [
+    {
+      "target_id": "ghsa-vllm",
+      "config_hash": "45b751c3da2766dd0fd2cee92b31a5fca48e42ff5ed1d1ea4e70c1977302c610",
+      "success_runs": 1,
+      "failed_runs": 0,
+      "freshness_horizon_seconds": 3600,
+      "freshness_covered_seconds": 166.059,
+      "freshness_coverage": 0.001922,
+      "intervals": [
+        {
+          "from": "2026-09-24T07:53:28.572171+00:00",
+          "to": "2026-09-24T07:56:14.631061+00:00"
+        }
+      ]
+    },
+    {
+      "target_id": "ghsa-langchain",
+      "config_hash": "45a8d36c12cd7869ce293dce92223f1f22517f67ed04051f9021c0be4f71cb5c",
+      "success_runs": 1,
+      "failed_runs": 0,
+      "freshness_horizon_seconds": 3600,
+      "freshness_covered_seconds": 164.869,
+      "freshness_coverage": 0.001908,
+      "intervals": [
+        {
+          "from": "2026-09-24T07:53:29.762120+00:00",
+          "to": "2026-09-24T07:56:14.631061+00:00"
+        }
+      ]
+    },
+    {
+      "target_id": "vllm-official",
+      "config_hash": "c1d8fab26e3f35ab6e0a924b0d38132b3a1f20f16c43409860704caca3354972",
+      "success_runs": 1,
+      "failed_runs": 0,
+      "freshness_horizon_seconds": 7200,
+      "freshness_covered_seconds": 162.227,
+      "freshness_coverage": 0.001878,
+      "intervals": [
+        {
+          "from": "2026-09-24T07:53:32.404380+00:00",
+          "to": "2026-09-24T07:56:14.631061+00:00"
+        }
+      ]
+    },
+    {
+      "target_id": "nvd-vllm",
+      "config_hash": "5a9b9cd43ddb11e445f5c10a3715245a9b3da0afec4267325aa0512095a0d7f1",
+      "success_runs": 1,
+      "failed_runs": 0,
+      "freshness_horizon_seconds": 14400,
+      "freshness_covered_seconds": 160.844,
+      "freshness_coverage": 0.001862,
+      "intervals": [
+        {
+          "from": "2026-09-24T07:53:33.786741+00:00",
+          "to": "2026-09-24T07:56:14.631061+00:00"
+        }
+      ]
+    },
+    {
+      "target_id": "cisa-ai",
+      "config_hash": "cca8edadb5e760ad4d4098ff39fc1d3aff58c0659943f35c0db698680a1525e6",
+      "success_runs": 1,
+      "failed_runs": 0,
+      "freshness_horizon_seconds": 7200,
+      "freshness_covered_seconds": 158.944,
+      "freshness_coverage": 0.00184,
+      "intervals": [
+        {
+          "from": "2026-09-24T07:53:35.687009+00:00",
+          "to": "2026-09-24T07:56:14.631061+00:00"
+        }
+      ]
+    },
+    {
+      "target_id": "papers-prompt-injection",
+      "config_hash": "22b9d6d7054ac3e941176b3e45cac782e164dd9424f5cb01aea7caa04a0b909a",
+      "success_runs": 1,
+      "failed_runs": 0,
+      "freshness_horizon_seconds": 43200,
+      "freshness_covered_seconds": 112.614,
+      "freshness_coverage": 0.001303,
+      "intervals": [
+        {
+          "from": "2026-09-24T07:54:22.017437+00:00",
+          "to": "2026-09-24T07:56:14.631061+00:00"
+        }
+      ]
+    }
+  ],
+  "status": "insufficient_coverage",
+  "process_uptime_measured": false,
+  "publication_latency_sla_proven": false,
+  "note": "Coverage uses successful polls and two configured intervals. It is not worker uptime, source availability or a <=6h publication SLA."
+}

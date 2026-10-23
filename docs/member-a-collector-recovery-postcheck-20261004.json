@@ -1,0 +1,78 @@
+{
+  "status": "passed",
+  "configured_targets": 10,
+  "targets_fresh": 10,
+  "targets_failed": 0,
+  "target_statuses": [
+    {
+      "id": "ghsa-vllm",
+      "status": "completed",
+      "failures": 0,
+      "fresh": true
+    },
+    {
+      "id": "ghsa-langchain",
+      "status": "completed",
+      "failures": 0,
+      "fresh": true
+    },
+    {
+      "id": "vllm-official",
+      "status": "completed",
+      "failures": 0,
+      "fresh": true
+    },
+    {
+      "id": "nvd-vllm",
+      "status": "completed",
+      "failures": 0,
+      "fresh": true
+    },
+    {
+      "id": "cisa-ai",
+      "status": "completed",
+      "failures": 0,
+      "fresh": true
+    },
+    {
+      "id": "papers-prompt-injection",
+      "status": "completed",
+      "failures": 0,
+      "fresh": true
+    },
+    {
+      "id": "hf-blog-index",
+      "status": "completed",
+      "failures": 0,
+      "fresh": true
+    },
+    {
+      "id": "nist-ai-rmf-100-1",
+      "status": "completed",
+      "failures": 0,
+      "fresh": true
+    },
+    {
+      "id": "federal-register-ai-index",
+      "status": "completed",
+      "failures": 0,
+      "fresh": true
+    },
+    {
+      "id": "nuclei-cve-index",
+      "status": "completed",
+      "failures": 0,
+      "fresh": true
+    }
+  ],
+  "window_status": "insufficient_coverage",
+  "window_fully_covered": 0,
+  "publication_latency_sla_proven": false,
+  "events": 981,
+  "field_evidence_verified": 7898,
+  "field_evidence_failed": 0,
+  "catalog_revisions_verified": 68,
+  "catalog_revisions_failed": 0,
+  "chunks": 4278,
+  "current_vectors": 4278
+}

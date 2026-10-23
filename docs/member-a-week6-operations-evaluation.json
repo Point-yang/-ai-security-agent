@@ -1,0 +1,218 @@
+{
+  "id": "5036c73e-60f8-44b7-bbf8-8a0da2c411cb",
+  "schema_version": "operations-v1",
+  "run_at": "2026-09-22 11:00:30.285196+00:00",
+  "status": "passed",
+  "collection": {
+    "configured_targets": 6,
+    "configured_sources": 5,
+    "configured_categories": 4,
+    "targets": [
+      {
+        "id": "ghsa-vllm",
+        "source_id": "github-advisories",
+        "category": "vulnerability_database",
+        "enabled": true,
+        "interval_seconds": 1800,
+        "status": "completed",
+        "config_current": true,
+        "consecutive_failures": 0,
+        "has_pending_pages": false,
+        "last_success_at": "2026-09-22T10:57:59.655662+00:00",
+        "heartbeat_at": "2026-09-22T10:57:59.655662+00:00",
+        "seconds_since_success": 150.471,
+        "fresh_within_two_intervals": true,
+        "last_run_status": "completed"
+      },
+      {
+        "id": "ghsa-langchain",
+        "source_id": "github-advisories",
+        "category": "vulnerability_database",
+        "enabled": true,
+        "interval_seconds": 1800,
+        "status": "completed",
+        "config_current": true,
+        "consecutive_failures": 0,
+        "has_pending_pages": false,
+        "last_success_at": "2026-09-22T10:58:00.553805+00:00",
+        "heartbeat_at": "2026-09-22T10:58:00.553805+00:00",
+        "seconds_since_success": 149.573,
+        "fresh_within_two_intervals": true,
+        "last_run_status": "completed"
+      },
+      {
+        "id": "vllm-official",
+        "source_id": "vllm-vendor",
+        "category": "vendor_advisory",
+        "enabled": true,
+        "interval_seconds": 3600,
+        "status": "completed",
+        "config_current": true,
+        "consecutive_failures": 0,
+        "has_pending_pages": false,
+        "last_success_at": "2026-09-22T10:58:02.648122+00:00",
+        "heartbeat_at": "2026-09-22T10:58:02.648122+00:00",
+        "seconds_since_success": 147.478,
+        "fresh_within_two_intervals": true,
+        "last_run_status": "completed"
+      },
+      {
+        "id": "nvd-vllm",
+        "source_id": "nvd",
+        "category": "vulnerability_database",
+        "enabled": true,
+        "interval_seconds": 7200,
+        "status": "completed",
+        "config_current": true,
+        "consecutive_failures": 0,
+        "has_pending_pages": false,
+        "last_success_at": "2026-09-22T10:58:03.961721+00:00",
+        "heartbeat_at": "2026-09-22T10:58:03.961721+00:00",
+        "seconds_since_success": 146.165,
+        "fresh_within_two_intervals": true,
+        "last_run_status": "completed"
+      },
+      {
+        "id": "cisa-ai",
+        "source_id": "cisa-kev",
+        "category": "government_alert",
+        "enabled": true,
+        "interval_seconds": 3600,
+        "status": "completed",
+        "config_current": true,
+        "consecutive_failures": 0,
+        "has_pending_pages": false,
+        "last_success_at": "2026-09-22T10:58:05.409945+00:00",
+        "heartbeat_at": "2026-09-22T10:58:05.409945+00:00",
+        "seconds_since_success": 144.716,
+        "fresh_within_two_intervals": true,
+        "last_run_status": "completed"
+      },
+      {
+        "id": "papers-prompt-injection",
+        "source_id": "crossref",
+        "category": "academic_metadata",
+        "enabled": true,
+        "interval_seconds": 21600,
+        "status": "completed",
+        "config_current": true,
+        "consecutive_failures": 0,
+        "has_pending_pages": false,
+        "last_success_at": "2026-09-22T10:58:49.394753+00:00",
+        "heartbeat_at": "2026-09-22T10:58:49.394753+00:00",
+        "seconds_since_success": 100.732,
+        "fresh_within_two_intervals": true,
+        "last_run_status": "completed"
+      }
+    ],
+    "targets_current": 6,
+    "targets_fresh": 6,
+    "targets_failed": 0,
+    "targets_with_pending_pages": 0,
+    "run_status_counts": {
+      "completed": 19,
+      "failed": 4,
+      "partial": 2
+    },
+    "run_duration": {
+      "samples": 25,
+      "min": 0.89582,
+      "p50": 2.024382,
+      "p95": 37.945126,
+      "max": 43.982241,
+      "unit": "seconds"
+    },
+    "observed_publication_to_first_seen": {
+      "samples": 180,
+      "min": 9.388165,
+      "p50": 2425.225952,
+      "p95": 13099.045665,
+      "max": 14398.26373,
+      "unit": "hours"
+    },
+    "delay_exclusions": {
+      "non_vulnerability_publication_semantics": 394
+    },
+    "observation_delay_is_sla_evidence": false,
+    "observation_delay_note": "Includes historical backfill and proves only database observation delay; continuous daemon uptime is required before claiming a monitoring SLA."
+  },
+  "enrichment": {
+    "events": 574,
+    "enriched_events": 574,
+    "coverage": 1.0,
+    "with_entities": 574,
+    "with_cvss": 174,
+    "with_version_scope": 146,
+    "with_cpe_scope": 7,
+    "quality_flag_counts": {
+      "catalog_scope_only": 7,
+      "metadata_only": 387,
+      "missing_affected_scope": 27,
+      "missing_cpe_scope": 27,
+      "missing_cvss": 6,
+      "unknown_package_identity": 2,
+      "unparsed_version_range": 8
+    },
+    "asset_exposure_counts": {},
+    "comparison_counts": {
+      "agreement": 96,
+      "conflict": 4,
+      "variation": 75
+    },
+    "coverage_is_accuracy": false,
+    "accuracy_note": "Coverage metrics do not establish correctness; use a labeled suite."
+  },
+  "integrity": {
+    "raw_documents": 63,
+    "verified": 63,
+    "failed": 0,
+    "failure_samples": []
+  },
+  "checks": [
+    {
+      "id": "raw_integrity",
+      "passed": true,
+      "required": true
+    },
+    {
+      "id": "enrichment_coverage",
+      "passed": true,
+      "required": true
+    },
+    {
+      "id": "index_event_count",
+      "passed": true,
+      "required": true
+    },
+    {
+      "id": "index_chunk_count",
+      "passed": true,
+      "required": true
+    },
+    {
+      "id": "enrichment_state_count",
+      "passed": true,
+      "required": true
+    },
+    {
+      "id": "monitor_configs_current",
+      "passed": true,
+      "required": true
+    },
+    {
+      "id": "monitor_freshness",
+      "passed": true,
+      "required": true
+    },
+    {
+      "id": "no_failed_targets",
+      "passed": true,
+      "required": true
+    }
+  ],
+  "limitations": [
+    "Historical publication-to-first-seen delay is not a continuous-monitoring SLA.",
+    "Enrichment coverage is not enrichment accuracy or recall.",
+    "A passed integrity check validates stored bytes and references, not upstream truth."
+  ]
+}

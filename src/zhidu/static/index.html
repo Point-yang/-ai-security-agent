@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>知盾 · 情报数据工作台</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/monitoring.css">
+  <script type="module" src="/static/app.js"></script>
+</head>
+<body>
+  <header><div><span class="eyebrow">ZHIDU / OPERATIONS</span><h1>知盾 · 情报数据工作台</h1><p>成员 A · 第七周 / 数据修复、审计保留与冻结前验证</p></div><a href="/assets">资产证据台 ↗</a><a id="catalog-link" href="/catalog" hidden>扩展来源目录 ↗</a><a href="/workspace">成员 B 研究工作台 ↗</a><a href="/docs">API 文档 ↗</a></header>
+  <main>
+    <section class="metrics" aria-label="运行概况"><div><small>已入库事件</small><strong id="count">—</strong></div><div><small>结构化富化</small><strong id="enrichment-coverage">—</strong></div><div><small>数据库状态</small><strong id="health">连接中</strong></div><div><small>最近采集</small><strong id="run-status">—</strong></div></section>
+    <p class="notice">当前包含多源公告和论文元数据。结构化字段为可重建派生结果，来源事实仍需通过原文证据核对；质量标记表示资料缺口，不等于漏洞不存在。</p>
+    <section class="panel" id="monitoring"><h2>来源监测状态</h2><button id="refresh-monitor" type="button">刷新状态</button><p id="monitor-counts" class="monitor-counts" role="status">读取目标总览…</p><p id="monitor-worker" role="status">读取独立采集进程心跳…</p><p id="monitor-summary" class="muted"></p><div id="monitor-targets"></div></section>
+    <section class="panel" aria-label="历史采集覆盖"><h2>24 小时 / 7 天成功轮次覆盖</h2><p class="notice">覆盖按成功采集轮次和两个配置周期计算。它不是进程在线率，也不是公告发布到首次发现的延迟。</p><div id="monitor-windows"></div></section>
+    <section class="panel" aria-label="运行检查"><h2>运行健康与待处理项</h2><p id="ops-summary" role="status">读取检查结果…</p><div id="ops-alerts"></div><p id="ops-quality" class="muted"></p><details><summary>最近恢复记录</summary><div id="ops-recovery"></div></details></section>
+    <form id="search"><label for="query">检索标题 / 编号</label><input id="query" placeholder="例如 vLLM"><select id="severity" aria-label="严重程度"><option value="">全部严重程度</option><option value="critical">Critical</option><option value="high">High</option><option value="medium">Medium</option><option value="low">Low</option><option value="unknown">Unknown</option></select><select id="ai-label" aria-label="相关性初筛"><option value="relevant">命中 AI 安全规则</option><option value="needs_review">待人工核验候选</option><option value="unrelated">初筛不相关</option><option value="">全部来源记录</option></select><button>查询</button></form>
+    <p id="message" role="status"></p>
+    <div class="workspace"><section class="panel"><h2>情报列表 <small id="total"></small></h2><div id="events"></div><div class="pagination"><button id="prev">上一页</button><span id="page"></span><button id="next">下一页</button></div></section><section class="panel detail"><h2>情报详情</h2><div id="detail"><p class="muted">选择一条情报，查看影响范围、原文证据和历史版本。</p></div></section></div>
+    <section class="panel"><h2>采集执行记录</h2><div id="runs"></div></section>
+  </main>
+  <footer>本地开发验收版 · 原文按 SHA-256 留存 · 派生富化与来源证据分离</footer>
+</body>
+</html>

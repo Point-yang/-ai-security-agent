@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#080e20">
+  <title>知盾 · Agent 指挥中心</title>
+  <script>if(location.protocol==='file:'){location.replace('http://127.0.0.1:8010/workspace');}</script>
+  <link rel="stylesheet" href="/static/workspace.css">
+  <link rel="stylesheet" href="/static/workspace-week2.css">
+  <link rel="stylesheet" href="/static/workspace-week3.css">
+  <link rel="stylesheet" href="/static/workspace-week4.css">
+  <link rel="stylesheet" href="/static/workspace-week5.css">
+  <link rel="stylesheet" href="/static/workspace-week6.css">
+  <link rel="stylesheet" href="/static/monitoring.css">
+  <link rel="stylesheet" href="/static/workspace-console.css?v=prelim-20261018-1">
+  <script type="module" src="/static/workspace.js?v=prelim-20261018-1"></script>
+  <script type="module" src="/static/workspace-console.js?v=prelim-20261018-1"></script>
+  <script type="module" src="/static/workspace-week6.js?v=prelim-20261018-1"></script>
+</head>
+<body class="console-body">
+<svg class="icon-sprite" aria-hidden="true" width="0" height="0" style="position:absolute"><defs>
+  <symbol id="icon-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></symbol>
+  <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6"/></symbol>
+  <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 8 9 8 9s8-4 8-9V6Z"/><path d="m8 12 3 3 5-6"/></symbol>
+  <symbol id="icon-layers" viewBox="0 0 24 24"><path d="m12 3 10 6-10 6L2 9Zm-10 12 10 6 10-6M2 15l10 6 10-6"/></symbol>
+  <symbol id="icon-history" viewBox="0 0 24 24"><path d="M3 11a9 9 0 1 1 2 7M3 3v8h8m1-5v6l4 3"/></symbol>
+  <symbol id="icon-chart" viewBox="0 0 24 24"><path d="M4 3v18h18M8 16v-5m5 5V7m5 9V4"/></symbol>
+  <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+  <symbol id="icon-bolt" viewBox="0 0 24 24"><path d="m13 2-9 12h7l-1 8 10-13h-8Z"/></symbol>
+  <symbol id="icon-expand" viewBox="0 0 24 24"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></symbol>
+</defs></svg>
+<a href="#command-center" class="skip-link">跳转到 Agent 操作区</a>
+<div class="console-shell">
+  <aside class="console-sidebar" aria-label="主导航">
+    <a class="brand console-brand" href="/workspace"><span class="brand-mark"><svg><use href="#icon-shield"/></svg></span><span><strong>知盾<span class="brand-dot">.</span></strong><small>AI SECURITY INTELLIGENCE</small></span></a>
+    <div class="sidebar-label">WORKSPACE</div>
+    <nav class="console-nav">
+      <a href="#control" class="nav-link active" data-nav="control" aria-current="page"><svg><use href="#icon-grid"/></svg><span>Agent 指挥中心</span><span class="nav-index">01</span></a>
+      <a href="#intelligence" class="nav-link" data-nav="intelligence"><svg><use href="#icon-search"/></svg><span>情报与证据检索</span><span class="nav-index">02</span></a>
+      <a href="#review" class="nav-link" data-nav="review"><svg><use href="#icon-shield"/></svg><span>来源复核与比较</span><span class="nav-index">03</span></a>
+      <a href="#assets" class="nav-link" data-nav="assets"><svg><use href="#icon-layers"/></svg><span>资产影响研判</span><span class="nav-index">04</span></a>
+      <a href="#archive" class="nav-link" data-nav="archive"><svg><use href="#icon-history"/></svg><span>会话与执行审计</span><span class="nav-index">05</span></a>
+      <a href="#evaluation" class="nav-link" data-nav="evaluation"><svg><use href="#icon-chart"/></svg><span>系统状态与评测</span><span class="nav-index">06</span></a>
+    </nav>
+    <div class="sidebar-note"><span class="status-dot"></span><span>每个结论，都能回到来源</span><p>来源核验 · 显式资产 · 执行留痕</p></div>
+    <div class="sidebar-links"><a href="/">采集工作台 ↗</a><a href="/assets">资产管理 ↗</a><a href="/docs">接口文档 ↗</a></div>
+    <div class="sidebar-footer"><span class="mono">ZHIDU / LOCAL NODE</span><small id="health">连接服务中…</small></div>
+  </aside>
+  <main class="console-main">
+    <header class="console-topbar"><div class="breadcrumb"><span>知盾工作空间</span><span>/</span><strong id="console-view-title">Agent 指挥中心</strong></div><div class="topbar-actions"><span class="service-badge" id="console-service"><span class="status-dot"></span>服务连接中</span><button id="console-refresh" type="button" class="icon-button" aria-label="刷新系统数据">↻</button><button id="presentation-toggle" type="button" aria-pressed="false"><svg><use href="#icon-expand"/></svg><span>答辩模式</span></button></div></header>
+    <div id="console-app-error" role="alert" hidden></div>
+    <section class="console-view" data-view="control" id="command-center">
+      <div class="console-hero"><div class="hero-copy"><div class="eyebrow"><span class="tiny-orbit"></span> EVIDENCE-DRIVEN AGENT</div><h1>让安全情报<br>成为<span>可验证的判断。</span></h1><p>从问题出发，协同检索、补证与核验。<br>在同一工作空间，看清 Agent 的行动与依据。</p><div class="hero-tags"><span>LangGraph 协作</span><span>来源证据核验</span><span>执行回执追踪</span></div></div>
+      <div class="hero-orbit" aria-hidden="true"><svg viewBox="0 0 460 260" role="img"><defs><radialGradient id="orbit-glow"><stop stop-color="#38dbd0" stop-opacity=".2"/><stop offset="1" stop-color="#38dbd0" stop-opacity="0"/></radialGradient><linearGradient id="shield-fill" x2="1" y2="1"><stop stop-color="#36d8e8" stop-opacity=".12"/><stop offset="1" stop-color="#8583ff" stop-opacity=".16"/></linearGradient></defs><circle cx="230" cy="130" r="125" fill="url(#orbit-glow)"/><g fill="none" stroke="#40bcd1" opacity=".3"><ellipse cx="230" cy="130" rx="195" ry="86" transform="rotate(-15 230 130)"/><ellipse cx="230" cy="130" rx="153" ry="109" transform="rotate(20 230 130)"/><circle cx="230" cy="130" r="63" stroke-dasharray="3 7"/></g><g stroke="#38dcd8" opacity=".35"><path d="m75 90 155 40 145-48M105 205l125-75 130 65" stroke-dasharray="3 5"/></g><path d="m230 77-39 16v37c0 30 39 55 39 55s39-25 39-55V93Z" fill="url(#shield-fill)" stroke="#59e1dd" stroke-width="1.5"/><path d="m212 129 13 13 25-30" fill="none" stroke="#a6fff0" stroke-width="3"/><g fill="#0d192e" stroke="#42c5d1"><circle cx="75" cy="90" r="22"/><circle cx="375" cy="82" r="22"/><circle cx="105" cy="205" r="17"/><circle cx="360" cy="195" r="17"/></g><g fill="#7deadd" font-family="monospace" font-size="10" text-anchor="middle"><text x="75" y="94">SRC</text><text x="375" y="86">AI</text><text x="105" y="209">{} </text><text x="360" y="199">✓</text></g><g fill="#829ab9" font-family="monospace" font-size="9"><text x="43" y="128">INTELLIGENCE</text><text x="344" y="119">REASONING</text><text x="76" y="239">EVIDENCE</text><text x="332" y="230">VERIFIED SPANS</text></g><circle class="orbit-pulse" cx="230" cy="130" r="74" fill="none" stroke="#59e1dd" opacity=".18"/></svg></div></div>
+      <div class="console-stats" aria-label="当前系统数据">
+        <article class="stat-card"><div class="stat-label">情报事件 <svg><use href="#icon-layers"/></svg></div><strong id="metric-events">—</strong><small>数据库当前记录</small><span class="stat-line cyan"></span></article>
+        <article class="stat-card"><div class="stat-label">可检索证据 <svg><use href="#icon-search"/></svg></div><strong id="metric-chunks">—</strong><small id="metric-index-caption">读取索引状态</small><span class="stat-line violet"></span></article>
+        <article class="stat-card"><div class="stat-label">来源新鲜度 <svg><use href="#icon-shield"/></svg></div><strong id="metric-sources">— <em>/ —</em></strong><small id="metric-source-caption">读取监测目标</small><span class="stat-line amber"></span></article>
+        <article class="stat-card"><div class="stat-label">回答引擎 <svg><use href="#icon-bolt"/></svg></div><strong class="stat-model" id="metric-model">—</strong><small id="metric-model-caption">读取模型配置</small><span class="stat-line green"></span></article>
+      </div>
+      <div class="console-grid">
+        <section class="panel command-panel week6-panel" aria-label="Agent 操作区"><div class="section-title"><div><span class="eyebrow">COMMAND INPUT</span><h2>给 Agent 一项任务</h2></div><button id="week6-refresh" type="button" class="text-button">刷新状态 ↻</button></div>
+          <div class="first-use-guide"><strong>首次使用，从来源开始</strong><p>先浏览已保存的三来源案例，再准备本地摘录或提交研究任务。云端任务需要模型配置与本项目管理员授权；右侧历史回放可独立查看。</p><div class="actions"><button id="source-example" type="button">查看三来源案例 ↗</button><button id="local-example" type="button">准备本地摘录示例</button></div></div>
+          <div class="conversation-controls"><label>研究会话<select id="rag-conversation"><option value="">选择或新建会话</option></select></label><button id="rag-new" type="button">＋ 新会话</button></div>
+          <p id="rag-conversation-status" class="hint">首次提交时自动创建；追问沿用所选会话。</p>
+          <form id="rag-form" class="week6-form">
+            <label class="rag-question-label"><span>你想弄清什么？</span><textarea id="rag-question" required maxlength="1000" rows="4" placeholder="输入 CVE / GHSA，或描述一个需要跨来源核验的问题…"></textarea></label>
+            <div class="question-presets" aria-label="任务示例"><button class="preset" type="button" data-preset="compare">↗ 跨来源版本比较</button><button class="preset" type="button" data-preset="conditions">⌘ 条件与修复核验</button><button class="preset" type="button" data-preset="asset">◈ 资产影响判断</button></div>
+            <div class="agent-settings"><label>执行策略<select id="rag-generation"><option value="agent_workflow">固定工作流收集证据并回答（推荐）</option><option value="agent_team">多角色规划、补查与引用核验（实验）</option><option value="agent_auto">按证据缺口自动补查（实验）</option><option value="configured">按服务配置生成回答</option><option value="deepseek">DeepSeek 依据资料回答</option><option value="model">配置模型依据资料回答</option><option value="agent_langchain">LangChain Agent 自主补证（实验）</option><option value="agent_legacy">原 Agent 工具选择（对照）</option><option value="extractive">仅本地原文摘录</option></select></label><label>检索策略<select id="rag-mode"><option value="lexical">词项基线</option><option value="hybrid" selected>Embedding 混合检索与重排</option><option value="agentic">受限 Agentic RAG</option></select></label></div>
+            <p id="strategy-description" class="strategy-description">固定工作流收集证据后回答，适合稳定展示。</p>
+            <details class="rag-options"><summary>授权访问与任务范围 <span>密钥 / 对象 / 资产</span></summary><div class="week6-form"><label>本项目管理员密钥<input id="rag-key" type="password" autocomplete="off" placeholder="本地管理员密钥；不是模型 API Key"></label><label>检索词（可选）<input id="rag-query" maxlength="200" placeholder="中英文关键词或公告编号"></label><label>本轮资产<select id="rag-asset"><option value="">继承会话明确资产</option><option value="__none__">清除资产，仅解释公告</option></select></label><label>澄清公告对象<select id="rag-event"><option value="">自动解析明确上下文</option></select></label></div></details>
+            <div class="command-submit"><span><span class="status-dot"></span> 来源核验与调用预算由服务端执行</span><button id="rag-submit" class="primary" type="submit"><svg><use href="#icon-bolt"/></svg><span id="rag-submit-label">启动任务</span> <svg><use href="#icon-arrow"/></svg></button></div>
+          </form>
+          <details class="privacy-note"><summary>数据与模型使用说明</summary><p>模型生成会把本轮问题、最多六条近期历史及当前来源片段发送到已配置的模型服务。模型密钥由服务端管理；私有资产详情保留在本地。模型回答仍需核对来源，选择原文摘录可不调用云端模型。</p></details>
+          <p id="rag-index-warning" class="hint" role="status"></p>
+          <div class="answer-section"><div class="result-tabs"><span>任务结果</span><span class="small-label">SOURCE-GROUNDED OUTPUT</span></div><div id="rag-output" aria-live="polite"><div class="console-empty"><span class="empty-symbol">✧</span><h3>问题是起点，证据是终点</h3><p>选择示例或写下任务，结论与引用将在这里展示。</p></div></div><button id="rag-retry" type="button" hidden>检查回执并重试原请求</button></div>
+          <div id="rag-history" aria-live="polite"></div>
+        </section>
+        <aside class="panel mission-panel" aria-label="执行与证据监控"><div class="section-title"><div><span class="eyebrow">MISSION OBSERVATORY</span><h2>执行观测</h2></div><span id="run-status" class="run-badge">待命</span></div>
+          <div class="mission-head"><span class="mission-orb"><svg><use href="#icon-shield"/></svg></span><div><strong id="run-title">等待任务指令</strong><p id="run-subtitle">返回后显示本轮真实执行回执</p></div></div>
+          <div class="role-flow" aria-label="多角色流程说明"><div class="role-node" data-role="planner"><span>01</span><div><strong>规划</strong><small>拆分必答事实</small></div><em>待回执</em></div><div class="role-node" data-role="researcher"><span>02</span><div><strong>检索与补证</strong><small>选择只读工具</small></div><em>待回执</em></div><div class="role-node" data-role="composer"><span>03</span><div><strong>形成结论</strong><small>基于实际证据</small></div><em>待回执</em></div><div class="role-node" data-role="verifier"><span>04</span><div><strong>引文核验</strong><small>检查引用支持</small></div><em>待回执</em></div></div>
+          <p class="flow-caption" id="run-flow-caption">多角色路径示意。当前策略的实际角色以回执为准。</p>
+          <div class="telemetry-grid"><div><small>本轮工具</small><strong id="run-tools">—</strong></div><div><small>模型请求</small><strong id="run-calls">—</strong></div><div><small>有效来源引用</small><strong id="run-citations">—</strong></div><div><small id="run-time-label">后端耗时</small><strong id="run-elapsed">—</strong></div></div>
+          <div class="run-timeline" id="run-timeline"><p class="muted">执行日志将在任务返回后显示。等待期间不推测角色进度。</p></div>
+          <div class="mission-actions"><button id="run-export" type="button" disabled>导出本轮回执 ↓</button><button id="receipt-demo" type="button">查看历史真实运行</button><a href="#archive" data-nav="archive">查看会话审计 ↗</a></div>
+          <div class="mission-source-state"><span class="eyebrow">SOURCE HEALTH</span><p id="research-monitor-summary" role="status">读取来源状态…</p><a href="/#monitoring">查看采集目标与历史断档 ↗</a><span id="index-health" class="muted">读取索引…</span></div>
+        </aside>
+      </div>
+    </section>
+<section class="console-view" data-view="intelligence" hidden><div class="view-heading"><span class="eyebrow">INTELLIGENCE / EXPLORER</span><h1>连接情报与原始证据</h1><p>筛选当前记录，阅读来源描述并追溯精确原文。</p></div>    <form id="search" class="panel filters">
+      <label class="query">查询内容<input id="query" maxlength="200" placeholder="标题、GHSA，或检索描述中的关键词" autocomplete="off"></label>
+      <label>检索方式<select id="mode"><option value="events">情报列表 · 标题 / GHSA</option><option value="retrieval">证据检索 · 描述 / 组件 / 编号</option></select></label>
+      <label>组件<input id="package" placeholder="精确名称，如 vllm"></label>
+      <label>严重程度<select id="severity"><option value="">全部</option><option>critical</option><option>high</option><option>medium</option><option>low</option><option>unknown</option></select></label>
+      <label id="origin-label" hidden>检索资料<select id="origin"><option value="live">真实采集 live</option><option value="replay">离线演示 replay</option></select></label>
+      <label id="pool-label" hidden>索引集合<select id="pool"><option value="formal">正式集合 relevant</option><option value="candidate">候选集合 needs_review</option><option value="">全部集合</option><option value="excluded">排除集合 unrelated</option></select></label>
+      <label>来源<select id="source"><option value="">全部来源</option></select></label>
+      <label>记录类型<select id="kind"><option value="">全部类型</option><option value="vulnerability">漏洞公告</option><option value="exploitation_alert">在野利用目录</option><option value="paper">论文元数据</option></select></label>
+      <label id="entity-type-label" hidden>实体类型<select id="entity-type"><option value="">不筛选</option><option value="cve">CVE</option><option value="ghsa">GHSA</option><option value="package">软件包</option><option value="vendor">厂商</option><option value="product">产品</option><option value="doi">DOI</option></select></label>
+      <label id="entity-value-label" hidden>实体精确值<input id="entity-value" placeholder="如 CVE-2026-48746"></label>
+      <label id="cpe-label" hidden>CPE 精确条件<input id="cpe" placeholder="cpe:2.3:a:…"></label>
+      <label id="quality-label" hidden>资料缺口<select id="quality"><option value="">全部</option><option value="missing_affected_scope">缺少影响范围</option><option value="missing_cpe_scope">缺少 CPE</option><option value="missing_cvss">缺少 CVSS</option><option value="unparsed_version_range">版本表达式无法解析</option><option value="unknown_package_identity">软件包身份未知</option><option value="metadata_only">仅论文元数据</option><option value="catalog_scope_only">仅目录范围</option></select></label>
+      <label id="alias-label">CVE / 别名<input id="alias" placeholder="精确编号"></label>
+      <label class="checkbox"><input type="checkbox" id="withdrawn">包含撤回记录</label>
+      <button class="primary" type="submit">查询</button>
+    </form>
+    <p class="hint" id="search-hint">标题 / GHSA 为字面子串检索；CVE 与组件为精确过滤。查看详情可区分 live / replay。</p>
+    <p id="message" role="status" aria-live="polite"></p>
+    <div class="workspace">
+      <section class="panel results"><div class="section-title"><h2 id="results-title">情报列表</h2><span id="total">—</span></div><div id="events"></div><div class="pagination"><button id="prev" disabled>上一页</button><span id="page">—</span><button id="next" disabled>下一页</button></div><button id="export-results" hidden>保存本页检索结果与引用</button></section>
+      <section class="panel reader"><div class="section-title"><h2>情报阅读</h2><span id="reader-state">尚未选择</span></div><div id="detail" class="empty">选择左侧情报，阅读来源描述与影响组件。<br>引用与原文会在右侧同步展示。</div></section>
+      <aside class="panel evidence"><div class="section-title"><h2>引用与证据</h2><span>可追溯</span></div><div id="evidence" class="empty">每条引用保留事件、版本与原文编号。</div></aside>
+    </div>
+</section>
+<section class="console-view" data-view="review" hidden><div class="view-heading"><span class="eyebrow">EVIDENCE / REVIEW</span><h1>让分歧保留它的来源</h1><p>复核资料缺口与跨来源差异；系统不自动选择胜方。</p></div>    <section class="panel review-panel"><div class="section-title"><h2>资料复核队列</h2><span id="review-total">—</span></div><div class="review-controls"><label>资料缺口<select id="review-quality"><option value="">全部</option><option value="missing_affected_scope">缺少影响范围</option><option value="missing_cpe_scope">缺少 CPE</option><option value="missing_cvss">缺少 CVSS</option><option value="unparsed_version_range">版本表达式无法解析</option><option value="unknown_package_identity">软件包身份未知</option><option value="metadata_only">仅论文元数据</option><option value="catalog_scope_only">仅目录范围</option></select></label><label>来源<select id="review-source"><option value="">全部来源</option></select></label><button id="review-refresh">刷新队列</button></div><p class="hint">priority 只用于安排复核顺序，不是风险概率。点击记录进入情报阅读页，查看结构化摘要与来源证据。</p><div id="review-queue" class="review-grid"></div></section>
+    <section class="panel comparison-panel"><div class="section-title"><h2>跨来源比较</h2><div class="actions"><button id="comparison-example" type="button">使用三来源案例</button><span id="comparison-total">—</span></div></div><div class="comparison-controls"><label>CVE 精确编号<input id="comparison-id" placeholder="如 CVE-2026-48746"></label><label>比较状态<select id="comparison-status"><option value="">全部</option><option value="agreement">agreement</option><option value="variation">variation</option><option value="conflict">conflict</option></select></label><label>复核状态<select id="comparison-review"><option value="">全部</option><option value="unreviewed">unreviewed</option><option value="acknowledged">acknowledged</option><option value="needs_evidence">needs_evidence</option></select></label><label class="checkbox"><input type="checkbox" id="comparison-inactive">包含归档比较</label><button id="comparison-refresh">查询比较</button></div><p class="hint">agreement 表示当前观察一致；variation 表示字段表达不同；conflict 仅标记严重性冲突。系统不自动选择胜方。</p><div id="conflict-review-context" class="conflict-context muted">选择 severity conflict 的 trace 核验，可查看各来源完整历史和人工复核前后版本。</div><div id="comparisons" class="comparison-list"></div></section>
+</section>
+<section class="console-view" data-view="assets" hidden><div class="view-heading"><span class="eyebrow">ASSETS / EXPOSURE</span><h1>判断影响，先明确资产</h1><p>基于显式资产版本和来源范围给出条件判断。</p></div>    <section class="panel asset-context-panel"><div class="section-title"><h2>资产上下文与可复现报告</h2><span id="asset-total">—</span></div><div class="asset-controls"><label>明确选择资产<select id="asset-context"><option value="">不选择资产</option></select></label><button id="asset-report" disabled>下载资产报告</button></div><p class="hint" id="asset-context-hint">明确选择资产后，系统才会结合该资产的组件与版本判断影响；未选择时不能推断你的资产状态。</p><div id="asset-summary" class="muted">当前未选择资产。</div><p class="hint"><a href="/assets">打开资产管理 ↗</a> · 支持受控 CLI / 管理员接口导入 SBOM，未导入时可先展示公告的影响条件。</p></section>
+</section>
+<section class="console-view" data-view="archive" hidden><div class="view-heading"><span class="eyebrow">HISTORY / AUDIT</span><h1>每次行动，都有留痕</h1><p>读取已保存会话、工具轨迹与引用；历史记录不会被当作本轮新证据。</p></div>    <section class="panel conversation-panel"><div class="section-title"><h2>持久会话与多跳轨迹</h2><span id="conversation-total">—</span></div><div class="conversation-controls"><label>已保存会话<select id="conversation-select"><option value="">选择会话</option></select></label><button id="conversation-refresh">刷新会话</button></div><p class="hint">每轮保留公告选择、来源比较、资产条件和原文证据。刷新后可以重放，历史答案不会被当作新证据。</p><div id="conversation-summary" class="muted">尚未选择会话。</div><div id="conversation-messages" class="conversation-messages"></div><div class="conversation-columns"><section><h3>动态补证任务</h3><p class="hint">pending / not_started 表示尚未执行联网采集或外部验证。</p><div id="conversation-tasks"></div></section><section><h3>资产规则建议</h3><p class="hint">rule_score 只用于复核顺序，不是风险概率。</p><div id="conversation-recommendations"></div></section></div></section>
+    <section class="panel audit-panel"><div class="section-title"><h2>问答审计</h2><span id="audit-total">—</span></div><p class="hint">服务端保留问题、答案、实际引用、检索分数、模型、提示版本与来源约束。当前页面只读展示最近记录。</p><div id="audits" class="audit-grid"></div></section>
+</section>
+
+    <section class="console-view" data-view="evaluation" hidden><div class="view-heading"><span class="eyebrow">SYSTEM / EVALUATION</span><h1>看得见的系统状态</h1><p>当前运行状态与已保存评测分别展示，回归结果不等于独立准确率。</p></div><section class="panel evaluation-panel published-evidence-panel" aria-labelledby="published-evidence-title"><div class="section-title"><h2 id="published-evidence-title">提交版评测依据</h2><span id="published-evidence-date">读取冻结记录…</span></div><div id="published-evidence" aria-live="polite"><p class="hint">读取项目采纳的金标方法、富化回归与复杂问答对照…</p></div></section><section class="panel evaluation-panel"><div class="section-title"><h2>服务、来源与模型</h2><span>实时接口状态</span></div><div class="week6-status"><p id="source-health" role="status">读取来源状态…</p><p id="evidence-health" role="status">读取证据状态…</p><p id="model-health" role="status">读取模型状态…</p></div><p id="enrichment-eval" class="hint">读取富化评测…</p><p id="generation-health" role="status">读取回答模型配置…</p><div id="rag-evaluations" class="week6-evaluations"></div></section></section>
+    <footer class="console-footer"><span><b>知盾</b> · Evidence before conclusion.</span><span>来源声明 ≠ 资产实测 · 模型核验 ≠ 独立准确率</span></footer>
+  </main>
+</div>
+<noscript><p>工作台需要启用 JavaScript，并通过 http://127.0.0.1:8010/workspace 访问服务。</p></noscript>
+</body>
+</html>

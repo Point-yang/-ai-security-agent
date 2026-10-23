@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "revisions": 63,
+  "verified": 63,
+  "failed": 0,
+  "raw_documents": 7,
+  "failure_samples": [],
+  "scope": "source metadata integrity, not payload execution or validity of upstream claims"
+}

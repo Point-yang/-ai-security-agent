@@ -1,0 +1,755 @@
+{
+  "version": "member-b-agent-two-case-posthoc-v1",
+  "created_at": "2026-09-29T13:47:00.064481+00:00",
+  "known_cases_after_tuning": true,
+  "new_holdout": false,
+  "independent_human_score": false,
+  "original_v3_report_sha256": "ecc9081f5303a3445381819dcc7520b401cb7e9130b2208c7659102db45a61c4",
+  "protocol_sha256": "7cec7589eb4dfccce2d3fe205caf5df479b1d379a4ec7e8ed5e79079ef9ce643",
+  "evaluation_database_sha256": "3052b80b76f82a80a21e6fb808a70f7b54acf6725ff9b3c86ce2b4552c718033",
+  "implementation_sha256": "185469bbef0c3be09757a2d84252a0819e0e3b627aef72bdf258b9283690fdb4",
+  "external_request_cap": 14,
+  "external_requests_reported": 4,
+  "metrics": {
+    "cases": 1,
+    "completed_generation": 1,
+    "completed_generation_on_positive": 1,
+    "positive_generation_cases": 1,
+    "safe_abstentions_on_refusal_cases": 0,
+    "refusal_cases": 0,
+    "positive_cases_with_expected_event": 1,
+    "positive_cases": 1,
+    "tool_success_rate_among_executed": 1.0,
+    "planner_decision_completion_rate": 0.6666666666666666,
+    "planner_decisions": 3,
+    "multi_tool_cases": 1,
+    "citation_byte_check_rate_among_cited": 1.0,
+    "cited_cases": 1,
+    "generated_quote_check_passed": 1,
+    "p50_wall_ms": 7143.397,
+    "p95_wall_ms": 7143.397,
+    "p50_completed_generation_ms": 7143.397,
+    "p95_completed_generation_ms": 7143.397,
+    "billed_tokens_reported": 7940,
+    "billed_tokens_per_completed_generation": 7940.0,
+    "external_requests_reported": 4,
+    "api_usd": null,
+    "answer_correctness": null,
+    "semantic_citation_support": null,
+    "completeness": null,
+    "quality_note": "Development labels and byte-level quote checks are not independent human correctness or semantic support scores."
+  },
+  "rows": [
+    {
+      "case_id": "fresh-summary-46570",
+      "mode": "bounded_agent",
+      "split": "new_paired_holdout",
+      "question": "GHSA-4qjh-9fv9-r85r 是什么问题，来源对版本边界怎么说？",
+      "query": "GHSA-4qjh-9fv9-r85r",
+      "expected_class": "evidence",
+      "expected_event_ids": [
+        "1868db90-f569-426c-96d9-bf691a25088d",
+        "1a990dd4-4d01-4e6f-a8bb-896b7ae49d0b"
+      ],
+      "answer_class": "evidence",
+      "reason": "grounded_generation",
+      "answer": "GHSA-4qjh-9fv9-r85r 是 vLLM 基于分块的 Prefix Caching（前缀缓存）中潜在的时间侧信道漏洞。 [3]\n\n该问题源于前缀缓存机制，可能使系统暴露于时间侧信道攻击。 [7]\n\n当新提示被处理时，若 PageAttention 找到匹配的前缀块，prefill 过程加快，体现在 TTFT（首 token 时间）上，测试显示匹配块造成的时间差异足够被识别利用。 [7]\n\n与逐 token 共享机制不同，vLLM 的基于分块方法（PageAttention）以更大单元（chunk）处理 token；在 chunk_size=2 的测试中，时间差异足以让攻击者推断输入是否在 chunk 层级与受害者提示匹配。 [5]\n\n测试中还使用了 vLLM v0.5.1 环境。 [5]\n\n实验结果：1-token 前缀时 ROC 曲线 AUC 为 0.571，即短前缀下攻击者仍可合理区分缓存命中与未命中。 [13]\n\n前缀长度增至 8 token 时 AUC 显著升至 0.99，攻击者可几乎完美识别缓存命中。 [13]\n\n来源给出的版本边界：pip 包 vllm 的 vulnerable_version_range 为 < 0.9.0；GitHub advisory 侧的 packages 中 first_patched_version 为 0.9.0，供应商侧的 packages 中 patched_versions 为 0.9.0（两字段含义不同，保留原文表达）。 [4] [11]",
+      "citations": [
+        {
+          "chunk_id": "c3fd40cf8acfe0366b72b694",
+          "event_id": "1868db90-f569-426c-96d9-bf691a25088d",
+          "revision_id": "249beafe-bec3-4494-ab09-406fd96b85fd",
+          "revision": 1,
+          "raw_document_id": "6e452537-d696-4fa9-94c4-7ca8a27b2142",
+          "json_pointer": "/8/ghsa_id",
+          "sha256": "97d404bc94da3609cd843125df913275f94cde6ba33f83e5175be86a3986665a",
+          "field": "external_id",
+          "start": 0,
+          "end": 19,
+          "external_id": "GHSA-4qjh-9fv9-r85r",
+          "source_id": "github-advisories",
+          "origin": "live",
+          "text": "GHSA-4qjh-9fv9-r85r",
+          "title": "Potential Timing Side-Channel Vulnerability in vLLM’s Chunk-Based Prefix Caching",
+          "source_url": "https://github.com/advisories/GHSA-4qjh-9fv9-r85r"
+        },
+        {
+          "chunk_id": "4d7ddd1bf32f9cb4d296609a",
+          "event_id": "1a990dd4-4d01-4e6f-a8bb-896b7ae49d0b",
+          "revision_id": "395b4d5b-8c5e-44ff-bcfd-d70f1b8cae2f",
+          "revision": 1,
+          "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+          "json_pointer": "/62/ghsa_id",
+          "sha256": "e86c4021031ffc7b83c06c81b6c10583ec2f4d24941261ca86f98ebc55074dd5",
+          "field": "external_id",
+          "start": 0,
+          "end": 19,
+          "external_id": "GHSA-4qjh-9fv9-r85r",
+          "source_id": "vllm-vendor",
+          "origin": "live",
+          "text": "GHSA-4qjh-9fv9-r85r",
+          "title": "Potential Timing Side-Channel Vulnerability in vLLM’s Chunk-Based Prefix Caching",
+          "source_url": "https://github.com/vllm-project/vllm/security/advisories/GHSA-4qjh-9fv9-r85r"
+        },
+        {
+          "chunk_id": "a87790f336642c1e03e937b9",
+          "event_id": "1868db90-f569-426c-96d9-bf691a25088d",
+          "revision_id": "249beafe-bec3-4494-ab09-406fd96b85fd",
+          "revision": 1,
+          "raw_document_id": "6e452537-d696-4fa9-94c4-7ca8a27b2142",
+          "json_pointer": "/8/summary",
+          "sha256": "97d404bc94da3609cd843125df913275f94cde6ba33f83e5175be86a3986665a",
+          "field": "title",
+          "start": 0,
+          "end": 80,
+          "external_id": "GHSA-4qjh-9fv9-r85r",
+          "source_id": "github-advisories",
+          "origin": "live",
+          "text": "Potential Timing Side-Channel Vulnerability in vLLM’s Chunk-Based Prefix Caching",
+          "title": "Potential Timing Side-Channel Vulnerability in vLLM’s Chunk-Based Prefix Caching",
+          "source_url": "https://github.com/advisories/GHSA-4qjh-9fv9-r85r"
+        },
+        {
+          "chunk_id": "d0714327769c112c0862b69a",
+          "event_id": "1868db90-f569-426c-96d9-bf691a25088d",
+          "revision_id": "249beafe-bec3-4494-ab09-406fd96b85fd",
+          "revision": 1,
+          "raw_document_id": "6e452537-d696-4fa9-94c4-7ca8a27b2142",
+          "json_pointer": "/8/vulnerabilities",
+          "sha256": "97d404bc94da3609cd843125df913275f94cde6ba33f83e5175be86a3986665a",
+          "field": "packages",
+          "start": 0,
+          "end": 152,
+          "external_id": "GHSA-4qjh-9fv9-r85r",
+          "source_id": "github-advisories",
+          "origin": "live",
+          "text": "[{\"first_patched_version\": \"0.9.0\", \"package\": {\"ecosystem\": \"pip\", \"name\": \"vllm\"}, \"vulnerable_functions\": [], \"vulnerable_version_range\": \"< 0.9.0\"}]",
+          "title": "Potential Timing Side-Channel Vulnerability in vLLM’s Chunk-Based Prefix Caching",
+          "source_url": "https://github.com/advisories/GHSA-4qjh-9fv9-r85r"
+        },
+        {
+          "chunk_id": "23948aeeab5180c89cb54623",
+          "event_id": "1868db90-f569-426c-96d9-bf691a25088d",
+          "revision_id": "249beafe-bec3-4494-ab09-406fd96b85fd",
+          "revision": 1,
+          "raw_document_id": "6e452537-d696-4fa9-94c4-7ca8a27b2142",
+          "json_pointer": "/8/description",
+          "sha256": "97d404bc94da3609cd843125df913275f94cde6ba33f83e5175be86a3986665a",
+          "field": "description",
+          "start": 780,
+          "end": 1680,
+          "external_id": "GHSA-4qjh-9fv9-r85r",
+          "source_id": "github-advisories",
+          "origin": "live",
+          "text": "\nUnlike token-by-token sharing mechanisms, vLLM’s chunk-based approach (PageAttention) processes tokens in larger units (chunks). In our tests, with chunk_size=2, the timing differences became noticeable enough to allow attackers to infer whether portions of their input match the victim's prompt at the chunk level.\n\n## Environment\n\n- GPU: NVIDIA A100 (40G)\n- CUDA: 11.8\n- PyTorch: 2.3.1\n- OS: Ubuntu 18.04\n- vLLM: v0.5.1\nConfiguration: We launched vLLM using the default settings and adjusted chunk_size=2 to evaluate the TTFT.\n\n## Leakage\nWe conducted our tests using LLaMA2-70B-GPTQ on a single device. We analyzed the timing differences when prompts shared prefixes of 2 chunks, and plotted the ",
+          "title": "Potential Timing Side-Channel Vulnerability in vLLM’s Chunk-Based Prefix Caching",
+          "source_url": "https://github.com/advisories/GHSA-4qjh-9fv9-r85r"
+        },
+        {
+          "chunk_id": "522661997620ec1768f4b59a",
+          "event_id": "1868db90-f569-426c-96d9-bf691a25088d",
+          "revision_id": "249beafe-bec3-4494-ab09-406fd96b85fd",
+          "revision": 1,
+          "raw_document_id": "6e452537-d696-4fa9-94c4-7ca8a27b2142",
+          "json_pointer": "/8/description",
+          "sha256": "97d404bc94da3609cd843125df913275f94cde6ba33f83e5175be86a3986665a",
+          "field": "description",
+          "start": 1560,
+          "end": 2460,
+          "external_id": "GHSA-4qjh-9fv9-r85r",
+          "source_id": "github-advisories",
+          "origin": "live",
+          "text": "iably used to distinguish prefix matches, demonstrating a potential side-channel vulnerability.\n<img src=\"https://github.com/user-attachments/assets/db3491e9-02b7-424c-9b6d-56f553b39f2f\" alt=\"roc_curves_combined_block_2\" width=\"400\"/>\n\n\n## Results\nIn our experiment, we analyzed the response time differences between cache hits and misses in vLLM's PageAttention mechanism. Using ROC curve analysis to assess the distinguishability of these timing differences, we observed the following results:\n- With a 1-token prefix, the ROC curve yielded an AUC value of 0.571, indicating that even with a short prefix, an attacker can reasonably distinguish between cache hits and misses based on response times",
+          "title": "Potential Timing Side-Channel Vulnerability in vLLM’s Chunk-Based Prefix Caching",
+          "source_url": "https://github.com/advisories/GHSA-4qjh-9fv9-r85r"
+        },
+        {
+          "chunk_id": "7c75376d63e709d07da2b983",
+          "event_id": "1868db90-f569-426c-96d9-bf691a25088d",
+          "revision_id": "249beafe-bec3-4494-ab09-406fd96b85fd",
+          "revision": 1,
+          "raw_document_id": "6e452537-d696-4fa9-94c4-7ca8a27b2142",
+          "json_pointer": "/8/description",
+          "sha256": "97d404bc94da3609cd843125df913275f94cde6ba33f83e5175be86a3986665a",
+          "field": "description",
+          "start": 0,
+          "end": 900,
+          "external_id": "GHSA-4qjh-9fv9-r85r",
+          "source_id": "github-advisories",
+          "origin": "live",
+          "text": "This issue arises from the prefix caching mechanism, which may expose the system to a timing side-channel attack.\n\n## Description\nWhen a new prompt is processed, if the PageAttention mechanism finds a matching prefix chunk, the prefill process speeds up, which is reflected in the TTFT (Time to First Token). Our tests revealed that the timing differences caused by matching chunks are significant enough to be recognized and exploited.\n\nFor instance, if the victim has submitted a sensitive prompt or if a valuable system prompt has been cached, an attacker sharing the same backend could attempt to guess the victim's input. By measuring the TTFT based on prefix matches, the attacker could verify ",
+          "title": "Potential Timing Side-Channel Vulnerability in vLLM’s Chunk-Based Prefix Caching",
+          "source_url": "https://github.com/advisories/GHSA-4qjh-9fv9-r85r"
+        },
+        {
+          "chunk_id": "e81bf0e200a9664b5e131551",
+          "event_id": "1868db90-f569-426c-96d9-bf691a25088d",
+          "revision_id": "249beafe-bec3-4494-ab09-406fd96b85fd",
+          "revision": 1,
+          "raw_document_id": "6e452537-d696-4fa9-94c4-7ca8a27b2142",
+          "json_pointer": "/8/description",
+          "sha256": "97d404bc94da3609cd843125df913275f94cde6ba33f83e5175be86a3986665a",
+          "field": "description",
+          "start": 2340,
+          "end": 2502,
+          "external_id": "GHSA-4qjh-9fv9-r85r",
+          "source_id": "github-advisories",
+          "origin": "live",
+          "text": "tly to 0.99, showing that the attacker can almost perfectly identify cache hits with a longer prefix.\n\n## Fixes\n\n* https://github.com/vllm-project/vllm/pull/17045",
+          "title": "Potential Timing Side-Channel Vulnerability in vLLM’s Chunk-Based Prefix Caching",
+          "source_url": "https://github.com/advisories/GHSA-4qjh-9fv9-r85r"
+        },
+        {
+          "chunk_id": "607767b339c8fc9895d1d6be",
+          "event_id": "1868db90-f569-426c-96d9-bf691a25088d",
+          "revision_id": "249beafe-bec3-4494-ab09-406fd96b85fd",
+          "revision": 1,
+          "raw_document_id": "6e452537-d696-4fa9-94c4-7ca8a27b2142",
+          "json_pointer": "/8/references",
+          "sha256": "97d404bc94da3609cd843125df913275f94cde6ba33f83e5175be86a3986665a",
+          "field": "references",
+          "start": 0,
+          "end": 408,
+          "external_id": "GHSA-4qjh-9fv9-r85r",
+          "source_id": "github-advisories",
+          "origin": "live",
+          "text": "[\"https://github.com/vllm-project/vllm/security/advisories/GHSA-4qjh-9fv9-r85r\", \"https://github.com/vllm-project/vllm/pull/17045\", \"https://github.com/vllm-project/vllm/commit/77073c77bc2006eb80ea6d5128f076f5e6c6f54f\", \"https://nvd.nist.gov/vuln/detail/CVE-2025-46570\", \"https://github.com/pypa/advisory-database/tree/main/vulns/vllm/PYSEC-2025-53.yaml\", \"https://github.com/advisories/GHSA-4qjh-9fv9-r85r\"]",
+          "title": "Potential Timing Side-Channel Vulnerability in vLLM’s Chunk-Based Prefix Caching",
+          "source_url": "https://github.com/advisories/GHSA-4qjh-9fv9-r85r"
+        },
+        {
+          "chunk_id": "28b923f068a4620ecdb038a5",
+          "event_id": "1a990dd4-4d01-4e6f-a8bb-896b7ae49d0b",
+          "revision_id": "395b4d5b-8c5e-44ff-bcfd-d70f1b8cae2f",
+          "revision": 1,
+          "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+          "json_pointer": "/62/summary",
+          "sha256": "e86c4021031ffc7b83c06c81b6c10583ec2f4d24941261ca86f98ebc55074dd5",
+          "field": "title",
+          "start": 0,
+          "end": 80,
+          "external_id": "GHSA-4qjh-9fv9-r85r",
+          "source_id": "vllm-vendor",
+          "origin": "live",
+          "text": "Potential Timing Side-Channel Vulnerability in vLLM’s Chunk-Based Prefix Caching",
+          "title": "Potential Timing Side-Channel Vulnerability in vLLM’s Chunk-Based Prefix Caching",
+          "source_url": "https://github.com/vllm-project/vllm/security/advisories/GHSA-4qjh-9fv9-r85r"
+        },
+        {
+          "chunk_id": "1ae4139ffe8ab03fbd6c8f8e",
+          "event_id": "1a990dd4-4d01-4e6f-a8bb-896b7ae49d0b",
+          "revision_id": "395b4d5b-8c5e-44ff-bcfd-d70f1b8cae2f",
+          "revision": 1,
+          "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+          "json_pointer": "/62/vulnerabilities",
+          "sha256": "e86c4021031ffc7b83c06c81b6c10583ec2f4d24941261ca86f98ebc55074dd5",
+          "field": "packages",
+          "start": 0,
+          "end": 146,
+          "external_id": "GHSA-4qjh-9fv9-r85r",
+          "source_id": "vllm-vendor",
+          "origin": "live",
+          "text": "[{\"package\": {\"ecosystem\": \"pip\", \"name\": \"vllm\"}, \"patched_versions\": \"0.9.0\", \"vulnerable_functions\": [], \"vulnerable_version_range\": \"<0.9.0\"}]",
+          "title": "Potential Timing Side-Channel Vulnerability in vLLM’s Chunk-Based Prefix Caching",
+          "source_url": "https://github.com/vllm-project/vllm/security/advisories/GHSA-4qjh-9fv9-r85r"
+        },
+        {
+          "chunk_id": "b0a46c83a9dc99f26e891a97",
+          "event_id": "1a990dd4-4d01-4e6f-a8bb-896b7ae49d0b",
+          "revision_id": "395b4d5b-8c5e-44ff-bcfd-d70f1b8cae2f",
+          "revision": 1,
+          "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+          "json_pointer": "/62/description",
+          "sha256": "e86c4021031ffc7b83c06c81b6c10583ec2f4d24941261ca86f98ebc55074dd5",
+          "field": "description",
+          "start": 780,
+          "end": 1680,
+          "external_id": "GHSA-4qjh-9fv9-r85r",
+          "source_id": "vllm-vendor",
+          "origin": "live",
+          "text": "system prompt has been cached, an attacker sharing the same backend could attempt to guess the victim's input. By measuring the TTFT based on prefix matches, the attacker could verify if their guess is correct, leading to potential leakage of private information.\r\n\r\nUnlike token-by-token sharing mechanisms, vLLM’s chunk-based approach (PageAttention) processes tokens in larger units (chunks). In our tests, with chunk_size=2, the timing differences became noticeable enough to allow attackers to infer whether portions of their input match the victim's prompt at the chunk level.\r\n\r\n## Environment\r\n\r\n- GPU: NVIDIA A100 (40G)\r\n- CUDA: 11.8\r\n- PyTorch: 2.3.1\r\n- OS: Ubuntu 18.04\r\n- vLLM: v0.5.1\r\nCo",
+          "title": "Potential Timing Side-Channel Vulnerability in vLLM’s Chunk-Based Prefix Caching",
+          "source_url": "https://github.com/vllm-project/vllm/security/advisories/GHSA-4qjh-9fv9-r85r"
+        },
+        {
+          "chunk_id": "b268d1a3f570aab94dc3a574",
+          "event_id": "1a990dd4-4d01-4e6f-a8bb-896b7ae49d0b",
+          "revision_id": "395b4d5b-8c5e-44ff-bcfd-d70f1b8cae2f",
+          "revision": 1,
+          "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+          "json_pointer": "/62/description",
+          "sha256": "e86c4021031ffc7b83c06c81b6c10583ec2f4d24941261ca86f98ebc55074dd5",
+          "field": "description",
+          "start": 2340,
+          "end": 2791,
+          "external_id": "GHSA-4qjh-9fv9-r85r",
+          "source_id": "vllm-vendor",
+          "origin": "live",
+          "text": "- With a 1-token prefix, the ROC curve yielded an AUC value of 0.571, indicating that even with a short prefix, an attacker can reasonably distinguish between cache hits and misses based on response times.\r\n- When the prefix length increases to 8 tokens, the AUC value rises significantly to 0.99, showing that the attacker can almost perfectly identify cache hits with a longer prefix.\r\n\r\n## Fixes\r\n\r\n* https://github.com/vllm-project/vllm/pull/17045",
+          "title": "Potential Timing Side-Channel Vulnerability in vLLM’s Chunk-Based Prefix Caching",
+          "source_url": "https://github.com/vllm-project/vllm/security/advisories/GHSA-4qjh-9fv9-r85r"
+        },
+        {
+          "chunk_id": "bffbf443714d120c58119c8f",
+          "event_id": "1a990dd4-4d01-4e6f-a8bb-896b7ae49d0b",
+          "revision_id": "395b4d5b-8c5e-44ff-bcfd-d70f1b8cae2f",
+          "revision": 1,
+          "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+          "json_pointer": "/62/description",
+          "sha256": "e86c4021031ffc7b83c06c81b6c10583ec2f4d24941261ca86f98ebc55074dd5",
+          "field": "description",
+          "start": 1560,
+          "end": 2460,
+          "external_id": "GHSA-4qjh-9fv9-r85r",
+          "source_id": "vllm-vendor",
+          "origin": "live",
+          "text": "=2 to evaluate the TTFT.\r\n\r\n## Leakage\r\nWe conducted our tests using LLaMA2-70B-GPTQ on a single device. We analyzed the timing differences when prompts shared prefixes of 2 chunks, and plotted the corresponding ROC curves. Our results suggest that timing differences can be reliably used to distinguish prefix matches, demonstrating a potential side-channel vulnerability.\r\n<img src=\"https://github.com/user-attachments/assets/db3491e9-02b7-424c-9b6d-56f553b39f2f\" alt=\"roc_curves_combined_block_2\" width=\"400\"/>\r\n\r\n\r\n## Results\r\nIn our experiment, we analyzed the response time differences between cache hits and misses in vLLM's PageAttention mechanism. Using ROC curve analysis to assess the dist",
+          "title": "Potential Timing Side-Channel Vulnerability in vLLM’s Chunk-Based Prefix Caching",
+          "source_url": "https://github.com/vllm-project/vllm/security/advisories/GHSA-4qjh-9fv9-r85r"
+        },
+        {
+          "chunk_id": "d9366c512e5e9e4a545fd352",
+          "event_id": "1a990dd4-4d01-4e6f-a8bb-896b7ae49d0b",
+          "revision_id": "395b4d5b-8c5e-44ff-bcfd-d70f1b8cae2f",
+          "revision": 1,
+          "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+          "json_pointer": "/62/description",
+          "sha256": "e86c4021031ffc7b83c06c81b6c10583ec2f4d24941261ca86f98ebc55074dd5",
+          "field": "description",
+          "start": 0,
+          "end": 900,
+          "external_id": "GHSA-4qjh-9fv9-r85r",
+          "source_id": "vllm-vendor",
+          "origin": "live",
+          "text": "Dear vLLM Team,\r\n\r\nWe are a security research group, and while we are impressed with vLLM’s innovative design, particularly the efficiency of its PageAttention mechanism and chunk-based token management, we have identified a potential security vulnerability. This issue arises from the prefix caching mechanism, which may expose the system to a timing side-channel attack.\r\n\r\n## Description\r\nWhen a new prompt is processed, if the PageAttention mechanism finds a matching prefix chunk, the prefill process speeds up, which is reflected in the TTFT (Time to First Token). Our tests revealed that the timing differences caused by matching chunks are significant enough to be recognized and exploited.\r\n",
+          "title": "Potential Timing Side-Channel Vulnerability in vLLM’s Chunk-Based Prefix Caching",
+          "source_url": "https://github.com/vllm-project/vllm/security/advisories/GHSA-4qjh-9fv9-r85r"
+        }
+      ],
+      "returned_event_ids": [
+        "1868db90-f569-426c-96d9-bf691a25088d",
+        "1a990dd4-4d01-4e6f-a8bb-896b7ae49d0b"
+      ],
+      "generation_status": "completed",
+      "generation_reason": null,
+      "generation_model": "deepseek-flash",
+      "generation_citation_checks_passed": true,
+      "semantic_support_verified": false,
+      "citation_byte_verified": true,
+      "tool_success": 1.0,
+      "multi_tool": true,
+      "decisions": [
+        {
+          "phase": "target_retrieval",
+          "attempt": 1,
+          "question": "GHSA-4qjh-9fv9-r85r 是什么问题，来源对版本边界怎么说？",
+          "candidate_tools": [
+            "retrieve"
+          ],
+          "selected_tools": [
+            "retrieve"
+          ],
+          "decision_summary": "检索 GHSA-4qjh-9fv9-r85r 的问题描述与版本边界来源。",
+          "status": "completed",
+          "returned_model": "deepseek-flash"
+        },
+        {
+          "phase": "evidence_analysis",
+          "attempt": 1,
+          "question": "GHSA-4qjh-9fv9-r85r 是什么问题，来源对版本边界怎么说？",
+          "candidate_tools": [
+            "event_details",
+            "verify_evidence",
+            "compare_sources"
+          ],
+          "selected_tools": [],
+          "decision_summary": "规划失败，未接受未经核验的工具选择。",
+          "status": "failed",
+          "error": "tool_not_allowed"
+        },
+        {
+          "phase": "evidence_analysis",
+          "attempt": 2,
+          "question": "GHSA-4qjh-9fv9-r85r 是什么问题，来源对版本边界怎么说？",
+          "candidate_tools": [
+            "event_details",
+            "verify_evidence",
+            "compare_sources"
+          ],
+          "selected_tools": [
+            "event_details"
+          ],
+          "decision_summary": "查询 GHSA-4qjh-9fv9-r85r 关联事件的当前来源字段，以获取问题描述与版本边界表述。",
+          "status": "completed",
+          "returned_model": "deepseek-flash"
+        }
+      ],
+      "tool_results": [
+        {
+          "status": "completed",
+          "tool": "retrieve",
+          "result": {
+            "items": [
+              {
+                "citation": {
+                  "chunk_id": "c3fd40cf8acfe0366b72b694",
+                  "event_id": "1868db90-f569-426c-96d9-bf691a25088d",
+                  "revision_id": "249beafe-bec3-4494-ab09-406fd96b85fd",
+                  "revision": 1,
+                  "raw_document_id": "6e452537-d696-4fa9-94c4-7ca8a27b2142",
+                  "json_pointer": "/8/ghsa_id",
+                  "sha256": "97d404bc94da3609cd843125df913275f94cde6ba33f83e5175be86a3986665a",
+                  "field": "external_id",
+                  "start": 0,
+                  "end": 19,
+                  "external_id": "GHSA-4qjh-9fv9-r85r",
+                  "source_id": "github-advisories",
+                  "origin": "live"
+                },
+                "title": "Potential Timing Side-Channel Vulnerability in vLLM’s Chunk-Based Prefix Caching",
+                "text": "GHSA-4qjh-9fv9-r85r",
+                "text_truncated": false,
+                "rank_score_not_confidence": 0.052522
+              },
+              {
+                "citation": {
+                  "chunk_id": "4d7ddd1bf32f9cb4d296609a",
+                  "event_id": "1a990dd4-4d01-4e6f-a8bb-896b7ae49d0b",
+                  "revision_id": "395b4d5b-8c5e-44ff-bcfd-d70f1b8cae2f",
+                  "revision": 1,
+                  "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+                  "json_pointer": "/62/ghsa_id",
+                  "sha256": "e86c4021031ffc7b83c06c81b6c10583ec2f4d24941261ca86f98ebc55074dd5",
+                  "field": "external_id",
+                  "start": 0,
+                  "end": 19,
+                  "external_id": "GHSA-4qjh-9fv9-r85r",
+                  "source_id": "vllm-vendor",
+                  "origin": "live"
+                },
+                "title": "Potential Timing Side-Channel Vulnerability in vLLM’s Chunk-Based Prefix Caching",
+                "text": "GHSA-4qjh-9fv9-r85r",
+                "text_truncated": false,
+                "rank_score_not_confidence": 0.052266
+              }
+            ],
+            "mode": "hybrid",
+            "scope": {
+              "pool": "formal",
+              "origin": "live"
+            },
+            "retrieval": {
+              "query_policy": {
+                "version": "bilingual-security-query-v1",
+                "original": "GHSA-4qjh-9fv9-r85r",
+                "search_text": "GHSA-4qjh-9fv9-r85r",
+                "facets": [],
+                "identities": [],
+                "unresolved_entities": [],
+                "identifiers": [
+                  "ghsa-4qjh-9fv9-r85r"
+                ],
+                "ambiguous": false
+              },
+              "original_query": "GHSA-4qjh-9fv9-r85r",
+              "mode": "hybrid",
+              "scanned_chunks": 1995,
+              "embedding_calls": 1,
+              "model": "sentence-transformers/all-MiniLM-L6-v2",
+              "model_digest": "546177efd53c466b176e9a51e76e73e11d4bdbab28a33f09c3d3dea4a4479f83",
+              "reranker": "rrf60-cosine-v1",
+              "threshold": 0.35
+            },
+            "independent_verification": false
+          }
+        },
+        {
+          "status": "completed",
+          "tool": "event_details",
+          "result": {
+            "event_id": "1868db90-f569-426c-96d9-bf691a25088d",
+            "source_id": "github-advisories",
+            "external_id": "GHSA-4qjh-9fv9-r85r",
+            "source_url": "https://github.com/advisories/GHSA-4qjh-9fv9-r85r",
+            "revision": 1,
+            "fields": [
+              {
+                "citation": {
+                  "chunk_id": "a87790f336642c1e03e937b9",
+                  "event_id": "1868db90-f569-426c-96d9-bf691a25088d",
+                  "revision_id": "249beafe-bec3-4494-ab09-406fd96b85fd",
+                  "revision": 1,
+                  "raw_document_id": "6e452537-d696-4fa9-94c4-7ca8a27b2142",
+                  "json_pointer": "/8/summary",
+                  "sha256": "97d404bc94da3609cd843125df913275f94cde6ba33f83e5175be86a3986665a",
+                  "field": "title",
+                  "start": 0,
+                  "end": 80,
+                  "external_id": "GHSA-4qjh-9fv9-r85r",
+                  "source_id": "github-advisories",
+                  "origin": "live"
+                },
+                "text": "Potential Timing Side-Channel Vulnerability in vLLM’s Chunk-Based Prefix Caching",
+                "text_truncated": false
+              },
+              {
+                "citation": {
+                  "chunk_id": "d0714327769c112c0862b69a",
+                  "event_id": "1868db90-f569-426c-96d9-bf691a25088d",
+                  "revision_id": "249beafe-bec3-4494-ab09-406fd96b85fd",
+                  "revision": 1,
+                  "raw_document_id": "6e452537-d696-4fa9-94c4-7ca8a27b2142",
+                  "json_pointer": "/8/vulnerabilities",
+                  "sha256": "97d404bc94da3609cd843125df913275f94cde6ba33f83e5175be86a3986665a",
+                  "field": "packages",
+                  "start": 0,
+                  "end": 152,
+                  "external_id": "GHSA-4qjh-9fv9-r85r",
+                  "source_id": "github-advisories",
+                  "origin": "live"
+                },
+                "text": "[{\"first_patched_version\": \"0.9.0\", \"package\": {\"ecosystem\": \"pip\", \"name\": \"vllm\"}, \"vulnerable_functions\": [], \"vulnerable_version_range\": \"< 0.9.0\"}]",
+                "text_truncated": false
+              },
+              {
+                "citation": {
+                  "chunk_id": "23948aeeab5180c89cb54623",
+                  "event_id": "1868db90-f569-426c-96d9-bf691a25088d",
+                  "revision_id": "249beafe-bec3-4494-ab09-406fd96b85fd",
+                  "revision": 1,
+                  "raw_document_id": "6e452537-d696-4fa9-94c4-7ca8a27b2142",
+                  "json_pointer": "/8/description",
+                  "sha256": "97d404bc94da3609cd843125df913275f94cde6ba33f83e5175be86a3986665a",
+                  "field": "description",
+                  "start": 780,
+                  "end": 1680,
+                  "external_id": "GHSA-4qjh-9fv9-r85r",
+                  "source_id": "github-advisories",
+                  "origin": "live"
+                },
+                "text": "\nUnlike token-by-token sharing mechanisms, vLLM’s chunk-based approach (PageAttention) processes tokens in larger units (chunks). In our tests, with chunk_size=2, the timing differences became noticeable enough to allow attackers to infer whether portions of their input match the victim's prompt at the chunk level.\n\n## Environment\n\n- GPU: NVIDIA A100 (40G)\n- CUDA: 11.8\n- PyTorch: 2.3.1\n- OS: Ubuntu 18.04\n- vLLM: v0.5.1\nConfiguration: We launched vLLM using the default settings and adjusted chunk_size=2 to evaluate the TTFT.\n\n## Leakage\nWe conducted our tests using LLaMA2-70B-GPTQ on a single device. We analyzed the timing differences when prompts shared prefixes of 2 chunks, and plotted the ",
+                "text_truncated": true
+              },
+              {
+                "citation": {
+                  "chunk_id": "522661997620ec1768f4b59a",
+                  "event_id": "1868db90-f569-426c-96d9-bf691a25088d",
+                  "revision_id": "249beafe-bec3-4494-ab09-406fd96b85fd",
+                  "revision": 1,
+                  "raw_document_id": "6e452537-d696-4fa9-94c4-7ca8a27b2142",
+                  "json_pointer": "/8/description",
+                  "sha256": "97d404bc94da3609cd843125df913275f94cde6ba33f83e5175be86a3986665a",
+                  "field": "description",
+                  "start": 1560,
+                  "end": 2460,
+                  "external_id": "GHSA-4qjh-9fv9-r85r",
+                  "source_id": "github-advisories",
+                  "origin": "live"
+                },
+                "text": "iably used to distinguish prefix matches, demonstrating a potential side-channel vulnerability.\n<img src=\"https://github.com/user-attachments/assets/db3491e9-02b7-424c-9b6d-56f553b39f2f\" alt=\"roc_curves_combined_block_2\" width=\"400\"/>\n\n\n## Results\nIn our experiment, we analyzed the response time differences between cache hits and misses in vLLM's PageAttention mechanism. Using ROC curve analysis to assess the distinguishability of these timing differences, we observed the following results:\n- With a 1-token prefix, the ROC curve yielded an AUC value of 0.571, indicating that even with a short prefix, an attacker can reasonably distinguish between cache hits and misses based on response times",
+                "text_truncated": true
+              },
+              {
+                "citation": {
+                  "chunk_id": "7c75376d63e709d07da2b983",
+                  "event_id": "1868db90-f569-426c-96d9-bf691a25088d",
+                  "revision_id": "249beafe-bec3-4494-ab09-406fd96b85fd",
+                  "revision": 1,
+                  "raw_document_id": "6e452537-d696-4fa9-94c4-7ca8a27b2142",
+                  "json_pointer": "/8/description",
+                  "sha256": "97d404bc94da3609cd843125df913275f94cde6ba33f83e5175be86a3986665a",
+                  "field": "description",
+                  "start": 0,
+                  "end": 900,
+                  "external_id": "GHSA-4qjh-9fv9-r85r",
+                  "source_id": "github-advisories",
+                  "origin": "live"
+                },
+                "text": "This issue arises from the prefix caching mechanism, which may expose the system to a timing side-channel attack.\n\n## Description\nWhen a new prompt is processed, if the PageAttention mechanism finds a matching prefix chunk, the prefill process speeds up, which is reflected in the TTFT (Time to First Token). Our tests revealed that the timing differences caused by matching chunks are significant enough to be recognized and exploited.\n\nFor instance, if the victim has submitted a sensitive prompt or if a valuable system prompt has been cached, an attacker sharing the same backend could attempt to guess the victim's input. By measuring the TTFT based on prefix matches, the attacker could verify ",
+                "text_truncated": true
+              },
+              {
+                "citation": {
+                  "chunk_id": "e81bf0e200a9664b5e131551",
+                  "event_id": "1868db90-f569-426c-96d9-bf691a25088d",
+                  "revision_id": "249beafe-bec3-4494-ab09-406fd96b85fd",
+                  "revision": 1,
+                  "raw_document_id": "6e452537-d696-4fa9-94c4-7ca8a27b2142",
+                  "json_pointer": "/8/description",
+                  "sha256": "97d404bc94da3609cd843125df913275f94cde6ba33f83e5175be86a3986665a",
+                  "field": "description",
+                  "start": 2340,
+                  "end": 2502,
+                  "external_id": "GHSA-4qjh-9fv9-r85r",
+                  "source_id": "github-advisories",
+                  "origin": "live"
+                },
+                "text": "tly to 0.99, showing that the attacker can almost perfectly identify cache hits with a longer prefix.\n\n## Fixes\n\n* https://github.com/vllm-project/vllm/pull/17045",
+                "text_truncated": false
+              },
+              {
+                "citation": {
+                  "chunk_id": "607767b339c8fc9895d1d6be",
+                  "event_id": "1868db90-f569-426c-96d9-bf691a25088d",
+                  "revision_id": "249beafe-bec3-4494-ab09-406fd96b85fd",
+                  "revision": 1,
+                  "raw_document_id": "6e452537-d696-4fa9-94c4-7ca8a27b2142",
+                  "json_pointer": "/8/references",
+                  "sha256": "97d404bc94da3609cd843125df913275f94cde6ba33f83e5175be86a3986665a",
+                  "field": "references",
+                  "start": 0,
+                  "end": 408,
+                  "external_id": "GHSA-4qjh-9fv9-r85r",
+                  "source_id": "github-advisories",
+                  "origin": "live"
+                },
+                "text": "[\"https://github.com/vllm-project/vllm/security/advisories/GHSA-4qjh-9fv9-r85r\", \"https://github.com/vllm-project/vllm/pull/17045\", \"https://github.com/vllm-project/vllm/commit/77073c77bc2006eb80ea6d5128f076f5e6c6f54f\", \"https://nvd.nist.gov/vuln/detail/CVE-2025-46570\", \"https://github.com/pypa/advisory-database/tree/main/vulns/vllm/PYSEC-2025-53.yaml\", \"https://github.com/advisories/GHSA-4qjh-9fv9-r85r\"]",
+                "text_truncated": false
+              }
+            ],
+            "fields_are_excerpts": true,
+            "source_asserted_not_independent_verified": true
+          }
+        },
+        {
+          "status": "completed",
+          "tool": "event_details",
+          "result": {
+            "event_id": "1a990dd4-4d01-4e6f-a8bb-896b7ae49d0b",
+            "source_id": "vllm-vendor",
+            "external_id": "GHSA-4qjh-9fv9-r85r",
+            "source_url": "https://github.com/vllm-project/vllm/security/advisories/GHSA-4qjh-9fv9-r85r",
+            "revision": 1,
+            "fields": [
+              {
+                "citation": {
+                  "chunk_id": "28b923f068a4620ecdb038a5",
+                  "event_id": "1a990dd4-4d01-4e6f-a8bb-896b7ae49d0b",
+                  "revision_id": "395b4d5b-8c5e-44ff-bcfd-d70f1b8cae2f",
+                  "revision": 1,
+                  "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+                  "json_pointer": "/62/summary",
+                  "sha256": "e86c4021031ffc7b83c06c81b6c10583ec2f4d24941261ca86f98ebc55074dd5",
+                  "field": "title",
+                  "start": 0,
+                  "end": 80,
+                  "external_id": "GHSA-4qjh-9fv9-r85r",
+                  "source_id": "vllm-vendor",
+                  "origin": "live"
+                },
+                "text": "Potential Timing Side-Channel Vulnerability in vLLM’s Chunk-Based Prefix Caching",
+                "text_truncated": false
+              },
+              {
+                "citation": {
+                  "chunk_id": "1ae4139ffe8ab03fbd6c8f8e",
+                  "event_id": "1a990dd4-4d01-4e6f-a8bb-896b7ae49d0b",
+                  "revision_id": "395b4d5b-8c5e-44ff-bcfd-d70f1b8cae2f",
+                  "revision": 1,
+                  "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+                  "json_pointer": "/62/vulnerabilities",
+                  "sha256": "e86c4021031ffc7b83c06c81b6c10583ec2f4d24941261ca86f98ebc55074dd5",
+                  "field": "packages",
+                  "start": 0,
+                  "end": 146,
+                  "external_id": "GHSA-4qjh-9fv9-r85r",
+                  "source_id": "vllm-vendor",
+                  "origin": "live"
+                },
+                "text": "[{\"package\": {\"ecosystem\": \"pip\", \"name\": \"vllm\"}, \"patched_versions\": \"0.9.0\", \"vulnerable_functions\": [], \"vulnerable_version_range\": \"<0.9.0\"}]",
+                "text_truncated": false
+              },
+              {
+                "citation": {
+                  "chunk_id": "b0a46c83a9dc99f26e891a97",
+                  "event_id": "1a990dd4-4d01-4e6f-a8bb-896b7ae49d0b",
+                  "revision_id": "395b4d5b-8c5e-44ff-bcfd-d70f1b8cae2f",
+                  "revision": 1,
+                  "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+                  "json_pointer": "/62/description",
+                  "sha256": "e86c4021031ffc7b83c06c81b6c10583ec2f4d24941261ca86f98ebc55074dd5",
+                  "field": "description",
+                  "start": 780,
+                  "end": 1680,
+                  "external_id": "GHSA-4qjh-9fv9-r85r",
+                  "source_id": "vllm-vendor",
+                  "origin": "live"
+                },
+                "text": "system prompt has been cached, an attacker sharing the same backend could attempt to guess the victim's input. By measuring the TTFT based on prefix matches, the attacker could verify if their guess is correct, leading to potential leakage of private information.\r\n\r\nUnlike token-by-token sharing mechanisms, vLLM’s chunk-based approach (PageAttention) processes tokens in larger units (chunks). In our tests, with chunk_size=2, the timing differences became noticeable enough to allow attackers to infer whether portions of their input match the victim's prompt at the chunk level.\r\n\r\n## Environment\r\n\r\n- GPU: NVIDIA A100 (40G)\r\n- CUDA: 11.8\r\n- PyTorch: 2.3.1\r\n- OS: Ubuntu 18.04\r\n- vLLM: v0.5.1\r\nCo",
+                "text_truncated": true
+              },
+              {
+                "citation": {
+                  "chunk_id": "b268d1a3f570aab94dc3a574",
+                  "event_id": "1a990dd4-4d01-4e6f-a8bb-896b7ae49d0b",
+                  "revision_id": "395b4d5b-8c5e-44ff-bcfd-d70f1b8cae2f",
+                  "revision": 1,
+                  "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+                  "json_pointer": "/62/description",
+                  "sha256": "e86c4021031ffc7b83c06c81b6c10583ec2f4d24941261ca86f98ebc55074dd5",
+                  "field": "description",
+                  "start": 2340,
+                  "end": 2791,
+                  "external_id": "GHSA-4qjh-9fv9-r85r",
+                  "source_id": "vllm-vendor",
+                  "origin": "live"
+                },
+                "text": "- With a 1-token prefix, the ROC curve yielded an AUC value of 0.571, indicating that even with a short prefix, an attacker can reasonably distinguish between cache hits and misses based on response times.\r\n- When the prefix length increases to 8 tokens, the AUC value rises significantly to 0.99, showing that the attacker can almost perfectly identify cache hits with a longer prefix.\r\n\r\n## Fixes\r\n\r\n* https://github.com/vllm-project/vllm/pull/17045",
+                "text_truncated": false
+              },
+              {
+                "citation": {
+                  "chunk_id": "bffbf443714d120c58119c8f",
+                  "event_id": "1a990dd4-4d01-4e6f-a8bb-896b7ae49d0b",
+                  "revision_id": "395b4d5b-8c5e-44ff-bcfd-d70f1b8cae2f",
+                  "revision": 1,
+                  "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+                  "json_pointer": "/62/description",
+                  "sha256": "e86c4021031ffc7b83c06c81b6c10583ec2f4d24941261ca86f98ebc55074dd5",
+                  "field": "description",
+                  "start": 1560,
+                  "end": 2460,
+                  "external_id": "GHSA-4qjh-9fv9-r85r",
+                  "source_id": "vllm-vendor",
+                  "origin": "live"
+                },
+                "text": "=2 to evaluate the TTFT.\r\n\r\n## Leakage\r\nWe conducted our tests using LLaMA2-70B-GPTQ on a single device. We analyzed the timing differences when prompts shared prefixes of 2 chunks, and plotted the corresponding ROC curves. Our results suggest that timing differences can be reliably used to distinguish prefix matches, demonstrating a potential side-channel vulnerability.\r\n<img src=\"https://github.com/user-attachments/assets/db3491e9-02b7-424c-9b6d-56f553b39f2f\" alt=\"roc_curves_combined_block_2\" width=\"400\"/>\r\n\r\n\r\n## Results\r\nIn our experiment, we analyzed the response time differences between cache hits and misses in vLLM's PageAttention mechanism. Using ROC curve analysis to assess the dist",
+                "text_truncated": true
+              },
+              {
+                "citation": {
+                  "chunk_id": "d9366c512e5e9e4a545fd352",
+                  "event_id": "1a990dd4-4d01-4e6f-a8bb-896b7ae49d0b",
+                  "revision_id": "395b4d5b-8c5e-44ff-bcfd-d70f1b8cae2f",
+                  "revision": 1,
+                  "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+                  "json_pointer": "/62/description",
+                  "sha256": "e86c4021031ffc7b83c06c81b6c10583ec2f4d24941261ca86f98ebc55074dd5",
+                  "field": "description",
+                  "start": 0,
+                  "end": 900,
+                  "external_id": "GHSA-4qjh-9fv9-r85r",
+                  "source_id": "vllm-vendor",
+                  "origin": "live"
+                },
+                "text": "Dear vLLM Team,\r\n\r\nWe are a security research group, and while we are impressed with vLLM’s innovative design, particularly the efficiency of its PageAttention mechanism and chunk-based token management, we have identified a potential security vulnerability. This issue arises from the prefix caching mechanism, which may expose the system to a timing side-channel attack.\r\n\r\n## Description\r\nWhen a new prompt is processed, if the PageAttention mechanism finds a matching prefix chunk, the prefill process speeds up, which is reflected in the TTFT (Time to First Token). Our tests revealed that the timing differences caused by matching chunks are significant enough to be recognized and exploited.\r\n",
+                "text_truncated": true
+              }
+            ],
+            "fields_are_excerpts": true,
+            "source_asserted_not_independent_verified": true
+          }
+        }
+      ],
+      "wall_ms": 7143.397,
+      "server_elapsed_ms": 7142.664,
+      "billed_tokens": 7940,
+      "external_requests": 4,
+      "api_usd": null,
+      "correctness": null,
+      "semantic_citation_support": null,
+      "completeness": null,
+      "human_review_status": "pending"
+    }
+  ]
+}

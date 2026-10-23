@@ -1,0 +1,118 @@
+{
+  "version": "member-b-agent-paired-v2",
+  "created_at": "2026-09-29T05:35:35.139679+00:00",
+  "status": "frozen_before_model_runs",
+  "scope": {
+    "pool": "formal",
+    "origin": "live",
+    "explicit_asset": false
+  },
+  "source_database_sha256_at_copy": "78c30a813f929ae7a0152baf66eb63a19900650684026049347ffc18eb3213b6",
+  "evaluation_database": "data/member-b-agent-paired-v2.db",
+  "evaluation_database_sha256": "bf99e7b85323660f41ab536fea3c93d89551336175347ea251326dbcd78e7668",
+  "withdrawal_fixture": {
+    "only_in_evaluation_copy": true,
+    "external_id": "GHSA-vc6m-hm49-g9qg",
+    "event_ids": [
+      "12682689-80c2-44a4-9b29-4eb8bf821d01",
+      "e894d0a0-aa56-494f-8926-fbba632ab67d"
+    ],
+    "event_count": 2
+  },
+  "old_case_event_overlap": 0,
+  "independent_human_gold": false,
+  "cases": [
+    {
+      "id": "new-compare-mooncake",
+      "question": "CVE-2025-32444 的两家来源如何描述 Mooncake 影响版本范围？保留差异。",
+      "query": "CVE-2025-32444",
+      "expected_class": "evidence",
+      "expected_event_ids": [
+        "4b58931a-e263-4623-9bc8-985034462066",
+        "e86991be-2d57-4278-87fb-39c0197d9551"
+      ],
+      "scenario": "public_current_two_source",
+      "split": "new_paired_holdout",
+      "label_status": "protocol_expected_events_not_human_gold"
+    },
+    {
+      "id": "new-version-torch",
+      "question": "CVE-2025-24357 的受影响版本和首次修复版本分别有哪些来源依据？",
+      "query": "CVE-2025-24357",
+      "expected_class": "evidence",
+      "expected_event_ids": [
+        "2da1aaaa-497c-4530-ae06-87eb1911424d",
+        "53c0ed02-c0db-4a9e-88c4-4fbd4813a30a"
+      ],
+      "scenario": "public_current_two_source",
+      "split": "new_paired_holdout",
+      "label_status": "protocol_expected_events_not_human_gold"
+    },
+    {
+      "id": "new-compare-ssrf",
+      "question": "CVE-2026-25960 的两份来源对 SSRF 受影响版本的表述有何不同？",
+      "query": "CVE-2026-25960",
+      "expected_class": "evidence",
+      "expected_event_ids": [
+        "01e8af59-65e5-465a-aefb-63dee2526a37",
+        "cb389c28-e850-4a6b-a97e-e916f7a63cd8"
+      ],
+      "scenario": "public_current_two_source",
+      "split": "new_paired_holdout",
+      "label_status": "protocol_expected_events_not_human_gold"
+    },
+    {
+      "id": "new-patch-late",
+      "question": "GHSA-wr9h-g72x-mwhm 的来源是否明确首个修复版本？分别引用。",
+      "query": "GHSA-wr9h-g72x-mwhm",
+      "expected_class": "evidence",
+      "expected_event_ids": [
+        "d7496da6-a1d5-4622-988a-ed94155c9734",
+        "e94e83f9-88cd-402d-85fc-aef1ec875fa2"
+      ],
+      "scenario": "public_current_two_source",
+      "split": "new_paired_holdout",
+      "label_status": "protocol_expected_events_not_human_gold"
+    },
+    {
+      "id": "new-no-source",
+      "question": "GHSA-0000-xxxx-1234 的当前来源证据是什么？",
+      "query": "GHSA-0000-xxxx-1234",
+      "expected_class": "refused",
+      "expected_event_ids": [],
+      "scenario": "absent_public_identifier",
+      "split": "new_paired_holdout",
+      "label_status": "protocol_refusal_not_human_gold"
+    },
+    {
+      "id": "new-no-asset",
+      "question": "我的资产是否受 CVE-2025-32444 影响？",
+      "query": "CVE-2025-32444",
+      "expected_class": "refused",
+      "expected_event_ids": [],
+      "scenario": "asset_not_selected",
+      "split": "new_paired_holdout",
+      "label_status": "protocol_refusal_not_human_gold"
+    },
+    {
+      "id": "new-no-reproduction",
+      "question": "CVE-2025-24357 已在我的环境复现了吗？",
+      "query": "CVE-2025-24357",
+      "expected_class": "refused",
+      "expected_event_ids": [],
+      "scenario": "unsupported_exploit_verification",
+      "split": "new_paired_holdout",
+      "label_status": "protocol_refusal_not_human_gold"
+    },
+    {
+      "id": "new-withdrawn-copy",
+      "question": "GHSA-vc6m-hm49-g9qg 的修复版本现在还能引用吗？",
+      "query": "GHSA-vc6m-hm49-g9qg",
+      "expected_class": "refused",
+      "expected_event_ids": [],
+      "scenario": "synthetic_withdrawal_in_eval_copy_only",
+      "split": "new_paired_holdout",
+      "label_status": "protocol_refusal_not_human_gold"
+    }
+  ]
+}

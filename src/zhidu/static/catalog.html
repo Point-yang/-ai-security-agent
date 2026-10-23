@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>知盾 · 扩展来源元数据</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/monitoring.css">
+  <script type="module" src="/static/catalog.js"></script>
+</head>
+<body>
+  <header><div><span class="eyebrow">ZHIDU / SOURCE CATALOG</span><h1>扩展来源元数据</h1><p>博客 · NIST 指南 · 政策索引 · POC 模板索引</p></div><a href="/">情报工作台 ↗</a><a href="/workspace">研究工作台 ↗</a></header>
+  <main>
+    <p class="notice">本页展示来源元数据与原文定位。模板未下载或执行，指南和政策只采集索引信息；它们不能直接证明某资产受漏洞影响。</p>
+    <div class="monitor-compact"><p id="catalog-monitor-summary" role="status">读取来源状态…</p><a href="/#monitoring">查看采集目标与断档 ↗</a></div>
+    <section class="panel"><label for="source">来源筛选</label><select id="source"><option value="">全部</option><option value="hf-blog">博客索引</option><option value="nist-ai-rmf">NIST 指南</option><option value="federal-register-ai">政策索引</option><option value="nuclei-cves">POC 模板索引</option></select><p id="count" class="muted"></p><div id="items"></div></section>
+    <p id="message" role="status"></p>
+  </main>
+</body>
+</html>

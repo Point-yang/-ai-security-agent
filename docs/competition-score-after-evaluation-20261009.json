@@ -1,0 +1,90 @@
+{
+  "schema_version": "competition-internal-score-after-evaluation-v1",
+  "date": "2026-10-09",
+  "official_score": false,
+  "supersedes_for_current_estimate": "docs/competition-score-update-20261009.json",
+  "initial_estimate": {
+    "score": 72,
+    "maximum": 100,
+    "breakdown": {
+      "monitoring_completeness": 9,
+      "enrichment_completeness": 12,
+      "qa_completeness": 14,
+      "monitoring_timeliness": 3,
+      "enrichment_accuracy": 4,
+      "qa_quality": 4,
+      "agent": 6,
+      "automation": 8,
+      "documentation": 12
+    }
+  },
+  "final_readiness_estimate": {
+    "low": 69,
+    "high": 71,
+    "maximum": 100,
+    "breakdown": {
+      "monitoring_completeness": 8,
+      "enrichment_completeness": 8,
+      "qa_completeness": 8,
+      "monitoring_timeliness_and_stability": 2,
+      "enrichment_accuracy_and_recall": 4,
+      "qa_quality": {
+        "low": 6,
+        "high": 8,
+        "maximum": 10,
+        "reason": "Small earlier reviewed corpus and new paired runs support provisional readiness only; 95 percent overall semantic accuracy is not established. Prior 9/10 estimate was optimistic."
+      },
+      "agent": 6,
+      "automation": 8,
+      "documentation": 8,
+      "live_demo": 7,
+      "innovation": 4
+    }
+  },
+  "score_method": "Conservative reviewer judgment using the competition reference categories, rather than official adjudication or a formula stipulated by the organizer. Partial coverage discounts are internal estimates. Demo score represents preparation, not actual observed defense performance.",
+  "changes": {
+    "initial_monitoring_timeliness": {
+      "before": 0,
+      "after": 3,
+      "reason": "25 eventually observed new vulnerability source records all within 12h, but upstream omissions unknown and 24 records concentrated on one publication day; limited evidence discounted from sample 4-point numeric tier."
+    },
+    "final_monitoring_timeliness_and_stability": {
+      "before": 0,
+      "after": 2,
+      "reason": "Observed delays improved evidence, but 261/781 polls completed and 650/2016 nominal samples; continuous collection stability not accepted. Two points are provisional reviewer credit, not a published rubric threshold."
+    },
+    "enrichment_performance": {
+      "before": 0,
+      "after": 4,
+      "reason": "Frozen test 99/99 facts correct; 127 reference records precision 99.87 percent, recall 100 percent; current non-paper conformity 99.94 percent precision, 100 percent recall. Numeric thresholds meet excellent within source-fact scope; reserve one point for untested semantic associations and version/asset correctness. AI reference is adopted but regression is not fresh independent blind evaluation."
+    }
+  },
+  "evidence": [
+    "docs/member-a-monitoring-enrichment-evaluation-20261009.md",
+    "output/member-a-monitoring-enrichment-evaluation-20261009/manifest.json",
+    "output/member-a-monitoring-enrichment-evaluation-20261009/verification.json"
+  ],
+  "target_final": {
+    "total": 90,
+    "breakdown": {
+      "monitoring_completeness": 10,
+      "enrichment_completeness": 9,
+      "qa_completeness": 9,
+      "monitoring_timeliness_and_stability": 5,
+      "enrichment_accuracy_and_recall": 5,
+      "qa_quality": 10,
+      "agent": 12,
+      "automation": 9,
+      "documentation": 9,
+      "live_demo": 8,
+      "innovation": 4
+    },
+    "conditional": true
+  },
+  "next_priorities": [
+    "Restore stable collection and complete observation coverage; audit upstream new publication list.",
+    "Add frozen semantic paper/POC/policy association and version-boundary evaluation.",
+    "Demonstrate Agent quality or efficiency improvement over ordinary RAG on new complex tasks.",
+    "Complete current video, official anonymized templates and two-person rehearsal."
+  ]
+}

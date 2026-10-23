@@ -1,0 +1,92 @@
+{
+  "case_id": "new-compare-mooncake",
+  "post_hoc_diagnostic": true,
+  "not_fresh_holdout": true,
+  "model_completed": true,
+  "generation_reason": null,
+  "citation_fields": [
+    {
+      "source": "vllm-vendor",
+      "field": "cve_id"
+    },
+    {
+      "source": "github-advisories",
+      "field": "cve_id"
+    },
+    {
+      "source": "vllm-vendor",
+      "field": "title"
+    },
+    {
+      "source": "vllm-vendor",
+      "field": "packages"
+    },
+    {
+      "source": "vllm-vendor",
+      "field": "description"
+    },
+    {
+      "source": "vllm-vendor",
+      "field": "description"
+    },
+    {
+      "source": "github-advisories",
+      "field": "title"
+    },
+    {
+      "source": "github-advisories",
+      "field": "packages"
+    },
+    {
+      "source": "github-advisories",
+      "field": "description"
+    },
+    {
+      "source": "github-advisories",
+      "field": "description"
+    },
+    {
+      "source": "github-advisories",
+      "field": "references"
+    }
+  ],
+  "policy_steps": [
+    {
+      "tool": "event_details",
+      "event_id": "4b58931a-e263-4623-9bc8-985034462066",
+      "reason": "current_source_text_required_before_generation",
+      "model_selected": false
+    },
+    {
+      "tool": "event_details",
+      "event_id": "e86991be-2d57-4278-87fb-39c0197d9551",
+      "reason": "current_source_text_required_before_generation",
+      "model_selected": false
+    }
+  ],
+  "decisions": [
+    {
+      "phase": "target_retrieval",
+      "attempt": 1,
+      "status": "completed",
+      "selected_tools": [
+        "retrieve"
+      ],
+      "error": null
+    },
+    {
+      "phase": "evidence_analysis",
+      "attempt": 1,
+      "status": "completed",
+      "selected_tools": [
+        "compare_sources"
+      ],
+      "error": null
+    }
+  ],
+  "tool_calls": 4,
+  "external_requests": 3,
+  "reported_tokens": 6053,
+  "elapsed_ms": 7073.854,
+  "semantic_support_verified": false
+}

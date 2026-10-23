@@ -1,0 +1,9 @@
+{
+  "version": "member-b-week5-v1",
+  "primary_asset_name": "week4-vllm-demo",
+  "secondary_asset_name": "week5-vllm-staging",
+  "conflict_external_id": "GHSA-pmqf-x6x8-p7qw",
+  "conflict_source_id": "github-advisories",
+  "unknown_external_id": "GHSA-8wr5-jm2h-8r4f",
+  "unknown_source_id": "vllm-vendor"
+}

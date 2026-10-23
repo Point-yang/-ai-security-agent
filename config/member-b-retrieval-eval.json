@@ -1,0 +1,29 @@
+{
+  "version": "member-b-week2-v1",
+  "cases": [
+    {
+      "id": "vllm-audio-decompression",
+      "question": "vLLM 是否出现过音频解压炸弹风险？",
+      "query": "audio decompression bomb",
+      "pool": "formal",
+      "top_k": 10,
+      "expected_external_ids": ["GHSA-hcwq-8wjf-3gcr", "GHSA-6pr9-rp53-2pmc"]
+    },
+    {
+      "id": "vllm-auth-bypass",
+      "question": "vLLM 是否有认证绕过相关公告？",
+      "query": "vllm auth bypass",
+      "pool": "formal",
+      "top_k": 10,
+      "expected_external_ids": ["GHSA-94f4-hr76-p5j6"]
+    },
+    {
+      "id": "prompt-injection-research",
+      "question": "近期有哪些提示注入相关研究元数据？",
+      "query": "prompt injection",
+      "pool": "formal",
+      "top_k": 10,
+      "expected_external_ids": ["10.1007/s10439-026-04376-3", "10.59350/k9aqr-fr116"]
+    }
+  ]
+}

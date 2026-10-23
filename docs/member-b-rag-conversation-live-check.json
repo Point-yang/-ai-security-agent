@@ -1,0 +1,90 @@
+{
+  "date": "2026-09-28",
+  "environment": "isolated read-only copy of current production corpus; writes only to the isolated copy",
+  "main_backup_sha256": "3778d699396b3991845b3417ea951952330f453675718333216e721b84b9286e",
+  "questions": [
+    {
+      "question": "GHSA-2pc9-4j83-qjmr 这条漏洞是什么？",
+      "answer_class": "evidence",
+      "reason": "source_excerpts",
+      "generation_status": "fallback",
+      "generation_reason": "invalid_response",
+      "actual_model": "extractive-packet-v4",
+      "requested_model": "deepseek-v4-flash",
+      "elapsed_ms": 6471.109,
+      "model_elapsed_ms": 5003.774,
+      "usage": {
+        "prompt_tokens": 3458,
+        "completion_tokens": 935,
+        "total_tokens": 4393,
+        "prompt_cache_hit_tokens": 128,
+        "prompt_cache_miss_tokens": 3330
+      },
+      "citation_count": 12,
+      "source_ids": [
+        "github-advisories",
+        "vllm-vendor"
+      ],
+      "resolution": "explicit_query",
+      "history_messages": 0,
+      "cost_usd": null,
+      "semantic_support_verified": false
+    },
+    {
+      "question": "影响哪些版本？",
+      "answer_class": "evidence",
+      "reason": "grounded_generation",
+      "generation_status": "completed",
+      "generation_reason": null,
+      "actual_model": "deepseek-flash",
+      "requested_model": "deepseek-v4-flash",
+      "elapsed_ms": 3301.301,
+      "model_elapsed_ms": 2581.591,
+      "usage": {
+        "prompt_tokens": 4001,
+        "completion_tokens": 681,
+        "total_tokens": 4682,
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 3745
+      },
+      "citation_count": 12,
+      "source_ids": [
+        "github-advisories",
+        "vllm-vendor"
+      ],
+      "resolution": "confirmed_history_object",
+      "history_messages": 2,
+      "cost_usd": null,
+      "semantic_support_verified": false
+    },
+    {
+      "question": "首次修复版本是什么？",
+      "answer_class": "evidence",
+      "reason": "grounded_generation",
+      "generation_status": "completed",
+      "generation_reason": null,
+      "actual_model": "deepseek-flash",
+      "requested_model": "deepseek-v4-flash",
+      "elapsed_ms": 3054.19,
+      "model_elapsed_ms": 2277.124,
+      "usage": {
+        "prompt_tokens": 4382,
+        "completion_tokens": 549,
+        "total_tokens": 4931,
+        "prompt_cache_hit_tokens": 256,
+        "prompt_cache_miss_tokens": 4126
+      },
+      "citation_count": 12,
+      "source_ids": [
+        "github-advisories",
+        "vllm-vendor"
+      ],
+      "resolution": "confirmed_history_object",
+      "history_messages": 4,
+      "cost_usd": null,
+      "semantic_support_verified": false
+    }
+  ],
+  "quality_claim": "none; source attribution checks are not entailment or accuracy checks",
+  "human_gold_completed": 0
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": "doctor-v1",
+  "checked_at": "2026-09-22 07:05:36.172294+00:00",
+  "mode": "inspect",
+  "status": "passed",
+  "raw_integrity": {
+    "raw_documents": 46,
+    "verified": 46,
+    "failed": 0,
+    "failure_samples": []
+  },
+  "planned_or_completed_actions": [],
+  "derived_reconciliation": {
+    "status": "not_run"
+  },
+  "unrecoverable_automatically": [],
+  "note": "Doctor only repairs scheduler state and rebuildable derivatives; it never invents source evidence."
+}

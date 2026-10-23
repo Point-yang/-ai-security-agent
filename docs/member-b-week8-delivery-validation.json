@@ -1,0 +1,85 @@
+{
+  "date": "2026-09-27",
+  "status": "draft_delivered_not_final_release",
+  "artifacts": [
+    {
+      "file": "知盾技术报告匿名草案.docx",
+      "private_identifier_scan": "passed"
+    },
+    {
+      "file": "知盾技术报告匿名草案.pdf",
+      "pages": 6,
+      "private_identifier_scan": "passed",
+      "author": null
+    },
+    {
+      "file": "知盾演示流程一页.docx",
+      "private_identifier_scan": "passed"
+    },
+    {
+      "file": "知盾演示流程一页.pdf",
+      "pages": 1,
+      "private_identifier_scan": "passed",
+      "author": null
+    },
+    {
+      "file": "知盾答辩交付草案.pdf",
+      "pages": 12,
+      "private_identifier_scan": "passed",
+      "author": "Walnut Exporter"
+    },
+    {
+      "file": "知盾答辩交付草案.pptx",
+      "private_identifier_scan": "passed",
+      "slides": 12,
+      "charts": 1,
+      "native_tables": 4,
+      "embedded_workbooks": 1
+    }
+  ],
+  "video": {
+    "audio_tracks": 0,
+    "decoded_scenes": 10,
+    "duration_seconds": 82,
+    "fps": 10,
+    "height": 800,
+    "width": 1280
+  },
+  "visual_review": {
+    "report_pages": 6,
+    "flow_pages": 1,
+    "slide_pdf_pages": 12,
+    "video_scenes": 10,
+    "status": "passed"
+  },
+  "engineering": {
+    "pytest_passed": 152,
+    "pytest_failures": 0,
+    "pytest_errors": 0,
+    "ruff_changed_files": "passed",
+    "javascript_syntax": "passed",
+    "alembic_check": "No new upgrade operations detected",
+    "openapi_exported": true
+  },
+  "human_gold": {
+    "status": "pending_human_review",
+    "tasks": 127,
+    "completed": 0
+  },
+  "human_rehearsal": {
+    "A": "pending",
+    "B": "pending"
+  },
+  "isolation": {
+    "main_asset_count": 0,
+    "demo_asset_count": 1,
+    "fictional_asset": true
+  },
+  "limitations": [
+    "Official event template and duration not provided",
+    "No independent human gold score",
+    "No new continuous offline or monitoring SLA proof",
+    "Current Mac environment only",
+    "No native Microsoft PowerPoint inspection"
+  ]
+}

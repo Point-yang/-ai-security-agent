@@ -1,0 +1,79 @@
+{
+  "checked_at": "2026-10-09",
+  "status": "passed",
+  "scope": "Read-only comparison of five NVD records previously marked with missing source facts against the old AI-assisted source-fact report and current raw pointers; not a new full-corpus accuracy evaluation or human gold score.",
+  "baseline_report_sha256": "c56dc4996c54846566ec87a765f1838bb0c6f79b7d3346c19cbbe6fe02b5b7a1",
+  "missing_facts_before": 15,
+  "exact_previous_misses_now_present": 15,
+  "raw_version_status_pointers_verified": 6,
+  "raw_version_status_pointers_total": 6,
+  "current_search_chunks": 6364,
+  "current_valid_vectors": 6364,
+  "records": [
+    {
+      "cve": "CVE-2026-94625",
+      "revision": 3,
+      "raw_sha256": "377a6e862781c1ebf4feb4f8767199561a6178239215432b448000e11c3944f6",
+      "publisher_count": 1,
+      "nvd_entities": 2,
+      "nvd_version_status_records": 1,
+      "frozen_expected_missing_facts": 3,
+      "frozen_expected_facts_now_present": 3,
+      "remaining_unmatched": [],
+      "raw_version_pointers_verified": 1,
+      "search_chunks_verified": 1
+    },
+    {
+      "cve": "CVE-2026-93436",
+      "revision": 4,
+      "raw_sha256": "377a6e862781c1ebf4feb4f8767199561a6178239215432b448000e11c3944f6",
+      "publisher_count": 1,
+      "nvd_entities": 2,
+      "nvd_version_status_records": 1,
+      "frozen_expected_missing_facts": 3,
+      "frozen_expected_facts_now_present": 3,
+      "remaining_unmatched": [],
+      "raw_version_pointers_verified": 1,
+      "search_chunks_verified": 1
+    },
+    {
+      "cve": "CVE-2026-73558",
+      "revision": 2,
+      "raw_sha256": "377a6e862781c1ebf4feb4f8767199561a6178239215432b448000e11c3944f6",
+      "publisher_count": 1,
+      "nvd_entities": 2,
+      "nvd_version_status_records": 1,
+      "frozen_expected_missing_facts": 3,
+      "frozen_expected_facts_now_present": 3,
+      "remaining_unmatched": [],
+      "raw_version_pointers_verified": 1,
+      "search_chunks_verified": 1
+    },
+    {
+      "cve": "CVE-2026-90553",
+      "revision": 1,
+      "raw_sha256": "070eab3d744832d17d90473f9e72882de88bcbbc2862eaf9b7e09ff69271a58e",
+      "publisher_count": 1,
+      "nvd_entities": 2,
+      "nvd_version_status_records": 2,
+      "frozen_expected_missing_facts": 3,
+      "frozen_expected_facts_now_present": 3,
+      "remaining_unmatched": [],
+      "raw_version_pointers_verified": 2,
+      "search_chunks_verified": 2
+    },
+    {
+      "cve": "CVE-2026-69147",
+      "revision": 3,
+      "raw_sha256": "d02d018b6e1e84e19bb60c7cbb60121e9be16281c5b8288b0fa6f12045734b91",
+      "publisher_count": 1,
+      "nvd_entities": 2,
+      "nvd_version_status_records": 1,
+      "frozen_expected_missing_facts": 3,
+      "frozen_expected_facts_now_present": 3,
+      "remaining_unmatched": [],
+      "raw_version_pointers_verified": 1,
+      "search_chunks_verified": 1
+    }
+  ]
+}

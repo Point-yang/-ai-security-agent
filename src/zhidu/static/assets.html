@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>知盾 · 资产影响台</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/assets.js" defer></script>
+</head>
+<body>
+  <header><div><span class="eyebrow">ZHIDU / EVIDENCE GRAPH</span><h1>资产影响与证据追溯</h1><p>成员 A · 第五周　/　字段证据、历史变更、资产链路</p></div><a href="/">情报工作台 ↗</a><a href="/workspace">研究工作台 ↗</a></header>
+  <main>
+    <section class="metrics"><div><small>资产</small><strong id="asset-count">—</strong></div><div><small>来源条件命中</small><strong id="affected-count">—</strong></div><div><small>待确定</small><strong id="unknown-count">—</strong></div><div><small>来源冲突</small><strong id="conflict-count">—</strong></div></section>
+    <p class="notice">affected 仅表示 SBOM 组件与来源声明的身份及版本条件匹配，不代表漏洞已复现；not_affected 也只针对当前来源范围。导入资产请使用受控 CLI 或管理员接口。</p>
+    <div class="workspace">
+      <section class="panel"><h2>资产清单</h2><div id="assets"></div></section>
+      <section class="panel"><h2>组件影响判断</h2><div id="exposures" class="muted">选择资产查看。</div></section>
+    </div>
+    <section class="panel trace-panel"><h2>字段证据与历史变更</h2><p class="muted">选择一项资产判断后，可验证原文字节哈希、JSON Pointer、字段值和历次观察差异。</p><div id="trace" class="muted">选择资产并生成证据追溯图。</div></section>
+    <section class="panel"><h2>跨来源字段比较</h2><p class="muted">conflict 表示同一 CVE 的明确字段值不同；variation 表示评分或范围存在差异，不自动裁决。</p><div id="comparisons"></div></section>
+    <p id="message" role="status"></p>
+  </main>
+  <footer>资产匹配 ≠ 漏洞复现 · 证据可复验 ≠ 事实已独立验证 · 历史冲突不自动覆盖当前版本</footer>
+</body>
+</html>

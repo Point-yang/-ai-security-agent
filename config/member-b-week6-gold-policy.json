@@ -1,0 +1,35 @@
+{
+  "version": "member-b-week6-gold-policy-v2",
+  "effective_date": "2026-10-04",
+  "active_review_method": "ai",
+  "active_release": "data/week6-ai-gold/project-gold-v1.json",
+  "active_release_sha256": "b973f29c4a26a7ec24e8127e3506f5c713504812d3b2936959007fa9b7bb672b",
+  "authorization": {
+    "date": "2026-10-04",
+    "timezone": "Asia/Shanghai",
+    "user_message": "如果能通过，请直接作为正式类别金标，允许替代人工",
+    "allows_ai_substitution": true
+  },
+  "adoption_scope": "user_authorized_project_official_not_organizer_certification",
+  "human_protocol": "retained_as_optional_separate_workflow",
+  "evaluation": "docs/member-b-week6-ai-gold-evaluation.json",
+  "source_packet_unchanged": true,
+  "class_counts": {
+    "evidence": 112,
+    "partial": 15
+  },
+  "class_counts_by_split": {
+    "train": {
+      "evidence": 62,
+      "partial": 4
+    },
+    "development": {
+      "evidence": 30,
+      "partial": 7
+    },
+    "test": {
+      "evidence": 20,
+      "partial": 4
+    }
+  }
+}

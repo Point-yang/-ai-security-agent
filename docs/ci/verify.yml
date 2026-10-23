@@ -1,0 +1,46 @@
+name: Verify
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  python-and-contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python scripts/check_repository_secrets.py
+      - run: python -m pip install -r requirements.lock -r requirements-agent.lock -r requirements-semantic.lock
+      - run: python -m pip install --no-deps -e .
+      - run: ruff check .
+      - run: ruff format --check .
+      - run: pytest -q
+      - run: python -m zhidu init-db
+      - run: alembic check
+      - run: node --check src/zhidu/static/app.js
+      - run: node --check src/zhidu/static/workspace.js
+      - run: node --check src/zhidu/static/workspace-week6.js
+      - run: node --check src/zhidu/static/assets.js
+      - run: node --check src/zhidu/static/workspace-console.js
+      - run: node --check src/zhidu/static/monitoring-ui.js
+      - run: node --test tests/*.test.mjs
+      - run: docker compose --profile monitoring config --quiet
+        env:
+          POSTGRES_PASSWORD: ci-config-only
+  container:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker compose up --build --wait db api
+        env:
+          POSTGRES_PASSWORD: ci-isolated-test
+      - run: curl --fail http://127.0.0.1:8000/health/ready
+      - run: curl --fail http://127.0.0.1:8000/metrics
+      - if: always()
+        run: docker compose down
+        env:
+          POSTGRES_PASSWORD: ci-isolated-test

@@ -1,0 +1,49 @@
+{
+  "schema_version": "structured-v5-nvd-authority",
+  "events": 1117,
+  "changed_events": 1117,
+  "unchanged_events": 0,
+  "removed_orphans": 0,
+  "index": {
+    "schema_version": "lexical-v8-nvd-authority",
+    "events": 1117,
+    "changed_events": 0,
+    "unchanged_events": 1117,
+    "created_chunks": 0,
+    "replaced_chunks": 0,
+    "removed_orphan_chunks": 0,
+    "chunks": 6364,
+    "pools": {
+      "candidate": 2288,
+      "formal": 4076
+    }
+  },
+  "comparisons": {
+    "identifiers_compared": 75,
+    "created": 0,
+    "updated": 75,
+    "unchanged": 136,
+    "removed": 0,
+    "retired": 0,
+    "reactivated": 1,
+    "status_counts": {
+      "agreement": 103,
+      "variation": 104,
+      "conflict": 4
+    },
+    "automatic_resolution": false
+  },
+  "coverage": 1.0,
+  "with_cvss": 221,
+  "with_version_scope": 227,
+  "with_cpe_scope": 46,
+  "entities": 1956,
+  "quality_flag_counts": {
+    "catalog_scope_only": 7,
+    "metadata_only": 883,
+    "missing_cpe_scope": 10,
+    "missing_cvss": 6,
+    "unknown_package_identity": 3,
+    "unparsed_version_range": 9
+  }
+}

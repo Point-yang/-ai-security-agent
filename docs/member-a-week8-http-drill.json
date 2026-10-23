@@ -1,0 +1,28 @@
+{
+  "checked_at": "2026-09-26T06:45:45.246374+00:00",
+  "base_url": "http://127.0.0.1:8020",
+  "results": {
+    "/health": {
+      "http_status": 200,
+      "status": "ok",
+      "http_writes_enabled": false
+    },
+    "/health/ready": {
+      "http_status": 200,
+      "status": "ready"
+    },
+    "/workspace": {
+      "http_status": 200
+    },
+    "/api/v1/rag/status": {
+      "http_status": 200,
+      "status": "ready"
+    },
+    "hybrid_query": {
+      "http_status": 200,
+      "hits": 1
+    }
+  },
+  "seconds": 1.606,
+  "status": "passed"
+}

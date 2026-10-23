@@ -1,0 +1,49 @@
+{
+  "version": "member-b-week4-v1",
+  "asset_name": "week4-vllm-demo",
+  "cases": [
+    {
+      "id": "affected-source-range",
+      "kind": "exposure",
+      "component_name": "vllm",
+      "component_version": "0.6.2",
+      "external_id": "GHSA-6pr9-rp53-2pmc",
+      "source_id": "github-advisories",
+      "expected_status": "affected"
+    },
+    {
+      "id": "not-affected-source-range",
+      "kind": "exposure",
+      "component_name": "vllm",
+      "component_version": "0.6.2",
+      "external_id": "GHSA-4r2x-xpjr-7cvv",
+      "source_id": "github-advisories",
+      "expected_status": "not_affected"
+    },
+    {
+      "id": "unknown-opaque-range",
+      "kind": "exposure",
+      "component_name": "vllm",
+      "component_version": "0.6.2",
+      "external_id": "GHSA-8wr5-jm2h-8r4f",
+      "source_id": "vllm-vendor",
+      "expected_status": "unknown"
+    },
+    {
+      "id": "no-identity-match",
+      "kind": "no_identity",
+      "component_name": "vllm",
+      "component_version": "0.6.2",
+      "external_id": "CVE-2026-48746",
+      "source_id": "nvd",
+      "expected_status": "absent"
+    },
+    {
+      "id": "severity-conflict-no-resolution",
+      "kind": "comparison",
+      "identifier": "CVE-2025-62372",
+      "field": "severity",
+      "expected_status": "conflict"
+    }
+  ]
+}

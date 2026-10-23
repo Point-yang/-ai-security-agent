@@ -1,0 +1,14 @@
+{
+  "checked_at": "2026-09-20T07:35:39.894274+00:00",
+  "status": "passed",
+  "events": 509,
+  "withdrawn_events": 3,
+  "origins": {
+    "live": 509
+  },
+  "chunks_verified": 2498,
+  "raw_documents_verified": 28,
+  "sample_query": "decompression",
+  "sample_query_hits": 30,
+  "note": "Only citation/content consistency; not independent vulnerability verification or recall evaluation."
+}

@@ -1,0 +1,150 @@
+{
+  "schema_version": "doctor-v1",
+  "checked_at": "2026-09-24 07:52:09.694361+00:00",
+  "mode": "repair",
+  "status": "passed",
+  "raw_integrity": {
+    "raw_documents": 63,
+    "verified": 63,
+    "failed": 0,
+    "failure_samples": []
+  },
+  "planned_or_completed_actions": [
+    {
+      "action_type": "reconcile_derived_state",
+      "target_id": null,
+      "result": {
+        "index": {
+          "schema_version": "lexical-v3",
+          "events": 574,
+          "changed_events": 0,
+          "unchanged_events": 574,
+          "created_chunks": 0,
+          "replaced_chunks": 0,
+          "removed_orphan_chunks": 0,
+          "chunks": 2724,
+          "pools": {
+            "candidate": 990,
+            "formal": 1734
+          }
+        },
+        "enrichment": {
+          "schema_version": "structured-v2",
+          "events": 574,
+          "changed_events": 0,
+          "unchanged_events": 574,
+          "removed_orphans": 0,
+          "coverage": 1.0,
+          "with_cvss": 174,
+          "with_version_scope": 146,
+          "with_cpe_scope": 7,
+          "entities": 877,
+          "quality_flag_counts": {
+            "catalog_scope_only": 7,
+            "metadata_only": 387,
+            "missing_affected_scope": 27,
+            "missing_cpe_scope": 27,
+            "missing_cvss": 6,
+            "unknown_package_identity": 2,
+            "unparsed_version_range": 8
+          }
+        },
+        "assets": {
+          "components": 0,
+          "created": 0,
+          "updated": 0,
+          "unchanged": 0,
+          "removed": 0,
+          "status_counts": {
+            "affected": 0,
+            "not_affected": 0,
+            "unknown": 0
+          },
+          "scope": "source_asserted_component_version_comparison"
+        },
+        "comparisons": {
+          "identifiers_compared": 62,
+          "created": 0,
+          "updated": 0,
+          "unchanged": 175,
+          "removed": 0,
+          "retired": 0,
+          "reactivated": 0,
+          "status_counts": {
+            "agreement": 96,
+            "variation": 75,
+            "conflict": 4
+          },
+          "automatic_resolution": false
+        }
+      }
+    }
+  ],
+  "derived_reconciliation": {
+    "index": {
+      "schema_version": "lexical-v3",
+      "events": 574,
+      "changed_events": 0,
+      "unchanged_events": 574,
+      "created_chunks": 0,
+      "replaced_chunks": 0,
+      "removed_orphan_chunks": 0,
+      "chunks": 2724,
+      "pools": {
+        "candidate": 990,
+        "formal": 1734
+      }
+    },
+    "enrichment": {
+      "schema_version": "structured-v2",
+      "events": 574,
+      "changed_events": 0,
+      "unchanged_events": 574,
+      "removed_orphans": 0,
+      "coverage": 1.0,
+      "with_cvss": 174,
+      "with_version_scope": 146,
+      "with_cpe_scope": 7,
+      "entities": 877,
+      "quality_flag_counts": {
+        "catalog_scope_only": 7,
+        "metadata_only": 387,
+        "missing_affected_scope": 27,
+        "missing_cpe_scope": 27,
+        "missing_cvss": 6,
+        "unknown_package_identity": 2,
+        "unparsed_version_range": 8
+      }
+    },
+    "assets": {
+      "components": 0,
+      "created": 0,
+      "updated": 0,
+      "unchanged": 0,
+      "removed": 0,
+      "status_counts": {
+        "affected": 0,
+        "not_affected": 0,
+        "unknown": 0
+      },
+      "scope": "source_asserted_component_version_comparison"
+    },
+    "comparisons": {
+      "identifiers_compared": 62,
+      "created": 0,
+      "updated": 0,
+      "unchanged": 175,
+      "removed": 0,
+      "retired": 0,
+      "reactivated": 0,
+      "status_counts": {
+        "agreement": 96,
+        "variation": 75,
+        "conflict": 4
+      },
+      "automatic_resolution": false
+    }
+  },
+  "unrecoverable_automatically": [],
+  "note": "Doctor only repairs scheduler state and rebuildable derivatives; it never invents source evidence."
+}

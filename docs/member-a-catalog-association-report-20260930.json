@@ -1,0 +1,430 @@
+{
+  "version": "catalog-event-associations-v1",
+  "created_at": "2026-09-30T07:43:07.625202+00:00",
+  "source_metadata_only": true,
+  "automatic_merge": false,
+  "candidate_requires_human_review": true,
+  "live_catalog_items": 26,
+  "items_with_candidates": 7,
+  "candidate_associations": 11,
+  "items": [
+    {
+      "catalog_item_id": "37c57930-b2ce-4bd3-8871-a1d2b6202a04",
+      "candidates": [],
+      "identifiers_found": [],
+      "association_policy": "Exact CVE strings only; no automatic merge, asset impact, or vulnerability validity claim."
+    },
+    {
+      "catalog_item_id": "7a6d2b0f-78ee-449d-91ac-c00088d09583",
+      "candidates": [],
+      "identifiers_found": [],
+      "association_policy": "Exact CVE strings only; no automatic merge, asset impact, or vulnerability validity claim."
+    },
+    {
+      "catalog_item_id": "6b8eb81b-e254-46b7-8adc-862f1b22ddd5",
+      "candidates": [],
+      "identifiers_found": [],
+      "association_policy": "Exact CVE strings only; no automatic merge, asset impact, or vulnerability validity claim."
+    },
+    {
+      "catalog_item_id": "657ffd6d-bed0-4545-b279-2ae62f8e1d3c",
+      "candidates": [],
+      "identifiers_found": [],
+      "association_policy": "Exact CVE strings only; no automatic merge, asset impact, or vulnerability validity claim."
+    },
+    {
+      "catalog_item_id": "bac054e4-15e5-4ac3-9135-2feec31bb32e",
+      "candidates": [],
+      "identifiers_found": [
+        "CVE-2023-43654"
+      ],
+      "association_policy": "Exact CVE strings only; no automatic merge, asset impact, or vulnerability validity claim."
+    },
+    {
+      "catalog_item_id": "6e5b00d1-5451-4c7a-935f-0cb941a6d756",
+      "candidates": [],
+      "identifiers_found": [
+        "CVE-2024-37014"
+      ],
+      "association_policy": "Exact CVE strings only; no automatic merge, asset impact, or vulnerability validity claim."
+    },
+    {
+      "catalog_item_id": "73e41d7b-6148-4ba9-8be1-90a5e95f16b9",
+      "candidates": [],
+      "identifiers_found": [
+        "CVE-2024-37032"
+      ],
+      "association_policy": "Exact CVE strings only; no automatic merge, asset impact, or vulnerability validity claim."
+    },
+    {
+      "catalog_item_id": "9e7455b9-cfb9-4533-9f2e-5e08bceed23f",
+      "candidates": [],
+      "identifiers_found": [
+        "CVE-2024-6587"
+      ],
+      "association_policy": "Exact CVE strings only; no automatic merge, asset impact, or vulnerability validity claim."
+    },
+    {
+      "catalog_item_id": "5ab77353-8fb4-42a0-9e74-1637960d07c8",
+      "candidates": [
+        {
+          "catalog_item_id": "5ab77353-8fb4-42a0-9e74-1637960d07c8",
+          "catalog_source_id": "nuclei-cves",
+          "catalog_external_id": "CVE-2025-3248",
+          "catalog_raw_document_id": "d35bd952-8969-4aae-ac10-2e1c46ac5beb",
+          "catalog_evidence_locator": "byte:1791213:1791631",
+          "identifier": "CVE-2025-3248",
+          "event_id": "fda98982-b0ce-471c-b00d-ce8bf72f865f",
+          "event_source_id": "cisa-kev",
+          "event_external_id": "CVE-2025-3248",
+          "event_title": "Langflow Missing Authentication Vulnerability",
+          "event_revision": 4,
+          "event_withdrawn": false,
+          "match_type": "exact_cve_identifier",
+          "confidence": 1.0,
+          "review_status": "candidate_requires_human_review",
+          "source_metadata_only": true,
+          "does_not_prove_vulnerability": true
+        }
+      ],
+      "identifiers_found": [
+        "CVE-2025-3248"
+      ],
+      "association_policy": "Exact CVE strings only; no automatic merge, asset impact, or vulnerability validity claim."
+    },
+    {
+      "catalog_item_id": "ab1c04f1-22a4-479b-b052-1f7047523bd3",
+      "candidates": [
+        {
+          "catalog_item_id": "ab1c04f1-22a4-479b-b052-1f7047523bd3",
+          "catalog_source_id": "nuclei-cves",
+          "catalog_external_id": "CVE-2025-34291",
+          "catalog_raw_document_id": "d35bd952-8969-4aae-ac10-2e1c46ac5beb",
+          "catalog_evidence_locator": "byte:1804772:1805276",
+          "identifier": "CVE-2025-34291",
+          "event_id": "34e51184-90c1-4601-94af-19acdf5f20cd",
+          "event_source_id": "cisa-kev",
+          "event_external_id": "CVE-2025-34291",
+          "event_title": "Langflow Origin Validation Error Vulnerability",
+          "event_revision": 4,
+          "event_withdrawn": false,
+          "match_type": "exact_cve_identifier",
+          "confidence": 1.0,
+          "review_status": "candidate_requires_human_review",
+          "source_metadata_only": true,
+          "does_not_prove_vulnerability": true
+        }
+      ],
+      "identifiers_found": [
+        "CVE-2025-34291"
+      ],
+      "association_policy": "Exact CVE strings only; no automatic merge, asset impact, or vulnerability validity claim."
+    },
+    {
+      "catalog_item_id": "8933302c-fac1-4230-91d5-dc9cd2d9b862",
+      "candidates": [],
+      "identifiers_found": [
+        "CVE-2026-0768"
+      ],
+      "association_policy": "Exact CVE strings only; no automatic merge, asset impact, or vulnerability validity claim."
+    },
+    {
+      "catalog_item_id": "1bd72c14-0f20-4c0b-81f3-b804f430a93f",
+      "candidates": [
+        {
+          "catalog_item_id": "1bd72c14-0f20-4c0b-81f3-b804f430a93f",
+          "catalog_source_id": "nuclei-cves",
+          "catalog_external_id": "CVE-2026-0770",
+          "catalog_raw_document_id": "d35bd952-8969-4aae-ac10-2e1c46ac5beb",
+          "catalog_evidence_locator": "byte:1928620:1929116",
+          "identifier": "CVE-2026-0770",
+          "event_id": "071d380f-da82-48bb-a516-10411cf45d09",
+          "event_source_id": "cisa-kev",
+          "event_external_id": "CVE-2026-0770",
+          "event_title": "Langflow Inclusion of Functionality from Untrusted Control Sphere Vulnerability",
+          "event_revision": 4,
+          "event_withdrawn": false,
+          "match_type": "exact_cve_identifier",
+          "confidence": 1.0,
+          "review_status": "candidate_requires_human_review",
+          "source_metadata_only": true,
+          "does_not_prove_vulnerability": true
+        }
+      ],
+      "identifiers_found": [
+        "CVE-2026-0770"
+      ],
+      "association_policy": "Exact CVE strings only; no automatic merge, asset impact, or vulnerability validity claim."
+    },
+    {
+      "catalog_item_id": "bc2e5b87-e2ec-45c3-88e8-431f19ff8b4f",
+      "candidates": [],
+      "identifiers_found": [
+        "CVE-2026-21445"
+      ],
+      "association_policy": "Exact CVE strings only; no automatic merge, asset impact, or vulnerability validity claim."
+    },
+    {
+      "catalog_item_id": "03570517-33ad-4a95-bd2c-e1221a8fcf1b",
+      "candidates": [
+        {
+          "catalog_item_id": "03570517-33ad-4a95-bd2c-e1221a8fcf1b",
+          "catalog_source_id": "nuclei-cves",
+          "catalog_external_id": "CVE-2026-22778",
+          "catalog_raw_document_id": "d35bd952-8969-4aae-ac10-2e1c46ac5beb",
+          "catalog_evidence_locator": "byte:1968748:1969217",
+          "identifier": "CVE-2026-22778",
+          "event_id": "68a807bb-e7b4-4194-a9cd-688f46929b68",
+          "event_source_id": "github-advisories",
+          "event_external_id": "GHSA-4r2x-xpjr-7cvv",
+          "event_title": "vLLM has RCE In Video Processing",
+          "event_revision": 1,
+          "event_withdrawn": false,
+          "match_type": "exact_cve_identifier",
+          "confidence": 1.0,
+          "review_status": "candidate_requires_human_review",
+          "source_metadata_only": true,
+          "does_not_prove_vulnerability": true
+        },
+        {
+          "catalog_item_id": "03570517-33ad-4a95-bd2c-e1221a8fcf1b",
+          "catalog_source_id": "nuclei-cves",
+          "catalog_external_id": "CVE-2026-22778",
+          "catalog_raw_document_id": "d35bd952-8969-4aae-ac10-2e1c46ac5beb",
+          "catalog_evidence_locator": "byte:1968748:1969217",
+          "identifier": "CVE-2026-22778",
+          "event_id": "f5e72aff-6470-4832-a3be-fa46a38a79ea",
+          "event_source_id": "vllm-vendor",
+          "event_external_id": "GHSA-4r2x-xpjr-7cvv",
+          "event_title": "vLLM RCE In Video Processing",
+          "event_revision": 1,
+          "event_withdrawn": false,
+          "match_type": "exact_cve_identifier",
+          "confidence": 1.0,
+          "review_status": "candidate_requires_human_review",
+          "source_metadata_only": true,
+          "does_not_prove_vulnerability": true
+        }
+      ],
+      "identifiers_found": [
+        "CVE-2026-22778"
+      ],
+      "association_policy": "Exact CVE strings only; no automatic merge, asset impact, or vulnerability validity claim."
+    },
+    {
+      "catalog_item_id": "d589fa8c-fe5c-4e4c-96fa-a46d320683af",
+      "candidates": [],
+      "identifiers_found": [
+        "CVE-2026-30623"
+      ],
+      "association_policy": "Exact CVE strings only; no automatic merge, asset impact, or vulnerability validity claim."
+    },
+    {
+      "catalog_item_id": "77e20f82-7bcc-463c-9ec4-0ade022ec6f0",
+      "candidates": [
+        {
+          "catalog_item_id": "77e20f82-7bcc-463c-9ec4-0ade022ec6f0",
+          "catalog_source_id": "nuclei-cves",
+          "catalog_external_id": "CVE-2026-33017",
+          "catalog_raw_document_id": "d35bd952-8969-4aae-ac10-2e1c46ac5beb",
+          "catalog_evidence_locator": "byte:2014472:2014952",
+          "identifier": "CVE-2026-33017",
+          "event_id": "b1a7d612-c54d-421c-824f-01101f8d6729",
+          "event_source_id": "cisa-kev",
+          "event_external_id": "CVE-2026-33017",
+          "event_title": "Langflow Code Injection Vulnerability",
+          "event_revision": 4,
+          "event_withdrawn": false,
+          "match_type": "exact_cve_identifier",
+          "confidence": 1.0,
+          "review_status": "candidate_requires_human_review",
+          "source_metadata_only": true,
+          "does_not_prove_vulnerability": true
+        }
+      ],
+      "identifiers_found": [
+        "CVE-2026-33017"
+      ],
+      "association_policy": "Exact CVE strings only; no automatic merge, asset impact, or vulnerability validity claim."
+    },
+    {
+      "catalog_item_id": "c87a03fd-bc5e-4e4d-809d-b52d5e9481d2",
+      "candidates": [],
+      "identifiers_found": [
+        "CVE-2026-33497"
+      ],
+      "association_policy": "Exact CVE strings only; no automatic merge, asset impact, or vulnerability validity claim."
+    },
+    {
+      "catalog_item_id": "43964a50-ec5b-4f58-bbf6-f9c581bf9b39",
+      "candidates": [],
+      "identifiers_found": [
+        "CVE-2026-35029"
+      ],
+      "association_policy": "Exact CVE strings only; no automatic merge, asset impact, or vulnerability validity claim."
+    },
+    {
+      "catalog_item_id": "952754e2-6bb5-4ec2-8e21-af66a3c98081",
+      "candidates": [],
+      "identifiers_found": [
+        "CVE-2026-40217"
+      ],
+      "association_policy": "Exact CVE strings only; no automatic merge, asset impact, or vulnerability validity claim."
+    },
+    {
+      "catalog_item_id": "5f80fb1d-ff0b-44b1-887f-28489c188cff",
+      "candidates": [],
+      "identifiers_found": [
+        "CVE-2026-42208"
+      ],
+      "association_policy": "Exact CVE strings only; no automatic merge, asset impact, or vulnerability validity claim."
+    },
+    {
+      "catalog_item_id": "594ce762-cd94-474b-8319-e8aa6cc9503b",
+      "candidates": [],
+      "identifiers_found": [
+        "CVE-2026-42271",
+        "CVE-2026-48710"
+      ],
+      "association_policy": "Exact CVE strings only; no automatic merge, asset impact, or vulnerability validity claim."
+    },
+    {
+      "catalog_item_id": "dce03e32-f459-4dec-bc96-a273f85f0531",
+      "candidates": [],
+      "identifiers_found": [
+        "CVE-2026-5027"
+      ],
+      "association_policy": "Exact CVE strings only; no automatic merge, asset impact, or vulnerability validity claim."
+    },
+    {
+      "catalog_item_id": "e15eae18-2eca-4b02-960b-2e5d8fa9c98c",
+      "candidates": [
+        {
+          "catalog_item_id": "e15eae18-2eca-4b02-960b-2e5d8fa9c98c",
+          "catalog_source_id": "nuclei-cves",
+          "catalog_external_id": "CVE-2026-54236",
+          "catalog_raw_document_id": "d35bd952-8969-4aae-ac10-2e1c46ac5beb",
+          "catalog_evidence_locator": "byte:2095801:2096228",
+          "identifier": "CVE-2026-22778",
+          "event_id": "68a807bb-e7b4-4194-a9cd-688f46929b68",
+          "event_source_id": "github-advisories",
+          "event_external_id": "GHSA-4r2x-xpjr-7cvv",
+          "event_title": "vLLM has RCE In Video Processing",
+          "event_revision": 1,
+          "event_withdrawn": false,
+          "match_type": "exact_cve_identifier",
+          "confidence": 1.0,
+          "review_status": "candidate_requires_human_review",
+          "source_metadata_only": true,
+          "does_not_prove_vulnerability": true
+        },
+        {
+          "catalog_item_id": "e15eae18-2eca-4b02-960b-2e5d8fa9c98c",
+          "catalog_source_id": "nuclei-cves",
+          "catalog_external_id": "CVE-2026-54236",
+          "catalog_raw_document_id": "d35bd952-8969-4aae-ac10-2e1c46ac5beb",
+          "catalog_evidence_locator": "byte:2095801:2096228",
+          "identifier": "CVE-2026-22778",
+          "event_id": "f5e72aff-6470-4832-a3be-fa46a38a79ea",
+          "event_source_id": "vllm-vendor",
+          "event_external_id": "GHSA-4r2x-xpjr-7cvv",
+          "event_title": "vLLM RCE In Video Processing",
+          "event_revision": 1,
+          "event_withdrawn": false,
+          "match_type": "exact_cve_identifier",
+          "confidence": 1.0,
+          "review_status": "candidate_requires_human_review",
+          "source_metadata_only": true,
+          "does_not_prove_vulnerability": true
+        },
+        {
+          "catalog_item_id": "e15eae18-2eca-4b02-960b-2e5d8fa9c98c",
+          "catalog_source_id": "nuclei-cves",
+          "catalog_external_id": "CVE-2026-54236",
+          "catalog_raw_document_id": "d35bd952-8969-4aae-ac10-2e1c46ac5beb",
+          "catalog_evidence_locator": "byte:2095801:2096228",
+          "identifier": "CVE-2026-54236",
+          "event_id": "111adf0a-1931-4387-a510-dcc3ee8aed7b",
+          "event_source_id": "vllm-vendor",
+          "event_external_id": "GHSA-hgg8-fqqc-vfmw",
+          "event_title": "vLLM: incomplete CVE-2026-22778 fix leaks PIL repr addresses via Anthropic router (CWE-532)",
+          "event_revision": 1,
+          "event_withdrawn": false,
+          "match_type": "exact_cve_identifier",
+          "confidence": 1.0,
+          "review_status": "candidate_requires_human_review",
+          "source_metadata_only": true,
+          "does_not_prove_vulnerability": true
+        },
+        {
+          "catalog_item_id": "e15eae18-2eca-4b02-960b-2e5d8fa9c98c",
+          "catalog_source_id": "nuclei-cves",
+          "catalog_external_id": "CVE-2026-54236",
+          "catalog_raw_document_id": "d35bd952-8969-4aae-ac10-2e1c46ac5beb",
+          "catalog_evidence_locator": "byte:2095801:2096228",
+          "identifier": "CVE-2026-54236",
+          "event_id": "74c83a4f-c199-4632-93e5-4399c1d502b0",
+          "event_source_id": "github-advisories",
+          "event_external_id": "GHSA-hgg8-fqqc-vfmw",
+          "event_title": "vLLM: incomplete CVE-2026-22778 fix leaks PIL repr addresses via Anthropic router",
+          "event_revision": 1,
+          "event_withdrawn": false,
+          "match_type": "exact_cve_identifier",
+          "confidence": 1.0,
+          "review_status": "candidate_requires_human_review",
+          "source_metadata_only": true,
+          "does_not_prove_vulnerability": true
+        }
+      ],
+      "identifiers_found": [
+        "CVE-2026-22778",
+        "CVE-2026-54236"
+      ],
+      "association_policy": "Exact CVE strings only; no automatic merge, asset impact, or vulnerability validity claim."
+    },
+    {
+      "catalog_item_id": "13af2a25-ff16-48f6-a1cf-3350e16c44bd",
+      "candidates": [],
+      "identifiers_found": [
+        "CVE-2026-55450"
+      ],
+      "association_policy": "Exact CVE strings only; no automatic merge, asset impact, or vulnerability validity claim."
+    },
+    {
+      "catalog_item_id": "cbd52763-61ee-4f0b-a674-b9204f98edc5",
+      "candidates": [],
+      "identifiers_found": [
+        "CVE-2026-9103"
+      ],
+      "association_policy": "Exact CVE strings only; no automatic merge, asset impact, or vulnerability validity claim."
+    },
+    {
+      "catalog_item_id": "3d26346c-8b8f-4902-909a-e276a82110e6",
+      "candidates": [
+        {
+          "catalog_item_id": "3d26346c-8b8f-4902-909a-e276a82110e6",
+          "catalog_source_id": "nuclei-cves",
+          "catalog_external_id": "CVE-2026-9198",
+          "catalog_raw_document_id": "d35bd952-8969-4aae-ac10-2e1c46ac5beb",
+          "catalog_evidence_locator": "byte:2155651:2156102",
+          "identifier": "CVE-2026-9198",
+          "event_id": "445a2a47-ce62-4821-ae37-9f71259cc153",
+          "event_source_id": "cisa-kev",
+          "event_external_id": "CVE-2026-9198",
+          "event_title": "IBM Langflow Code Injection Vulnerability",
+          "event_revision": 4,
+          "event_withdrawn": false,
+          "match_type": "exact_cve_identifier",
+          "confidence": 1.0,
+          "review_status": "candidate_requires_human_review",
+          "source_metadata_only": true,
+          "does_not_prove_vulnerability": true
+        }
+      ],
+      "identifiers_found": [
+        "CVE-2026-9198"
+      ],
+      "association_policy": "Exact CVE strings only; no automatic merge, asset impact, or vulnerability validity claim."
+    }
+  ]
+}

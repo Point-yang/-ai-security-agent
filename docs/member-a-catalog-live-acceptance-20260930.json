@@ -1,0 +1,31 @@
+{
+  "version": "catalog-live-acceptance-v1",
+  "date": "2026-09-30",
+  "scope": "one-page live source metadata, not full-text or vulnerability finding",
+  "live_items_by_source": {
+    "hf-blog": 1,
+    "nist-ai-rmf": 1,
+    "federal-register-ai": 2,
+    "nuclei-cves": 22
+  },
+  "current_catalog_items": 40,
+  "live_catalog_items": 26,
+  "replay_catalog_items": 14,
+  "catalog_revisions_verified": 63,
+  "catalog_revisions_failed": 0,
+  "operational_snapshot": {
+    "configured_targets": 10,
+    "targets_fresh": 10,
+    "targets_failed": 0,
+    "status": "passed"
+  },
+  "backup": {
+    "path": "data/backups/before-live-catalog-20260930.sqlite",
+    "sha256": "5545740c957710b863467dfa09db207307cbe6f62bdb0ce96b5d77c0576554a9",
+    "integrity": "ok"
+  },
+  "tests_passed": 219,
+  "full_text_collected": false,
+  "poc_template_downloaded_or_executed": false,
+  "independent_semantic_link_to_cve_verified": false
+}

@@ -1,0 +1,8 @@
+{
+  "targets": [
+    {"id": "hf-blog-index", "source": "hf-blog", "interval_seconds": 21600, "max_pages": 1, "enabled": false},
+    {"id": "nist-ai-rmf-100-1", "source": "nist-ai-rmf", "interval_seconds": 86400, "max_pages": 1, "enabled": false},
+    {"id": "federal-register-ai-index", "source": "federal-register-ai", "query": "artificial intelligence", "interval_seconds": 21600, "page_size": 20, "max_pages": 1, "enabled": false},
+    {"id": "nuclei-cve-index", "source": "nuclei-cves", "interval_seconds": 21600, "max_pages": 1, "enabled": false}
+  ]
+}

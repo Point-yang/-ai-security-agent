@@ -1,0 +1,23 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:593eb263-a0f6-4bdb-915e-475bb8bf39a4",
+  "version": 1,
+  "metadata": {
+    "component": {
+      "type": "application",
+      "name": "FICTIONAL-defense-demo-asset",
+      "version": "1.0.0",
+      "description": "虚构答辩演示资产，不代表实际部署或漏洞复现"
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "pkg:pypi/vllm@0.22.0",
+      "name": "vllm",
+      "version": "0.22.0",
+      "purl": "pkg:pypi/vllm@0.22.0"
+    }
+  ]
+}

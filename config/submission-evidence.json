@@ -1,0 +1,73 @@
+{
+  "schema_version": "submission-evidence-v1",
+  "release": "prelim-final-20261018",
+  "as_of": "2026-10-18",
+  "gold": {
+    "method": "project_ai_review",
+    "records": 127,
+    "independent": false,
+    "human_review": false
+  },
+  "enrichment": {
+    "evaluated_on": "2026-10-09",
+    "records": 24,
+    "facts": 99,
+    "precision": 1.0,
+    "recall": 1.0,
+    "independent": false,
+    "scope": "frozen_source_fact_regression"
+  },
+  "complex_qa": {
+    "evaluated_on": "2026-10-13",
+    "cases": 6,
+    "modes": [
+      {
+        "key": "rag_hybrid",
+        "label": "普通 RAG",
+        "strict_passes": 0,
+        "strict_accuracy": 0.0,
+        "fact_recall": 0.043478260869565216,
+        "mean_elapsed_ms": 10384.573166666667
+      },
+      {
+        "key": "workflow_hybrid",
+        "label": "固定工作流",
+        "strict_passes": 2,
+        "strict_accuracy": 0.3333333333333333,
+        "fact_recall": 0.30434782608695654,
+        "mean_elapsed_ms": 7103.939166666667
+      },
+      {
+        "key": "team_hybrid",
+        "label": "多角色 Agent",
+        "strict_passes": 0,
+        "strict_accuracy": 0.0,
+        "fact_recall": 0.43478260869565216,
+        "mean_elapsed_ms": 17873.744
+      }
+    ],
+    "agent_gain_proven": false
+  },
+  "latest_trial": {
+    "evaluated_on": "2026-10-15",
+    "status": "planner_timeout",
+    "unknown_calls": 1,
+    "new_answers": 0,
+    "total_tokens": null,
+    "total_cost": null
+  },
+  "sources": [
+    {
+      "file": "evidence/member-a-monitoring-enrichment-evaluation-20261009/frozen-enrichment.json",
+      "sha256": "0969790f15a0fc24b06fc66598d62430a0e11f9f4da9d3e4e663fb05e8d13b0e"
+    },
+    {
+      "file": "evidence/agent-stage6-release-20261013/report.json",
+      "sha256": "0b66d8f73b21d6b5a7e229910e62efb5d5394962e5604eadb5a8f3d9c26d54f7"
+    },
+    {
+      "file": "evidence/agent-allocation-development-20261015/execution-audit.json",
+      "sha256": "c3fbea9b71846f92703a408c8c26cd20afd8b8abe1c5416a71a0c12542b8adf6"
+    }
+  ]
+}

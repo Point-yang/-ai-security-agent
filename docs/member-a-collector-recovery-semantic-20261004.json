@@ -1,0 +1,7 @@
+{
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "model_digest": "546177efd53c466b176e9a51e76e73e11d4bdbab28a33f09c3d3dea4a4479f83",
+  "dimension": 384,
+  "chunks": 4278,
+  "changed": 262
+}

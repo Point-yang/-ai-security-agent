@@ -1,0 +1,15 @@
+{
+  "schema_version": "evidence-audit-v1",
+  "status": "passed",
+  "events": 509,
+  "revisions": 509,
+  "raw_documents": 28,
+  "field_evidence_total": 3370,
+  "field_evidence_verified": 3370,
+  "field_evidence_failed": 0,
+  "dispositions": {
+    "current": 509
+  },
+  "failure_samples": [],
+  "scope": "stored raw bytes, SHA-256, JSON Pointer and captured field value equality"
+}

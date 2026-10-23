@@ -1,0 +1,14 @@
+{
+  "schema_version": "lexical-v4-context",
+  "events": 672,
+  "changed_events": 77,
+  "unchanged_events": 595,
+  "created_chunks": 704,
+  "replaced_chunks": 620,
+  "removed_orphan_chunks": 0,
+  "chunks": 3214,
+  "pools": {
+    "candidate": 1183,
+    "formal": 2031
+  }
+}

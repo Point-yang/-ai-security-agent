@@ -1,0 +1,30 @@
+{
+  "answer": "vllm 官方公告包信息显示，pip 包 vllm 的受影响版本范围为 >=0.10.1,<0.14.0，且其 patched_versions 字段为 0.14.0。 [3]\n\nGitHub Advisories 包信息显示，pip 包 vllm 的受影响版本范围为 >= 0.10.1, < 0.14.0，其 first_patched_version 为 0.14.0（与 patched_versions 字段含义不同，此处为来源原始表达）。 [4]\n\nvllm 官方描述另称受影响版本为所有在 vllm/model_executor/models/registry.py 中解析 auto_map 条目且未检查 trust_remote_code 的版本（至少包括当前 main），与包字段给出的版本区间表述不同，二者存在来源差异。 [7]\n\nGitHub Advisories 描述同样称受影响版本为所有在 registry.py 中解析 auto_map 且未检查 trust_remote_code 的版本（至少当前 main），并未限定为上述包版本区间。 [8]\n\n漏洞机理为：vLLM 在模型解析时无条件遍历模型配置中的 auto_map 条目并调用 try_get_class_from_dynamic_module，进而委托 Transformers 的 get_class_from_dynamic_module 执行模块代码；该行为在 trust_remote_code 为 false 时依然发生。 [7]\n\nvllm 官方描述指出修复关联 PR 32194，并列出相关代码位置 registry.py:856 与 dynamic_module.py:13。 [5]\n\n引用列表中包含 v0.14.0 发布页链接与修复 PR、commit 链接，但来源 references 仅为链接，不代表已阅读链接正文或补丁已独立验证。 [10]\n\n来源中未发现 null 的修复字段，不应将缺失推断为无修复；上述版本结论仅为来源声明，不代表具体资产已确认受影响或漏洞已复现。 [3]",
+  "generation": {
+    "provider": "deepseek",
+    "status": "completed",
+    "requested_model": "deepseek-v4-flash",
+    "prompt_version": "deepseek-grounded-context-v2",
+    "citation_checks_passed": true,
+    "semantic_support_verified": false,
+    "input_sha256": "caf0a86e47103135f7117a762259b8218791f5dcdb9d66357f9ba7bd1addaecb",
+    "evidence_chars": 5076,
+    "usage": {
+      "prompt_tokens": 3392,
+      "completion_tokens": 883,
+      "total_tokens": 4275,
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 3392
+    },
+    "returned_model": "deepseek-flash",
+    "elapsed_ms": 3282.406
+  },
+  "generation_model": "deepseek-flash",
+  "cost": {
+    "external_requests": 1,
+    "billed_tokens": 4275,
+    "api_usd": null,
+    "local_compute_usd": null
+  },
+  "elapsed_ms": 4518.968
+}

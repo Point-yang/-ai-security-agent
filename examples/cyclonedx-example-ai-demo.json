@@ -1,0 +1,22 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:11111111-2222-4333-8444-555555555555",
+  "version": 1,
+  "metadata": {
+    "component": {
+      "type": "application",
+      "name": "example-ai-demo-service",
+      "version": "1.0.0"
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "example-ai-demo",
+      "version": "1.1.0",
+      "purl": "pkg:pypi/example-ai-demo@1.1.0",
+      "bom-ref": "example-ai-demo-library"
+    }
+  ]
+}

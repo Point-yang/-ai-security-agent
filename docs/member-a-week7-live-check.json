@@ -1,0 +1,33 @@
+{
+  "checked_at": "2026-09-24T07:57:45.433054+00:00",
+  "url": "http://127.0.0.1:8002",
+  "results": {
+    "/health": {
+      "status": "ok",
+      "events": 669,
+      "version": "0.11.0",
+      "http_writes_enabled": false
+    },
+    "/health/ready": {
+      "status": "ready",
+      "checks": {
+        "database": true,
+        "monitor_config": true,
+        "raw_storage": true
+      }
+    },
+    "/api/v1/rag/status": {
+      "status": "ready",
+      "chunks": 3120,
+      "current_vectors": 3120
+    },
+    "/api/v1/operations/status": {
+      "status": "passed",
+      "schema_version": "operations-v1"
+    },
+    "/api/v1/comparisons?include_inactive=true": {
+      "total": 175,
+      "has_lifecycle_fields": true
+    }
+  }
+}

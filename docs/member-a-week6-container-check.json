@@ -1,0 +1,24 @@
+{
+  "checked_at": "2026-09-22T11:07:03.063505+00:00",
+  "status": "passed",
+  "project": "zhidu-week6-check",
+  "scope": "isolated API + PostgreSQL containers, synthetic replay fixture",
+  "checks": {
+    "ready_before": true,
+    "version": true,
+    "import_fixture": true,
+    "deduplication": true,
+    "metrics": true,
+    "operations_page": true,
+    "non_root": true,
+    "read_only_rootfs": true,
+    "restart_policy": true,
+    "automatic_restart": true,
+    "restart_count_incremented": true,
+    "data_survived_api_crash": true
+  },
+  "image_id": "sha256:e677c94d4ae1b5e3f6a24fe0fcaa6e69861e515c209e4c21d9c568bf8d9c133c",
+  "python_base": "public.ecr.aws/docker/library/python:3.12-slim",
+  "api_container_build_verified": true,
+  "long_running_monitor_sla_verified": false
+}

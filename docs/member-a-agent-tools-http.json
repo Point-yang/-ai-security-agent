@@ -1,0 +1,19 @@
+{
+  "ready_http": 200,
+  "contracts_http": 200,
+  "contracts": [
+    "asset_exposure",
+    "compare_sources",
+    "event_details",
+    "retrieve",
+    "verify_evidence"
+  ],
+  "preview_http": 200,
+  "step_statuses": [
+    "completed",
+    "completed"
+  ],
+  "comparison_items": 3,
+  "unauthorized_http": 401,
+  "status": "passed"
+}

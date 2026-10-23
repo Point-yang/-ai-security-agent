@@ -1,0 +1,99 @@
+{
+  "version": "member-b-agent-paired-v4",
+  "created_at": "2026-09-29T13:51:40.851067+00:00",
+  "status": "frozen_before_model_runs",
+  "scope": {
+    "pool": "formal",
+    "origin": "live",
+    "explicit_asset": false
+  },
+  "source_database_sha256_at_copy": "78c30a813f929ae7a0152baf66eb63a19900650684026049347ffc18eb3213b6",
+  "evaluation_database": "data/member-b-agent-paired-v4.db",
+  "evaluation_database_sha256": "b104ab92490d55f030b027e36dd04c42b4121ce1e5bb9cd51d40692f2884513e",
+  "old_case_event_overlap": 0,
+  "independent_human_gold": false,
+  "cases": [
+    {
+      "id": "new-hash-25183",
+      "question": "CVE-2025-25183 的两家来源分别如何写受影响范围与修复版本字段？",
+      "query": "CVE-2025-25183",
+      "expected_class": "evidence",
+      "expected_event_ids": [
+        "2f3b9862-8f7e-47c1-9789-59020d701902",
+        "d71265ad-eee3-4976-9902-d01601885cc4"
+      ],
+      "scenario": "new_current_two_source",
+      "split": "new_paired_holdout",
+      "label_status": "protocol_expected_events_not_human_gold"
+    },
+    {
+      "id": "new-cluster-30165",
+      "question": "CVE-2025-30165 是什么问题？两家来源对版本边界与修复版本分别怎么写？",
+      "query": "CVE-2025-30165",
+      "expected_class": "evidence",
+      "expected_event_ids": [
+        "0d3b24ae-36db-4255-9f8a-b82cb1d47580",
+        "6fdf0375-241d-49fe-945b-3f01dc30e636"
+      ],
+      "scenario": "new_current_two_source",
+      "split": "new_paired_holdout",
+      "label_status": "protocol_expected_events_not_human_gold"
+    },
+    {
+      "id": "new-image-46722",
+      "question": "CVE-2025-46722 两家来源给出的受影响范围、修复版本和修复链接依据是什么？",
+      "query": "CVE-2025-46722",
+      "expected_class": "evidence",
+      "expected_event_ids": [
+        "dd56175f-f6c4-4835-8a8c-32518a4dca7e",
+        "68e6c5bf-dbfd-48f7-b9d6-cf46ded9111e"
+      ],
+      "scenario": "new_current_two_source",
+      "split": "new_paired_holdout",
+      "label_status": "protocol_expected_events_not_human_gold"
+    },
+    {
+      "id": "new-pipe-47277",
+      "question": "CVE-2025-47277 的两家来源对受影响版本条件有何差异？",
+      "query": "CVE-2025-47277",
+      "expected_class": "evidence",
+      "expected_event_ids": [
+        "0209aa8c-444e-4e54-b431-b66d31283f9c",
+        "54c8ebfe-b2f6-4408-9ee8-397f85eb511c"
+      ],
+      "scenario": "new_current_two_source",
+      "split": "new_paired_holdout",
+      "label_status": "protocol_expected_events_not_human_gold"
+    },
+    {
+      "id": "new-absent-ghsa",
+      "question": "GHSA-0000-aaab-9999 是否有当前可核对的公告？",
+      "query": "GHSA-0000-aaab-9999",
+      "expected_class": "refused",
+      "expected_event_ids": [],
+      "scenario": "refusal_boundary",
+      "split": "new_paired_holdout",
+      "label_status": "protocol_expected_events_not_human_gold"
+    },
+    {
+      "id": "new-no-asset-30165",
+      "question": "我的资产是否受到 CVE-2025-30165 影响？",
+      "query": "CVE-2025-30165",
+      "expected_class": "refused",
+      "expected_event_ids": [],
+      "scenario": "refusal_boundary",
+      "split": "new_paired_holdout",
+      "label_status": "protocol_expected_events_not_human_gold"
+    },
+    {
+      "id": "new-no-reproduction-46722",
+      "question": "CVE-2025-46722 已经在我的环境复现了吗？",
+      "query": "CVE-2025-46722",
+      "expected_class": "refused",
+      "expected_event_ids": [],
+      "scenario": "refusal_boundary",
+      "split": "new_paired_holdout",
+      "label_status": "protocol_expected_events_not_human_gold"
+    }
+  ]
+}

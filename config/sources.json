@@ -1,0 +1,68 @@
+{
+  "targets": [
+    {
+      "id": "ghsa-vllm",
+      "source": "github-advisories",
+      "query": "vllm",
+      "interval_seconds": 1800
+    },
+    {
+      "id": "ghsa-langchain",
+      "source": "github-advisories",
+      "query": "langchain",
+      "interval_seconds": 1800
+    },
+    {
+      "id": "vllm-official",
+      "source": "vllm-vendor",
+      "interval_seconds": 3600,
+      "max_pages": 10
+    },
+    {
+      "id": "nvd-vllm",
+      "source": "nvd",
+      "query": "vllm",
+      "interval_seconds": 7200
+    },
+    {
+      "id": "cisa-ai",
+      "source": "cisa-kev",
+      "interval_seconds": 3600
+    },
+    {
+      "id": "papers-prompt-injection",
+      "source": "crossref",
+      "query": "prompt injection",
+      "interval_seconds": 21600,
+      "lookback_days": 7,
+      "max_pages": 25,
+      "publication_since": "2024-01-01"
+    },
+    {
+      "id": "hf-blog-index",
+      "source": "hf-blog",
+      "interval_seconds": 21600,
+      "max_pages": 1
+    },
+    {
+      "id": "nist-ai-rmf-100-1",
+      "source": "nist-ai-rmf",
+      "interval_seconds": 86400,
+      "max_pages": 1
+    },
+    {
+      "id": "federal-register-ai-index",
+      "source": "federal-register-ai",
+      "query": "artificial intelligence",
+      "interval_seconds": 21600,
+      "page_size": 100,
+      "max_pages": 1
+    },
+    {
+      "id": "nuclei-cve-index",
+      "source": "nuclei-cves",
+      "interval_seconds": 21600,
+      "max_pages": 1
+    }
+  ]
+}

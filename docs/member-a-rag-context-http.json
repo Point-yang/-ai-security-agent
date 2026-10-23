@@ -1,0 +1,18 @@
+{
+  "http_status": 200,
+  "generation_status": "disabled",
+  "external_requests": 0,
+  "context_version": "evidence-context-v1",
+  "citations": 12,
+  "fields": [
+    "description",
+    "external_id",
+    "packages",
+    "references",
+    "title"
+  ],
+  "embedding_status": "ready",
+  "vectors": 3214,
+  "chunks": 3214,
+  "status": "passed"
+}

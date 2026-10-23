@@ -1,0 +1,17 @@
+{
+  "status": "restored",
+  "destination": "data/restores/week8-drill-20260926",
+  "backup_manifest_sha256": "5470aa00ea3c3dcf1f3973c4adb7a7c885613c25098c12075fdb555f0e9c4302",
+  "counts": {
+    "events": 672,
+    "event_revisions": 802,
+    "raw_documents": 118,
+    "search_chunks": 3130,
+    "chunk_embeddings": 3130,
+    "catalog_items": 37,
+    "rag_runs": 4
+  },
+  "restored_files_verified": 348,
+  "model_path_relocated": true,
+  "credentials_restored": false
+}

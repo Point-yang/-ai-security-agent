@@ -1,0 +1,21 @@
+{
+  "schema_version": "structured-v2",
+  "events": 574,
+  "changed_events": 574,
+  "unchanged_events": 0,
+  "removed_orphans": 0,
+  "coverage": 1.0,
+  "with_cvss": 174,
+  "with_version_scope": 146,
+  "with_cpe_scope": 7,
+  "entities": 877,
+  "quality_flag_counts": {
+    "catalog_scope_only": 7,
+    "metadata_only": 387,
+    "missing_affected_scope": 27,
+    "missing_cpe_scope": 27,
+    "missing_cvss": 6,
+    "unknown_package_identity": 2,
+    "unparsed_version_range": 8
+  }
+}

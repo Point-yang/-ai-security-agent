@@ -1,0 +1,19 @@
+{
+  "checked_at": "2026-10-07T02:09:10.291Z",
+  "status": "passed",
+  "isolated": false,
+  "main_database_mutated": false,
+  "cloud_generation": false,
+  "source_summary_at_research": "10 个目标：最近轮次成功 6 · 失败 4 · 当前超期 4",
+  "detail_navigation_clicks": 1,
+  "desktop_width": 1365,
+  "mobile_width": 375,
+  "js_errors": [],
+  "write_requests": [],
+  "screenshots": [
+    "01-research-status.png",
+    "02-main-targets-desktop.png",
+    "03-main-window.png",
+    "04-main-targets-mobile.png"
+  ]
+}

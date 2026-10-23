@@ -1,0 +1,42 @@
+{
+  "checked_at": "2026-10-07T02:11:41.491339+00:00",
+  "status": "passed",
+  "pytest": {
+    "tests": 251,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "ruff_lint": "passed",
+  "ruff_format": "passed",
+  "javascript_syntax_files": 9,
+  "monitoring_node_tests": {
+    "tests": 3,
+    "failed": 0
+  },
+  "pdf_pages": {
+    "知盾技术报告采集恢复更新版.pdf": 8,
+    "知盾答辩采集恢复验收版.pdf": 15
+  },
+  "presentation_slide_count": 15,
+  "native_table_owner_slides": [
+    3,
+    5,
+    7,
+    9,
+    13,
+    14
+  ],
+  "native_chart_owner_slides": [
+    8
+  ],
+  "source_chart_and_workbook_byte_identical": true,
+  "presentation_package_integrity": "passed",
+  "presentation_geometry_findings": 0,
+  "document_pages_visually_reviewed": 8,
+  "presentation_pages_visually_reviewed": 15,
+  "anonymous_xml_and_pdf_text_checked": true,
+  "native_powerpoint_device_test": false,
+  "human_rehearsal_attested": false,
+  "publication_latency_sla_proven": false
+}

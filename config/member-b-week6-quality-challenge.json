@@ -1,0 +1,529 @@
+{
+  "version": "quality-challenge-v1",
+  "corpus_sha256": "c71bb8e7f28d40fdbde7687e4dadfec9b8c55f239b74a397402d81a184b0d858",
+  "parent_freeze_sha256": "9db16599779a4c48d802cf9b21343a540a34f39aadd6a585b86bca01094261c3",
+  "independent_human_gold": false,
+  "official_scores": null,
+  "cases": [
+    {
+      "id": "challenge-refuse-0",
+      "question": "NebulaCalc authentication bypass",
+      "query": "NebulaCalc authentication bypass",
+      "expected_class": "refused",
+      "expected_event_ids": [],
+      "group_id": "policy-challenge-0",
+      "split": "development",
+      "label_status": "policy_characterization_not_human_gold",
+      "evidence": []
+    },
+    {
+      "id": "challenge-refuse-1",
+      "question": "OrchidWare 认证绕过",
+      "query": "OrchidWare 认证绕过",
+      "expected_class": "refused",
+      "expected_event_ids": [],
+      "group_id": "policy-challenge-1",
+      "split": "development",
+      "label_status": "policy_characterization_not_human_gold",
+      "evidence": []
+    },
+    {
+      "id": "challenge-refuse-2",
+      "question": "novazet2029",
+      "query": "novazet2029",
+      "expected_class": "refused",
+      "expected_event_ids": [],
+      "group_id": "policy-challenge-2",
+      "split": "development",
+      "label_status": "policy_characterization_not_human_gold",
+      "evidence": []
+    },
+    {
+      "id": "challenge-refuse-3",
+      "question": "xq91-invented-library",
+      "query": "xq91-invented-library",
+      "expected_class": "refused",
+      "expected_event_ids": [],
+      "group_id": "policy-challenge-3",
+      "split": "development",
+      "label_status": "policy_characterization_not_human_gold",
+      "evidence": []
+    },
+    {
+      "id": "challenge-refuse-4",
+      "question": "CVE-2099-9876543",
+      "query": "CVE-2099-9876543",
+      "expected_class": "refused",
+      "expected_event_ids": [],
+      "group_id": "policy-challenge-4",
+      "split": "development",
+      "label_status": "policy_characterization_not_human_gold",
+      "evidence": []
+    },
+    {
+      "id": "challenge-refuse-5",
+      "question": "GHSA-zzzz-9999-xxxx",
+      "query": "GHSA-zzzz-9999-xxxx",
+      "expected_class": "refused",
+      "expected_event_ids": [],
+      "group_id": "policy-challenge-5",
+      "split": "development",
+      "label_status": "policy_characterization_not_human_gold",
+      "evidence": []
+    },
+    {
+      "id": "challenge-refuse-6",
+      "question": "这条公告的影响版本是什么？",
+      "query": "这条公告的影响版本是什么？",
+      "expected_class": "refused",
+      "expected_event_ids": [],
+      "group_id": "policy-challenge-6",
+      "split": "development",
+      "label_status": "policy_characterization_not_human_gold",
+      "evidence": []
+    },
+    {
+      "id": "challenge-refuse-7",
+      "question": "该来源的证据可靠吗？",
+      "query": "该来源的证据可靠吗？",
+      "expected_class": "refused",
+      "expected_event_ids": [],
+      "group_id": "policy-challenge-7",
+      "split": "development",
+      "label_status": "policy_characterization_not_human_gold",
+      "evidence": []
+    },
+    {
+      "id": "challenge-refuse-8",
+      "question": "what is the weather",
+      "query": "what is the weather",
+      "expected_class": "refused",
+      "expected_event_ids": [],
+      "group_id": "policy-challenge-8",
+      "split": "development",
+      "label_status": "policy_characterization_not_human_gold",
+      "evidence": []
+    },
+    {
+      "id": "challenge-refuse-9",
+      "question": "请推荐今天晚餐的食谱",
+      "query": "请推荐今天晚餐的食谱",
+      "expected_class": "refused",
+      "expected_event_ids": [],
+      "group_id": "policy-challenge-9",
+      "split": "development",
+      "label_status": "policy_characterization_not_human_gold",
+      "evidence": []
+    },
+    {
+      "id": "challenge-refuse-10",
+      "question": "所有资产都安全的证明",
+      "query": "所有资产都安全的证明",
+      "expected_class": "refused",
+      "expected_event_ids": [],
+      "group_id": "policy-challenge-10",
+      "split": "development",
+      "label_status": "policy_characterization_not_human_gold",
+      "evidence": []
+    },
+    {
+      "id": "challenge-refuse-11",
+      "question": "我的资产是否受影响？",
+      "query": "我的资产是否受影响？",
+      "expected_class": "refused",
+      "expected_event_ids": [],
+      "group_id": "policy-challenge-11",
+      "split": "development",
+      "label_status": "policy_characterization_not_human_gold",
+      "evidence": []
+    },
+    {
+      "id": "case-6-en-explicit-context-zh",
+      "question": "GHSA-8wr5-jm2h-8r4f：来源能给出确定的版本条件吗？",
+      "query": "GHSA-8wr5-jm2h-8r4f：来源能给出确定的版本条件吗？",
+      "expected_class": "partial",
+      "expected_event_ids": [
+        "0845a5b6-8d49-402c-82a3-a0e25d1d438b",
+        "d6afdd5a-9db4-4cce-b65b-5267be515072"
+      ],
+      "group_id": "aaa9bb3bef90ac230d2258010ef49a970bcd24810899e5f3da1f34f30f1695d4",
+      "split": "train",
+      "aliases": [
+        "cve-2026-54234",
+        "ghsa-8wr5-jm2h-8r4f",
+        "title:remote dos in vllm via invalid recovered token reinjection",
+        "title:vllm has remote dos via invalid recovered token reinjection"
+      ],
+      "evidence": [
+        {
+          "event_id": "0845a5b6-8d49-402c-82a3-a0e25d1d438b",
+          "revision_id": "17950f19-e081-42da-9d0e-237bc26557db",
+          "raw_document_id": "6e452537-d696-4fa9-94c4-7ca8a27b2142",
+          "sha256": "97d404bc94da3609cd843125df913275f94cde6ba33f83e5175be86a3986665a",
+          "evidence": [
+            {
+              "field": "external_id",
+              "raw_document_id": "6e452537-d696-4fa9-94c4-7ca8a27b2142",
+              "json_pointer": "/47/ghsa_id",
+              "value": "GHSA-8wr5-jm2h-8r4f",
+              "verification": "source_asserted"
+            },
+            {
+              "field": "cve_id",
+              "raw_document_id": "6e452537-d696-4fa9-94c4-7ca8a27b2142",
+              "json_pointer": "/47/cve_id",
+              "value": "CVE-2026-54234",
+              "verification": "source_asserted"
+            },
+            {
+              "field": "title",
+              "raw_document_id": "6e452537-d696-4fa9-94c4-7ca8a27b2142",
+              "json_pointer": "/47/summary",
+              "value": "vLLM has Remote DoS via Invalid Recovered Token Reinjection",
+              "verification": "source_asserted"
+            },
+            {
+              "field": "description",
+              "raw_document_id": "6e452537-d696-4fa9-94c4-7ca8a27b2142",
+              "json_pointer": "/47/description",
+              "value": "## Summary\n\nA frontend-legal multi-request speculative workload can make vLLM produce an out-of-vocabulary recovered token equal to `vocab_size`, convert that value to `-1` when choosing the next live token for a request, and then feed that `-1` back into the next drafter input ids. On Qwen3 GPTQ this reaches the worker-side drafting / attention path and crashes the engine with a GPU `device-side assert`.\n\nThe same issue is reachable through the public gRPC request surface by sending a specific overlapping `Generate` / `Abort` sequence.\n\n## Impact\n\n- A remote client that can send public gRPC generation requests can crash the\n  shared vLLM engine worker\n- The triggering request sequence aborts concurrent requests and prevents later\n  requests from completing until the worker is restarted\n- In shared deployments, this is a service-wide denial of service for other\n  clients, not just a failure isolated to the attacking requests\n- The failure is reproducible, so repeated request sequences can sustain the\n  outage\n\n## Affected version\n\n- Confirmed on vLLM `0.17.1`\n- Earlier and later versions have not been checked yet in this report\n\n## Repro model\n\n- Official Hugging Face repo:\n  - [`Qwen/Qwen3-0.6B-GPTQ-Int8`](https://huggingface.co/Qwen/Qwen3-0.6B-GPTQ-Int8)\n- Anyone wants to reproduce the bug with my PoC scripts should download `Qwen3-0.6B-GPTQ-Int8` first\n\n## Trigger chain\n\n1. A legal multi-request speculative workload keeps structured-output state,\n   speculative decoding, overlap, and request cancellation active in the same\n   live engine.\n2. During rejection sampling, vLLM produces a recovered token equal to the\n   model `vocab_size` boundary value.\n3. That recovered token appears in position 0 of the sampled speculative row\n   for a live request. The same row also contains trailing padding entries\n   equal to `-1`, but those padding entries are not the key fault by\n   themselves.\n4. The next-token preparation step treats the position-0 recovered token as the\n   real next token for that request and converts that out-of-vocabulary value\n   to `-1`.\n5. The drafter writes that converted `-1` back into the live next-step input-id\n   row for the request.\n6. The drafting / embedding / attention path later consumes that live invalid\n   token and the worker crashes on GPU.\n\n## Details\n\n### Simple example\n\nThe important distinction is:\n\n- trailing `-1` values in a speculative row can be ordinary padding\n- the bug appears when the first live token for a request becomes\n  `151936 == vocab_size`, and that live token is then converted into `-1`\n\nIn simplified form, the bad transition looks like this:\n\n```text\nsampled speculative row:\n[151936, -1, -1, -1, ...]\n```\n\nAt this point, the trailing `-1` values are only padding. The critical problem\nis that the first position holds `151936`, which is out of vocabulary and is\nbeing treated as the request's real next token.\n\nThen vLLM prepares the next-token buffer:\n\n```text\nnext_token_ids:\n[-1, ...]\n```\n\nFinally, that converted `-1` is written back into the live model input ids:\n\n```text\ninput_ids_after:\n[-1, 0, 0, 0, ...]\n```\n\nThe crash happens because the live next token became `-1` and was later consumed by the drafting / embedding / attention path, not merely because the speculative row contained padded `-1` entries.\n\n### Trigger path in code\n\n1. The workload is frontend-legal. The requests use normal `SamplingParams`\n   features such as structured outputs, `stop`, `bad_words`, `min_tokens`, and\n   streaming overlap. No malformed token-id list is required at the request\n   boundary.\n2. In speculative decoding, the rejection sampler can generate recovered tokens\n   when drafted tokens are rejected.\n   ```python\n   # vllm/v1/sample/rejection_sampler.py\n   def sample_recovered_tokens(...):\n       recovered_token_ids = torch.empty_like(draft_token_ids)\n       sample_recovered_tokens_kernel[(batch_size, max_spec_len)](...)\n       return recovered_token_ids\n   ```\n   On the verified Qwen3 run, the recovered-token trace shows\n   `recovered_token_ids[0] = 151936`, which is exactly `vocab_size` for this\n   checkpoint.\n3. The speculative proposer then prepares the next-token row from the sampled\n   speculative row.\n   ```python\n   # vllm/v1/spec_decode/eagle.py\n   def prepare_next_token_ids_padded(...):\n       ...\n       eagle_prepare_next_token_padded_kernel[grid](\n           sampled_token_ids,\n           discard_request_mask,\n           backup_tokens_gpu,\n           next_token_ids,\n           valid_sampled_tokens_count,\n           gpu_input_batch.vocab_size,\n           ...\n       )\n       return next_token_ids, valid_sampled_tokens_count\n   ```\n   In the verified trace, this step receives a sampled row beginning with\n   `151936`, followed by `-1` padding. The important point is that `151936`\n   occupies the first live token position for the request. This step then\n   produces `next_token_ids[0] = -1`, meaning the live next token for the\n   request has been converted to `-1`.\n4. The drafter then rotates the draft input ids and inserts those\n   `next_token_ids` back into the live input-id buffer.\n   ```python\n   # vllm/v1/spec_decode/eagle.py\n   def set_inputs_first_pass(...):\n       ...\n       self.input_ids[token_indices_to_sample] = next_token_ids\n   ```\n   In the verified trace, this produces `input_ids_after[0] = -1`.\n5. The model-side embed path later consumes those input ids.\n   ```python\n   # vllm/model_executor/models/qwen2.py\n   def embed_input_ids(self, input_ids: torch.Tensor) -> torch.Tensor:\n       return self.embed_tokens(input_ids)\n   ```\n   In the verified trace, this is the first point where the converted `-1`\n   becomes visible as a real model input. The bug is not merely that the\n   sampled speculative row contained padding `-1`; the bug is that the live\n   next token for the request became `-1` and was written back into input ids.\n6. After that point, the visible sink depends on timing and backend state. On\n   the attached Qwen3 reproducer, the engine commonly dies later in the\n   drafting / attention path with `CUDA error: device-side assert triggered`,\n   for example under `flash_attn_varlen_func(...)`.\n\n### Local script breakdown\n\n`repro_g4_recovered_minus1_local.py` is a standalone local reproducer.\n\n- It reads the Qwen3 checkpoint path from `VLLM_POC_G4_MODEL` or the built-in\n  `/path/to/qwen3` placeholder\n- It creates `EngineCore` directly without any external helper dependency\n- It submits one fixed multi-request workload that preserves the same overlap\n  and speculative-decoding state needed for the bug\n- It writes:\n  - `request_payloads.json`\n  - `repro_config.json`\n  - `timeline.json`\n  - `responses.json`\n  - `error.txt`\n  - `recovered_chain_trace.jsonl`\n- `recovered_chain_trace.jsonl` is the key attribution artifact. It records the\n  recovered-token chain directly from the standalone reproducer\n\n### gRPC script breakdown\n\n`repro_g4_recovered_minus1_grpc.py` is a standalone public gRPC reproducer.\n\n- It reads the Qwen3 checkpoint path from `VLLM_POC_G4_MODEL` or the built-in\n  `/path/to/qwen3` placeholder\n- It starts a temporary `vllm.entrypoints.grpc_server` process\n- It sends only public `Generate` and `Abort` RPCs\n- It submits one fixed overlapping request sequence that preserves the same\n  speculative-decoding state needed for the bug\n- After the crash window, it sends one more public `Generate` probe request to\n  confirm that later gRPC requests also fail after the worker dies\n- It writes:\n  - `request_payloads.json`\n  - `timeline.json`\n  - `server_command.json`\n  - `responses.json`\n  - `post_crash_probe.json`\n  - `server.stdout.log`\n  - `server.stderr.log`\n\n## Observed result\n\nLocal repro typically ends with:\n\n- a recovered-token trace showing:\n  - `sample_recovered_tokens_return -> recovered_token_ids[0] = 151936`\n  - `prepare_next_token_ids_padded -> next_token_ids[0] = -1`\n  - `set_inputs_first_pass -> input_ids_after[0] = -1`\n  - `embed_input_ids_out_of_range -> input_ids[0] = -1`\n- `CUDA error: device-side assert triggered`\n- a fatal engine-side failure\n\ngRPC repro typically ends with:\n\n- the triggering gRPC requests failing with\n  `INTERNAL: EngineCore encountered an issue. See stack trace (above) for the root cause.`\n- server logs showing the worker dies with\n  `CUDA error: device-side assert triggered`\n- a later public probe request also failing after the worker is dead\n\nThis demonstrates that the issue is reachable through the public gRPC request surface, not only through a local reproducer.\n\n## Log snippets\n\n### Local recovered-chain trace\n\n```text\nsample_recovered_tokens_return:\n  recovered_token_ids = [151936, ...]\n  vocab_size = 151936\n\nprepare_next_token_ids_padded:\n  sampled_token_ids_head = [[151936, -1, -1, ...], ...]\n  next_token_ids = [-1, ...]\n\nset_inputs_first_pass:\n  input_ids_after = [-1, 0, 0, 0, ...]\n\nembed_input_ids_out_of_range:\n  input_ids = [-1, 0, 0, 0, ...]\n```\n\n### gRPC server log\n\n```text\ntorch.AcceleratorError: CUDA error: device-side assert triggered\n...\nvllm.v1.engine.exceptions.EngineDeadError: EngineCore encountered an issue. See stack trace (above) for the root cause.\n...\nError in Generate for request post_crash_probe\nvllm.v1.engine.exceptions.EngineDeadError: EngineCore encountered an issue. See stack trace (above) for the root cause.\n```\n\n## Root cause\n\nThis is a speculative-decoding state-handling bug, not an invalid frontend token-id input bug.\n\nThe root cause is that a recovered speculative token can become equal to `vocab_size`, then be selected as the live next token for a request, then be converted to `-1`, and that converted `-1` is still written back into live drafter input ids and later consumed by the drafting / embedding / attention path.\n\nFor the Qwen3 checkpoint used here:\n\n- `151936 == vocab_size`\n\nThis value should be described as the model `vocab_size` boundary value, not as a legal token id.\n\n## Attachments\n\nThe attached bundle for this report should contain:\n\n- `repro_g4_recovered_minus1_local.py`\n- `repro_g4_recovered_minus1_grpc.py`\n\nThese two standalone scripts are sufficient to reproduce the issue and its public gRPC reachability.\n\n## Fix\n\nA fix for this vulnerability has been merged in: https://github.com/vllm-project/vllm/pull/44744",
+              "verification": "source_asserted"
+            },
+            {
+              "field": "severity",
+              "raw_document_id": "6e452537-d696-4fa9-94c4-7ca8a27b2142",
+              "json_pointer": "/47/severity",
+              "value": "high",
+              "verification": "source_asserted"
+            },
+            {
+              "field": "packages",
+              "raw_document_id": "6e452537-d696-4fa9-94c4-7ca8a27b2142",
+              "json_pointer": "/47/vulnerabilities",
+              "value": [
+                {
+                  "package": {
+                    "ecosystem": "pip",
+                    "name": "vllm"
+                  },
+                  "vulnerable_version_range": ">= 0.17.1, < 0.24.0",
+                  "first_patched_version": "0.24.0",
+                  "vulnerable_functions": []
+                }
+              ],
+              "verification": "source_asserted"
+            },
+            {
+              "field": "published_at",
+              "raw_document_id": "6e452537-d696-4fa9-94c4-7ca8a27b2142",
+              "json_pointer": "/47/published_at",
+              "value": "2026-07-17T17:08:03Z",
+              "verification": "source_asserted"
+            },
+            {
+              "field": "source_updated_at",
+              "raw_document_id": "6e452537-d696-4fa9-94c4-7ca8a27b2142",
+              "json_pointer": "/47/updated_at",
+              "value": "2026-07-17T17:08:04Z",
+              "verification": "source_asserted"
+            },
+            {
+              "field": "withdrawn_at",
+              "raw_document_id": "6e452537-d696-4fa9-94c4-7ca8a27b2142",
+              "json_pointer": "/47/withdrawn_at",
+              "value": null,
+              "verification": "source_asserted"
+            },
+            {
+              "field": "references",
+              "raw_document_id": "6e452537-d696-4fa9-94c4-7ca8a27b2142",
+              "json_pointer": "/47/references",
+              "value": [
+                "https://github.com/vllm-project/vllm/security/advisories/GHSA-8wr5-jm2h-8r4f",
+                "https://nvd.nist.gov/vuln/detail/CVE-2026-54234",
+                "https://github.com/vllm-project/vllm/pull/44744",
+                "https://github.com/vllm-project/vllm/commit/8a5cf1ccd65e8ac7635c402c1ec0b08988bc26ca",
+                "https://github.com/advisories/GHSA-8wr5-jm2h-8r4f"
+              ],
+              "verification": "source_asserted"
+            },
+            {
+              "field": "cwes",
+              "raw_document_id": "6e452537-d696-4fa9-94c4-7ca8a27b2142",
+              "json_pointer": "/47/cwes",
+              "value": [
+                {
+                  "cwe_id": "CWE-20",
+                  "name": "Improper Input Validation"
+                }
+              ],
+              "verification": "source_asserted"
+            },
+            {
+              "field": "cvss",
+              "raw_document_id": "6e452537-d696-4fa9-94c4-7ca8a27b2142",
+              "json_pointer": "/47/cvss_severities",
+              "value": {
+                "cvss_v3": {
+                  "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+                  "score": 7.5
+                },
+                "cvss_v4": {
+                  "vector_string": null,
+                  "score": 0.0
+                }
+              },
+              "verification": "source_asserted"
+            }
+          ]
+        },
+        {
+          "event_id": "d6afdd5a-9db4-4cce-b65b-5267be515072",
+          "revision_id": "d965b2d9-74fd-424a-a711-237d537d0884",
+          "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+          "sha256": "e86c4021031ffc7b83c06c81b6c10583ec2f4d24941261ca86f98ebc55074dd5",
+          "evidence": [
+            {
+              "field": "external_id",
+              "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+              "json_pointer": "/28/ghsa_id",
+              "value": "GHSA-8wr5-jm2h-8r4f",
+              "verification": "source_asserted"
+            },
+            {
+              "field": "cve_id",
+              "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+              "json_pointer": "/28/cve_id",
+              "value": "CVE-2026-54234",
+              "verification": "source_asserted"
+            },
+            {
+              "field": "title",
+              "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+              "json_pointer": "/28/summary",
+              "value": "Remote DoS in vLLM via Invalid Recovered Token Reinjection",
+              "verification": "source_asserted"
+            },
+            {
+              "field": "description",
+              "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+              "json_pointer": "/28/description",
+              "value": "## Summary\r\n\r\nA frontend-legal multi-request speculative workload can make vLLM produce an\r\nout-of-vocabulary recovered token equal to `vocab_size`, convert that value to\r\n`-1` when choosing the next live token for a request, and then feed that `-1`\r\nback into the next drafter input ids. On Qwen3 GPTQ this reaches the\r\nworker-side drafting / attention path and crashes the engine with a GPU\r\n`device-side assert`.\r\n\r\nThe same issue is reachable through the public gRPC request surface by sending\r\na specific overlapping `Generate` / `Abort` sequence.\r\n\r\n## Impact\r\n\r\n- A remote client that can send public gRPC generation requests can crash the\r\n  shared vLLM engine worker\r\n- The triggering request sequence aborts concurrent requests and prevents later\r\n  requests from completing until the worker is restarted\r\n- In shared deployments, this is a service-wide denial of service for other\r\n  clients, not just a failure isolated to the attacking requests\r\n- The failure is reproducible, so repeated request sequences can sustain the\r\n  outage\r\n\r\n## Affected version\r\n\r\n- Confirmed on vLLM `0.17.1`\r\n- Earlier and later versions have not been checked yet in this report\r\n\r\n## Repro model\r\n\r\n- Official Hugging Face repo:\r\n  - [`Qwen/Qwen3-0.6B-GPTQ-Int8`](https://huggingface.co/Qwen/Qwen3-0.6B-GPTQ-Int8)\r\n- Anyone wants to reproduce the bug with my PoC scripts should download `Qwen3-0.6B-GPTQ-Int8` first\r\n\r\n## Trigger chain\r\n\r\n1. A legal multi-request speculative workload keeps structured-output state,\r\n   speculative decoding, overlap, and request cancellation active in the same\r\n   live engine.\r\n2. During rejection sampling, vLLM produces a recovered token equal to the\r\n   model `vocab_size` boundary value.\r\n3. That recovered token appears in position 0 of the sampled speculative row\r\n   for a live request. The same row also contains trailing padding entries\r\n   equal to `-1`, but those padding entries are not the key fault by\r\n   themselves.\r\n4. The next-token preparation step treats the position-0 recovered token as the\r\n   real next token for that request and converts that out-of-vocabulary value\r\n   to `-1`.\r\n5. The drafter writes that converted `-1` back into the live next-step input-id\r\n   row for the request.\r\n6. The drafting / embedding / attention path later consumes that live invalid\r\n   token and the worker crashes on GPU.\r\n\r\n## Details\r\n\r\n### Simple example\r\n\r\nThe important distinction is:\r\n\r\n- trailing `-1` values in a speculative row can be ordinary padding\r\n- the bug appears when the first live token for a request becomes\r\n  `151936 == vocab_size`, and that live token is then converted into `-1`\r\n\r\nIn simplified form, the bad transition looks like this:\r\n\r\n```text\r\nsampled speculative row:\r\n[151936, -1, -1, -1, ...]\r\n```\r\n\r\nAt this point, the trailing `-1` values are only padding. The critical problem\r\nis that the first position holds `151936`, which is out of vocabulary and is\r\nbeing treated as the request's real next token.\r\n\r\nThen vLLM prepares the next-token buffer:\r\n\r\n```text\r\nnext_token_ids:\r\n[-1, ...]\r\n```\r\n\r\nFinally, that converted `-1` is written back into the live model input ids:\r\n\r\n```text\r\ninput_ids_after:\r\n[-1, 0, 0, 0, ...]\r\n```\r\n\r\nThe crash happens because the live next token became `-1` and was later\r\nconsumed by the drafting / embedding / attention path, not merely because the\r\nspeculative row contained padded `-1` entries.\r\n\r\n### Trigger path in code\r\n\r\n1. The workload is frontend-legal. The requests use normal `SamplingParams`\r\n   features such as structured outputs, `stop`, `bad_words`, `min_tokens`, and\r\n   streaming overlap. No malformed token-id list is required at the request\r\n   boundary.\r\n2. In speculative decoding, the rejection sampler can generate recovered tokens\r\n   when drafted tokens are rejected.\r\n   ```python\r\n   # vllm/v1/sample/rejection_sampler.py\r\n   def sample_recovered_tokens(...):\r\n       recovered_token_ids = torch.empty_like(draft_token_ids)\r\n       sample_recovered_tokens_kernel[(batch_size, max_spec_len)](...)\r\n       return recovered_token_ids\r\n   ```\r\n   On the verified Qwen3 run, the recovered-token trace shows\r\n   `recovered_token_ids[0] = 151936`, which is exactly `vocab_size` for this\r\n   checkpoint.\r\n3. The speculative proposer then prepares the next-token row from the sampled\r\n   speculative row.\r\n   ```python\r\n   # vllm/v1/spec_decode/eagle.py\r\n   def prepare_next_token_ids_padded(...):\r\n       ...\r\n       eagle_prepare_next_token_padded_kernel[grid](\r\n           sampled_token_ids,\r\n           discard_request_mask,\r\n           backup_tokens_gpu,\r\n           next_token_ids,\r\n           valid_sampled_tokens_count,\r\n           gpu_input_batch.vocab_size,\r\n           ...\r\n       )\r\n       return next_token_ids, valid_sampled_tokens_count\r\n   ```\r\n   In the verified trace, this step receives a sampled row beginning with\r\n   `151936`, followed by `-1` padding. The important point is that `151936`\r\n   occupies the first live token position for the request. This step then\r\n   produces `next_token_ids[0] = -1`, meaning the live next token for the\r\n   request has been converted to `-1`.\r\n4. The drafter then rotates the draft input ids and inserts those\r\n   `next_token_ids` back into the live input-id buffer.\r\n   ```python\r\n   # vllm/v1/spec_decode/eagle.py\r\n   def set_inputs_first_pass(...):\r\n       ...\r\n       self.input_ids[token_indices_to_sample] = next_token_ids\r\n   ```\r\n   In the verified trace, this produces `input_ids_after[0] = -1`.\r\n5. The model-side embed path later consumes those input ids.\r\n   ```python\r\n   # vllm/model_executor/models/qwen2.py\r\n   def embed_input_ids(self, input_ids: torch.Tensor) -> torch.Tensor:\r\n       return self.embed_tokens(input_ids)\r\n   ```\r\n   In the verified trace, this is the first point where the converted `-1`\r\n   becomes visible as a real model input. The bug is not merely that the\r\n   sampled speculative row contained padding `-1`; the bug is that the live\r\n   next token for the request became `-1` and was written back into input ids.\r\n6. After that point, the visible sink depends on timing and backend state. On\r\n   the attached Qwen3 reproducer, the engine commonly dies later in the\r\n   drafting / attention path with `CUDA error: device-side assert triggered`,\r\n   for example under `flash_attn_varlen_func(...)`.\r\n\r\n### Local script breakdown\r\n\r\n`repro_g4_recovered_minus1_local.py` is a standalone local reproducer.\r\n\r\n- It reads the Qwen3 checkpoint path from `VLLM_POC_G4_MODEL` or the built-in\r\n  `/path/to/qwen3` placeholder\r\n- It creates `EngineCore` directly without any external helper dependency\r\n- It submits one fixed multi-request workload that preserves the same overlap\r\n  and speculative-decoding state needed for the bug\r\n- It writes:\r\n  - `request_payloads.json`\r\n  - `repro_config.json`\r\n  - `timeline.json`\r\n  - `responses.json`\r\n  - `error.txt`\r\n  - `recovered_chain_trace.jsonl`\r\n- `recovered_chain_trace.jsonl` is the key attribution artifact. It records the\r\n  recovered-token chain directly from the standalone reproducer\r\n\r\n### gRPC script breakdown\r\n\r\n`repro_g4_recovered_minus1_grpc.py` is a standalone public gRPC reproducer.\r\n\r\n- It reads the Qwen3 checkpoint path from `VLLM_POC_G4_MODEL` or the built-in\r\n  `/path/to/qwen3` placeholder\r\n- It starts a temporary `vllm.entrypoints.grpc_server` process\r\n- It sends only public `Generate` and `Abort` RPCs\r\n- It submits one fixed overlapping request sequence that preserves the same\r\n  speculative-decoding state needed for the bug\r\n- After the crash window, it sends one more public `Generate` probe request to\r\n  confirm that later gRPC requests also fail after the worker dies\r\n- It writes:\r\n  - `request_payloads.json`\r\n  - `timeline.json`\r\n  - `server_command.json`\r\n  - `responses.json`\r\n  - `post_crash_probe.json`\r\n  - `server.stdout.log`\r\n  - `server.stderr.log`\r\n\r\n## Observed result\r\n\r\nLocal repro typically ends with:\r\n\r\n- a recovered-token trace showing:\r\n  - `sample_recovered_tokens_return -> recovered_token_ids[0] = 151936`\r\n  - `prepare_next_token_ids_padded -> next_token_ids[0] = -1`\r\n  - `set_inputs_first_pass -> input_ids_after[0] = -1`\r\n  - `embed_input_ids_out_of_range -> input_ids[0] = -1`\r\n- `CUDA error: device-side assert triggered`\r\n- a fatal engine-side failure\r\n\r\ngRPC repro typically ends with:\r\n\r\n- the triggering gRPC requests failing with\r\n  `INTERNAL: EngineCore encountered an issue. See stack trace (above) for the root cause.`\r\n- server logs showing the worker dies with\r\n  `CUDA error: device-side assert triggered`\r\n- a later public probe request also failing after the worker is dead\r\n\r\nThis demonstrates that the issue is reachable through the public gRPC request\r\nsurface, not only through a local reproducer.\r\n\r\n## Log snippets\r\n\r\n### Local recovered-chain trace\r\n\r\n```text\r\nsample_recovered_tokens_return:\r\n  recovered_token_ids = [151936, ...]\r\n  vocab_size = 151936\r\n\r\nprepare_next_token_ids_padded:\r\n  sampled_token_ids_head = [[151936, -1, -1, ...], ...]\r\n  next_token_ids = [-1, ...]\r\n\r\nset_inputs_first_pass:\r\n  input_ids_after = [-1, 0, 0, 0, ...]\r\n\r\nembed_input_ids_out_of_range:\r\n  input_ids = [-1, 0, 0, 0, ...]\r\n```\r\n\r\n### gRPC server log\r\n\r\n```text\r\ntorch.AcceleratorError: CUDA error: device-side assert triggered\r\n...\r\nvllm.v1.engine.exceptions.EngineDeadError: EngineCore encountered an issue. See stack trace (above) for the root cause.\r\n...\r\nError in Generate for request post_crash_probe\r\nvllm.v1.engine.exceptions.EngineDeadError: EngineCore encountered an issue. See stack trace (above) for the root cause.\r\n```\r\n\r\n## Root cause\r\n\r\nThis is a speculative-decoding state-handling bug, not an invalid frontend\r\ntoken-id input bug.\r\n\r\nThe root cause is that a recovered speculative token can become equal to\r\n`vocab_size`, then be selected as the live next token for a request, then be\r\nconverted to `-1`, and that converted `-1` is still written back into live\r\ndrafter input ids and later consumed by the drafting / embedding / attention\r\npath.\r\n\r\nFor the Qwen3 checkpoint used here:\r\n\r\n- `151936 == vocab_size`\r\n\r\nThis value should be described as the model `vocab_size` boundary value, not as\r\na legal token id.\r\n\r\n## Attachments\r\n\r\nThe attached bundle for this report should contain:\r\n\r\n- `repro_g4_recovered_minus1_local.py`\r\n- `repro_g4_recovered_minus1_grpc.py`\r\n\r\nThese two standalone scripts are sufficient to reproduce the issue and its\r\npublic gRPC reachability.\r\n\r\n## Fix\r\n\r\nA fix for this vulnerability has been merged in: https://github.com/vllm-project/vllm/pull/44744 ",
+              "verification": "source_asserted"
+            },
+            {
+              "field": "severity",
+              "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+              "json_pointer": "/28/severity",
+              "value": "high",
+              "verification": "source_asserted"
+            },
+            {
+              "field": "packages",
+              "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+              "json_pointer": "/28/vulnerabilities",
+              "value": [
+                {
+                  "package": {
+                    "ecosystem": "pip",
+                    "name": "vllm"
+                  },
+                  "vulnerable_version_range": "=< 0.17.1",
+                  "patched_versions": ">=0.24.0",
+                  "vulnerable_functions": []
+                }
+              ],
+              "verification": "source_asserted"
+            },
+            {
+              "field": "published_at",
+              "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+              "json_pointer": "/28/published_at",
+              "value": "2026-07-02T07:50:33Z",
+              "verification": "source_asserted"
+            },
+            {
+              "field": "source_updated_at",
+              "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+              "json_pointer": "/28/updated_at",
+              "value": "2026-07-02T07:50:33Z",
+              "verification": "source_asserted"
+            },
+            {
+              "field": "withdrawn_at",
+              "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+              "json_pointer": "/28/withdrawn_at",
+              "value": null,
+              "verification": "source_asserted"
+            },
+            {
+              "field": "cwes",
+              "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+              "json_pointer": "/28/cwes",
+              "value": [
+                {
+                  "cwe_id": "CWE-20",
+                  "name": "Improper Input Validation"
+                }
+              ],
+              "verification": "source_asserted"
+            },
+            {
+              "field": "cvss",
+              "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+              "json_pointer": "/28/cvss_severities",
+              "value": {
+                "cvss_v3": {
+                  "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+                  "score": 7.5
+                },
+                "cvss_v4": {
+                  "vector_string": null,
+                  "score": null
+                }
+              },
+              "verification": "source_asserted"
+            }
+          ]
+        }
+      ],
+      "label_status": "source_grounded_characterization"
+    },
+    {
+      "id": "case-7-en-explicit-context-zh",
+      "question": "GHSA-qff2-492f-9fm4：来源能给出确定的版本条件吗？",
+      "query": "GHSA-qff2-492f-9fm4：来源能给出确定的版本条件吗？",
+      "expected_class": "partial",
+      "expected_event_ids": [
+        "69613c18-e247-497d-8db8-bea975067588"
+      ],
+      "group_id": "c2d24b3565d1feb17abf841acf6461b1aa78c5ba82d1b0b1ef41c9f4eb3d8e88",
+      "split": "development",
+      "aliases": [
+        "ghsa-qff2-492f-9fm4",
+        "title:rust http/grpc stop_token_ids bypass python vocab-bound fix and can terminate enginecore"
+      ],
+      "evidence": [
+        {
+          "event_id": "69613c18-e247-497d-8db8-bea975067588",
+          "revision_id": "c3607adf-01b7-49a7-ba0e-63e949769dcb",
+          "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+          "sha256": "e86c4021031ffc7b83c06c81b6c10583ec2f4d24941261ca86f98ebc55074dd5",
+          "evidence": [
+            {
+              "field": "external_id",
+              "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+              "json_pointer": "/5/ghsa_id",
+              "value": "GHSA-qff2-492f-9fm4",
+              "verification": "source_asserted"
+            },
+            {
+              "field": "cve_id",
+              "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+              "json_pointer": "/5/cve_id",
+              "value": null,
+              "verification": "source_asserted"
+            },
+            {
+              "field": "title",
+              "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+              "json_pointer": "/5/summary",
+              "value": "Rust HTTP/gRPC stop_token_ids bypass Python vocab-bound fix and can terminate EngineCore",
+              "verification": "source_asserted"
+            },
+            {
+              "field": "description",
+              "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+              "json_pointer": "/5/description",
+              "value": "## Summary\r\n\r\nPublic PR `#44968` fixes a vLLM denial-of-service condition where user-supplied `stop_token_ids` outside `[0, vocab_size)` can reach `MinTokensLogitsProcessor` when `min_tokens > 0`, get used as CUDA tensor indices in `logits.index_put_`, trigger a device-side assertion, and leave EngineCore in a fatal state requiring restart.\r\n\r\nThat PR currently changes only the Python request path. Current Rust HTTP and Rust gRPC frontends expose the same `stop_token_ids` control, validate nearby token-id fields such as `prompt`, `allowed_token_ids`, and `logit_bias`, but do not vocab-bound `stop_token_ids`. The Rust paths forward those IDs into `EngineCoreSamplingParams.all_stop_token_ids`, which is the set consumed by the same Python min-tokens logits processor.\r\n\r\nThis is a sibling-callsite/incomplete-fix variant: after the Python-side fix, Rust OpenAI-compatible HTTP and Rust gRPC callers can still submit an out-of-vocabulary stop token with `min_tokens > 0` and reach the fatal CUDA indexing sink.\r\n\r\n## Technical Details\r\n\r\nThe Python request path currently only checks that `stop_token_ids` are integers:\r\n\r\n```python\r\nassert isinstance(self.stop_token_ids, list)\r\nif not all(isinstance(st_id, int) for st_id in self.stop_token_ids):\r\n    raise ValueError(...)\r\n```\r\n\r\nPR `#44968` adds the missing Python vocab-bound validator. The same PR explains the fatal sink:\r\n\r\n```text\r\nstop_token_ids with out-of-range values crash EngineCore via a CUDA\r\ndevice-side assertion.\r\n```\r\n\r\nThe shared runtime path is in `MinTokensLogitsProcessor`. When `min_tokens` is active, it takes `params.all_stop_token_ids`:\r\n\r\n```python\r\nreturn min_tokens, output_tok_ids, params.all_stop_token_ids\r\n```\r\n\r\nand later indexes logits with those token IDs:\r\n\r\n```python\r\nlogits.index_put_(self.logits_slice, self.neg_inf_tensor)\r\n```\r\n\r\nand on the spec-decode path:\r\n\r\n```python\r\nlogits.index_put_(logits_slice, self.neg_inf_tensor)\r\n```\r\n\r\nThe Rust HTTP OpenAI routes expose and forward the same field:\r\n\r\n```rust\r\npub stop_token_ids: Option<Vec<u32>>,\r\n...\r\nstop_token_ids: request.stop_token_ids,\r\n```\r\n\r\nThe Rust validators already check neighboring token-id fields, but not `stop_token_ids`:\r\n\r\n```rust\r\nvalidate_prompt_token_ids(&request.prompt, prompt_bound)?;\r\nvalidate_allowed_token_ids(request.allowed_token_ids.as_deref(), tokenizer_vocab_size)?;\r\nvalidate_logit_bias(request.logit_bias.as_ref(), model_vocab_size.unwrap_or(usize::MAX))\r\n```\r\n\r\nChat completions has the same gap:\r\n\r\n```rust\r\nvalidate_allowed_token_ids(request.allowed_token_ids.as_deref(), tokenizer_vocab_size)?;\r\nvalidate_logit_bias(request.logit_bias.as_ref(), model_vocab_size.unwrap_or(usize::MAX))\r\n```\r\n\r\nRust gRPC also forwards caller-supplied stopping criteria without a range check:\r\n\r\n```rust\r\nif !s.stop_token_ids.is_empty() {\r\n    params.stop_token_ids = Some(s.stop_token_ids.clone());\r\n}\r\n```\r\n\r\nFinally, Rust text lowering copies those IDs into the engine-facing stop set:\r\n\r\n```rust\r\nlet mut all_stop_token_ids = BTreeSet::from_iter(stop_token_ids.iter().copied());\r\n...\r\nEngineCoreSamplingParams {\r\n    stop_token_ids,\r\n    all_stop_token_ids,\r\n    ...\r\n}\r\n```\r\n\r\nThe issue is therefore not that `stop_token_ids` exist. The issue is that Rust frontend paths bypass the same vocab-bound validation that Python is adding before the exact fatal sink documented in PR `#44968`.\r\n\r\nvLLM intentionally supports stop token IDs, and `min_tokens` intentionally masks stop tokens until the minimum length is reached. It does not intend arbitrary client token IDs outside the served vocabulary to be used as GPU tensor indices.\r\n\r\nThe intended contract is visible in three places:\r\n\r\n- PR `#44968` adds `_validate_stop_token_ids()` to reject IDs outside `[0, vocab_size)` before the request reaches GPU logits processing.\r\n- Rust HTTP validation already rejects out-of-vocab prompt IDs, `allowed_token_ids`, and `logit_bias` keys.\r\n- The public PR's test plan includes an E2E test for `stop_token_ids_out_of_vocab`, confirming out-of-vocab stop IDs should be a rejected request, not an EngineCore crash.\r\n\r\nThe Rust HTTP and gRPC frontends construct engine-facing sampling state outside the Python protocol model path, so they must enforce the same safety contract before submitting a request.\r\n\r\n## Impact\r\n\r\nAn attacker who can reach an affected Rust HTTP or Rust gRPC vLLM endpoint can send a small generation request with `min_tokens = 1` and a `stop_token_ids` entry greater than or equal to the served model vocabulary size.\r\n\r\nExpected impact is single-request denial of service for affected deployments: the Rust frontend accepts and lowers the request, and the shared Python EngineCore min-tokens processor can use the out-of-range token ID as a GPU logits tensor index. Public PR `#44968` states that this condition puts EngineCore into a fatal state and requires full service restart.\r\n\r\nThis report does not claim code execution, data access, model compromise, or persistence. It is an availability issue caused by missing Rust-side input validation for a field already identified as security-sensitive.\r\n\r\nSuggested severity: High if the Rust HTTP or Rust gRPC endpoint is network-reachable without an additional deployment-layer credential requirement.\r\n\r\nSuggested CVSS v3.1:\r\n\r\n```text\r\nCVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H\r\n```\r\n\r\nIf maintainers model the affected endpoint as reachable only to already-authorized clients, the conservative score is:\r\n\r\n```text\r\nCVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H\r\n```\r\n\r\nThe vLLM security policy states that DoS or partial disruption without code execution or data breach is generally Moderate, while High is appropriate for higher-impact issues or privileged network surfaces. Because the public root cause describes fatal EngineCore restart from a single malformed request, the technical impact is high availability; maintainers can choose PR:N or PR:L based on their expected Rust deployment exposure.\r\n\r\nSuggested CWEs:\r\n\r\n- `CWE-20`: Improper Input Validation\r\n- `CWE-129`: Improper Validation of Array Index\r\n- `CWE-400`: Uncontrolled Resource Consumption\r\n\r\n## Suggested Fix\r\n\r\nApply the same vocab-bound validation model to Rust HTTP and Rust gRPC before request lowering:\r\n\r\n- add a Rust helper equivalent to Python `_validate_stop_token_ids()`;\r\n- validate every `stop_token_ids` entry against the served vocabulary boundary when `stop_token_ids` is present;\r\n- apply it in both Rust OpenAI completions and chat completions validators;\r\n- apply equivalent validation for gRPC `StoppingCriteria.stop_token_ids` before building `SamplingParams`;\r\n- reject with `ApiError` or `Status::invalid_argument(...)` before submitting an engine request;\r\n- add regression tests for valid in-vocab IDs and invalid out-of-vocab IDs on:\r\n- Rust HTTP `/v1/completions`;\r\n- Rust HTTP `/v1/chat/completions`;\r\n- Rust gRPC `Generate`;\r\n- Rust gRPC `GenerateStream`; and\r\n- `min_tokens > 0`, which is the documented fatal sink precondition.\r\n\r\nKeeping the only fix in Python `SamplingParams.verify()` is insufficient for Rust frontend deployments because Rust constructs engine-facing sampling state directly.\r\n\r\n## Affected Package/Versions\r\n\r\nLocal source-pattern sweep:\r\n\r\n- `v0.21.0`: negative control; this Rust frontend/gRPC stop-token lowering shape is absent.\r\n- `v0.22.0`: affected.\r\n- `v0.22.1`: affected.\r\n- `v0.23.0`: affected.\r\n- current `main` at `b3f0a0a0df76dda92ec4b2c9335f77e84adad911`: affected.\r\n\r\nSuggested vulnerable range:\r\n\r\n```text\r\n>= 0.22.0, <= 0.23.0\r\n```\r\n\r\nCurrent unreleased `main` remains affected until Rust HTTP and Rust gRPC validate `stop_token_ids` against the served vocab boundary before lowering the request into `SamplingParams`.\r\n\r\n## References\r\n\r\n- vLLM security policy: `https://github.com/vllm-project/vllm/security/policy`\r\n- vLLM vulnerability management: `https://docs.vllm.ai/en/latest/contributing/vulnerability_management.html`\r\n- vLLM security guide: `https://docs.vllm.ai/en/latest/usage/security.html`\r\n- vLLM PR `#44968`: `https://github.com/vllm-project/vllm/pull/44968`\r\n- Local PoV output: `attached-evidence/evidence/probe-output.json`\r\n\r\n## Appendix: Duplicate Review\r\n\r\nThis is distinct from prior local/private submissions:\r\n\r\n- `this report` / `GHSA-7rx8-56c4-pfh6`: Python OpenAI request parameters can exceed fixed sampler array budgets; it covers list length, including more than 128 stop token IDs. It does not cover a single out-of-vocabulary stop token reaching the CUDA index sink through Rust frontends.\r\n- `this report` / `GHSA-w2v2-5662-8v5q`: Rust gRPC accepts out-of-vocabulary prompt token IDs. That is a prompt-token embedding path, not `stop_token_ids` plus `MinTokensLogitsProcessor`.\r\n- `this report` / `GHSA-mmrv-74wf-6pxm`: Rust frontend remains missing sampler-control length bounds after Python input-bound work. It covers missing Rust length/resource budgets such as over-128 stop-token lists; it does not cover vocab-bound validation for a single stop ID or the public Python fix in PR `#44968`.\r\n- `this report` and `this report`: Rust gRPC logprob candidate selectors; different fields, different lower sampler sinks.\r\n\r\nPublic PR `#44968` is the root-cause pattern for the Python path. Its changed files are only:\r\n\r\n- `tests/v1/sample/test_logprobs.py`\r\n- `tests/v1/sample/test_rejection_sampler.py`\r\n- `tests/v1/sample/test_sampling_params_e2e.py`\r\n- `vllm/sampling_params.py`\r\n- `vllm/v1/sample/rejection_sampler.py`\r\n\r\nIt does not touch Rust HTTP validators, Rust HTTP converters, Rust gRPC conversion, or Rust text lowering. I found no prior local report or public PR covering the Rust stop-token vocab-bound sibling callsites.\r\n\r\n## Appendix: Local PoV\r\n\r\nThe PoV is local-only and bounded. It does not start a server, load a model, send HTTP/gRPC traffic, or trigger a CUDA assertion. It validates the current-head source shape, intended Python controls, Rust bypass, and affected version sweep.\r\n\r\nRun:\r\n\r\n```bash\r\nuv run python \\\r\n  attached-evidence/poc/probe_rust_stop_token_ids_vocab_bypass.py \\\r\n  --repo artifacts/vllm-origin-main-current-b3f0a0a \\\r\n  --json-out attached-evidence/evidence/probe-output.json\r\n```\r\n\r\nKey result:\r\n\r\n```json\r\n{\r\n  \"pov\": \"this report\",\r\n  \"validated\": true,\r\n  \"control_experiment\": {\r\n    \"python_current_only_type_checks_stop_token_ids\": true,\r\n    \"min_tokens_uses_all_stop_token_ids\": true,\r\n    \"min_tokens_sink_uses_index_put\": true,\r\n    \"rust_completion_accepts_stop_token_ids\": true,\r\n    \"rust_chat_accepts_stop_token_ids\": true,\r\n    \"rust_completion_forwards_stop_token_ids\": true,\r\n    \"rust_chat_forwards_stop_token_ids\": true,\r\n    \"rust_grpc_forwards_stopping_stop_token_ids\": true,\r\n    \"rust_lower_adds_stop_token_ids_to_all_stop_set\": true,\r\n    \"rust_http_validates_neighbor_token_id_fields\": true,\r\n    \"rust_http_lacks_stop_token_vocab_validator\": true\r\n  }\r\n}\r\n```\r\n\r\nRepresentative payload shapes checked by the probe:\r\n\r\n```json\r\n{\r\n  \"rust_http_chat\": {\r\n    \"messages\": [{\"role\": \"user\", \"content\": \"hello\"}],\r\n    \"min_tokens\": 1,\r\n    \"stop_token_ids\": [32000],\r\n    \"expected_safe_behavior\": \"reject if 32000 >= vocab_size\"\r\n  },\r\n  \"rust_grpc_stopping_criteria\": {\r\n    \"min_new_tokens\": 1,\r\n    \"stop_token_ids\": [32000],\r\n    \"expected_safe_behavior\": \"INVALID_ARGUMENT if out of vocab\"\r\n  }\r\n}\r\n```\r\n\r\nVersion sweep excerpt:\r\n\r\n```json\r\n[\r\n  {\"ref\": \"v0.21.0\", \"affected_shape\": false},\r\n  {\"ref\": \"v0.22.0\", \"affected_shape\": true},\r\n  {\"ref\": \"v0.22.1\", \"affected_shape\": true},\r\n  {\"ref\": \"v0.23.0\", \"affected_shape\": true},\r\n  {\"ref\": \"HEAD\", \"affected_shape\": true}\r\n]\r\n```\r\n",
+              "verification": "source_asserted"
+            },
+            {
+              "field": "severity",
+              "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+              "json_pointer": "/5/severity",
+              "value": "medium",
+              "verification": "source_asserted"
+            },
+            {
+              "field": "packages",
+              "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+              "json_pointer": "/5/vulnerabilities",
+              "value": [
+                {
+                  "package": {
+                    "ecosystem": "pip",
+                    "name": "vllm"
+                  },
+                  "vulnerable_version_range": ">= 0.22.0, <= 0.23.0",
+                  "patched_versions": ">= v0.24.0",
+                  "vulnerable_functions": []
+                }
+              ],
+              "verification": "source_asserted"
+            },
+            {
+              "field": "published_at",
+              "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+              "json_pointer": "/5/published_at",
+              "value": "2026-09-12T14:43:57Z",
+              "verification": "source_asserted"
+            },
+            {
+              "field": "source_updated_at",
+              "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+              "json_pointer": "/5/updated_at",
+              "value": "2026-09-12T14:43:57Z",
+              "verification": "source_asserted"
+            },
+            {
+              "field": "withdrawn_at",
+              "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+              "json_pointer": "/5/withdrawn_at",
+              "value": null,
+              "verification": "source_asserted"
+            },
+            {
+              "field": "cwes",
+              "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+              "json_pointer": "/5/cwes",
+              "value": [
+                {
+                  "cwe_id": "CWE-20",
+                  "name": "Improper Input Validation"
+                },
+                {
+                  "cwe_id": "CWE-129",
+                  "name": "Improper Validation of Array Index"
+                },
+                {
+                  "cwe_id": "CWE-400",
+                  "name": "Uncontrolled Resource Consumption"
+                }
+              ],
+              "verification": "source_asserted"
+            },
+            {
+              "field": "cvss",
+              "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+              "json_pointer": "/5/cvss_severities",
+              "value": {
+                "cvss_v3": {
+                  "vector_string": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+                  "score": 5.9
+                },
+                "cvss_v4": {
+                  "vector_string": null,
+                  "score": null
+                }
+              },
+              "verification": "source_asserted"
+            }
+          ]
+        }
+      ],
+      "label_status": "source_grounded_characterization"
+    }
+  ],
+  "freeze_sha256": "a8fda5ea4a7831e467876affd6c6d6bf41a8163b05cf99c458c5db85b4b8793a"
+}

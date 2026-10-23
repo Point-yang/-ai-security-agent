@@ -1,0 +1,27 @@
+groups:
+  - name: zhidu
+    rules:
+      - alert: ZhiduApiUnavailable
+        expr: up{job="zhidu"} == 0
+        for: 2m
+        labels: {severity: critical}
+        annotations:
+          summary: 知盾 API 指标抓取失败，请检查进程、数据库和配置
+      - alert: ZhiduSourceStale
+        expr: zhidu_monitor_targets_fresh < zhidu_monitor_targets_enabled
+        for: 5m
+        labels: {severity: warning}
+        annotations:
+          summary: 存在超过两个采集周期未成功同步的来源
+      - alert: ZhiduRepeatedSourceFailures
+        expr: zhidu_monitor_consecutive_failures >= 3
+        for: 1m
+        labels: {severity: warning}
+        annotations:
+          summary: 来源连续采集失败，请检查限流和网络状态
+      - alert: ZhiduApiErrors
+        expr: sum(rate(zhidu_http_request_duration_seconds_count{status=~"5.."}[5m])) > 0.1
+        for: 5m
+        labels: {severity: critical}
+        annotations:
+          summary: 知盾 API 持续出现服务端错误

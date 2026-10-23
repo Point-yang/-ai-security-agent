@@ -1,0 +1,1609 @@
+{
+  "version": "project-ai-gold-evaluation-v1",
+  "status": "project_official_ai_reference_evaluation",
+  "created_at": "2026-10-04T05:21:54.007467+00:00",
+  "gold_sha256": "b973f29c4a26a7ec24e8127e3506f5c713504812d3b2936959007fa9b7bb672b",
+  "predictions_sha256": "5a4332f920e36743d0f2846ee2e118cf96a888585a1f321eafde232ecb181606",
+  "packet_sha256": "2a60c7098e2f25a8ccfa2d2d5810a821a4ddbc0311e8ddea1fbf3e2763e7bd14",
+  "split": "test",
+  "metrics": {
+    "records": 24,
+    "tp": 84,
+    "fp": 0,
+    "fn": 15,
+    "fact_precision": 1.0,
+    "fact_recall": 0.8484848484848485,
+    "exact_records": 19,
+    "record_exact_accuracy": 0.7916666666666666
+  },
+  "by_source": {
+    "cisa-kev": {
+      "records": 2,
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "fact_precision": 1.0,
+      "fact_recall": 1.0,
+      "exact_records": 2,
+      "record_exact_accuracy": 1.0
+    },
+    "crossref": {
+      "records": 8,
+      "tp": 8,
+      "fp": 0,
+      "fn": 0,
+      "fact_precision": 1.0,
+      "fact_recall": 1.0,
+      "exact_records": 8,
+      "record_exact_accuracy": 1.0
+    },
+    "github-advisories": {
+      "records": 3,
+      "tp": 18,
+      "fp": 0,
+      "fn": 0,
+      "fact_precision": 1.0,
+      "fact_recall": 1.0,
+      "exact_records": 3,
+      "record_exact_accuracy": 1.0
+    },
+    "nvd": {
+      "records": 5,
+      "tp": 16,
+      "fp": 0,
+      "fn": 15,
+      "fact_precision": 1.0,
+      "fact_recall": 0.5161290322580645,
+      "exact_records": 0,
+      "record_exact_accuracy": 0.0
+    },
+    "vllm-vendor": {
+      "records": 6,
+      "tp": 36,
+      "fp": 0,
+      "fn": 0,
+      "fact_precision": 1.0,
+      "fact_recall": 1.0,
+      "exact_records": 6,
+      "record_exact_accuracy": 1.0
+    }
+  },
+  "answer_class_accuracy": null,
+  "answer_class_accuracy_reason": "冻结预测仅含结构化富化字段，没有与这 24 道问题对应的模型 answer_class；不能把金标类别与自身比较。",
+  "scope": "沿用旧报告的结构化来源事实口径；不评价全文语义、版本解析、CPE 布尔逻辑或现实漏洞真伪。",
+  "model_version": "stored structured-v1 enrichment snapshot",
+  "human_gold": false,
+  "evaluator_sha256": "c562be481d472ace5a3f1050515380b0d46854344bcf019a824d5493bac37687",
+  "rows": [
+    {
+      "task_id": "34e51184-90c1-4601-94af-19acdf5f20cd",
+      "source_id": "cisa-kev",
+      "external_id": "CVE-2025-34291",
+      "group_id": "0d1d80f8684a4a214d12256898c99916c19fb7afa2fe3e904db09e7367747bfb",
+      "missing_prediction": false,
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "missing": [],
+      "unsupported": [],
+      "expected_facts": [
+        [
+          "entity:cve",
+          "cve-2025-34291"
+        ],
+        [
+          "entity:vendor",
+          "langflow"
+        ],
+        [
+          "entity:product",
+          "langflow"
+        ]
+      ],
+      "predicted_facts": [
+        [
+          "entity:cve",
+          "cve-2025-34291"
+        ],
+        [
+          "entity:vendor",
+          "langflow"
+        ],
+        [
+          "entity:product",
+          "langflow"
+        ]
+      ]
+    },
+    {
+      "task_id": "445a2a47-ce62-4821-ae37-9f71259cc153",
+      "source_id": "cisa-kev",
+      "external_id": "CVE-2026-9198",
+      "group_id": "539da6f215c6946d1e7797a18c2cc68ef5ed15dd898f0fd184b521ec36f0306e",
+      "missing_prediction": false,
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "missing": [],
+      "unsupported": [],
+      "expected_facts": [
+        [
+          "entity:cve",
+          "cve-2026-9198"
+        ],
+        [
+          "entity:vendor",
+          "ibm"
+        ],
+        [
+          "entity:product",
+          "langflow"
+        ]
+      ],
+      "predicted_facts": [
+        [
+          "entity:cve",
+          "cve-2026-9198"
+        ],
+        [
+          "entity:vendor",
+          "ibm"
+        ],
+        [
+          "entity:product",
+          "langflow"
+        ]
+      ]
+    },
+    {
+      "task_id": "c8527bbb-fcbb-4b10-ae42-0d84df83ab28",
+      "source_id": "crossref",
+      "external_id": "10.1007/s00231-026-03780-8",
+      "group_id": "2fb83cc1f7b5fdb6c019fcff074f23999fefe4eaf8328584c7b8500443d2d3fd",
+      "missing_prediction": false,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "missing": [],
+      "unsupported": [],
+      "expected_facts": [
+        [
+          "entity:doi",
+          "10.1007/s00231-026-03780-8"
+        ]
+      ],
+      "predicted_facts": [
+        [
+          "entity:doi",
+          "10.1007/s00231-026-03780-8"
+        ]
+      ]
+    },
+    {
+      "task_id": "44a66a7a-821e-49cd-8ce4-de0ae4a89a8d",
+      "source_id": "crossref",
+      "external_id": "10.21686/1818-4243-2026-4-4-11",
+      "group_id": "e2f4058a84d9b6a3a215153b19ed3962cd8530e536dc0636f72fa2cad91299d1",
+      "missing_prediction": false,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "missing": [],
+      "unsupported": [],
+      "expected_facts": [
+        [
+          "entity:doi",
+          "10.21686/1818-4243-2026-4-4-11"
+        ]
+      ],
+      "predicted_facts": [
+        [
+          "entity:doi",
+          "10.21686/1818-4243-2026-4-4-11"
+        ]
+      ]
+    },
+    {
+      "task_id": "0dc8ef0e-16a5-40c9-a1c8-470bc9edd906",
+      "source_id": "crossref",
+      "external_id": "10.5195/jmla.2025.2022",
+      "group_id": "98cce94b46ea375caa6ad0aabfa66ee616e9f308bd6cd4e244539456c9688f55",
+      "missing_prediction": false,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "missing": [],
+      "unsupported": [],
+      "expected_facts": [
+        [
+          "entity:doi",
+          "10.5195/jmla.2025.2022"
+        ]
+      ],
+      "predicted_facts": [
+        [
+          "entity:doi",
+          "10.5195/jmla.2025.2022"
+        ]
+      ]
+    },
+    {
+      "task_id": "4b68cffe-11d8-4e60-bd89-8e1ff7b93adb",
+      "source_id": "crossref",
+      "external_id": "10.1145/3645103",
+      "group_id": "234f1ff94d367c1ae75aba2b159dbb514e1039fafe2738759f0b702ca3d597db",
+      "missing_prediction": false,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "missing": [],
+      "unsupported": [],
+      "expected_facts": [
+        [
+          "entity:doi",
+          "10.1145/3645103"
+        ]
+      ],
+      "predicted_facts": [
+        [
+          "entity:doi",
+          "10.1145/3645103"
+        ]
+      ]
+    },
+    {
+      "task_id": "65d63135-84a5-456b-ab31-4cf274363ea6",
+      "source_id": "crossref",
+      "external_id": "10.1007/978-3-031-96093-2_12",
+      "group_id": "f18fa1dafaf8fce6e5f7ab818f23af8c681090defd4f7da09d7e81826bf1b40a",
+      "missing_prediction": false,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "missing": [],
+      "unsupported": [],
+      "expected_facts": [
+        [
+          "entity:doi",
+          "10.1007/978-3-031-96093-2_12"
+        ]
+      ],
+      "predicted_facts": [
+        [
+          "entity:doi",
+          "10.1007/978-3-031-96093-2_12"
+        ]
+      ]
+    },
+    {
+      "task_id": "3cd33ed4-fe57-4c1b-acd0-ab8f1041d573",
+      "source_id": "crossref",
+      "external_id": "10.69693/dcs.v3i2.74",
+      "group_id": "147eaf487a4bbe79af21e11852637cf2ec0351c60235a8b4df336437881a333a",
+      "missing_prediction": false,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "missing": [],
+      "unsupported": [],
+      "expected_facts": [
+        [
+          "entity:doi",
+          "10.69693/dcs.v3i2.74"
+        ]
+      ],
+      "predicted_facts": [
+        [
+          "entity:doi",
+          "10.69693/dcs.v3i2.74"
+        ]
+      ]
+    },
+    {
+      "task_id": "b21390b0-b312-4fd0-9139-1dca147c3182",
+      "source_id": "crossref",
+      "external_id": "10.3390/cancers17223691",
+      "group_id": "7cb559af9afe8de024bc8a2c14e9ab7ed65fd06159f1c7d672259192612f758a",
+      "missing_prediction": false,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "missing": [],
+      "unsupported": [],
+      "expected_facts": [
+        [
+          "entity:doi",
+          "10.3390/cancers17223691"
+        ]
+      ],
+      "predicted_facts": [
+        [
+          "entity:doi",
+          "10.3390/cancers17223691"
+        ]
+      ]
+    },
+    {
+      "task_id": "ec413a5c-9575-4683-a968-30037c983b15",
+      "source_id": "crossref",
+      "external_id": "10.1007/s42979-026-05334-5",
+      "group_id": "5c48d27366867705e38150da5be04ac26f6348275203b3073bfb72f36037ac29",
+      "missing_prediction": false,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "missing": [],
+      "unsupported": [],
+      "expected_facts": [
+        [
+          "entity:doi",
+          "10.1007/s42979-026-05334-5"
+        ]
+      ],
+      "predicted_facts": [
+        [
+          "entity:doi",
+          "10.1007/s42979-026-05334-5"
+        ]
+      ]
+    },
+    {
+      "task_id": "10194111-aa5a-4534-a335-232455daa2a3",
+      "source_id": "github-advisories",
+      "external_id": "GHSA-rxc4-3w6r-4v47",
+      "group_id": "4cbf47d22477b0c5f3a24b424b6a1c82fa6b163d1c8d1f4acc979fe1f887b5b5",
+      "missing_prediction": false,
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "missing": [],
+      "unsupported": [],
+      "expected_facts": [
+        [
+          "entity:cve",
+          "cve-2025-48956"
+        ],
+        [
+          "entity:ghsa",
+          "ghsa-rxc4-3w6r-4v47"
+        ],
+        [
+          "entity:package",
+          "pip",
+          "vllm"
+        ],
+        [
+          "vulnerable_range",
+          "pip",
+          "vllm",
+          ">=0.1.0,<0.10.1.1"
+        ],
+        [
+          "fixed_range",
+          "pip",
+          "vllm",
+          "0.10.1.1"
+        ],
+        [
+          "cvss",
+          "3.1",
+          "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          7.5,
+          null
+        ]
+      ],
+      "predicted_facts": [
+        [
+          "entity:cve",
+          "cve-2025-48956"
+        ],
+        [
+          "entity:ghsa",
+          "ghsa-rxc4-3w6r-4v47"
+        ],
+        [
+          "entity:package",
+          "pip",
+          "vllm"
+        ],
+        [
+          "vulnerable_range",
+          "pip",
+          "vllm",
+          ">=0.1.0,<0.10.1.1"
+        ],
+        [
+          "fixed_range",
+          "pip",
+          "vllm",
+          "0.10.1.1"
+        ],
+        [
+          "cvss",
+          "3.1",
+          "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          7.5,
+          null
+        ]
+      ]
+    },
+    {
+      "task_id": "762b1f70-fd45-4df7-a8cb-ad1054ad7da1",
+      "source_id": "github-advisories",
+      "external_id": "GHSA-w6q7-j642-7c25",
+      "group_id": "1c43e901b24d9cd7398a20086d38bc1f51151152c6cc23a1f9b09be74f6da7e0",
+      "missing_prediction": false,
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "missing": [],
+      "unsupported": [],
+      "expected_facts": [
+        [
+          "entity:cve",
+          "cve-2025-48887"
+        ],
+        [
+          "entity:ghsa",
+          "ghsa-w6q7-j642-7c25"
+        ],
+        [
+          "entity:package",
+          "pip",
+          "vllm"
+        ],
+        [
+          "vulnerable_range",
+          "pip",
+          "vllm",
+          ">=0.6.4,<0.9.0"
+        ],
+        [
+          "fixed_range",
+          "pip",
+          "vllm",
+          "0.9.0"
+        ],
+        [
+          "cvss",
+          "3.1",
+          "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          6.5,
+          null
+        ]
+      ],
+      "predicted_facts": [
+        [
+          "entity:cve",
+          "cve-2025-48887"
+        ],
+        [
+          "entity:ghsa",
+          "ghsa-w6q7-j642-7c25"
+        ],
+        [
+          "entity:package",
+          "pip",
+          "vllm"
+        ],
+        [
+          "vulnerable_range",
+          "pip",
+          "vllm",
+          ">=0.6.4,<0.9.0"
+        ],
+        [
+          "fixed_range",
+          "pip",
+          "vllm",
+          "0.9.0"
+        ],
+        [
+          "cvss",
+          "3.1",
+          "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          6.5,
+          null
+        ]
+      ]
+    },
+    {
+      "task_id": "7af5fd24-78be-4043-8240-43a3d095eff6",
+      "source_id": "github-advisories",
+      "external_id": "GHSA-mgrm-fgjv-mhv8",
+      "group_id": "596fde56028db44d8cad2dfa9c36cd466d715d89e5ca7692e4ffc014e560f398",
+      "missing_prediction": false,
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "missing": [],
+      "unsupported": [],
+      "expected_facts": [
+        [
+          "entity:cve",
+          "cve-2025-29770"
+        ],
+        [
+          "entity:ghsa",
+          "ghsa-mgrm-fgjv-mhv8"
+        ],
+        [
+          "entity:package",
+          "pip",
+          "vllm"
+        ],
+        [
+          "vulnerable_range",
+          "pip",
+          "vllm",
+          "<0.8.0"
+        ],
+        [
+          "fixed_range",
+          "pip",
+          "vllm",
+          "0.8.0"
+        ],
+        [
+          "cvss",
+          "3.1",
+          "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          6.5,
+          null
+        ]
+      ],
+      "predicted_facts": [
+        [
+          "entity:cve",
+          "cve-2025-29770"
+        ],
+        [
+          "entity:ghsa",
+          "ghsa-mgrm-fgjv-mhv8"
+        ],
+        [
+          "entity:package",
+          "pip",
+          "vllm"
+        ],
+        [
+          "vulnerable_range",
+          "pip",
+          "vllm",
+          "<0.8.0"
+        ],
+        [
+          "fixed_range",
+          "pip",
+          "vllm",
+          "0.8.0"
+        ],
+        [
+          "cvss",
+          "3.1",
+          "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          6.5,
+          null
+        ]
+      ]
+    },
+    {
+      "task_id": "98430f36-8a82-4e4b-bceb-1b905b49b0c4",
+      "source_id": "nvd",
+      "external_id": "CVE-2026-94625",
+      "group_id": "fc04d01888c2840be38c353520adc0483f40954d2da3bc8d1d9643d21e1e9750",
+      "missing_prediction": false,
+      "tp": 3,
+      "fp": 0,
+      "fn": 3,
+      "missing": [
+        [
+          "entity:product",
+          "vllm"
+        ],
+        [
+          "entity:vendor",
+          "vllm-project"
+        ],
+        [
+          "nvd_affected_version",
+          "disclosure@vulncheck.com",
+          {
+            "defaultStatus": "unaffected",
+            "packageName": null,
+            "packageURL": "pkg:pypi/vllm",
+            "product": "vllm",
+            "vendor": "vllm-project"
+          },
+          {
+            "lessThanOrEqual": "0.29.0",
+            "status": "affected",
+            "version": "0",
+            "versionType": "semver"
+          }
+        ]
+      ],
+      "unsupported": [],
+      "expected_facts": [
+        [
+          "entity:cve",
+          "cve-2026-94625"
+        ],
+        [
+          "cvss",
+          "4.0",
+          "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+          6.9,
+          "disclosure@vulncheck.com"
+        ],
+        [
+          "cvss",
+          "3.1",
+          "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          5.3,
+          "disclosure@vulncheck.com"
+        ],
+        [
+          "entity:vendor",
+          "vllm-project"
+        ],
+        [
+          "entity:product",
+          "vllm"
+        ],
+        [
+          "nvd_affected_version",
+          "disclosure@vulncheck.com",
+          {
+            "vendor": "vllm-project",
+            "product": "vllm",
+            "packageName": null,
+            "packageURL": "pkg:pypi/vllm",
+            "defaultStatus": "unaffected"
+          },
+          {
+            "version": "0",
+            "lessThanOrEqual": "0.29.0",
+            "versionType": "semver",
+            "status": "affected"
+          }
+        ]
+      ],
+      "predicted_facts": [
+        [
+          "entity:cve",
+          "cve-2026-94625"
+        ],
+        [
+          "cvss",
+          "4.0",
+          "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+          6.9,
+          "disclosure@vulncheck.com"
+        ],
+        [
+          "cvss",
+          "3.1",
+          "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+          5.3,
+          "disclosure@vulncheck.com"
+        ]
+      ]
+    },
+    {
+      "task_id": "2d8fcb11-dd08-4b16-b39f-421bc446ada6",
+      "source_id": "nvd",
+      "external_id": "CVE-2026-93436",
+      "group_id": "881205412c07c9f0303b52da8f007f79bf621877aaf38e111c188789e7182ea7",
+      "missing_prediction": false,
+      "tp": 3,
+      "fp": 0,
+      "fn": 3,
+      "missing": [
+        [
+          "entity:product",
+          "vllm"
+        ],
+        [
+          "entity:vendor",
+          "vllm-project"
+        ],
+        [
+          "nvd_affected_version",
+          "disclosure@vulncheck.com",
+          {
+            "defaultStatus": "unaffected",
+            "packageName": null,
+            "packageURL": "pkg:pypi/vllm",
+            "product": "vllm",
+            "vendor": "vllm-project"
+          },
+          {
+            "lessThanOrEqual": "0.29.0",
+            "status": "affected",
+            "version": "0",
+            "versionType": "semver"
+          }
+        ]
+      ],
+      "unsupported": [],
+      "expected_facts": [
+        [
+          "entity:cve",
+          "cve-2026-93436"
+        ],
+        [
+          "cvss",
+          "4.0",
+          "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+          8.7,
+          "disclosure@vulncheck.com"
+        ],
+        [
+          "cvss",
+          "3.1",
+          "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          7.5,
+          "disclosure@vulncheck.com"
+        ],
+        [
+          "entity:vendor",
+          "vllm-project"
+        ],
+        [
+          "entity:product",
+          "vllm"
+        ],
+        [
+          "nvd_affected_version",
+          "disclosure@vulncheck.com",
+          {
+            "vendor": "vllm-project",
+            "product": "vllm",
+            "packageName": null,
+            "packageURL": "pkg:pypi/vllm",
+            "defaultStatus": "unaffected"
+          },
+          {
+            "version": "0",
+            "lessThanOrEqual": "0.29.0",
+            "versionType": "semver",
+            "status": "affected"
+          }
+        ]
+      ],
+      "predicted_facts": [
+        [
+          "entity:cve",
+          "cve-2026-93436"
+        ],
+        [
+          "cvss",
+          "4.0",
+          "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+          8.7,
+          "disclosure@vulncheck.com"
+        ],
+        [
+          "cvss",
+          "3.1",
+          "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          7.5,
+          "disclosure@vulncheck.com"
+        ]
+      ]
+    },
+    {
+      "task_id": "8c590736-2695-47c3-b50a-64eecbbfcee2",
+      "source_id": "nvd",
+      "external_id": "CVE-2026-73558",
+      "group_id": "aa338109b60587b87c2f7fba595f42a3f97097045df365919689fdbf6aae42c9",
+      "missing_prediction": false,
+      "tp": 2,
+      "fp": 0,
+      "fn": 3,
+      "missing": [
+        [
+          "entity:product",
+          "vllm"
+        ],
+        [
+          "entity:vendor",
+          "vllm-project"
+        ],
+        [
+          "nvd_affected_version",
+          "security-advisories@github.com",
+          {
+            "defaultStatus": null,
+            "packageName": null,
+            "packageURL": null,
+            "product": "vllm",
+            "vendor": "vllm-project"
+          },
+          {
+            "status": "affected",
+            "version": "< 0.27.0"
+          }
+        ]
+      ],
+      "unsupported": [],
+      "expected_facts": [
+        [
+          "entity:cve",
+          "cve-2026-73558"
+        ],
+        [
+          "cvss",
+          "3.1",
+          "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N",
+          5.3,
+          "security-advisories@github.com"
+        ],
+        [
+          "entity:vendor",
+          "vllm-project"
+        ],
+        [
+          "entity:product",
+          "vllm"
+        ],
+        [
+          "nvd_affected_version",
+          "security-advisories@github.com",
+          {
+            "vendor": "vllm-project",
+            "product": "vllm",
+            "packageName": null,
+            "packageURL": null,
+            "defaultStatus": null
+          },
+          {
+            "version": "< 0.27.0",
+            "status": "affected"
+          }
+        ]
+      ],
+      "predicted_facts": [
+        [
+          "entity:cve",
+          "cve-2026-73558"
+        ],
+        [
+          "cvss",
+          "3.1",
+          "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N",
+          5.3,
+          "security-advisories@github.com"
+        ]
+      ]
+    },
+    {
+      "task_id": "4d950fc2-d66d-4247-8fd9-9ad3957c08ba",
+      "source_id": "nvd",
+      "external_id": "CVE-2026-90553",
+      "group_id": "31f02f16e758d669be6652e6ba5ad6b37e370289d544f49cba9ce58439b3e167",
+      "missing_prediction": false,
+      "tp": 6,
+      "fp": 0,
+      "fn": 3,
+      "missing": [
+        [
+          "entity:vendor",
+          "vllm-project"
+        ],
+        [
+          "nvd_affected_version",
+          "disclosure@vulncheck.com",
+          {
+            "defaultStatus": "unaffected",
+            "packageName": null,
+            "packageURL": "pkg:pypi/vllm",
+            "product": "vLLM",
+            "vendor": "vllm-project"
+          },
+          {
+            "lessThan": "0.28.0",
+            "status": "affected",
+            "version": "0",
+            "versionType": "semver"
+          }
+        ],
+        [
+          "nvd_affected_version",
+          "disclosure@vulncheck.com",
+          {
+            "defaultStatus": "unaffected",
+            "packageName": null,
+            "packageURL": "pkg:pypi/vllm",
+            "product": "vLLM",
+            "vendor": "vllm-project"
+          },
+          {
+            "status": "unaffected",
+            "version": "0.28.0",
+            "versionType": "semver"
+          }
+        ]
+      ],
+      "unsupported": [],
+      "expected_facts": [
+        [
+          "entity:cve",
+          "cve-2026-90553"
+        ],
+        [
+          "cvss",
+          "4.0",
+          "CVSS:4.0/AV:L/AC:L/AT:N/PR:N/UI:P/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+          8.5,
+          "disclosure@vulncheck.com"
+        ],
+        [
+          "cvss",
+          "3.1",
+          "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          7.8,
+          "disclosure@vulncheck.com"
+        ],
+        [
+          "cpe_match",
+          "cpe:2.3:a:vllm:vllm:*:*:*:*:*:*:*:*",
+          true,
+          null,
+          null,
+          null,
+          "0.28.0"
+        ],
+        [
+          "entity:vendor",
+          "vllm"
+        ],
+        [
+          "entity:product",
+          "vllm"
+        ],
+        [
+          "entity:vendor",
+          "vllm-project"
+        ],
+        [
+          "nvd_affected_version",
+          "disclosure@vulncheck.com",
+          {
+            "vendor": "vllm-project",
+            "product": "vLLM",
+            "packageName": null,
+            "packageURL": "pkg:pypi/vllm",
+            "defaultStatus": "unaffected"
+          },
+          {
+            "version": "0",
+            "lessThan": "0.28.0",
+            "versionType": "semver",
+            "status": "affected"
+          }
+        ],
+        [
+          "nvd_affected_version",
+          "disclosure@vulncheck.com",
+          {
+            "vendor": "vllm-project",
+            "product": "vLLM",
+            "packageName": null,
+            "packageURL": "pkg:pypi/vllm",
+            "defaultStatus": "unaffected"
+          },
+          {
+            "version": "0.28.0",
+            "versionType": "semver",
+            "status": "unaffected"
+          }
+        ]
+      ],
+      "predicted_facts": [
+        [
+          "entity:cve",
+          "cve-2026-90553"
+        ],
+        [
+          "entity:vendor",
+          "vllm"
+        ],
+        [
+          "entity:product",
+          "vllm"
+        ],
+        [
+          "cvss",
+          "4.0",
+          "CVSS:4.0/AV:L/AC:L/AT:N/PR:N/UI:P/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+          8.5,
+          "disclosure@vulncheck.com"
+        ],
+        [
+          "cvss",
+          "3.1",
+          "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          7.8,
+          "disclosure@vulncheck.com"
+        ],
+        [
+          "cpe_match",
+          "cpe:2.3:a:vllm:vllm:*:*:*:*:*:*:*:*",
+          true,
+          null,
+          null,
+          null,
+          "0.28.0"
+        ]
+      ]
+    },
+    {
+      "task_id": "0a29eb3b-2e76-4782-b074-dbd7078c21e8",
+      "source_id": "nvd",
+      "external_id": "CVE-2026-69147",
+      "group_id": "da9fb1e09dfaaf497571b4cbc7726eb350f6bc20a963d46a3145274157a7fd94",
+      "missing_prediction": false,
+      "tp": 2,
+      "fp": 0,
+      "fn": 3,
+      "missing": [
+        [
+          "entity:product",
+          "vllm"
+        ],
+        [
+          "entity:vendor",
+          "vllm-project"
+        ],
+        [
+          "nvd_affected_version",
+          "security-advisories@github.com",
+          {
+            "defaultStatus": null,
+            "packageName": null,
+            "packageURL": null,
+            "product": "vllm",
+            "vendor": "vllm-project"
+          },
+          {
+            "status": "affected",
+            "version": "< 0.28.0"
+          }
+        ]
+      ],
+      "unsupported": [],
+      "expected_facts": [
+        [
+          "entity:cve",
+          "cve-2026-69147"
+        ],
+        [
+          "cvss",
+          "3.1",
+          "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          6.5,
+          "security-advisories@github.com"
+        ],
+        [
+          "entity:vendor",
+          "vllm-project"
+        ],
+        [
+          "entity:product",
+          "vllm"
+        ],
+        [
+          "nvd_affected_version",
+          "security-advisories@github.com",
+          {
+            "vendor": "vllm-project",
+            "product": "vllm",
+            "packageName": null,
+            "packageURL": null,
+            "defaultStatus": null
+          },
+          {
+            "version": "< 0.28.0",
+            "status": "affected"
+          }
+        ]
+      ],
+      "predicted_facts": [
+        [
+          "entity:cve",
+          "cve-2026-69147"
+        ],
+        [
+          "cvss",
+          "3.1",
+          "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          6.5,
+          "security-advisories@github.com"
+        ]
+      ]
+    },
+    {
+      "task_id": "9e8f51a8-3c9d-4493-a476-4192e4aa7b3d",
+      "source_id": "vllm-vendor",
+      "external_id": "GHSA-7m6h-x95x-82q5",
+      "group_id": "aa338109b60587b87c2f7fba595f42a3f97097045df365919689fdbf6aae42c9",
+      "missing_prediction": false,
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "missing": [],
+      "unsupported": [],
+      "expected_facts": [
+        [
+          "entity:cve",
+          "cve-2026-73558"
+        ],
+        [
+          "entity:ghsa",
+          "ghsa-7m6h-x95x-82q5"
+        ],
+        [
+          "entity:package",
+          "unknown",
+          "vllm"
+        ],
+        [
+          "vulnerable_range",
+          "unknown",
+          "vllm",
+          "<0.21.0"
+        ],
+        [
+          "fixed_range",
+          "unknown",
+          "vllm",
+          ">=0.27.0"
+        ],
+        [
+          "cvss",
+          "3.1",
+          "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N",
+          5.3,
+          null
+        ]
+      ],
+      "predicted_facts": [
+        [
+          "entity:cve",
+          "cve-2026-73558"
+        ],
+        [
+          "entity:ghsa",
+          "ghsa-7m6h-x95x-82q5"
+        ],
+        [
+          "entity:package",
+          "unknown",
+          "vllm"
+        ],
+        [
+          "vulnerable_range",
+          "unknown",
+          "vllm",
+          "<0.21.0"
+        ],
+        [
+          "fixed_range",
+          "unknown",
+          "vllm",
+          ">=0.27.0"
+        ],
+        [
+          "cvss",
+          "3.1",
+          "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N",
+          5.3,
+          null
+        ]
+      ]
+    },
+    {
+      "task_id": "7ce1dbfa-9687-4020-8ad4-393e2d9506a0",
+      "source_id": "vllm-vendor",
+      "external_id": "GHSA-w6q7-j642-7c25",
+      "group_id": "1c43e901b24d9cd7398a20086d38bc1f51151152c6cc23a1f9b09be74f6da7e0",
+      "missing_prediction": false,
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "missing": [],
+      "unsupported": [],
+      "expected_facts": [
+        [
+          "entity:cve",
+          "cve-2025-48887"
+        ],
+        [
+          "entity:ghsa",
+          "ghsa-w6q7-j642-7c25"
+        ],
+        [
+          "entity:package",
+          "pip",
+          "vllm"
+        ],
+        [
+          "vulnerable_range",
+          "pip",
+          "vllm",
+          ">=0.6.4,<0.9.0"
+        ],
+        [
+          "fixed_range",
+          "pip",
+          "vllm",
+          "0.9.0"
+        ],
+        [
+          "cvss",
+          "3.1",
+          "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          6.5,
+          null
+        ]
+      ],
+      "predicted_facts": [
+        [
+          "entity:cve",
+          "cve-2025-48887"
+        ],
+        [
+          "entity:ghsa",
+          "ghsa-w6q7-j642-7c25"
+        ],
+        [
+          "entity:package",
+          "pip",
+          "vllm"
+        ],
+        [
+          "vulnerable_range",
+          "pip",
+          "vllm",
+          ">=0.6.4,<0.9.0"
+        ],
+        [
+          "fixed_range",
+          "pip",
+          "vllm",
+          "0.9.0"
+        ],
+        [
+          "cvss",
+          "3.1",
+          "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          6.5,
+          null
+        ]
+      ]
+    },
+    {
+      "task_id": "1e6049be-6a34-4d1e-a7e7-3b4bfe8fa1a6",
+      "source_id": "vllm-vendor",
+      "external_id": "GHSA-jrf6-vqxq-pjv2",
+      "group_id": "f62cc36c4531215fe1dca95f8e5cebddc76f4bf804eafbb734ab773ae263cdc5",
+      "missing_prediction": false,
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "missing": [],
+      "unsupported": [],
+      "expected_facts": [
+        [
+          "entity:cve",
+          "cve-2026-54232"
+        ],
+        [
+          "entity:ghsa",
+          "ghsa-jrf6-vqxq-pjv2"
+        ],
+        [
+          "entity:package",
+          "docker",
+          "vllm/vllm-openai"
+        ],
+        [
+          "vulnerable_range",
+          "docker",
+          "vllm/vllm-openai",
+          "<0.22.1"
+        ],
+        [
+          "fixed_range",
+          "docker",
+          "vllm/vllm-openai",
+          ">=0.22.1"
+        ],
+        [
+          "cvss",
+          "3.1",
+          "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          8.8,
+          null
+        ]
+      ],
+      "predicted_facts": [
+        [
+          "entity:cve",
+          "cve-2026-54232"
+        ],
+        [
+          "entity:ghsa",
+          "ghsa-jrf6-vqxq-pjv2"
+        ],
+        [
+          "entity:package",
+          "docker",
+          "vllm/vllm-openai"
+        ],
+        [
+          "vulnerable_range",
+          "docker",
+          "vllm/vllm-openai",
+          "<0.22.1"
+        ],
+        [
+          "fixed_range",
+          "docker",
+          "vllm/vllm-openai",
+          ">=0.22.1"
+        ],
+        [
+          "cvss",
+          "3.1",
+          "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H",
+          8.8,
+          null
+        ]
+      ]
+    },
+    {
+      "task_id": "cb389c28-e850-4a6b-a97e-e916f7a63cd8",
+      "source_id": "vllm-vendor",
+      "external_id": "GHSA-v359-jj2v-j536",
+      "group_id": "16f83e6029b5223c14b69762f3e09f5262eee910067729d07b57a0421f47bcf2",
+      "missing_prediction": false,
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "missing": [],
+      "unsupported": [],
+      "expected_facts": [
+        [
+          "entity:cve",
+          "cve-2026-25960"
+        ],
+        [
+          "entity:ghsa",
+          "ghsa-v359-jj2v-j536"
+        ],
+        [
+          "entity:package",
+          "pip",
+          "vllm"
+        ],
+        [
+          "vulnerable_range",
+          "pip",
+          "vllm",
+          ">=0.15.1"
+        ],
+        [
+          "fixed_range",
+          "pip",
+          "vllm",
+          "0.17.0"
+        ],
+        [
+          "cvss",
+          "3.1",
+          "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:L",
+          5.4,
+          null
+        ]
+      ],
+      "predicted_facts": [
+        [
+          "entity:cve",
+          "cve-2026-25960"
+        ],
+        [
+          "entity:ghsa",
+          "ghsa-v359-jj2v-j536"
+        ],
+        [
+          "entity:package",
+          "pip",
+          "vllm"
+        ],
+        [
+          "vulnerable_range",
+          "pip",
+          "vllm",
+          ">=0.15.1"
+        ],
+        [
+          "fixed_range",
+          "pip",
+          "vllm",
+          "0.17.0"
+        ],
+        [
+          "cvss",
+          "3.1",
+          "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:L",
+          5.4,
+          null
+        ]
+      ]
+    },
+    {
+      "task_id": "3105d0d8-15d4-46a5-b733-fc4a0574e4fe",
+      "source_id": "vllm-vendor",
+      "external_id": "GHSA-rxc4-3w6r-4v47",
+      "group_id": "4cbf47d22477b0c5f3a24b424b6a1c82fa6b163d1c8d1f4acc979fe1f887b5b5",
+      "missing_prediction": false,
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "missing": [],
+      "unsupported": [],
+      "expected_facts": [
+        [
+          "entity:cve",
+          "cve-2025-48956"
+        ],
+        [
+          "entity:ghsa",
+          "ghsa-rxc4-3w6r-4v47"
+        ],
+        [
+          "entity:package",
+          "pip",
+          "vllm"
+        ],
+        [
+          "vulnerable_range",
+          "pip",
+          "vllm",
+          ">=0.1.0"
+        ],
+        [
+          "fixed_range",
+          "pip",
+          "vllm",
+          "0.10.1.1"
+        ],
+        [
+          "cvss",
+          "3.1",
+          "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          7.5,
+          null
+        ]
+      ],
+      "predicted_facts": [
+        [
+          "entity:cve",
+          "cve-2025-48956"
+        ],
+        [
+          "entity:ghsa",
+          "ghsa-rxc4-3w6r-4v47"
+        ],
+        [
+          "entity:package",
+          "pip",
+          "vllm"
+        ],
+        [
+          "vulnerable_range",
+          "pip",
+          "vllm",
+          ">=0.1.0"
+        ],
+        [
+          "fixed_range",
+          "pip",
+          "vllm",
+          "0.10.1.1"
+        ],
+        [
+          "cvss",
+          "3.1",
+          "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          7.5,
+          null
+        ]
+      ]
+    },
+    {
+      "task_id": "b2d74a98-41e9-4391-8fe0-cbdc592a874c",
+      "source_id": "vllm-vendor",
+      "external_id": "GHSA-6qc9-v4r8-22xg",
+      "group_id": "3f7ae9a123d0c76e02f5a8bfd9c2c6cf605aa79079ba56582176f513ea2e0360",
+      "missing_prediction": false,
+      "tp": 6,
+      "fp": 0,
+      "fn": 0,
+      "missing": [],
+      "unsupported": [],
+      "expected_facts": [
+        [
+          "entity:cve",
+          "cve-2025-48942"
+        ],
+        [
+          "entity:ghsa",
+          "ghsa-6qc9-v4r8-22xg"
+        ],
+        [
+          "entity:package",
+          "pip",
+          "vllm"
+        ],
+        [
+          "vulnerable_range",
+          "pip",
+          "vllm",
+          ">=0.8.0"
+        ],
+        [
+          "fixed_range",
+          "pip",
+          "vllm",
+          "0.9.0"
+        ],
+        [
+          "cvss",
+          "3.1",
+          "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          6.5,
+          null
+        ]
+      ],
+      "predicted_facts": [
+        [
+          "entity:cve",
+          "cve-2025-48942"
+        ],
+        [
+          "entity:ghsa",
+          "ghsa-6qc9-v4r8-22xg"
+        ],
+        [
+          "entity:package",
+          "pip",
+          "vllm"
+        ],
+        [
+          "vulnerable_range",
+          "pip",
+          "vllm",
+          ">=0.8.0"
+        ],
+        [
+          "fixed_range",
+          "pip",
+          "vllm",
+          "0.9.0"
+        ],
+        [
+          "cvss",
+          "3.1",
+          "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H",
+          6.5,
+          null
+        ]
+      ]
+    }
+  ],
+  "sha256": "1528637c2ed01f83a2fde3995146880e3b83f7a3df1ff0904ddd9187b43a1d87"
+}

@@ -1,0 +1,133 @@
+{
+  "id": "41c952c0-317e-4698-9a71-c7a3ccd4f7e1",
+  "suite_version": "member-b-week3-v1",
+  "index_schema_version": "lexical-v3",
+  "run_at": "2026-09-20 07:35:37.121949+00:00",
+  "case_count": 4,
+  "hit_rate_at_k": 1.0,
+  "citation_verifiable_rate": 1.0,
+  "hallucination_rate": 0.0,
+  "answerability_accuracy": 1.0,
+  "constraint_pass_rate": 1.0,
+  "details": [
+    {
+      "id": "cvss-multiple-scores",
+      "question": "vLLM 未初始化资源公告的 CVSS 是多少？",
+      "query": "Use of Uninitialized Resource",
+      "pool": "formal",
+      "top_k": 5,
+      "hit": true,
+      "answerability_pass": true,
+      "expected_status": "evidence",
+      "constraint_pass": true,
+      "expected_constraint_codes": [
+        "selected_cvss_display_only",
+        "cvss_multiple_scores"
+      ],
+      "returned_constraint_codes": [
+        "cvss_multiple_scores",
+        "derived_structured_data",
+        "no_asset_match",
+        "selected_cvss_display_only",
+        "source_asserted"
+      ],
+      "expected_external_ids": [
+        "GHSA-x368-4g9h-fvv4"
+      ],
+      "returned_external_ids": [
+        "GHSA-x368-4g9h-fvv4"
+      ],
+      "scanned_events": 1,
+      "citations": 1,
+      "verified_citations": 1,
+      "unsupported_answer_lines": 0
+    },
+    {
+      "id": "opaque-version-range",
+      "question": "stop_token_ids 绕过问题的修复版本是什么？",
+      "query": "stop_token_ids bypass",
+      "pool": "formal",
+      "top_k": 5,
+      "hit": true,
+      "answerability_pass": true,
+      "expected_status": "evidence",
+      "constraint_pass": true,
+      "expected_constraint_codes": [
+        "unparsed_version_range"
+      ],
+      "returned_constraint_codes": [
+        "derived_structured_data",
+        "no_asset_match",
+        "selected_cvss_display_only",
+        "source_asserted",
+        "unparsed_version_range",
+        "vendor_patched_range"
+      ],
+      "expected_external_ids": [
+        "GHSA-qff2-492f-9fm4"
+      ],
+      "returned_external_ids": [
+        "GHSA-qff2-492f-9fm4"
+      ],
+      "scanned_events": 8,
+      "citations": 1,
+      "verified_citations": 1,
+      "unsupported_answer_lines": 0
+    },
+    {
+      "id": "unanswerable-question",
+      "question": "不存在的组件 zzzznosuchrecord20999999 是否受影响？",
+      "query": "zzzznosuchrecord20999999",
+      "pool": "formal",
+      "top_k": 5,
+      "hit": true,
+      "answerability_pass": true,
+      "expected_status": "no_evidence",
+      "constraint_pass": true,
+      "expected_constraint_codes": [
+        "insufficient_evidence"
+      ],
+      "returned_constraint_codes": [
+        "insufficient_evidence"
+      ],
+      "expected_external_ids": [],
+      "returned_external_ids": [],
+      "scanned_events": 238,
+      "citations": 0,
+      "verified_citations": 0,
+      "unsupported_answer_lines": 0
+    },
+    {
+      "id": "cpe-is-not-asset-match",
+      "question": "CVE-2026-48746 是否命中了我的资产？",
+      "query": "CVE-2026-48746",
+      "pool": "formal",
+      "top_k": 5,
+      "hit": true,
+      "answerability_pass": true,
+      "expected_status": "evidence",
+      "constraint_pass": true,
+      "expected_constraint_codes": [
+        "cpe_condition_not_asset_match"
+      ],
+      "returned_constraint_codes": [
+        "cpe_condition_not_asset_match",
+        "derived_structured_data",
+        "nvd_unparsed_scope",
+        "selected_cvss_display_only",
+        "source_asserted"
+      ],
+      "expected_external_ids": [
+        "CVE-2026-48746"
+      ],
+      "returned_external_ids": [
+        "CVE-2026-48746"
+      ],
+      "scanned_events": 7,
+      "citations": 1,
+      "verified_citations": 1,
+      "unsupported_answer_lines": 0
+    }
+  ],
+  "metric_scope": "fixed-suite retrieval, answerability, policy constraints and extractive evidence packets; not free-form LLM answers"
+}

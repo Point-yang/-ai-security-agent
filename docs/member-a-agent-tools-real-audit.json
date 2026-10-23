@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "checks": {
+    "source_search": true,
+    "current_detail": true,
+    "raw_evidence": true,
+    "active_comparison": true,
+    "explicit_asset_required": true,
+    "forbidden_tool": true,
+    "no_database_write": true,
+    "bounded_calls": true
+  },
+  "tool_version": "agent-source-tools-v1",
+  "scope": {
+    "pool": "formal",
+    "origin": "live"
+  },
+  "database_counts_before_after_equal": true,
+  "tool_calls": 6,
+  "output_chars": 12789,
+  "comparison_fields": [
+    "affected_scope",
+    "cvss_score",
+    "severity"
+  ],
+  "note": "Current-source engineering drill; not model tool-selection or answer accuracy proof."
+}

@@ -1,0 +1,190 @@
+{
+  "version": "catalog-live-probe-v1",
+  "created_at": "2026-09-30T07:07:30.964440+00:00",
+  "read_only": true,
+  "database_mutated": false,
+  "sources": [
+    {
+      "target": "hf-blog-index",
+      "source": "hf-blog",
+      "status": "parsed",
+      "source_url": "https://huggingface.co/api/blog",
+      "response_sha256": "2cbe5be52fde43dea9230f06a6d987e7434187fd55859011a30187ac0c5ddf4c",
+      "response_bytes": 37733,
+      "parsed_records": 1,
+      "has_next": false,
+      "not_modified": false,
+      "first_records": [
+        {
+          "external_id": "6aa956e72ac9a2fd21adb408",
+          "title": "Getting the Source Right, Not Just the Fact: Source-Aware Verification for MCP Agents",
+          "locator": "/allBlogs/1"
+        }
+      ]
+    },
+    {
+      "target": "nist-ai-rmf-100-1",
+      "source": "nist-ai-rmf",
+      "status": "parsed",
+      "source_url": "https://api.crossref.org/works/10.6028/NIST.AI.100-1",
+      "response_sha256": "29a2ec3f0202923b60244a1dc4690d1eb8db7699698ba386164c772993f15741",
+      "response_bytes": 3619,
+      "parsed_records": 1,
+      "has_next": false,
+      "not_modified": false,
+      "first_records": [
+        {
+          "external_id": "10.6028/nist.ai.100-1",
+          "title": "Artificial Intelligence Risk Management Framework (AI RMF 1.0)",
+          "locator": "/message"
+        }
+      ]
+    },
+    {
+      "target": "federal-register-ai-index",
+      "source": "federal-register-ai",
+      "status": "parsed",
+      "source_url": "https://www.federalregister.gov/api/v1/documents.json?conditions%5Bterm%5D=artificial+intelligence&per_page=100&order=newest",
+      "response_sha256": "c438e6edc977d09502b1abe905357352551a198c579989ff0f2cf3c166edeea3",
+      "response_bytes": 218028,
+      "parsed_records": 2,
+      "has_next": false,
+      "not_modified": false,
+      "first_records": [
+        {
+          "external_id": "2026-16371",
+          "title": "Request for Information (RFI) on Modernizing the National Vulnerability Database in the Age of Artificial Intelligence",
+          "locator": "/results/47"
+        },
+        {
+          "external_id": "2026-13628",
+          "title": "Policy Statement Concerning the Suppression of Accuracy in Artificial Intelligence Systems",
+          "locator": "/results/94"
+        }
+      ]
+    },
+    {
+      "target": "nuclei-cve-index",
+      "source": "nuclei-cves",
+      "status": "parsed",
+      "source_url": "https://raw.githubusercontent.com/projectdiscovery/nuclei-templates/main/cves.json",
+      "response_sha256": "c4541b0a9dede821ac1cffb6e108fe1f928e7b9e863e2b14a864f6607a4a57f2",
+      "response_bytes": 2217099,
+      "parsed_records": 22,
+      "has_next": false,
+      "not_modified": false,
+      "first_records": [
+        {
+          "external_id": "CVE-2023-43654",
+          "title": "PyTorch TorchServe SSRF",
+          "locator": "byte:1310727:1311741"
+        },
+        {
+          "external_id": "CVE-2024-37014",
+          "title": "Langflow <= 1.0.12 - Remote Code Execution",
+          "locator": "byte:1542931:1543399"
+        },
+        {
+          "external_id": "CVE-2024-37032",
+          "title": "Ollama - Remote Code Execution",
+          "locator": "byte:1543400:1543859"
+        },
+        {
+          "external_id": "CVE-2024-6587",
+          "title": "LiteLLM - Server-Side Request Forgery",
+          "locator": "byte:1654588:1654883"
+        },
+        {
+          "external_id": "CVE-2025-3248",
+          "title": "Langflow AI - Unauthenticated Remote Code Execution",
+          "locator": "byte:1791213:1791631"
+        },
+        {
+          "external_id": "CVE-2025-34291",
+          "title": "Langflow AI <= 1.6.9 - CORS Misconfiguration",
+          "locator": "byte:1804772:1805276"
+        },
+        {
+          "external_id": "CVE-2026-0768",
+          "title": "Langflow <=1.2.x - Unauthenticated Remote Code Execution via validate_code",
+          "locator": "byte:1928072:1928619"
+        },
+        {
+          "external_id": "CVE-2026-0770",
+          "title": "Langflow < 1.3.0 - Remote Code Execution via validate_code() exec()",
+          "locator": "byte:1928620:1929116"
+        },
+        {
+          "external_id": "CVE-2026-21445",
+          "title": "Langflow - Broken Access Control",
+          "locator": "byte:1960674:1961346"
+        },
+        {
+          "external_id": "CVE-2026-22778",
+          "title": "vLLM 0.8.3 - 0.14.0 - Information Disclosure",
+          "locator": "byte:1968748:1969217"
+        },
+        {
+          "external_id": "CVE-2026-30623",
+          "title": "LiteLLM 1.18.10 - Command Injection",
+          "locator": "byte:2004050:2004474"
+        },
+        {
+          "external_id": "CVE-2026-33017",
+          "title": "Langflow < 1.9.0 - Remote Code Execution",
+          "locator": "byte:2014472:2014952"
+        },
+        {
+          "external_id": "CVE-2026-33497",
+          "title": "Langflow < 1.7.0 - Path Traversal",
+          "locator": "byte:2019144:2019593"
+        },
+        {
+          "external_id": "CVE-2026-35029",
+          "title": "LiteLLM - Arbitrary File Read",
+          "locator": "byte:2030456:2030888"
+        },
+        {
+          "external_id": "CVE-2026-40217",
+          "title": "LiteLLM < 1.25.0 - Remote Code Execution",
+          "locator": "byte:2041146:2041887"
+        },
+        {
+          "external_id": "CVE-2026-42208",
+          "title": "LiteLLM - SQL Injection",
+          "locator": "byte:2055010:2055469"
+        },
+        {
+          "external_id": "CVE-2026-42271",
+          "title": "LiteLLM - Command Injection",
+          "locator": "byte:2055959:2056828"
+        },
+        {
+          "external_id": "CVE-2026-5027",
+          "title": "Langflow <= 1.8.4 - Path Traversal to RCE via File Upload",
+          "locator": "byte:2084323:2084794"
+        },
+        {
+          "external_id": "CVE-2026-54236",
+          "title": "vLLM <= 0.23.0 - Anthropic Router Heap Address Information Leak",
+          "locator": "byte:2095801:2096228"
+        },
+        {
+          "external_id": "CVE-2026-55450",
+          "title": "Langflow < 1.9.1 - Unauthenticated File Upload",
+          "locator": "byte:2100157:2100591"
+        },
+        {
+          "external_id": "CVE-2026-9103",
+          "title": "Langflow OSS - Superuser Token Issuance",
+          "locator": "byte:2154804:2155147"
+        },
+        {
+          "external_id": "CVE-2026-9198",
+          "title": "IBM Langflow - Remote Code Execution",
+          "locator": "byte:2155651:2156102"
+        }
+      ]
+    }
+  ]
+}

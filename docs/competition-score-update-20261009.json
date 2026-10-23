@@ -1,0 +1,86 @@
+{
+  "schema_version": "competition-internal-score-update-v1",
+  "date": "2026-10-09",
+  "official_score": false,
+  "initial_estimate": {
+    "total": 65,
+    "maximum": 100,
+    "breakdown": {
+      "monitoring_completeness": 9,
+      "enrichment_completeness": 12,
+      "qa_completeness": 14,
+      "monitoring_timeliness": 0,
+      "enrichment_accuracy": 0,
+      "qa_quality": 4,
+      "agent": 6,
+      "automation": 8,
+      "documentation": 12
+    }
+  },
+  "final_readiness_estimate": {
+    "low": 63,
+    "high": 65,
+    "maximum": 100,
+    "breakdown": {
+      "monitoring_completeness": 8,
+      "enrichment_completeness": 8,
+      "qa_completeness": 8,
+      "monitoring_timeliness_and_stability": 0,
+      "enrichment_accuracy_and_recall": 0,
+      "qa_quality": {
+        "low": 6,
+        "high": 8,
+        "maximum": 10,
+        "reason": "Small earlier reviewed corpus and new paired runs support provisional readiness only; 95 percent overall semantic accuracy is not established. Prior 9/10 estimate was optimistic."
+      },
+      "agent": 6,
+      "automation": 8,
+      "documentation": 8,
+      "live_demo": 7,
+      "innovation": 4
+    }
+  },
+  "assessment_method": "Functionality and engineering judged from saved project acceptance reports; unproven performance categories budgeted at zero, which is not a claim of zero capability. Demo is materials readiness, not observed live performance.",
+  "change_from_previous": "Initial 65 retained; final prior 66 revised to 63-65 because provisional QA quality 9/10 is not sufficiently substantiated. NVD omission repair closes known facts but is not a full accuracy/recall reevaluation.",
+  "current_updates": {
+    "nvd_known_missing_facts_recovered": 15,
+    "nvd_known_missing_facts_total": 15,
+    "nvd_version_status_raw_pointer_checks": 6,
+    "monitoring_7day_status": "not_accepted",
+    "runtime_samples": 650,
+    "nominal_expected_samples": 2016,
+    "runtime_missing_observations_are_not_measured_downtime": true
+  },
+  "target_final": {
+    "total": 90,
+    "breakdown": {
+      "monitoring_completeness": 10,
+      "enrichment_completeness": 9,
+      "qa_completeness": 9,
+      "monitoring_timeliness_and_stability": 5,
+      "enrichment_accuracy_and_recall": 5,
+      "qa_quality": 10,
+      "agent": 12,
+      "automation": 9,
+      "documentation": 9,
+      "live_demo": 8,
+      "innovation": 4
+    },
+    "conditional": true
+  },
+  "next_priorities": [
+    "Fix recurring collection/network failures and recording gaps; measure new-publication discovery delay in a complete observation window.",
+    "Evaluate current enrichment on a newly frozen representative source-fact corpus, explicitly including version-status boundaries and links to papers/POC/policy.",
+    "Compare Agent and ordinary RAG on complex multi-document questions; assess semantic correctness, citation support, latency and cost.",
+    "Complete final diagrams, anonymized official template, current video and two-person timed rehearsal on target hardware."
+  ],
+  "evidence": [
+    "docs/member-b-collector-recovery-independent-review-20261007.md",
+    "docs/member-a-nvd-affecteddata-verification-20261009.json",
+    "docs/member-a-seven-day-monitor-audit-20261009.json",
+    "docs/member-b-agent-paired-v3-human-scores.json",
+    "docs/member-b-agent-paired-v4-acceptance.md",
+    "docs/member-b-score-corrected-20260930.json"
+  ],
+  "rubric_pdf": "~/Downloads/关于第三届 “中国电子杯” 高校 ICT 产教融合创新大赛报名的通知/附件2：第三届“中国电子杯”高校ICT产教融合创新大赛命题/9 赛题九：网信产业应用赛道-智能体驱动的AI安全知识情报系统设计与实现（奇安信科技集团股份有限公司）.pdf"
+}

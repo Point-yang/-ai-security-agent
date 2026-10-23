@@ -1,0 +1,10 @@
+{
+  "source_id": "nuclei-cves",
+  "raw_document_id": "f38e74b1-6960-4cd7-9310-eaca406eab34",
+  "observed": 22,
+  "created": 22,
+  "updated": 0,
+  "unchanged": 0,
+  "scope": "source_metadata_only_no_poc_execution",
+  "origin": "replay"
+}

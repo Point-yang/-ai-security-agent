@@ -1,0 +1,117 @@
+name: zhidu-week1
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: zhidu
+      POSTGRES_USER: zhidu
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - "127.0.0.1:${ZHIDU_DB_PORT:-5432}:5432"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U zhidu -d zhidu"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+  api:
+    build:
+      context: .
+      args:
+        PYTHON_BASE: ${ZHIDU_PYTHON_BASE:-python:3.12-slim}
+    init: true
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m,mode=1777
+    cap_drop: ["ALL"]
+    security_opt:
+      - no-new-privileges:true
+    environment:
+      ZHIDU_DATABASE_URL: postgresql+psycopg://zhidu:${POSTGRES_PASSWORD}@db:5432/zhidu
+      ZHIDU_RAW_DIR: /app/data/raw
+      ZHIDU_GITHUB_TOKEN: ${ZHIDU_GITHUB_TOKEN:-}
+      ZHIDU_GITHUB_API_VERSION: ${ZHIDU_GITHUB_API_VERSION:-2026-03-10}
+      ZHIDU_ADMIN_KEY: ${ZHIDU_ADMIN_KEY:-}
+      ZHIDU_LLM_PROVIDER: ${ZHIDU_LLM_PROVIDER:-extractive}
+      ZHIDU_DEEPSEEK_API_KEY: ${ZHIDU_DEEPSEEK_API_KEY:-}
+      ZHIDU_DEEPSEEK_BASE_URL: ${ZHIDU_DEEPSEEK_BASE_URL:-https://api.deepseek.com}
+      ZHIDU_DEEPSEEK_MODEL: ${ZHIDU_DEEPSEEK_MODEL:-deepseek-v4-flash}
+      ZHIDU_DEEPSEEK_TIMEOUT_SECONDS: ${ZHIDU_DEEPSEEK_TIMEOUT_SECONDS:-30}
+      ZHIDU_DEEPSEEK_MAX_TOKENS: ${ZHIDU_DEEPSEEK_MAX_TOKENS:-1800}
+      ZHIDU_LLM_TEMPERATURE: ${ZHIDU_LLM_TEMPERATURE:-0}
+      ZHIDU_AGENT_BACKEND: ${ZHIDU_AGENT_BACKEND:-workflow}
+      ZHIDU_AGENT_MAX_MODEL_CALLS: ${ZHIDU_AGENT_MAX_MODEL_CALLS:-5}
+      ZHIDU_AGENT_MAX_TOOL_CALLS: ${ZHIDU_AGENT_MAX_TOOL_CALLS:-6}
+      ZHIDU_AGENT_MAX_OUTPUT_CHARS: ${ZHIDU_AGENT_MAX_OUTPUT_CHARS:-24000}
+      ZHIDU_AGENT_DEADLINE_SECONDS: ${ZHIDU_AGENT_DEADLINE_SECONDS:-30}
+      ZHIDU_AGENT_FINAL_RESERVE_SECONDS: ${ZHIDU_AGENT_FINAL_RESERVE_SECONDS:-8}
+      ZHIDU_AGENT_MODEL_PROVIDER: ${ZHIDU_AGENT_MODEL_PROVIDER:-deepseek}
+      ZHIDU_AGENT_MODEL_NAME: ${ZHIDU_AGENT_MODEL_NAME:-}
+      ZHIDU_AGENT_MODEL_BASE_URL: ${ZHIDU_AGENT_MODEL_BASE_URL:-}
+      ZHIDU_AGENT_MODEL_API_KEY: ${ZHIDU_AGENT_MODEL_API_KEY:-}
+      ZHIDU_AGENT_CHECKPOINT_PATH: ${ZHIDU_AGENT_CHECKPOINT_PATH:-/app/data/agent-checkpoints.sqlite}
+      ZHIDU_MODEL_PRICING_PATH: ${ZHIDU_MODEL_PRICING_PATH:-config/model-pricing.json}
+      ZHIDU_EMBEDDING_MODEL: ${ZHIDU_EMBEDDING_MODEL:-sentence-transformers/all-MiniLM-L6-v2}
+      ZHIDU_EMBEDDING_CACHE: ${ZHIDU_EMBEDDING_CACHE:-/app/data/models}
+      ZHIDU_EMBEDDING_MANIFEST: ${ZHIDU_EMBEDDING_MANIFEST:-/app/data/models/manifest.json}
+      ZHIDU_RAG_CONFIG: ${ZHIDU_RAG_CONFIG:-config/member-b-week6-router-v2.json}
+    ports:
+      - "127.0.0.1:${ZHIDU_API_PORT:-8000}:8000"
+    volumes:
+      - app-data:/app/data
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health/ready')"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+  collector:
+    profiles: ["monitoring"]
+    build:
+      context: .
+      args:
+        PYTHON_BASE: ${ZHIDU_PYTHON_BASE:-python:3.12-slim}
+    init: true
+    command: ["python", "-m", "zhidu", "monitor"]
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m,mode=1777
+    cap_drop: ["ALL"]
+    security_opt:
+      - no-new-privileges:true
+    environment:
+      ZHIDU_DATABASE_URL: postgresql+psycopg://zhidu:${POSTGRES_PASSWORD}@db:5432/zhidu
+      ZHIDU_RAW_DIR: /app/data/raw
+      ZHIDU_GITHUB_TOKEN: ${ZHIDU_GITHUB_TOKEN:-}
+      ZHIDU_GITHUB_API_VERSION: ${ZHIDU_GITHUB_API_VERSION:-2026-03-10}
+    volumes:
+      - app-data:/app/data
+    depends_on:
+      api:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-m", "zhidu.worker_health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+volumes:
+  postgres-data:
+  app-data:

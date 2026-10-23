@@ -1,0 +1,45 @@
+{
+  "checked_at": "2026-10-07T06:09:10.092876+00:00",
+  "ready_http": 200,
+  "targets_total": 10,
+  "targets_completed": 6,
+  "targets_failed": 4,
+  "failed_targets": [
+    {
+      "id": "ghsa-vllm",
+      "error": "network failure after 3 attempts (ConnectError)",
+      "consecutive_failures": 4
+    },
+    {
+      "id": "ghsa-langchain",
+      "error": "network failure after 3 attempts (ConnectError)",
+      "consecutive_failures": 4
+    },
+    {
+      "id": "vllm-official",
+      "error": "vllm-vendor: network failure after 3 attempts (ConnectError)",
+      "consecutive_failures": 4
+    },
+    {
+      "id": "cisa-ai",
+      "error": "cisa-kev: network failure after 3 attempts (ConnectError)",
+      "consecutive_failures": 4
+    }
+  ],
+  "window_24h": {
+    "status": "insufficient_coverage",
+    "full_targets": 1,
+    "min_coverage": 0.468096,
+    "max_coverage": 1.0
+  },
+  "window_168h": {
+    "status": "insufficient_coverage",
+    "full_targets": 0,
+    "min_coverage": 0.226414
+  },
+  "rag": {
+    "status": "ready",
+    "vectors": 4748,
+    "chunks": 4748
+  }
+}

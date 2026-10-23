@@ -1,0 +1,96 @@
+{
+  "id": "f414fe45-ae32-4e3e-a775-a5b86d4dc8b6",
+  "suite_version": "member-b-week2-v1",
+  "index_schema_version": "lexical-v2",
+  "run_at": "2026-09-20 04:19:32.135990+00:00",
+  "case_count": 3,
+  "hit_rate_at_k": 1.0,
+  "citation_verifiable_rate": 1.0,
+  "hallucination_rate": 0.0,
+  "details": [
+    {
+      "id": "vllm-audio-decompression",
+      "question": "vLLM 是否出现过音频解压炸弹风险？",
+      "query": "audio decompression bomb",
+      "pool": "formal",
+      "top_k": 10,
+      "hit": true,
+      "expected_external_ids": [
+        "GHSA-hcwq-8wjf-3gcr",
+        "GHSA-6pr9-rp53-2pmc"
+      ],
+      "returned_external_ids": [
+        "GHSA-6pr9-rp53-2pmc",
+        "GHSA-6pr9-rp53-2pmc",
+        "GHSA-hcwq-8wjf-3gcr",
+        "GHSA-hcwq-8wjf-3gcr",
+        "GHSA-8pw2-6jv3-mj5j",
+        "GHSA-8pw2-6jv3-mj5j",
+        "GHSA-936p-m5pv-vvjf",
+        "GHSA-6c4r-fmh3-7rh8",
+        "GHSA-99f2-hwrc-gvq8",
+        "GHSA-6c4r-fmh3-7rh8"
+      ],
+      "scanned_events": 238,
+      "citations": 10,
+      "verified_citations": 10,
+      "unsupported_answer_lines": 0
+    },
+    {
+      "id": "vllm-auth-bypass",
+      "question": "vLLM 是否有认证绕过相关公告？",
+      "query": "vllm auth bypass",
+      "pool": "formal",
+      "top_k": 10,
+      "hit": true,
+      "expected_external_ids": [
+        "GHSA-94f4-hr76-p5j6"
+      ],
+      "returned_external_ids": [
+        "GHSA-94f4-hr76-p5j6",
+        "GHSA-q8gq-377p-jq3r",
+        "GHSA-q8gq-377p-jq3r",
+        "GHSA-4r2x-xpjr-7cvv",
+        "GHSA-4r2x-xpjr-7cvv",
+        "GHSA-v359-jj2v-j536",
+        "GHSA-6c4r-fmh3-7rh8",
+        "GHSA-4hhp-h66f-j5j7",
+        "GHSA-v359-jj2v-j536",
+        "GHSA-7h4p-rffg-7823"
+      ],
+      "scanned_events": 238,
+      "citations": 10,
+      "verified_citations": 10,
+      "unsupported_answer_lines": 0
+    },
+    {
+      "id": "prompt-injection-research",
+      "question": "近期有哪些提示注入相关研究元数据？",
+      "query": "prompt injection",
+      "pool": "formal",
+      "top_k": 10,
+      "hit": true,
+      "expected_external_ids": [
+        "10.1007/s10439-026-04376-3",
+        "10.59350/k9aqr-fr116"
+      ],
+      "returned_external_ids": [
+        "10.1007/s10439-026-04376-3",
+        "10.59350/k9aqr-fr116",
+        "10.1038/s41467-024-55631-x",
+        "10.1109/iccvbic71195.2026.11689044",
+        "10.1007/s11192-026-05695-x",
+        "10.1016/j.bja.2026.06.041",
+        "10.18653/v1/2025.findings-naacl.395",
+        "10.14722/ndss.2026.230675",
+        "10.34190/iccws.20.1.3292",
+        "10.2139/ssrn.5284059"
+      ],
+      "scanned_events": 238,
+      "citations": 10,
+      "verified_citations": 10,
+      "unsupported_answer_lines": 0
+    }
+  ],
+  "metric_scope": "fixed-suite extractive evidence packets; not free-form LLM answers"
+}

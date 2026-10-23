@@ -1,0 +1,122 @@
+{
+  "version": "member-a-week6-v1",
+  "labeled_at": "2026-09-22",
+  "cases": [
+    {
+      "id": "github-version-cvss",
+      "source_id": "github-advisories",
+      "external_id": "GHSA-2pc9-4j83-qjmr",
+      "kind": "vulnerability",
+      "severity": "high",
+      "quality_flags": [],
+      "entities": [
+        {"type": "cve", "value": "CVE-2026-22807"},
+        {"type": "package", "value": "vllm", "ecosystem": "pip"}
+      ],
+      "packages": [
+        {"ecosystem": "pip", "name": "vllm", "vulnerable_raw": ">= 0.10.1, < 0.14.0"}
+      ],
+      "has_cvss": true,
+      "has_cpe": false,
+      "has_version_scope": true
+    },
+    {
+      "id": "vendor-missing-cvss",
+      "source_id": "vllm-vendor",
+      "external_id": "GHSA-33cg-gxv8-3p8g",
+      "kind": "vulnerability",
+      "severity": "medium",
+      "quality_flags": ["missing_cvss"],
+      "entities": [{"type": "package", "value": "vllm", "ecosystem": "pip"}],
+      "packages": [{"ecosystem": "pip", "name": "vllm", "vulnerable_raw": ">=0.12.0"}],
+      "has_cvss": false,
+      "has_cpe": false,
+      "has_version_scope": true
+    },
+    {
+      "id": "vendor-opaque-range",
+      "source_id": "vllm-vendor",
+      "external_id": "GHSA-3f6c-7fw2-ppm4",
+      "kind": "vulnerability",
+      "severity": "high",
+      "quality_flags": ["unparsed_version_range"],
+      "entities": [{"type": "cve", "value": "CVE-2025-6242"}],
+      "packages": [{"ecosystem": "pip", "name": "vllm", "vulnerable_raw": ">=0.5.0"}],
+      "has_cvss": true,
+      "has_cpe": false,
+      "has_version_scope": true
+    },
+    {
+      "id": "nvd-cpe-cvss",
+      "source_id": "nvd",
+      "external_id": "CVE-2026-34755",
+      "kind": "vulnerability",
+      "severity": "unknown",
+      "quality_flags": [],
+      "entities": [
+        {"type": "vendor", "value": "vllm"},
+        {"type": "product", "value": "vllm"}
+      ],
+      "has_cvss": true,
+      "has_cpe": true,
+      "has_version_scope": false
+    },
+    {
+      "id": "nvd-scope-gap",
+      "source_id": "nvd",
+      "external_id": "CVE-2026-37237",
+      "kind": "vulnerability",
+      "severity": "unknown",
+      "quality_flags": ["missing_affected_scope", "missing_cpe_scope"],
+      "entities": [{"type": "cve", "value": "CVE-2026-37237"}],
+      "has_cvss": true,
+      "has_cpe": false,
+      "has_version_scope": false
+    },
+    {
+      "id": "kev-catalog-boundary",
+      "source_id": "cisa-kev",
+      "external_id": "CVE-2025-3248",
+      "kind": "exploitation_alert",
+      "severity": "unknown",
+      "quality_flags": ["catalog_scope_only"],
+      "entities": [
+        {"type": "vendor", "value": "Langflow"},
+        {"type": "product", "value": "Langflow"}
+      ],
+      "has_cvss": false,
+      "has_cpe": false,
+      "has_version_scope": false
+    },
+    {
+      "id": "crossref-metadata-boundary",
+      "source_id": "crossref",
+      "external_id": "10.1001/jamanetworkopen.2025.49963",
+      "kind": "paper",
+      "severity": "unknown",
+      "quality_flags": ["metadata_only"],
+      "entities": [{"type": "doi", "value": "10.1001/jamanetworkopen.2025.49963"}],
+      "has_cvss": false,
+      "has_cpe": false,
+      "has_version_scope": false
+    },
+    {
+      "id": "github-second-version-case",
+      "source_id": "github-advisories",
+      "external_id": "GHSA-3mwp-wvh9-7528",
+      "kind": "vulnerability",
+      "severity": "medium",
+      "quality_flags": [],
+      "entities": [
+        {"type": "cve", "value": "CVE-2026-34756"},
+        {"type": "package", "value": "vllm", "ecosystem": "pip"}
+      ],
+      "packages": [
+        {"ecosystem": "pip", "name": "vllm", "vulnerable_raw": ">= 0.1.0, < 0.19.0"}
+      ],
+      "has_cvss": true,
+      "has_cpe": false,
+      "has_version_scope": true
+    }
+  ]
+}

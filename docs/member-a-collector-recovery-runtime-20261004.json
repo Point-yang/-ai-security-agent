@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "ready_http": 200,
+  "rag_status": "ready",
+  "chunks": 4278,
+  "current_vectors": 4278,
+  "monitoring_http": 200,
+  "targets_completed": 10,
+  "targets_failed": 0,
+  "window_http": 200,
+  "window_status": "insufficient_coverage",
+  "window_full_targets": 0,
+  "publication_latency_sla_proven": false,
+  "collector_worker_healthy": true
+}

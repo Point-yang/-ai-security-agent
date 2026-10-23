@@ -1,0 +1,20 @@
+{
+  "checked_at": "2026-09-22T10:59:38.411606+00:00",
+  "status": "passed",
+  "database": "zhidu_acceptance_week6",
+  "dialect": "postgresql",
+  "after_container_restart": false,
+  "checks": {
+    "migration_matches_models": true,
+    "idempotent_ingestion": true,
+    "missing_index_detected": true,
+    "index_rebuilt": true,
+    "snapshot_persisted": true,
+    "repeat_repair_unchanged": true,
+    "readiness": true,
+    "metrics": true,
+    "report_api": true
+  },
+  "scope": "host Python API against container PostgreSQL; synthetic replay fixture, no live collection",
+  "api_container_build_verified": false
+}

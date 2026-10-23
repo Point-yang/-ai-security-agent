@@ -1,0 +1,45 @@
+{
+  "status": "frozen_human_review",
+  "source_report_sha256": "ecc9081f5303a3445381819dcc7520b401cb7e9130b2208c7659102db45a61c4",
+  "items": 21,
+  "reviewers": [
+    "A",
+    "B"
+  ],
+  "scores": {
+    "bounded_agent": {
+      "reviewed": 7,
+      "answer_correct": 0.7142857142857143,
+      "answer_correct_n": 7,
+      "semantic_citation_support": 0.6666666666666666,
+      "semantic_citation_support_n": 3,
+      "complete": 0.7142857142857143,
+      "complete_n": 7,
+      "refusal_appropriate": 1.0,
+      "refusal_appropriate_n": 4
+    },
+    "extractive": {
+      "reviewed": 7,
+      "answer_correct": 1.0,
+      "answer_correct_n": 7,
+      "semantic_citation_support": 1.0,
+      "semantic_citation_support_n": 3,
+      "complete": 0.7142857142857143,
+      "complete_n": 7,
+      "refusal_appropriate": 1.0,
+      "refusal_appropriate_n": 4
+    },
+    "ordinary_deepseek": {
+      "reviewed": 7,
+      "answer_correct": 1.0,
+      "answer_correct_n": 7,
+      "semantic_citation_support": 1.0,
+      "semantic_citation_support_n": 3,
+      "complete": 1.0,
+      "complete_n": 7,
+      "refusal_appropriate": 1.0,
+      "refusal_appropriate_n": 4
+    }
+  },
+  "manual_adjudication_required_for_disagreements": true
+}

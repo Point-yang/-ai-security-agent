@@ -1,0 +1,40 @@
+{
+  "version": "member-b-human-reviewed-score-v1",
+  "superseded_by": "docs/member-b-score-corrected-20260930.json",
+  "superseded_reason": "QA composite 13/15 exceeded competition category maxima of 5 and 10 points",
+  "generated_at": "2026-09-29T17:05:02+08:00",
+  "review_source": "docs/member-b-agent-paired-v3-human-scores.json",
+  "review_status": "frozen_human_review",
+  "human_review_basis": "user_confirmed_ai_prefill",
+  "independent_two_reviewer_claim": false,
+  "qa_metrics": {
+    "answer_correct": {"numerator": 19, "denominator": 21, "rate": 0.9047619048},
+    "semantic_citation_support": {"numerator": 8, "denominator": 9, "rate": 0.8888888889},
+    "complete": {"numerator": 17, "denominator": 21, "rate": 0.8095238095},
+    "refusal_appropriate": {"numerator": 12, "denominator": 12, "rate": 1.0},
+    "weighted_quality_score": {"score": 13, "maximum": 15}
+  },
+  "project_score": {
+    "initial": {"score": 74, "maximum": 100},
+    "final_readiness": {"score": 70, "maximum": 100},
+    "breakdown": {
+      "情报监测完整性": 8,
+      "情报富化完整性": 8,
+      "情报问答完整性": 8,
+      "监测时效与稳定性": 0,
+      "富化准确率与召回率": 0,
+      "问答深度与质量": 13,
+      "Agent 架构与运用": 6,
+      "自动化与工程化": 8,
+      "文档": 8,
+      "答辩演示": 7,
+      "创新与实用": 4
+    }
+  },
+  "remaining_evidence": [
+    "127 条来源金标",
+    "持续发布到采集延迟分布",
+    "A/B 独立演示和恢复排练",
+    "正式赛务模板核对"
+  ]
+}

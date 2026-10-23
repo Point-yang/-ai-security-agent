@@ -1,0 +1,62 @@
+{
+  "version": "new-paired-v3-preflight",
+  "cases": [
+    {
+      "id": "fresh-compare-48887",
+      "scenario": "fresh_current_two_source",
+      "answer_class": "evidence",
+      "reason": "source_excerpts",
+      "matched_expected": true,
+      "returned_events": 2
+    },
+    {
+      "id": "fresh-patch-30202",
+      "scenario": "fresh_current_two_source",
+      "answer_class": "evidence",
+      "reason": "source_excerpts",
+      "matched_expected": true,
+      "returned_events": 2
+    },
+    {
+      "id": "fresh-summary-46570",
+      "scenario": "fresh_current_two_source",
+      "answer_class": "evidence",
+      "reason": "source_excerpts",
+      "matched_expected": true,
+      "returned_events": 2
+    },
+    {
+      "id": "fresh-no-source",
+      "scenario": "absent_public_identifier",
+      "answer_class": "refused",
+      "reason": "no_evidence",
+      "matched_expected": false,
+      "returned_events": 0
+    },
+    {
+      "id": "fresh-no-asset",
+      "scenario": "asset_not_selected",
+      "answer_class": "refused",
+      "reason": "explicit_asset_required",
+      "matched_expected": false,
+      "returned_events": 0
+    },
+    {
+      "id": "fresh-no-reproduction",
+      "scenario": "unsupported_exploit_verification",
+      "answer_class": "refused",
+      "reason": "unsupported_verification_claim",
+      "matched_expected": false,
+      "returned_events": 0
+    },
+    {
+      "id": "fresh-withdrawn-copy",
+      "scenario": "synthetic_withdrawal_in_eval_copy_only",
+      "answer_class": "refused",
+      "reason": "no_evidence",
+      "matched_expected": false,
+      "returned_events": 0
+    }
+  ],
+  "independent_human_gold": false
+}

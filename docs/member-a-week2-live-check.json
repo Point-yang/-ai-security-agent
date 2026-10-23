@@ -1,0 +1,206 @@
+{
+  "checked_at": "2026-09-19T15:33:47.207520+00:00",
+  "sources": [
+    {
+      "source_id": "cisa-kev",
+      "records": 7
+    },
+    {
+      "source_id": "crossref",
+      "records": 329
+    },
+    {
+      "source_id": "github-advisories",
+      "records": 70
+    },
+    {
+      "source_id": "nvd",
+      "records": 27
+    },
+    {
+      "source_id": "vllm-vendor",
+      "records": 76
+    }
+  ],
+  "triage": [
+    {
+      "label": "needs_review",
+      "records": 268
+    },
+    {
+      "label": "relevant",
+      "records": 241
+    }
+  ],
+  "revisions": 509,
+  "monitoring": {
+    "targets": [
+      {
+        "id": "ghsa-vllm",
+        "source_id": "github-advisories",
+        "source_name": "GitHub Global Security Advisories",
+        "category": "vulnerability_database",
+        "enabled": true,
+        "interval_seconds": 1800,
+        "status": "completed",
+        "config_current": true,
+        "next_run_at": "2026-09-19T15:53:10.668701+00:00",
+        "last_success_at": "2026-09-19T15:23:10.668701+00:00",
+        "consecutive_failures": 0,
+        "has_pending_pages": false,
+        "stats": {
+          "pages": 1,
+          "observed": 14,
+          "filtered": 0,
+          "records": 14,
+          "created": 0,
+          "updated": 0,
+          "unchanged": 14,
+          "stale": 0,
+          "conflict": 0,
+          "not_modified": 0
+        },
+        "error": null
+      },
+      {
+        "id": "ghsa-langchain",
+        "source_id": "github-advisories",
+        "source_name": "GitHub Global Security Advisories",
+        "category": "vulnerability_database",
+        "enabled": true,
+        "interval_seconds": 1800,
+        "status": "completed",
+        "config_current": true,
+        "next_run_at": "2026-09-19T15:53:11.651469+00:00",
+        "last_success_at": "2026-09-19T15:23:11.651469+00:00",
+        "consecutive_failures": 0,
+        "has_pending_pages": false,
+        "stats": {
+          "pages": 1,
+          "observed": 0,
+          "filtered": 0,
+          "records": 0,
+          "created": 0,
+          "updated": 0,
+          "unchanged": 0,
+          "stale": 0,
+          "conflict": 0,
+          "not_modified": 0
+        },
+        "error": null
+      },
+      {
+        "id": "vllm-official",
+        "source_id": "vllm-vendor",
+        "source_name": "vLLM 官方仓库安全公告",
+        "category": "vendor_advisory",
+        "enabled": true,
+        "interval_seconds": 3600,
+        "status": "completed",
+        "config_current": true,
+        "next_run_at": "2026-09-19T16:25:10.555200+00:00",
+        "last_success_at": "2026-09-19T15:25:10.555200+00:00",
+        "consecutive_failures": 0,
+        "has_pending_pages": false,
+        "stats": {
+          "pages": 1,
+          "observed": 76,
+          "filtered": 0,
+          "records": 76,
+          "created": 76,
+          "updated": 0,
+          "unchanged": 0,
+          "stale": 0,
+          "conflict": 0,
+          "not_modified": 0
+        },
+        "error": null
+      },
+      {
+        "id": "nvd-vllm",
+        "source_id": "nvd",
+        "source_name": "NVD CVE API",
+        "category": "vulnerability_database",
+        "enabled": true,
+        "interval_seconds": 7200,
+        "status": "completed",
+        "config_current": true,
+        "next_run_at": "2026-09-19T17:23:15.387438+00:00",
+        "last_success_at": "2026-09-19T15:23:15.387438+00:00",
+        "consecutive_failures": 0,
+        "has_pending_pages": false,
+        "stats": {
+          "pages": 1,
+          "observed": 27,
+          "filtered": 0,
+          "records": 27,
+          "created": 0,
+          "updated": 0,
+          "unchanged": 27,
+          "stale": 0,
+          "conflict": 0,
+          "not_modified": 0
+        },
+        "error": null
+      },
+      {
+        "id": "cisa-ai",
+        "source_id": "cisa-kev",
+        "source_name": "CISA 已知被利用漏洞目录",
+        "category": "government_alert",
+        "enabled": true,
+        "interval_seconds": 3600,
+        "status": "completed",
+        "config_current": true,
+        "next_run_at": "2026-09-19T16:23:18.413846+00:00",
+        "last_success_at": "2026-09-19T15:23:18.413846+00:00",
+        "consecutive_failures": 0,
+        "has_pending_pages": false,
+        "stats": {
+          "pages": 1,
+          "observed": 1716,
+          "filtered": 1709,
+          "records": 7,
+          "created": 7,
+          "updated": 0,
+          "unchanged": 0,
+          "stale": 0,
+          "conflict": 0,
+          "not_modified": 0
+        },
+        "error": null
+      },
+      {
+        "id": "papers-prompt-injection",
+        "source_id": "crossref",
+        "source_name": "Crossref AI 安全论文元数据",
+        "category": "academic_metadata",
+        "enabled": true,
+        "interval_seconds": 21600,
+        "status": "completed",
+        "config_current": true,
+        "next_run_at": "2026-09-19T21:26:27.496744+00:00",
+        "last_success_at": "2026-09-19T15:26:27.496744+00:00",
+        "consecutive_failures": 0,
+        "has_pending_pages": false,
+        "stats": {
+          "pages": 15,
+          "observed": 1472,
+          "filtered": 1424,
+          "records": 48,
+          "created": 47,
+          "updated": 0,
+          "unchanged": 1,
+          "stale": 0,
+          "conflict": 0,
+          "not_modified": 0
+        },
+        "error": null
+      }
+    ],
+    "configured_sources": 5,
+    "configured_categories": 4,
+    "note": "Configuration counts are not proven source coverage or real-time SLA."
+  },
+  "continuous_monitor_started": false
+}

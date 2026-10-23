@@ -1,0 +1,9 @@
+{
+  "version": "bounded-rag-v1",
+  "max_tools": 6,
+  "timeout_ms": 15000,
+  "candidate_limit": 40,
+  "semantic_min_score": 0.35,
+  "supplement": true,
+  "trace": true
+}

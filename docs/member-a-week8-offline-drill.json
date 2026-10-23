@@ -1,0 +1,54 @@
+{
+  "checked_at": "2026-09-26T06:44:38.303784+00:00",
+  "status": "passed",
+  "restored_directory": "data/restores/week8-drill-20260926",
+  "checks": {
+    "bundled_code_loaded": true,
+    "field_evidence": true,
+    "catalog_evidence": true,
+    "readiness": true,
+    "credential_isolation": true,
+    "main_pages": true,
+    "event_trace": true,
+    "semantic_ready": true,
+    "offline_embedding_query": true
+  },
+  "evidence": {
+    "schema_version": "evidence-audit-v1",
+    "status": "passed",
+    "events": 672,
+    "revisions": 802,
+    "raw_documents": 59,
+    "field_evidence_total": 4809,
+    "field_evidence_verified": 4809,
+    "field_evidence_failed": 0,
+    "dispositions": {
+      "current": 672,
+      "superseded": 130
+    },
+    "failure_samples": [],
+    "scope": "stored raw bytes, SHA-256, JSON Pointer and captured field value equality"
+  },
+  "catalog": {
+    "status": "passed",
+    "revisions": 37,
+    "verified": 37,
+    "failed": 0,
+    "raw_documents": 3,
+    "failure_samples": [],
+    "scope": "source metadata integrity, not payload execution or validity of upstream claims"
+  },
+  "semantic_status": {
+    "status": "ready",
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "model_digest": "546177efd53c466b176e9a51e76e73e11d4bdbab28a33f09c3d3dea4a4479f83",
+    "chunks": 3130,
+    "current_vectors": 3130,
+    "streaming": false,
+    "generation_model": "extractive-packet-v4",
+    "inference_checked": false
+  },
+  "embedding_request_ms": 1747.848,
+  "total_drill_seconds": 8.786,
+  "scope": "restored code/database/raw/model; local TestClient; no upstream source collection; not a fresh-machine installation benchmark"
+}

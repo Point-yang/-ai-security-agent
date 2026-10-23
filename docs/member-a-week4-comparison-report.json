@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-09-20T21:47:00+08:00",
+  "dataset": {
+    "events": 509,
+    "origins": {"live": 509}
+  },
+  "first_run": {
+    "identifiers_compared": 62,
+    "created": 175,
+    "updated": 0,
+    "unchanged": 0,
+    "removed": 0,
+    "status_counts": {"agreement": 96, "variation": 75, "conflict": 4},
+    "automatic_resolution": false
+  },
+  "second_run": {
+    "identifiers_compared": 62,
+    "created": 0,
+    "updated": 0,
+    "unchanged": 175,
+    "removed": 0,
+    "status_counts": {"agreement": 96, "variation": 75, "conflict": 4},
+    "automatic_resolution": false
+  },
+  "note": "Differences are review signals over source-asserted fields, not automatic fact resolution."
+}

@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "backup": "data/backups/before-nvd-affecteddata-20261009.sqlite",
+  "bytes": 73945088,
+  "sha256": "6ed53bb5b494b51a006da4aef4514c93ece322bd502f03e177b31ba53eb71090",
+  "integrity": "ok"
+}

@@ -1,0 +1,234 @@
+{
+  "schema_version": "seven-day-runtime-audit-v1",
+  "checked_at": "2026-10-09",
+  "status": "not_accepted",
+  "source": "output/member-b-runtime/runtime-7day.jsonl",
+  "source_sha256": "042774dc553d5ad7cb8a38cb0c57f573910efeb6a9dd0a8e400c60816c9dd56b",
+  "window_start_beijing": "2026-09-29T22:03:09.204044+08:00",
+  "planned_end_beijing": "2026-10-06T22:03:09.204044+08:00",
+  "finished_beijing": "2026-10-06T22:05:08.146141+08:00",
+  "duration_hours": 168.0,
+  "run_finished_present": true,
+  "samples": 650,
+  "expected_samples_at_nominal_interval": 2016,
+  "sample_count_ratio_percentage": 32.242,
+  "nominal_interval_seconds": 300,
+  "gaps_over_two_intervals": 78,
+  "largest_gap": {
+    "from": "2026-10-03T11:29:16.934377+08:00",
+    "to": "2026-10-03T22:04:06.687618+08:00",
+    "seconds": 38089.753
+  },
+  "top_gaps": [
+    {
+      "from": "2026-10-03T11:29:16.934377+08:00",
+      "to": "2026-10-03T22:04:06.687618+08:00",
+      "seconds": 38089.753
+    },
+    {
+      "from": "2026-10-02T11:54:57.838457+08:00",
+      "to": "2026-10-02T21:03:55.572279+08:00",
+      "seconds": 32937.734
+    },
+    {
+      "from": "2026-10-03T01:32:14.296971+08:00",
+      "to": "2026-10-03T10:22:17.157327+08:00",
+      "seconds": 31802.86
+    },
+    {
+      "from": "2026-10-05T07:36:27.955762+08:00",
+      "to": "2026-10-05T15:59:07.267714+08:00",
+      "seconds": 30159.312
+    },
+    {
+      "from": "2026-10-04T13:29:42.094408+08:00",
+      "to": "2026-10-04T20:21:42.492243+08:00",
+      "seconds": 24720.398
+    },
+    {
+      "from": "2026-10-06T05:19:58.915995+08:00",
+      "to": "2026-10-06T12:01:39.700802+08:00",
+      "seconds": 24100.785
+    },
+    {
+      "from": "2026-10-04T05:48:42.545264+08:00",
+      "to": "2026-10-04T12:27:20.867153+08:00",
+      "seconds": 23918.322
+    },
+    {
+      "from": "2026-10-05T23:49:10.838778+08:00",
+      "to": "2026-10-06T05:19:58.915995+08:00",
+      "seconds": 19848.077
+    },
+    {
+      "from": "2026-10-04T00:29:20.747484+08:00",
+      "to": "2026-10-04T05:48:42.545264+08:00",
+      "seconds": 19161.798
+    },
+    {
+      "from": "2026-09-30T16:01:53.183833+08:00",
+      "to": "2026-09-30T20:14:42.130273+08:00",
+      "seconds": 15168.946
+    }
+  ],
+  "estimated_unobserved_hours_beyond_nominal_sample_intervals": 113.866,
+  "daily_samples_beijing": {
+    "2026-09-29": 8,
+    "2026-09-30": 152,
+    "2026-10-01": 124,
+    "2026-10-02": 79,
+    "2026-10-03": 37,
+    "2026-10-04": 59,
+    "2026-10-05": 95,
+    "2026-10-06": 96
+  },
+  "request_observations": {
+    "/api/v1/monitoring": {
+      "samples": 650,
+      "http_200": 650,
+      "status_counts": {
+        "200": 650
+      },
+      "p50_ms": 19.793,
+      "p95_ms": 36.716,
+      "p99_ms": 46.801,
+      "max_ms": 51.215
+    },
+    "/api/v1/operations/status": {
+      "samples": 650,
+      "http_200": 650,
+      "status_counts": {
+        "200": 650
+      },
+      "p50_ms": 180.086,
+      "p95_ms": 266.543,
+      "p99_ms": 362.719,
+      "max_ms": 8150.027
+    },
+    "/health/live": {
+      "samples": 650,
+      "http_200": 650,
+      "status_counts": {
+        "200": 650
+      },
+      "p50_ms": 34.239,
+      "p95_ms": 58.822,
+      "p99_ms": 90.179,
+      "max_ms": 234.632
+    },
+    "/health/ready": {
+      "samples": 650,
+      "http_200": 650,
+      "status_counts": {
+        "200": 650
+      },
+      "p50_ms": 29.229,
+      "p95_ms": 44.446,
+      "p99_ms": 63.624,
+      "max_ms": 207.012
+    },
+    "/metrics": {
+      "samples": 650,
+      "http_200": 650,
+      "status_counts": {
+        "200": 650
+      },
+      "p50_ms": 82.115,
+      "p95_ms": 117.931,
+      "p99_ms": 171.27,
+      "max_ms": 258.721
+    }
+  },
+  "latency_percentile_method": "nearest_rank; only recorded requests; not end-to-end QA latency",
+  "operations_status_counts": {
+    "degraded": 567,
+    "passed": 83
+  },
+  "fully_fresh_samples": 118,
+  "samples_with_failed_targets": 558,
+  "configured_target_counts": {
+    "6": 110,
+    "10": 540
+  },
+  "target_observations": {
+    "ghsa-vllm": {
+      "observed_samples": 650,
+      "fresh_samples": 304,
+      "failed_state_samples": 339,
+      "sample_fresh_percentage": 46.769
+    },
+    "ghsa-langchain": {
+      "observed_samples": 650,
+      "fresh_samples": 306,
+      "failed_state_samples": 333,
+      "sample_fresh_percentage": 47.077
+    },
+    "vllm-official": {
+      "observed_samples": 650,
+      "fresh_samples": 326,
+      "failed_state_samples": 317,
+      "sample_fresh_percentage": 50.154
+    },
+    "nvd-vllm": {
+      "observed_samples": 650,
+      "fresh_samples": 370,
+      "failed_state_samples": 281,
+      "sample_fresh_percentage": 56.923
+    },
+    "cisa-ai": {
+      "observed_samples": 650,
+      "fresh_samples": 308,
+      "failed_state_samples": 337,
+      "sample_fresh_percentage": 47.385
+    },
+    "papers-prompt-injection": {
+      "observed_samples": 650,
+      "fresh_samples": 499,
+      "failed_state_samples": 312,
+      "sample_fresh_percentage": 76.769
+    },
+    "hf-blog-index": {
+      "observed_samples": 540,
+      "fresh_samples": 271,
+      "failed_state_samples": 366,
+      "sample_fresh_percentage": 50.185
+    },
+    "nist-ai-rmf-100-1": {
+      "observed_samples": 540,
+      "fresh_samples": 538,
+      "failed_state_samples": 45,
+      "sample_fresh_percentage": 99.63
+    },
+    "federal-register-ai-index": {
+      "observed_samples": 540,
+      "fresh_samples": 460,
+      "failed_state_samples": 186,
+      "sample_fresh_percentage": 85.185
+    },
+    "nuclei-cve-index": {
+      "observed_samples": 540,
+      "fresh_samples": 457,
+      "failed_state_samples": 188,
+      "sample_fresh_percentage": 84.63
+    }
+  },
+  "final_sample": {
+    "sampled_at_beijing": "2026-10-06T22:00:08.062585+08:00",
+    "operations_status": "passed",
+    "configured_targets": 10,
+    "fresh_targets": 10,
+    "failed_targets": 0
+  },
+  "limitations": [
+    "Gaps are missing observation evidence, not measured service downtime.",
+    "All observed HTTP requests succeeded; this does not establish continuous uptime.",
+    "Target set changed from 6 to 10 during the window; per-target sample denominators differ.",
+    "The recorder does not independently measure publication-to-discovery latency for newly published items or execute RAG/model inference.",
+    "Manual owner sign-off and incident root-cause review remain required."
+  ],
+  "acceptance_blockers": [
+    "Incomplete 5-minute observation coverage over the 168-hour window.",
+    "Source freshness and collector health degraded during most recorded samples.",
+    "No independently audited new-publication discovery-delay SLA evidence in this recorder."
+  ]
+}

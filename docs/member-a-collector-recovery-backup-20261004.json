@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "backup": "data/backups/before-collector-recovery-20261004.sqlite",
+  "sha256": "0c90941fcaf717a351df7a361234529ff61315958430ff06f7a16cac90c5a36a",
+  "bytes": 61239296,
+  "integrity": "ok"
+}

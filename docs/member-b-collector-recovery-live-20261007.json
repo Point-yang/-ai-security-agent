@@ -1,0 +1,2364 @@
+{
+  "checked_at": "2026-10-07T01:56:56.507579+00:00",
+  "method": "sequential_read_only_http_snapshot",
+  "atomic_snapshot": false,
+  "main_database_mutated": false,
+  "cloud_generation": false,
+  "error_details_redacted": true,
+  "endpoints": {
+    "api": "/health/ready",
+    "worker": "/api/v1/monitoring/worker",
+    "monitoring": "/api/v1/monitoring",
+    "operations": "/api/v1/operations/status",
+    "rag": "/api/v1/rag/status",
+    "window_24h": "/api/v1/monitoring/window?hours=24",
+    "window_168h": "/api/v1/monitoring/window?hours=168",
+    "events": "/api/v1/events?limit=1",
+    "catalog": "/api/v1/catalog/items?limit=100"
+  },
+  "summary": {
+    "targets": 10,
+    "successful": 6,
+    "failed": 4,
+    "stale": 4,
+    "events": 1031,
+    "chunks": 4660,
+    "current_vectors": 4660,
+    "catalog_rows": 41,
+    "catalog_by_origin": {
+      "live": 27,
+      "replay": 14
+    },
+    "catalog_by_origin_source": {
+      "live:nist-ai-rmf": 1,
+      "live:hf-blog": 1,
+      "live:nuclei-cves": 23,
+      "live:federal-register-ai": 2,
+      "replay:hf-blog": 14
+    }
+  },
+  "results": {
+    "api": {
+      "status": "ready",
+      "checks": {
+        "database": true,
+        "monitor_config": true,
+        "raw_storage": true
+      }
+    },
+    "worker": {
+      "status": "healthy",
+      "checked_at": "2026-10-07T01:56:55.541153+00:00",
+      "pulse_age_seconds": 2.054,
+      "check_method": "process_exists_and_independent_heartbeat_file",
+      "target_progress_heartbeat_used": false,
+      "process_uptime_measured": false
+    },
+    "monitoring": {
+      "targets": [
+        {
+          "id": "ghsa-vllm",
+          "source_id": "github-advisories",
+          "source_name": "GitHub Global Security Advisories",
+          "category": "vulnerability_database",
+          "enabled": true,
+          "interval_seconds": 1800,
+          "status": "completed",
+          "config_current": true,
+          "next_run_at": "2026-10-07T02:13:06.856694+00:00",
+          "last_success_at": "2026-10-07T01:43:06.856694+00:00",
+          "consecutive_failures": 0,
+          "has_pending_pages": false,
+          "stats": {
+            "pages": 1,
+            "observed": 8,
+            "filtered": 0,
+            "records": 8,
+            "created": 0,
+            "updated": 0,
+            "unchanged": 8,
+            "stale": 0,
+            "conflict": 0,
+            "not_modified": 0
+          },
+          "error": null
+        },
+        {
+          "id": "ghsa-langchain",
+          "source_id": "github-advisories",
+          "source_name": "GitHub Global Security Advisories",
+          "category": "vulnerability_database",
+          "enabled": true,
+          "interval_seconds": 1800,
+          "status": "completed",
+          "config_current": true,
+          "next_run_at": "2026-10-07T02:13:08.144291+00:00",
+          "last_success_at": "2026-10-07T01:43:08.144291+00:00",
+          "consecutive_failures": 0,
+          "has_pending_pages": false,
+          "stats": {
+            "pages": 1,
+            "observed": 0,
+            "filtered": 0,
+            "records": 0,
+            "created": 0,
+            "updated": 0,
+            "unchanged": 0,
+            "stale": 0,
+            "conflict": 0,
+            "not_modified": 0
+          },
+          "error": null
+        },
+        {
+          "id": "vllm-official",
+          "source_id": "vllm-vendor",
+          "source_name": "vLLM 官方仓库安全公告",
+          "category": "vendor_advisory",
+          "enabled": true,
+          "interval_seconds": 3600,
+          "status": "completed",
+          "config_current": true,
+          "next_run_at": "2026-10-07T02:43:11.047884+00:00",
+          "last_success_at": "2026-10-07T01:43:11.047884+00:00",
+          "consecutive_failures": 0,
+          "has_pending_pages": false,
+          "stats": {
+            "pages": 1,
+            "observed": 93,
+            "filtered": 0,
+            "records": 93,
+            "created": 1,
+            "updated": 0,
+            "unchanged": 92,
+            "stale": 0,
+            "conflict": 0,
+            "not_modified": 0
+          },
+          "error": null
+        },
+        {
+          "id": "nvd-vllm",
+          "source_id": "nvd",
+          "source_name": "NVD CVE API",
+          "category": "vulnerability_database",
+          "enabled": true,
+          "interval_seconds": 7200,
+          "status": "completed",
+          "config_current": true,
+          "next_run_at": "2026-10-07T03:54:20.452829+00:00",
+          "last_success_at": "2026-10-07T01:54:20.452829+00:00",
+          "consecutive_failures": 0,
+          "has_pending_pages": false,
+          "stats": {
+            "pages": 1,
+            "observed": 19,
+            "filtered": 0,
+            "records": 19,
+            "created": 1,
+            "updated": 17,
+            "unchanged": 1,
+            "stale": 0,
+            "conflict": 0,
+            "not_modified": 0
+          },
+          "error": null
+        },
+        {
+          "id": "cisa-ai",
+          "source_id": "cisa-kev",
+          "source_name": "CISA 已知被利用漏洞目录",
+          "category": "government_alert",
+          "enabled": true,
+          "interval_seconds": 3600,
+          "status": "completed",
+          "config_current": true,
+          "next_run_at": "2026-10-07T02:54:29.615665+00:00",
+          "last_success_at": "2026-10-07T01:54:29.615665+00:00",
+          "consecutive_failures": 0,
+          "has_pending_pages": false,
+          "stats": {
+            "pages": 0,
+            "observed": 0,
+            "filtered": 0,
+            "records": 0,
+            "created": 0,
+            "updated": 0,
+            "unchanged": 0,
+            "stale": 0,
+            "conflict": 0,
+            "not_modified": 1
+          },
+          "error": null
+        },
+        {
+          "id": "papers-prompt-injection",
+          "source_id": "crossref",
+          "source_name": "Crossref AI 安全论文元数据",
+          "category": "academic_metadata",
+          "enabled": true,
+          "interval_seconds": 21600,
+          "status": "failed",
+          "config_current": true,
+          "next_run_at": "2026-10-07T02:10:32.912715+00:00",
+          "last_success_at": "2026-10-06T10:30:55.920552+00:00",
+          "consecutive_failures": 6,
+          "has_pending_pages": false,
+          "stats": {
+            "pages": 0,
+            "observed": 0,
+            "filtered": 0,
+            "records": 0,
+            "created": 0,
+            "updated": 0,
+            "unchanged": 0,
+            "stale": 0,
+            "conflict": 0,
+            "not_modified": 0
+          },
+          "error": "ConnectError"
+        },
+        {
+          "id": "hf-blog-index",
+          "source_id": "hf-blog",
+          "source_name": "Hugging Face 博客元数据",
+          "category": "security_blog",
+          "enabled": true,
+          "interval_seconds": 21600,
+          "status": "failed",
+          "config_current": true,
+          "next_run_at": "2026-10-07T02:10:36.151035+00:00",
+          "last_success_at": "2026-10-06T12:02:12.366776+00:00",
+          "consecutive_failures": 5,
+          "has_pending_pages": false,
+          "stats": {
+            "pages": 0,
+            "observed": 0,
+            "filtered": 0,
+            "records": 0,
+            "created": 0,
+            "updated": 0,
+            "unchanged": 0,
+            "stale": 0,
+            "conflict": 0,
+            "not_modified": 0
+          },
+          "error": "ConnectError"
+        },
+        {
+          "id": "nist-ai-rmf-100-1",
+          "source_id": "nist-ai-rmf",
+          "source_name": "NIST AI RMF DOI 元数据",
+          "category": "technical_standard",
+          "enabled": true,
+          "interval_seconds": 86400,
+          "status": "completed",
+          "config_current": true,
+          "next_run_at": "2026-10-07T12:26:43.197349+00:00",
+          "last_success_at": "2026-10-06T12:26:43.197349+00:00",
+          "consecutive_failures": 0,
+          "has_pending_pages": false,
+          "stats": {
+            "pages": 1,
+            "observed": 1,
+            "filtered": 0,
+            "records": 1,
+            "created": 0,
+            "updated": 1,
+            "unchanged": 0,
+            "stale": 0,
+            "conflict": 0,
+            "not_modified": 0
+          },
+          "error": null
+        },
+        {
+          "id": "federal-register-ai-index",
+          "source_id": "federal-register-ai",
+          "source_name": "Federal Register AI 政策索引",
+          "category": "policy_registry",
+          "enabled": true,
+          "interval_seconds": 21600,
+          "status": "failed",
+          "config_current": true,
+          "next_run_at": "2026-10-07T02:12:52.803647+00:00",
+          "last_success_at": "2026-10-06T10:32:17.916341+00:00",
+          "consecutive_failures": 6,
+          "has_pending_pages": false,
+          "stats": {
+            "pages": 0,
+            "observed": 0,
+            "filtered": 0,
+            "records": 0,
+            "created": 0,
+            "updated": 0,
+            "unchanged": 0,
+            "stale": 0,
+            "conflict": 0,
+            "not_modified": 0
+          },
+          "error": "ConnectError"
+        },
+        {
+          "id": "nuclei-cve-index",
+          "source_id": "nuclei-cves",
+          "source_name": "ProjectDiscovery 检测模板索引",
+          "category": "poc_metadata",
+          "enabled": true,
+          "interval_seconds": 21600,
+          "status": "failed",
+          "config_current": true,
+          "next_run_at": "2026-10-07T02:12:56.099911+00:00",
+          "last_success_at": "2026-10-06T10:32:19.169702+00:00",
+          "consecutive_failures": 6,
+          "has_pending_pages": false,
+          "stats": {
+            "pages": 0,
+            "observed": 0,
+            "filtered": 0,
+            "records": 0,
+            "created": 0,
+            "updated": 0,
+            "unchanged": 0,
+            "stale": 0,
+            "conflict": 0,
+            "not_modified": 0
+          },
+          "error": "ConnectError"
+        }
+      ],
+      "configured_sources": 9,
+      "configured_categories": 8,
+      "note": "Configuration counts are not proven source coverage or real-time SLA."
+    },
+    "operations": {
+      "schema_version": "operations-v1",
+      "run_at": "2026-10-07T01:56:55.787422+00:00",
+      "status": "degraded",
+      "collection": {
+        "configured_targets": 10,
+        "configured_sources": 9,
+        "configured_categories": 8,
+        "targets": [
+          {
+            "id": "ghsa-vllm",
+            "source_id": "github-advisories",
+            "category": "vulnerability_database",
+            "enabled": true,
+            "interval_seconds": 1800,
+            "status": "completed",
+            "config_current": true,
+            "consecutive_failures": 0,
+            "has_pending_pages": false,
+            "last_success_at": "2026-10-07T01:43:06.856694+00:00",
+            "heartbeat_at": "2026-10-07T01:43:06.856694+00:00",
+            "seconds_since_success": 828.707,
+            "fresh_within_two_intervals": true,
+            "last_run_status": "completed"
+          },
+          {
+            "id": "ghsa-langchain",
+            "source_id": "github-advisories",
+            "category": "vulnerability_database",
+            "enabled": true,
+            "interval_seconds": 1800,
+            "status": "completed",
+            "config_current": true,
+            "consecutive_failures": 0,
+            "has_pending_pages": false,
+            "last_success_at": "2026-10-07T01:43:08.144291+00:00",
+            "heartbeat_at": "2026-10-07T01:43:08.144291+00:00",
+            "seconds_since_success": 827.42,
+            "fresh_within_two_intervals": true,
+            "last_run_status": "completed"
+          },
+          {
+            "id": "vllm-official",
+            "source_id": "vllm-vendor",
+            "category": "vendor_advisory",
+            "enabled": true,
+            "interval_seconds": 3600,
+            "status": "completed",
+            "config_current": true,
+            "consecutive_failures": 0,
+            "has_pending_pages": false,
+            "last_success_at": "2026-10-07T01:43:11.047884+00:00",
+            "heartbeat_at": "2026-10-07T01:43:11.047884+00:00",
+            "seconds_since_success": 824.516,
+            "fresh_within_two_intervals": true,
+            "last_run_status": "completed"
+          },
+          {
+            "id": "nvd-vllm",
+            "source_id": "nvd",
+            "category": "vulnerability_database",
+            "enabled": true,
+            "interval_seconds": 7200,
+            "status": "completed",
+            "config_current": true,
+            "consecutive_failures": 0,
+            "has_pending_pages": false,
+            "last_success_at": "2026-10-07T01:54:20.452829+00:00",
+            "heartbeat_at": "2026-10-07T01:54:20.452829+00:00",
+            "seconds_since_success": 155.111,
+            "fresh_within_two_intervals": true,
+            "last_run_status": "completed"
+          },
+          {
+            "id": "cisa-ai",
+            "source_id": "cisa-kev",
+            "category": "government_alert",
+            "enabled": true,
+            "interval_seconds": 3600,
+            "status": "completed",
+            "config_current": true,
+            "consecutive_failures": 0,
+            "has_pending_pages": false,
+            "last_success_at": "2026-10-07T01:54:29.615665+00:00",
+            "heartbeat_at": "2026-10-07T01:54:29.615665+00:00",
+            "seconds_since_success": 145.948,
+            "fresh_within_two_intervals": true,
+            "last_run_status": "completed"
+          },
+          {
+            "id": "papers-prompt-injection",
+            "source_id": "crossref",
+            "category": "academic_metadata",
+            "enabled": true,
+            "interval_seconds": 21600,
+            "status": "failed",
+            "config_current": true,
+            "consecutive_failures": 6,
+            "has_pending_pages": false,
+            "last_success_at": "2026-10-06T10:30:55.920552+00:00",
+            "heartbeat_at": "2026-10-07T01:40:32.912715+00:00",
+            "seconds_since_success": 55559.644,
+            "fresh_within_two_intervals": false,
+            "last_run_status": "failed"
+          },
+          {
+            "id": "hf-blog-index",
+            "source_id": "hf-blog",
+            "category": "security_blog",
+            "enabled": true,
+            "interval_seconds": 21600,
+            "status": "failed",
+            "config_current": true,
+            "consecutive_failures": 5,
+            "has_pending_pages": false,
+            "last_success_at": "2026-10-06T12:02:12.366776+00:00",
+            "heartbeat_at": "2026-10-07T01:40:36.151035+00:00",
+            "seconds_since_success": 50083.197,
+            "fresh_within_two_intervals": false,
+            "last_run_status": "failed"
+          },
+          {
+            "id": "nist-ai-rmf-100-1",
+            "source_id": "nist-ai-rmf",
+            "category": "technical_standard",
+            "enabled": true,
+            "interval_seconds": 86400,
+            "status": "completed",
+            "config_current": true,
+            "consecutive_failures": 0,
+            "has_pending_pages": false,
+            "last_success_at": "2026-10-06T12:26:43.197349+00:00",
+            "heartbeat_at": "2026-10-06T12:26:43.197349+00:00",
+            "seconds_since_success": 48612.367,
+            "fresh_within_two_intervals": true,
+            "last_run_status": "completed"
+          },
+          {
+            "id": "federal-register-ai-index",
+            "source_id": "federal-register-ai",
+            "category": "policy_registry",
+            "enabled": true,
+            "interval_seconds": 21600,
+            "status": "failed",
+            "config_current": true,
+            "consecutive_failures": 6,
+            "has_pending_pages": false,
+            "last_success_at": "2026-10-06T10:32:17.916341+00:00",
+            "heartbeat_at": "2026-10-07T01:42:52.803647+00:00",
+            "seconds_since_success": 55477.648,
+            "fresh_within_two_intervals": false,
+            "last_run_status": "failed"
+          },
+          {
+            "id": "nuclei-cve-index",
+            "source_id": "nuclei-cves",
+            "category": "poc_metadata",
+            "enabled": true,
+            "interval_seconds": 21600,
+            "status": "failed",
+            "config_current": true,
+            "consecutive_failures": 6,
+            "has_pending_pages": false,
+            "last_success_at": "2026-10-06T10:32:19.169702+00:00",
+            "heartbeat_at": "2026-10-07T01:42:56.099911+00:00",
+            "seconds_since_success": 55476.394,
+            "fresh_within_two_intervals": false,
+            "last_run_status": "failed"
+          }
+        ],
+        "targets_current": 10,
+        "targets_fresh": 6,
+        "targets_failed": 4,
+        "targets_with_pending_pages": 0,
+        "run_status_counts": {
+          "completed": 339,
+          "failed": 582,
+          "partial": 3
+        },
+        "run_duration": {
+          "samples": 924,
+          "min": 0.378842,
+          "p50": 3.307399,
+          "p95": 1028.367139,
+          "max": 5611.603313,
+          "unit": "seconds"
+        },
+        "observed_publication_to_first_seen": {
+          "samples": 227,
+          "min": 0.200771,
+          "p50": 1903.577063,
+          "p95": 12525.139563,
+          "max": 14398.26373,
+          "unit": "hours"
+        },
+        "delay_exclusions": {
+          "non_vulnerability_publication_semantics": 804
+        },
+        "observation_delay_is_sla_evidence": false,
+        "observation_delay_note": "Includes historical backfill and proves only database observation delay; continuous daemon uptime is required before claiming a monitoring SLA."
+      },
+      "enrichment": {
+        "events": 1031,
+        "enriched_events": 1031,
+        "coverage": 1.0,
+        "with_entities": 1031,
+        "with_cvss": 221,
+        "with_version_scope": 171,
+        "with_cpe_scope": 36,
+        "quality_flag_counts": {
+          "catalog_scope_only": 7,
+          "metadata_only": 797,
+          "missing_affected_scope": 20,
+          "missing_cpe_scope": 20,
+          "missing_cvss": 6,
+          "unknown_package_identity": 3,
+          "unparsed_version_range": 9
+        },
+        "asset_exposure_counts": {},
+        "comparison_counts": {
+          "agreement": 110,
+          "conflict": 4,
+          "variation": 96
+        },
+        "coverage_is_accuracy": false,
+        "accuracy_note": "Coverage metrics do not establish correctness; use a labeled suite."
+      },
+      "integrity": {
+        "status": "not_checked"
+      },
+      "checks": [
+        {
+          "id": "raw_integrity",
+          "passed": null,
+          "required": false
+        },
+        {
+          "id": "enrichment_coverage",
+          "passed": true,
+          "required": true
+        },
+        {
+          "id": "index_event_count",
+          "passed": true,
+          "required": true
+        },
+        {
+          "id": "index_chunk_count",
+          "passed": true,
+          "required": true
+        },
+        {
+          "id": "enrichment_state_count",
+          "passed": true,
+          "required": true
+        },
+        {
+          "id": "monitor_configs_current",
+          "passed": true,
+          "required": true
+        },
+        {
+          "id": "monitor_freshness",
+          "passed": false,
+          "required": true
+        },
+        {
+          "id": "no_failed_targets",
+          "passed": false,
+          "required": true
+        }
+      ],
+      "limitations": [
+        "Historical publication-to-first-seen delay is not a continuous-monitoring SLA.",
+        "Enrichment coverage is not enrichment accuracy or recall.",
+        "A passed integrity check validates stored bytes and references, not upstream truth."
+      ]
+    },
+    "rag": {
+      "status": "ready",
+      "model": "sentence-transformers/all-MiniLM-L6-v2",
+      "model_digest": "546177efd53c466b176e9a51e76e73e11d4bdbab28a33f09c3d3dea4a4479f83",
+      "chunks": 4660,
+      "current_vectors": 4660,
+      "streaming": false,
+      "generation_model": "deepseek-v4-flash",
+      "generation": {
+        "provider": "deepseek",
+        "configured": true,
+        "status": "configured",
+        "model": "deepseek-v4-flash",
+        "inference_checked": false
+      },
+      "inference_checked": false
+    },
+    "window_24h": {
+      "schema_version": "monitoring-window-v1",
+      "window_start": "2026-10-06T01:56:56.474349+00:00",
+      "window_end": "2026-10-07T01:56:56.474349+00:00",
+      "hours": 24,
+      "targets": [
+        {
+          "target_id": "ghsa-vllm",
+          "config_hash": "45b751c3da2766dd0fd2cee92b31a5fca48e42ff5ed1d1ea4e70c1977302c610",
+          "success_runs": 22,
+          "failed_runs": 9,
+          "freshness_horizon_seconds": 3600,
+          "freshness_covered_seconds": 43443.244,
+          "freshness_coverage": 0.502815,
+          "intervals": [
+            {
+              "from": "2026-10-06T04:02:39.197337+00:00",
+              "to": "2026-10-06T15:52:52.823252+00:00"
+            },
+            {
+              "from": "2026-10-07T01:43:06.856694+00:00",
+              "to": "2026-10-07T01:56:56.474349+00:00"
+            }
+          ]
+        },
+        {
+          "target_id": "ghsa-langchain",
+          "config_hash": "45a8d36c12cd7869ce293dce92223f1f22517f67ed04051f9021c0be4f71cb5c",
+          "success_runs": 22,
+          "failed_runs": 9,
+          "freshness_horizon_seconds": 3600,
+          "freshness_covered_seconds": 43432.364,
+          "freshness_coverage": 0.502689,
+          "intervals": [
+            {
+              "from": "2026-10-06T04:02:49.919599+00:00",
+              "to": "2026-10-06T15:52:53.953467+00:00"
+            },
+            {
+              "from": "2026-10-07T01:43:08.144291+00:00",
+              "to": "2026-10-07T01:56:56.474349+00:00"
+            }
+          ]
+        },
+        {
+          "target_id": "vllm-official",
+          "config_hash": "c1d8fab26e3f35ab6e0a924b0d38132b3a1f20f16c43409860704caca3354972",
+          "success_runs": 12,
+          "failed_runs": 10,
+          "freshness_horizon_seconds": 7200,
+          "freshness_covered_seconds": 45089.419,
+          "freshness_coverage": 0.521868,
+          "intervals": [
+            {
+              "from": "2026-10-06T04:19:48.983523+00:00",
+              "to": "2026-10-06T16:37:32.975713+00:00"
+            },
+            {
+              "from": "2026-10-07T01:43:11.047884+00:00",
+              "to": "2026-10-07T01:56:56.474349+00:00"
+            }
+          ]
+        },
+        {
+          "target_id": "nvd-vllm",
+          "config_hash": "5a9b9cd43ddb11e445f5c10a3715245a9b3da0afec4267325aa0512095a0d7f1",
+          "success_runs": 7,
+          "failed_runs": 10,
+          "freshness_horizon_seconds": 14400,
+          "freshness_covered_seconds": 50576.705,
+          "freshness_coverage": 0.585379,
+          "intervals": [
+            {
+              "from": "2026-10-06T04:28:58.057744+00:00",
+              "to": "2026-10-06T18:29:18.741211+00:00"
+            },
+            {
+              "from": "2026-10-07T01:54:20.452829+00:00",
+              "to": "2026-10-07T01:56:56.474349+00:00"
+            }
+          ]
+        },
+        {
+          "target_id": "cisa-ai",
+          "config_hash": "cca8edadb5e760ad4d4098ff39fc1d3aff58c0659943f35c0db698680a1525e6",
+          "success_runs": 12,
+          "failed_runs": 10,
+          "freshness_horizon_seconds": 7200,
+          "freshness_covered_seconds": 43861.827,
+          "freshness_coverage": 0.50766,
+          "intervals": [
+            {
+              "from": "2026-10-06T04:28:58.862693+00:00",
+              "to": "2026-10-06T16:37:33.830815+00:00"
+            },
+            {
+              "from": "2026-10-07T01:54:29.615665+00:00",
+              "to": "2026-10-07T01:56:56.474349+00:00"
+            }
+          ]
+        },
+        {
+          "target_id": "papers-prompt-injection",
+          "config_hash": "22b9d6d7054ac3e941176b3e45cac782e164dd9424f5cb01aea7caa04a0b909a",
+          "success_runs": 3,
+          "failed_runs": 11,
+          "freshness_horizon_seconds": 43200,
+          "freshness_covered_seconds": 66878.771,
+          "freshness_coverage": 0.77406,
+          "intervals": [
+            {
+              "from": "2026-10-06T01:56:56.474349+00:00",
+              "to": "2026-10-06T02:29:49.646693+00:00"
+            },
+            {
+              "from": "2026-10-06T04:29:10.322153+00:00",
+              "to": "2026-10-06T22:30:55.920552+00:00"
+            }
+          ]
+        },
+        {
+          "target_id": "hf-blog-index",
+          "config_hash": "facceb5a9b65d542e63e7b5c720e6bf7f8f024994a22de2a7045d36366a71f28",
+          "success_runs": 1,
+          "failed_runs": 30,
+          "freshness_horizon_seconds": 43200,
+          "freshness_covered_seconds": 43200.0,
+          "freshness_coverage": 0.5,
+          "intervals": [
+            {
+              "from": "2026-10-06T12:02:12.366776+00:00",
+              "to": "2026-10-07T00:02:12.366776+00:00"
+            }
+          ]
+        },
+        {
+          "target_id": "nist-ai-rmf-100-1",
+          "config_hash": "cacece3ff0594752d2f55c56943c6f527eddb9386b892a13c3c6e76845ba2aa5",
+          "success_runs": 3,
+          "failed_runs": 0,
+          "freshness_horizon_seconds": 172800,
+          "freshness_covered_seconds": 86400.0,
+          "freshness_coverage": 1.0,
+          "intervals": [
+            {
+              "from": "2026-10-06T01:56:56.474349+00:00",
+              "to": "2026-10-07T01:56:56.474349+00:00"
+            }
+          ]
+        },
+        {
+          "target_id": "federal-register-ai-index",
+          "config_hash": "4b49722a99a99cfa3c2c2c0d8f42c476191a64f5cea2b8d45856ccf9309abfd1",
+          "success_runs": 3,
+          "failed_runs": 11,
+          "freshness_horizon_seconds": 43200,
+          "freshness_covered_seconds": 65008.286,
+          "freshness_coverage": 0.752411,
+          "intervals": [
+            {
+              "from": "2026-10-06T01:56:56.474349+00:00",
+              "to": "2026-10-06T02:00:21.674825+00:00"
+            },
+            {
+              "from": "2026-10-06T04:32:14.831211+00:00",
+              "to": "2026-10-06T22:32:17.916341+00:00"
+            }
+          ]
+        },
+        {
+          "target_id": "nuclei-cve-index",
+          "config_hash": "b591525bacee3a98904615efb13e25f69e501c34f1f8194f20cc3c09c7640a3b",
+          "success_runs": 3,
+          "failed_runs": 11,
+          "freshness_horizon_seconds": 43200,
+          "freshness_covered_seconds": 65127.928,
+          "freshness_coverage": 0.753795,
+          "intervals": [
+            {
+              "from": "2026-10-06T01:56:56.474349+00:00",
+              "to": "2026-10-06T02:02:21.230772+00:00"
+            },
+            {
+              "from": "2026-10-06T04:32:15.997835+00:00",
+              "to": "2026-10-06T22:32:19.169702+00:00"
+            }
+          ]
+        }
+      ],
+      "status": "insufficient_coverage",
+      "process_uptime_measured": false,
+      "publication_latency_sla_proven": false,
+      "note": "Coverage uses successful polls and two configured intervals. It is not worker uptime, source availability or a <=6h publication SLA."
+    },
+    "window_168h": {
+      "schema_version": "monitoring-window-v1",
+      "window_start": "2026-09-30T01:56:56.480904+00:00",
+      "window_end": "2026-10-07T01:56:56.480904+00:00",
+      "hours": 168,
+      "targets": [
+        {
+          "target_id": "ghsa-vllm",
+          "config_hash": "45b751c3da2766dd0fd2cee92b31a5fca48e42ff5ed1d1ea4e70c1977302c610",
+          "success_runs": 64,
+          "failed_runs": 77,
+          "freshness_horizon_seconds": 3600,
+          "freshness_covered_seconds": 139612.006,
+          "freshness_coverage": 0.23084,
+          "intervals": [
+            {
+              "from": "2026-09-30T04:08:02.132084+00:00",
+              "to": "2026-09-30T06:40:12.270049+00:00"
+            },
+            {
+              "from": "2026-09-30T07:08:27.056128+00:00",
+              "to": "2026-09-30T09:22:03.921202+00:00"
+            },
+            {
+              "from": "2026-09-30T12:46:01.537970+00:00",
+              "to": "2026-09-30T14:46:09.749581+00:00"
+            },
+            {
+              "from": "2026-09-30T14:54:34.635610+00:00",
+              "to": "2026-09-30T18:00:37.272157+00:00"
+            },
+            {
+              "from": "2026-10-01T16:28:06.483293+00:00",
+              "to": "2026-10-01T17:58:07.606145+00:00"
+            },
+            {
+              "from": "2026-10-02T16:45:35.505073+00:00",
+              "to": "2026-10-02T18:15:38.484373+00:00"
+            },
+            {
+              "from": "2026-10-04T12:26:08.810182+00:00",
+              "to": "2026-10-04T17:56:47.536181+00:00"
+            },
+            {
+              "from": "2026-10-05T08:19:11.190392+00:00",
+              "to": "2026-10-05T16:39:19.266945+00:00"
+            },
+            {
+              "from": "2026-10-06T04:02:39.197337+00:00",
+              "to": "2026-10-06T15:52:52.823252+00:00"
+            },
+            {
+              "from": "2026-10-07T01:43:06.856694+00:00",
+              "to": "2026-10-07T01:56:56.480904+00:00"
+            }
+          ]
+        },
+        {
+          "target_id": "ghsa-langchain",
+          "config_hash": "45a8d36c12cd7869ce293dce92223f1f22517f67ed04051f9021c0be4f71cb5c",
+          "success_runs": 66,
+          "failed_runs": 74,
+          "freshness_horizon_seconds": 3600,
+          "freshness_covered_seconds": 141969.871,
+          "freshness_coverage": 0.234739,
+          "intervals": [
+            {
+              "from": "2026-09-30T04:08:02.882454+00:00",
+              "to": "2026-09-30T06:40:12.903043+00:00"
+            },
+            {
+              "from": "2026-09-30T07:08:28.502588+00:00",
+              "to": "2026-09-30T09:22:04.869596+00:00"
+            },
+            {
+              "from": "2026-09-30T12:26:39.596313+00:00",
+              "to": "2026-09-30T18:00:38.796190+00:00"
+            },
+            {
+              "from": "2026-10-01T16:28:07.196932+00:00",
+              "to": "2026-10-01T17:58:08.285782+00:00"
+            },
+            {
+              "from": "2026-10-02T16:45:36.211939+00:00",
+              "to": "2026-10-02T18:15:39.181948+00:00"
+            },
+            {
+              "from": "2026-10-04T12:26:09.903037+00:00",
+              "to": "2026-10-04T17:56:54.043474+00:00"
+            },
+            {
+              "from": "2026-10-05T08:27:31.767930+00:00",
+              "to": "2026-10-05T16:59:15.481597+00:00"
+            },
+            {
+              "from": "2026-10-06T04:02:49.919599+00:00",
+              "to": "2026-10-06T15:52:53.953467+00:00"
+            },
+            {
+              "from": "2026-10-07T01:43:08.144291+00:00",
+              "to": "2026-10-07T01:56:56.480904+00:00"
+            }
+          ]
+        },
+        {
+          "target_id": "vllm-official",
+          "config_hash": "c1d8fab26e3f35ab6e0a924b0d38132b3a1f20f16c43409860704caca3354972",
+          "success_runs": 38,
+          "failed_runs": 71,
+          "freshness_horizon_seconds": 7200,
+          "freshness_covered_seconds": 165365.886,
+          "freshness_coverage": 0.273422,
+          "intervals": [
+            {
+              "from": "2026-09-30T07:12:07.284744+00:00",
+              "to": "2026-09-30T10:22:07.243927+00:00"
+            },
+            {
+              "from": "2026-09-30T12:56:46.168700+00:00",
+              "to": "2026-09-30T19:00:41.770239+00:00"
+            },
+            {
+              "from": "2026-10-01T13:09:37.653706+00:00",
+              "to": "2026-10-01T19:09:59.092573+00:00"
+            },
+            {
+              "from": "2026-10-03T14:47:12.688610+00:00",
+              "to": "2026-10-03T18:03:46.135216+00:00"
+            },
+            {
+              "from": "2026-10-04T12:26:14.396168+00:00",
+              "to": "2026-10-04T18:26:43.883710+00:00"
+            },
+            {
+              "from": "2026-10-05T08:27:33.557465+00:00",
+              "to": "2026-10-05T17:20:50.084060+00:00"
+            },
+            {
+              "from": "2026-10-06T04:19:48.983523+00:00",
+              "to": "2026-10-06T16:37:32.975713+00:00"
+            },
+            {
+              "from": "2026-10-07T01:43:11.047884+00:00",
+              "to": "2026-10-07T01:56:56.480904+00:00"
+            }
+          ]
+        },
+        {
+          "target_id": "nvd-vllm",
+          "config_hash": "5a9b9cd43ddb11e445f5c10a3715245a9b3da0afec4267325aa0512095a0d7f1",
+          "success_runs": 23,
+          "failed_runs": 59,
+          "freshness_horizon_seconds": 14400,
+          "freshness_covered_seconds": 209237.331,
+          "freshness_coverage": 0.345961,
+          "intervals": [
+            {
+              "from": "2026-09-30T03:04:38.481101+00:00",
+              "to": "2026-09-30T11:04:47.008406+00:00"
+            },
+            {
+              "from": "2026-09-30T14:07:27.968969+00:00",
+              "to": "2026-09-30T20:07:40.642913+00:00"
+            },
+            {
+              "from": "2026-10-01T04:25:09.539650+00:00",
+              "to": "2026-10-01T08:25:09.539650+00:00"
+            },
+            {
+              "from": "2026-10-01T11:22:24.194706+00:00",
+              "to": "2026-10-01T19:23:37.325321+00:00"
+            },
+            {
+              "from": "2026-10-04T12:26:11.269394+00:00",
+              "to": "2026-10-04T20:26:19.525482+00:00"
+            },
+            {
+              "from": "2026-10-05T08:27:42.004160+00:00",
+              "to": "2026-10-05T18:30:20.036016+00:00"
+            },
+            {
+              "from": "2026-10-06T04:28:58.057744+00:00",
+              "to": "2026-10-06T18:29:18.741211+00:00"
+            },
+            {
+              "from": "2026-10-07T01:54:20.452829+00:00",
+              "to": "2026-10-07T01:56:56.480904+00:00"
+            }
+          ]
+        },
+        {
+          "target_id": "cisa-ai",
+          "config_hash": "cca8edadb5e760ad4d4098ff39fc1d3aff58c0659943f35c0db698680a1525e6",
+          "success_runs": 35,
+          "failed_runs": 67,
+          "freshness_horizon_seconds": 7200,
+          "freshness_covered_seconds": 148915.386,
+          "freshness_coverage": 0.246223,
+          "intervals": [
+            {
+              "from": "2026-09-30T07:12:08.041266+00:00",
+              "to": "2026-09-30T10:22:08.598836+00:00"
+            },
+            {
+              "from": "2026-09-30T13:07:17.659134+00:00",
+              "to": "2026-09-30T18:07:41.420652+00:00"
+            },
+            {
+              "from": "2026-10-01T12:21:03.804174+00:00",
+              "to": "2026-10-01T18:28:08.086912+00:00"
+            },
+            {
+              "from": "2026-10-04T12:25:26.345971+00:00",
+              "to": "2026-10-04T18:25:43.818286+00:00"
+            },
+            {
+              "from": "2026-10-05T08:27:43.439400+00:00",
+              "to": "2026-10-05T17:20:50.917847+00:00"
+            },
+            {
+              "from": "2026-10-06T04:28:58.862693+00:00",
+              "to": "2026-10-06T16:37:33.830815+00:00"
+            },
+            {
+              "from": "2026-10-07T01:54:29.615665+00:00",
+              "to": "2026-10-07T01:56:56.480904+00:00"
+            }
+          ]
+        },
+        {
+          "target_id": "papers-prompt-injection",
+          "config_hash": "22b9d6d7054ac3e941176b3e45cac782e164dd9424f5cb01aea7caa04a0b909a",
+          "success_runs": 9,
+          "failed_runs": 44,
+          "freshness_horizon_seconds": 43200,
+          "freshness_covered_seconds": 313152.592,
+          "freshness_coverage": 0.517779,
+          "intervals": [
+            {
+              "from": "2026-09-30T01:56:56.480904+00:00",
+              "to": "2026-09-30T04:54:13.993717+00:00"
+            },
+            {
+              "from": "2026-09-30T04:55:52.932996+00:00",
+              "to": "2026-09-30T16:55:52.932996+00:00"
+            },
+            {
+              "from": "2026-10-01T11:31:11.400834+00:00",
+              "to": "2026-10-01T23:31:11.400834+00:00"
+            },
+            {
+              "from": "2026-10-03T14:13:17.523819+00:00",
+              "to": "2026-10-04T02:13:17.523819+00:00"
+            },
+            {
+              "from": "2026-10-04T12:26:29.140586+00:00",
+              "to": "2026-10-05T00:26:29.140586+00:00"
+            },
+            {
+              "from": "2026-10-05T08:29:40.165454+00:00",
+              "to": "2026-10-06T02:29:49.646693+00:00"
+            },
+            {
+              "from": "2026-10-06T04:29:10.322153+00:00",
+              "to": "2026-10-06T22:30:55.920552+00:00"
+            }
+          ]
+        },
+        {
+          "target_id": "hf-blog-index",
+          "config_hash": "facceb5a9b65d542e63e7b5c720e6bf7f8f024994a22de2a7045d36366a71f28",
+          "success_runs": 5,
+          "failed_runs": 69,
+          "freshness_horizon_seconds": 43200,
+          "freshness_covered_seconds": 194403.534,
+          "freshness_coverage": 0.321434,
+          "intervals": [
+            {
+              "from": "2026-09-30T07:08:57.101789+00:00",
+              "to": "2026-10-01T01:09:00.635578+00:00"
+            },
+            {
+              "from": "2026-10-01T07:11:59.618060+00:00",
+              "to": "2026-10-01T19:11:59.618060+00:00"
+            },
+            {
+              "from": "2026-10-04T12:24:28.003456+00:00",
+              "to": "2026-10-05T00:24:28.003456+00:00"
+            },
+            {
+              "from": "2026-10-06T12:02:12.366776+00:00",
+              "to": "2026-10-07T00:02:12.366776+00:00"
+            }
+          ]
+        },
+        {
+          "target_id": "nist-ai-rmf-100-1",
+          "config_hash": "cacece3ff0594752d2f55c56943c6f527eddb9386b892a13c3c6e76845ba2aa5",
+          "success_runs": 6,
+          "failed_runs": 5,
+          "freshness_horizon_seconds": 172800,
+          "freshness_covered_seconds": 582277.273,
+          "freshness_coverage": 0.96276,
+          "intervals": [
+            {
+              "from": "2026-09-30T07:08:58.314296+00:00",
+              "to": "2026-10-03T13:09:57.652607+00:00"
+            },
+            {
+              "from": "2026-10-03T14:13:18.546098+00:00",
+              "to": "2026-10-07T01:56:56.480904+00:00"
+            }
+          ]
+        },
+        {
+          "target_id": "federal-register-ai-index",
+          "config_hash": "4b49722a99a99cfa3c2c2c0d8f42c476191a64f5cea2b8d45856ccf9309abfd1",
+          "success_runs": 10,
+          "failed_runs": 40,
+          "freshness_horizon_seconds": 43200,
+          "freshness_covered_seconds": 345887.68,
+          "freshness_coverage": 0.571904,
+          "intervals": [
+            {
+              "from": "2026-09-30T07:08:59.740186+00:00",
+              "to": "2026-10-01T01:09:02.461222+00:00"
+            },
+            {
+              "from": "2026-10-01T07:12:01.733406+00:00",
+              "to": "2026-10-02T01:14:37.706122+00:00"
+            },
+            {
+              "from": "2026-10-03T15:03:30.186163+00:00",
+              "to": "2026-10-04T03:03:30.186163+00:00"
+            },
+            {
+              "from": "2026-10-04T12:25:28.358792+00:00",
+              "to": "2026-10-05T00:25:28.358792+00:00"
+            },
+            {
+              "from": "2026-10-05T07:58:15.773805+00:00",
+              "to": "2026-10-06T02:00:21.674825+00:00"
+            },
+            {
+              "from": "2026-10-06T04:32:14.831211+00:00",
+              "to": "2026-10-06T22:32:17.916341+00:00"
+            }
+          ]
+        },
+        {
+          "target_id": "nuclei-cve-index",
+          "config_hash": "b591525bacee3a98904615efb13e25f69e501c34f1f8194f20cc3c09c7640a3b",
+          "success_runs": 10,
+          "failed_runs": 40,
+          "freshness_horizon_seconds": 43200,
+          "freshness_covered_seconds": 345781.954,
+          "freshness_coverage": 0.571729,
+          "intervals": [
+            {
+              "from": "2026-09-30T07:09:01.703462+00:00",
+              "to": "2026-10-01T01:09:04.731678+00:00"
+            },
+            {
+              "from": "2026-10-01T07:12:03.923269+00:00",
+              "to": "2026-10-02T01:14:40.845506+00:00"
+            },
+            {
+              "from": "2026-10-03T15:12:58.872057+00:00",
+              "to": "2026-10-04T03:12:58.872057+00:00"
+            },
+            {
+              "from": "2026-10-04T12:25:31.480474+00:00",
+              "to": "2026-10-05T00:25:31.480474+00:00"
+            },
+            {
+              "from": "2026-10-05T08:02:02.399563+00:00",
+              "to": "2026-10-06T02:02:21.230772+00:00"
+            },
+            {
+              "from": "2026-10-06T04:32:15.997835+00:00",
+              "to": "2026-10-06T22:32:19.169702+00:00"
+            }
+          ]
+        }
+      ],
+      "status": "insufficient_coverage",
+      "process_uptime_measured": false,
+      "publication_latency_sla_proven": false,
+      "note": "Coverage uses successful polls and two configured intervals. It is not worker uptime, source availability or a <=6h publication SLA."
+    },
+    "events": {
+      "total": 1031,
+      "items": [
+        {
+          "id": "4826168a-6331-4cfc-bf6f-88763be700e2",
+          "source_id": "vllm-vendor",
+          "external_id": "GHSA-6cxc-2vcg-w5qc",
+          "kind": "vulnerability",
+          "title": "V1 InputBatch.condense leaves a stale allowed_token_ids mask on recycled batch rows",
+          "severity": "low",
+          "published_at": "2026-10-06T20:45:08Z",
+          "source_updated_at": "2026-10-06T20:45:08Z",
+          "withdrawn_at": null,
+          "first_seen_at": "2026-10-07T01:43:10.320160Z",
+          "last_seen_at": "2026-10-07T01:43:10.320160Z",
+          "revision": 1,
+          "review_status": "unreviewed",
+          "annotation_version": 0
+        }
+      ],
+      "limit": 1,
+      "offset": 0
+    },
+    "catalog": {
+      "total": 41,
+      "items": [
+        {
+          "id": "657ffd6d-bed0-4545-b279-2ae62f8e1d3c",
+          "source_id": "nist-ai-rmf",
+          "external_id": "10.6028/nist.ai.100-1",
+          "kind": "standard_metadata",
+          "title": "Artificial Intelligence Risk Management Framework (AI RMF 1.0)",
+          "description": "<jats:p>As directed by the National Artificial Intelligence Initiative Act of 2020 (P.L. 116-283), the goal of the AI RMF is to offer a resource to the organizations designing, developing, deploying, or using AI systems to help manage the many risks of AI and promote trustworthy and responsible development and use of AI systems. The Framework is intended to be voluntary, rights-preserving, non-sector specific, and use-case agnostic, providing flexibility to organizations of all sizes and in all sectors and throughout society to implement the approaches in the Framework.   The AI RMF is intended to be practical, to adapt to the AI landscape as AI technologies continue to develop, and to be operationalized by organizations in varying degrees and capacities so society can benefit from AI while also being protected from its potential harms.</jats:p>",
+          "source_url": "https://doi.org/10.6028/nist.ai.100-1",
+          "published_at": "2023-01-26T00:00:00+00:00",
+          "source_updated_at": "2026-10-06T12:23:21+00:00",
+          "first_seen_at": "2026-09-25T10:13:44.543301+00:00",
+          "last_seen_at": "2026-10-06T12:26:43.176640+00:00",
+          "revision": 7,
+          "raw_document_id": "514ffca0-2689-464e-935e-b952e231a428",
+          "raw_sha256": "72c4cfa80ae294b91d99e58a7775ad285cf081e8dd64e68a63d788ca2354a38d",
+          "origin": "live",
+          "media_type": "application/json",
+          "evidence_locator": "/message",
+          "metadata": {
+            "publisher": "National Institute of Standards and Technology (U.S.)",
+            "metadata_only": true,
+            "publication_precision": "day",
+            "doi_registration_date": "2023-01-23T08:36:35Z",
+            "full_text_collected": false
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "6b8eb81b-e254-46b7-8adc-862f1b22ddd5",
+          "source_id": "hf-blog",
+          "external_id": "6aa956e72ac9a2fd21adb408",
+          "kind": "blog",
+          "title": "Getting the Source Right, Not Just the Fact: Source-Aware Verification for MCP Agents",
+          "description": "",
+          "source_url": "https://huggingface.co/blog/MultiverseComputingCAI/getting-the-source-right-not-just-the-fact-source",
+          "published_at": "2026-09-29T13:07:00.886000+00:00",
+          "source_updated_at": "2026-09-30T08:32:09.810000+00:00",
+          "first_seen_at": "2026-09-30T07:08:57.078729+00:00",
+          "last_seen_at": "2026-10-06T12:02:12.338194+00:00",
+          "revision": 2,
+          "raw_document_id": "f72a7927-ec20-46b0-afda-075652e0b164",
+          "raw_sha256": "6fb5b7602929dd93506800df0afe974924a1debb7fdbcbec091a7c8f3bb4d562",
+          "origin": "live",
+          "media_type": "application/json",
+          "evidence_locator": "/allBlogs/1",
+          "metadata": {
+            "blog_index_only": true,
+            "body_available": false,
+            "slug": "getting-the-source-right-not-just-the-fact-source"
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "03570517-33ad-4a95-bd2c-e1221a8fcf1b",
+          "source_id": "nuclei-cves",
+          "external_id": "CVE-2026-22778",
+          "kind": "poc_template_metadata",
+          "title": "vLLM 0.8.3 - 0.14.0 - Information Disclosure",
+          "description": "vLLM 0.8.3 to - 0.14.1 contains an information disclosure caused by leaking a heap address in error messages from the multimodal endpoint when processing invalid images, letting remote attackers reduce ASLR entropy, exploit requires sending invalid images.\n",
+          "source_url": "https://github.com/projectdiscovery/nuclei-templates/blob/main/http/cves/2026/CVE-2026-22778.yaml",
+          "published_at": null,
+          "source_updated_at": null,
+          "first_seen_at": "2026-09-25T10:13:45.154892+00:00",
+          "last_seen_at": "2026-10-06T10:32:19.072000+00:00",
+          "revision": 2,
+          "raw_document_id": "d35bd952-8969-4aae-ac10-2e1c46ac5beb",
+          "raw_sha256": "c4541b0a9dede821ac1cffb6e108fe1f928e7b9e863e2b14a864f6607a4a57f2",
+          "origin": "live",
+          "media_type": "application/x-ndjson",
+          "evidence_locator": "byte:1968748:1969217",
+          "metadata": {
+            "file_path": "http/cves/2026/CVE-2026-22778.yaml",
+            "template_severity": "critical",
+            "template_info_only": true,
+            "template_executed": false,
+            "publication_date_known": false
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "13af2a25-ff16-48f6-a1cf-3350e16c44bd",
+          "source_id": "nuclei-cves",
+          "external_id": "CVE-2026-55450",
+          "kind": "poc_template_metadata",
+          "title": "Langflow < 1.9.1 - Unauthenticated File Upload",
+          "description": "Langflow < 1.9.1 contains an unrestricted file upload caused by lack of upload limitations, letting unauthenticated attackers exhaust server space and leak absolute file paths, exploit requires network access.\n",
+          "source_url": "https://github.com/projectdiscovery/nuclei-templates/blob/main/http/cves/2026/CVE-2026-55450.yaml",
+          "published_at": null,
+          "source_updated_at": null,
+          "first_seen_at": "2026-09-25T10:13:45.154892+00:00",
+          "last_seen_at": "2026-10-06T10:32:19.072000+00:00",
+          "revision": 2,
+          "raw_document_id": "d35bd952-8969-4aae-ac10-2e1c46ac5beb",
+          "raw_sha256": "c4541b0a9dede821ac1cffb6e108fe1f928e7b9e863e2b14a864f6607a4a57f2",
+          "origin": "live",
+          "media_type": "application/x-ndjson",
+          "evidence_locator": "byte:2100157:2100591",
+          "metadata": {
+            "file_path": "http/cves/2026/CVE-2026-55450.yaml",
+            "template_severity": "critical",
+            "template_info_only": true,
+            "template_executed": false,
+            "publication_date_known": false
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "1bd72c14-0f20-4c0b-81f3-b804f430a93f",
+          "source_id": "nuclei-cves",
+          "external_id": "CVE-2026-0770",
+          "kind": "poc_template_metadata",
+          "title": "Langflow < 1.3.0 - Remote Code Execution via validate_code() exec()",
+          "description": "Langflow contains a remote code execution caused by inclusion of functionality from untrusted control sphere in the exec_globals parameter at the validate endpoint, letting remote attackers execute arbitrary code as root, exploit requires no authentication.\n",
+          "source_url": "https://github.com/projectdiscovery/nuclei-templates/blob/main/http/cves/2026/CVE-2026-0770.yaml",
+          "published_at": null,
+          "source_updated_at": null,
+          "first_seen_at": "2026-09-25T10:13:45.154892+00:00",
+          "last_seen_at": "2026-10-06T10:32:19.072000+00:00",
+          "revision": 2,
+          "raw_document_id": "d35bd952-8969-4aae-ac10-2e1c46ac5beb",
+          "raw_sha256": "c4541b0a9dede821ac1cffb6e108fe1f928e7b9e863e2b14a864f6607a4a57f2",
+          "origin": "live",
+          "media_type": "application/x-ndjson",
+          "evidence_locator": "byte:1928620:1929116",
+          "metadata": {
+            "file_path": "http/cves/2026/CVE-2026-0770.yaml",
+            "template_severity": "critical",
+            "template_info_only": true,
+            "template_executed": false,
+            "publication_date_known": false
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "3d26346c-8b8f-4902-909a-e276a82110e6",
+          "source_id": "nuclei-cves",
+          "external_id": "CVE-2026-9198",
+          "kind": "poc_template_metadata",
+          "title": "IBM Langflow - Remote Code Execution",
+          "description": "IBM Langflow OSS 1.0.0 through 1.10.0 contains a remote code execution caused by chaining /api/v1/auto_login and /api/v1/validate/code endpoints, letting unauthenticated attackers execute arbitrary code remotely, exploit requires no authentication.\n",
+          "source_url": "https://github.com/projectdiscovery/nuclei-templates/blob/main/http/cves/2026/CVE-2026-9198.yaml",
+          "published_at": null,
+          "source_updated_at": null,
+          "first_seen_at": "2026-09-25T10:13:45.154892+00:00",
+          "last_seen_at": "2026-10-06T10:32:19.072000+00:00",
+          "revision": 2,
+          "raw_document_id": "d35bd952-8969-4aae-ac10-2e1c46ac5beb",
+          "raw_sha256": "c4541b0a9dede821ac1cffb6e108fe1f928e7b9e863e2b14a864f6607a4a57f2",
+          "origin": "live",
+          "media_type": "application/x-ndjson",
+          "evidence_locator": "byte:2155651:2156102",
+          "metadata": {
+            "file_path": "http/cves/2026/CVE-2026-9198.yaml",
+            "template_severity": "critical",
+            "template_info_only": true,
+            "template_executed": false,
+            "publication_date_known": false
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "43964a50-ec5b-4f58-bbf6-f9c581bf9b39",
+          "source_id": "nuclei-cves",
+          "external_id": "CVE-2026-35029",
+          "kind": "poc_template_metadata",
+          "title": "LiteLLM - Arbitrary File Read",
+          "description": "LiteLLM < 1.83.0 contains a broken access control vulnerability caused by lack of admin role enforcement on /config/update endpoint, letting authenticated users modify configurations, execute code, read files, and take over accounts.\n",
+          "source_url": "https://github.com/projectdiscovery/nuclei-templates/blob/main/http/cves/2026/CVE-2026-35029.yaml",
+          "published_at": null,
+          "source_updated_at": null,
+          "first_seen_at": "2026-09-25T10:13:45.154892+00:00",
+          "last_seen_at": "2026-10-06T10:32:19.072000+00:00",
+          "revision": 2,
+          "raw_document_id": "d35bd952-8969-4aae-ac10-2e1c46ac5beb",
+          "raw_sha256": "c4541b0a9dede821ac1cffb6e108fe1f928e7b9e863e2b14a864f6607a4a57f2",
+          "origin": "live",
+          "media_type": "application/x-ndjson",
+          "evidence_locator": "byte:2030456:2030888",
+          "metadata": {
+            "file_path": "http/cves/2026/CVE-2026-35029.yaml",
+            "template_severity": "high",
+            "template_info_only": true,
+            "template_executed": false,
+            "publication_date_known": false
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "594ce762-cd94-474b-8319-e8aa6cc9503b",
+          "source_id": "nuclei-cves",
+          "external_id": "CVE-2026-42271",
+          "kind": "poc_template_metadata",
+          "title": "LiteLLM - Command Injection",
+          "description": "A critical unauthenticated remote code execution vulnerability exists in LiteLLM due to improper input handling in the MCP stdio test endpoint. An attacker can send a specially crafted request to the `/mcp-rest/test/connection` endpoint with controlled parameters, resulting in arbitrary command execution on the server. When combined with an authentication bypass technique—such as the Starlette BadHost flaw (CVE-2026-48710)—an unauthenticated attacker can exploit the chain to execute commands as the server process. Exploitation allows an attacker to spawn processes with the privileges of the LiteLLM server, potentially leading to complete compromise of the host.\n",
+          "source_url": "https://github.com/projectdiscovery/nuclei-templates/blob/main/http/cves/2026/CVE-2026-42271.yaml",
+          "published_at": null,
+          "source_updated_at": null,
+          "first_seen_at": "2026-09-25T10:13:45.154892+00:00",
+          "last_seen_at": "2026-10-06T10:32:19.072000+00:00",
+          "revision": 2,
+          "raw_document_id": "d35bd952-8969-4aae-ac10-2e1c46ac5beb",
+          "raw_sha256": "c4541b0a9dede821ac1cffb6e108fe1f928e7b9e863e2b14a864f6607a4a57f2",
+          "origin": "live",
+          "media_type": "application/x-ndjson",
+          "evidence_locator": "byte:2055959:2056828",
+          "metadata": {
+            "file_path": "http/cves/2026/CVE-2026-42271.yaml",
+            "template_severity": "critical",
+            "template_info_only": true,
+            "template_executed": false,
+            "publication_date_known": false
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "5ab77353-8fb4-42a0-9e74-1637960d07c8",
+          "source_id": "nuclei-cves",
+          "external_id": "CVE-2025-3248",
+          "kind": "poc_template_metadata",
+          "title": "Langflow AI - Unauthenticated Remote Code Execution",
+          "description": "Langflow versions prior to 1.3.0 are susceptible to code injection in the /api/v1/validate/code endpoint.A remote and unauthenticated attacker can send crafted HTTP requests to execute arbitrary code.\n",
+          "source_url": "https://github.com/projectdiscovery/nuclei-templates/blob/main/http/cves/2025/CVE-2025-3248.yaml",
+          "published_at": null,
+          "source_updated_at": null,
+          "first_seen_at": "2026-09-25T10:13:45.154892+00:00",
+          "last_seen_at": "2026-10-06T10:32:19.072000+00:00",
+          "revision": 2,
+          "raw_document_id": "d35bd952-8969-4aae-ac10-2e1c46ac5beb",
+          "raw_sha256": "c4541b0a9dede821ac1cffb6e108fe1f928e7b9e863e2b14a864f6607a4a57f2",
+          "origin": "live",
+          "media_type": "application/x-ndjson",
+          "evidence_locator": "byte:1791213:1791631",
+          "metadata": {
+            "file_path": "http/cves/2025/CVE-2025-3248.yaml",
+            "template_severity": "critical",
+            "template_info_only": true,
+            "template_executed": false,
+            "publication_date_known": false
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "5f80fb1d-ff0b-44b1-887f-28489c188cff",
+          "source_id": "nuclei-cves",
+          "external_id": "CVE-2026-42208",
+          "kind": "poc_template_metadata",
+          "title": "LiteLLM - SQL Injection",
+          "description": "LiteLLM 1.81.16 to < 1.83.7 contains a SQL injection caused by improper handling of caller-supplied key in database query during proxy API key checks, letting unauthenticated attackers read and modify database data, exploit requires crafted Authorization header.\n",
+          "source_url": "https://github.com/projectdiscovery/nuclei-templates/blob/main/http/cves/2026/CVE-2026-42208.yaml",
+          "published_at": null,
+          "source_updated_at": null,
+          "first_seen_at": "2026-09-25T10:13:45.154892+00:00",
+          "last_seen_at": "2026-10-06T10:32:19.072000+00:00",
+          "revision": 2,
+          "raw_document_id": "d35bd952-8969-4aae-ac10-2e1c46ac5beb",
+          "raw_sha256": "c4541b0a9dede821ac1cffb6e108fe1f928e7b9e863e2b14a864f6607a4a57f2",
+          "origin": "live",
+          "media_type": "application/x-ndjson",
+          "evidence_locator": "byte:2055010:2055469",
+          "metadata": {
+            "file_path": "http/cves/2026/CVE-2026-42208.yaml",
+            "template_severity": "critical",
+            "template_info_only": true,
+            "template_executed": false,
+            "publication_date_known": false
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "6e5b00d1-5451-4c7a-935f-0cb941a6d756",
+          "source_id": "nuclei-cves",
+          "external_id": "CVE-2024-37014",
+          "kind": "poc_template_metadata",
+          "title": "Langflow <= 1.0.12 - Remote Code Execution",
+          "description": "Langflow 0.6.19 contains a remote code execution caused by accepting untrusted Python scripts in the /api/v1/custom_component endpoint, letting remote attackers execute arbitrary code, exploit requires access to the endpoint and untrusted script input.\n",
+          "source_url": "https://github.com/projectdiscovery/nuclei-templates/blob/main/http/cves/2024/CVE-2024-37014.yaml",
+          "published_at": null,
+          "source_updated_at": null,
+          "first_seen_at": "2026-09-25T10:13:45.154892+00:00",
+          "last_seen_at": "2026-10-06T10:32:19.072000+00:00",
+          "revision": 2,
+          "raw_document_id": "d35bd952-8969-4aae-ac10-2e1c46ac5beb",
+          "raw_sha256": "c4541b0a9dede821ac1cffb6e108fe1f928e7b9e863e2b14a864f6607a4a57f2",
+          "origin": "live",
+          "media_type": "application/x-ndjson",
+          "evidence_locator": "byte:1542931:1543399",
+          "metadata": {
+            "file_path": "http/cves/2024/CVE-2024-37014.yaml",
+            "template_severity": "critical",
+            "template_info_only": true,
+            "template_executed": false,
+            "publication_date_known": false
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "73e41d7b-6148-4ba9-8be1-90a5e95f16b9",
+          "source_id": "nuclei-cves",
+          "external_id": "CVE-2024-37032",
+          "kind": "poc_template_metadata",
+          "title": "Ollama - Remote Code Execution",
+          "description": "Ollama before 0.1.34 does not validate the format of the digest (sha256 with 64 hex digits) when getting the model path, and thus mishandles the TestGetBlobsPath test cases such as fewer than 64 hex digits, more than 64 hex digits, or an initial ../ substring.\n",
+          "source_url": "https://github.com/projectdiscovery/nuclei-templates/blob/main/http/cves/2024/CVE-2024-37032.yaml",
+          "published_at": null,
+          "source_updated_at": null,
+          "first_seen_at": "2026-09-25T10:13:45.154892+00:00",
+          "last_seen_at": "2026-10-06T10:32:19.072000+00:00",
+          "revision": 2,
+          "raw_document_id": "d35bd952-8969-4aae-ac10-2e1c46ac5beb",
+          "raw_sha256": "c4541b0a9dede821ac1cffb6e108fe1f928e7b9e863e2b14a864f6607a4a57f2",
+          "origin": "live",
+          "media_type": "application/x-ndjson",
+          "evidence_locator": "byte:1543400:1543859",
+          "metadata": {
+            "file_path": "http/cves/2024/CVE-2024-37032.yaml",
+            "template_severity": "critical",
+            "template_info_only": true,
+            "template_executed": false,
+            "publication_date_known": false
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "77e20f82-7bcc-463c-9ec4-0ade022ec6f0",
+          "source_id": "nuclei-cves",
+          "external_id": "CVE-2026-33017",
+          "kind": "poc_template_metadata",
+          "title": "Langflow < 1.9.0 - Remote Code Execution",
+          "description": "Langflow versions prior to 1.9.0 are vulnerable to unauthenticated remote code execution (RCE) via the build_public_tmp endpoint. Attackers can submit a manipulated flow JSON containing Python code that is executed during the build process without proper sandboxing.\n",
+          "source_url": "https://github.com/projectdiscovery/nuclei-templates/blob/main/http/cves/2026/CVE-2026-33017.yaml",
+          "published_at": null,
+          "source_updated_at": null,
+          "first_seen_at": "2026-09-25T10:13:45.154892+00:00",
+          "last_seen_at": "2026-10-06T10:32:19.072000+00:00",
+          "revision": 2,
+          "raw_document_id": "d35bd952-8969-4aae-ac10-2e1c46ac5beb",
+          "raw_sha256": "c4541b0a9dede821ac1cffb6e108fe1f928e7b9e863e2b14a864f6607a4a57f2",
+          "origin": "live",
+          "media_type": "application/x-ndjson",
+          "evidence_locator": "byte:2014472:2014952",
+          "metadata": {
+            "file_path": "http/cves/2026/CVE-2026-33017.yaml",
+            "template_severity": "critical",
+            "template_info_only": true,
+            "template_executed": false,
+            "publication_date_known": false
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "8933302c-fac1-4230-91d5-dc9cd2d9b862",
+          "source_id": "nuclei-cves",
+          "external_id": "CVE-2026-0768",
+          "kind": "poc_template_metadata",
+          "title": "Langflow <=1.2.x - Unauthenticated Remote Code Execution via validate_code",
+          "description": "Langflow <= 1.2.x exposes POST /api/v1/validate/code without any authentication. The endpoint calls validate_code() which exec()s user-supplied Python code. Default-argument expressions in Python execute at function-definition time, allowing arbitrary OS command execution without authentication.\n",
+          "source_url": "https://github.com/projectdiscovery/nuclei-templates/blob/main/http/cves/2026/CVE-2026-0768.yaml",
+          "published_at": null,
+          "source_updated_at": null,
+          "first_seen_at": "2026-09-25T10:13:45.154892+00:00",
+          "last_seen_at": "2026-10-06T10:32:19.072000+00:00",
+          "revision": 2,
+          "raw_document_id": "d35bd952-8969-4aae-ac10-2e1c46ac5beb",
+          "raw_sha256": "c4541b0a9dede821ac1cffb6e108fe1f928e7b9e863e2b14a864f6607a4a57f2",
+          "origin": "live",
+          "media_type": "application/x-ndjson",
+          "evidence_locator": "byte:1928072:1928619",
+          "metadata": {
+            "file_path": "http/cves/2026/CVE-2026-0768.yaml",
+            "template_severity": "critical",
+            "template_info_only": true,
+            "template_executed": false,
+            "publication_date_known": false
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "952754e2-6bb5-4ec2-8e21-af66a3c98081",
+          "source_id": "nuclei-cves",
+          "external_id": "CVE-2026-40217",
+          "kind": "poc_template_metadata",
+          "title": "LiteLLM < 1.25.0 - Remote Code Execution",
+          "description": "LiteLLM before 1.25.0 allows authenticated users with the master API key to execute arbitrary Python code through the /guardrails/test_custom_code endpoint intended for custom guardrail testing. The endpoint’s insufficient filtering mechanisms can be bypassed, allowing attackers to abuse Python’s string operations and bytecode manipulation to break out of the restricted environment. Successful exploitation may lead to remote code execution as the LiteLLM process user, which may be root when using the default Docker image.\n",
+          "source_url": "https://github.com/projectdiscovery/nuclei-templates/blob/main/http/cves/2026/CVE-2026-40217.yaml",
+          "published_at": null,
+          "source_updated_at": null,
+          "first_seen_at": "2026-09-25T10:13:45.154892+00:00",
+          "last_seen_at": "2026-10-06T10:32:19.072000+00:00",
+          "revision": 2,
+          "raw_document_id": "d35bd952-8969-4aae-ac10-2e1c46ac5beb",
+          "raw_sha256": "c4541b0a9dede821ac1cffb6e108fe1f928e7b9e863e2b14a864f6607a4a57f2",
+          "origin": "live",
+          "media_type": "application/x-ndjson",
+          "evidence_locator": "byte:2041146:2041887",
+          "metadata": {
+            "file_path": "http/cves/2026/CVE-2026-40217.yaml",
+            "template_severity": "high",
+            "template_info_only": true,
+            "template_executed": false,
+            "publication_date_known": false
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "9e7455b9-cfb9-4533-9f2e-5e08bceed23f",
+          "source_id": "nuclei-cves",
+          "external_id": "CVE-2024-6587",
+          "kind": "poc_template_metadata",
+          "title": "LiteLLM - Server-Side Request Forgery",
+          "description": "LiteLLM vulnerable to Server-Side Request Forgery (SSRF) vulnerability Exposes OpenAI API Keys.\n",
+          "source_url": "https://github.com/projectdiscovery/nuclei-templates/blob/main/http/cves/2024/CVE-2024-6587.yaml",
+          "published_at": null,
+          "source_updated_at": null,
+          "first_seen_at": "2026-09-25T10:13:45.154892+00:00",
+          "last_seen_at": "2026-10-06T10:32:19.072000+00:00",
+          "revision": 2,
+          "raw_document_id": "d35bd952-8969-4aae-ac10-2e1c46ac5beb",
+          "raw_sha256": "c4541b0a9dede821ac1cffb6e108fe1f928e7b9e863e2b14a864f6607a4a57f2",
+          "origin": "live",
+          "media_type": "application/x-ndjson",
+          "evidence_locator": "byte:1654588:1654883",
+          "metadata": {
+            "file_path": "http/cves/2024/CVE-2024-6587.yaml",
+            "template_severity": "high",
+            "template_info_only": true,
+            "template_executed": false,
+            "publication_date_known": false
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "ab1c04f1-22a4-479b-b052-1f7047523bd3",
+          "source_id": "nuclei-cves",
+          "external_id": "CVE-2025-34291",
+          "kind": "poc_template_metadata",
+          "title": "Langflow AI <= 1.6.9 - CORS Misconfiguration",
+          "description": "Langflow AI versions 1.6.9 and earlier are vulnerable to a CORS misconfiguration that allows any origin to make credentialed requests. Combined with SameSite=None cookies, this enables cross-origin token theft and subsequent remote code execution via the /api/v1/validate/code endpoint.\n",
+          "source_url": "https://github.com/projectdiscovery/nuclei-templates/blob/main/http/cves/2025/CVE-2025-34291.yaml",
+          "published_at": null,
+          "source_updated_at": null,
+          "first_seen_at": "2026-09-25T10:13:45.154892+00:00",
+          "last_seen_at": "2026-10-06T10:32:19.072000+00:00",
+          "revision": 2,
+          "raw_document_id": "d35bd952-8969-4aae-ac10-2e1c46ac5beb",
+          "raw_sha256": "c4541b0a9dede821ac1cffb6e108fe1f928e7b9e863e2b14a864f6607a4a57f2",
+          "origin": "live",
+          "media_type": "application/x-ndjson",
+          "evidence_locator": "byte:1804772:1805276",
+          "metadata": {
+            "file_path": "http/cves/2025/CVE-2025-34291.yaml",
+            "template_severity": "critical",
+            "template_info_only": true,
+            "template_executed": false,
+            "publication_date_known": false
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "bac054e4-15e5-4ac3-9135-2feec31bb32e",
+          "source_id": "nuclei-cves",
+          "external_id": "CVE-2023-43654",
+          "kind": "poc_template_metadata",
+          "title": "PyTorch TorchServe SSRF",
+          "description": "TorchServe is a tool for serving and scaling PyTorch models in production. TorchServe default configuration lacks proper input validation, enabling third parties to invoke remote HTTP download requests and write files to the disk. This issue could be taken advantage of to compromise the integrity of the system and sensitive data. This issue is present in versions 0.1.0 to 0.8.1. A user is able to load the model of their choice from any URL that they would like to use. The user of TorchServe is responsible for configuring both the allowed_urls and specifying the model URL to be used. A pull request to warn the user when the default value for allowed_urls is used has been merged in PR #2534. TorchServe release 0.8.2 includes this change. Users are advised to upgrade. There are no known workarounds for this issue.\n",
+          "source_url": "https://github.com/projectdiscovery/nuclei-templates/blob/main/http/cves/2023/CVE-2023-43654.yaml",
+          "published_at": null,
+          "source_updated_at": null,
+          "first_seen_at": "2026-09-25T10:13:45.154892+00:00",
+          "last_seen_at": "2026-10-06T10:32:19.072000+00:00",
+          "revision": 2,
+          "raw_document_id": "d35bd952-8969-4aae-ac10-2e1c46ac5beb",
+          "raw_sha256": "c4541b0a9dede821ac1cffb6e108fe1f928e7b9e863e2b14a864f6607a4a57f2",
+          "origin": "live",
+          "media_type": "application/x-ndjson",
+          "evidence_locator": "byte:1310727:1311741",
+          "metadata": {
+            "file_path": "http/cves/2023/CVE-2023-43654.yaml",
+            "template_severity": "critical",
+            "template_info_only": true,
+            "template_executed": false,
+            "publication_date_known": false
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "bc2e5b87-e2ec-45c3-88e8-431f19ff8b4f",
+          "source_id": "nuclei-cves",
+          "external_id": "CVE-2026-21445",
+          "kind": "poc_template_metadata",
+          "title": "Langflow - Broken Access Control",
+          "description": "Langflow is a tool for building and deploying AI-powered agents and workflows. Prior to version 1.7.0.dev45, multiple critical API endpoints in Langflow are missing authentication controls. The issue allows any unauthenticated user to access sensitive user conversation data, transaction histories, and perform destructive operations including message deletion. This affects endpoints handling personal data and system operations that should require proper authorization.\n",
+          "source_url": "https://github.com/projectdiscovery/nuclei-templates/blob/main/http/cves/2026/CVE-2026-21445.yaml",
+          "published_at": null,
+          "source_updated_at": null,
+          "first_seen_at": "2026-09-25T10:13:45.154892+00:00",
+          "last_seen_at": "2026-10-06T10:32:19.072000+00:00",
+          "revision": 2,
+          "raw_document_id": "d35bd952-8969-4aae-ac10-2e1c46ac5beb",
+          "raw_sha256": "c4541b0a9dede821ac1cffb6e108fe1f928e7b9e863e2b14a864f6607a4a57f2",
+          "origin": "live",
+          "media_type": "application/x-ndjson",
+          "evidence_locator": "byte:1960674:1961346",
+          "metadata": {
+            "file_path": "http/cves/2026/CVE-2026-21445.yaml",
+            "template_severity": "critical",
+            "template_info_only": true,
+            "template_executed": false,
+            "publication_date_known": false
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "c7996462-42c6-47ad-93af-b5f70ab51d5d",
+          "source_id": "nuclei-cves",
+          "external_id": "CVE-2026-49468",
+          "kind": "poc_template_metadata",
+          "title": "LiteLLM Proxy < 1.84.0 - Host Header Authentication Bypass",
+          "description": "LiteLLM Proxy before 1.84.0 derives its public-route authorization check from a URL reconstructed with the unvalidated Host header. A Host value containing a fragment can make a protected request appear to target the public root route, bypassing the API-key check. Version 1.84.0 derives the route from the raw ASGI path instead.\n",
+          "source_url": "https://github.com/projectdiscovery/nuclei-templates/blob/main/http/cves/2026/CVE-2026-49468.yaml",
+          "published_at": null,
+          "source_updated_at": null,
+          "first_seen_at": "2026-10-03T15:12:58.773511+00:00",
+          "last_seen_at": "2026-10-06T10:32:19.072000+00:00",
+          "revision": 1,
+          "raw_document_id": "a60a962d-c7db-486f-bde9-9c23ef8a2dc2",
+          "raw_sha256": "1444da94f376593a09462432c5b250701adff2c943e22dc6de69d211ce1c2a7d",
+          "origin": "live",
+          "media_type": "application/x-ndjson",
+          "evidence_locator": "byte:2081602:2082163",
+          "metadata": {
+            "file_path": "http/cves/2026/CVE-2026-49468.yaml",
+            "template_severity": "critical",
+            "template_info_only": true,
+            "template_executed": false,
+            "publication_date_known": false
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "c87a03fd-bc5e-4e4d-809d-b52d5e9481d2",
+          "source_id": "nuclei-cves",
+          "external_id": "CVE-2026-33497",
+          "kind": "poc_template_metadata",
+          "title": "Langflow < 1.7.0 - Path Traversal",
+          "description": "Langflow < 1.7.1 contains a path traversal caused by insufficient filtering of folder_name and file_name parameters in download_profile_picture endpoint, letting attackers read secret_key across directories, exploit requires crafted request.\n",
+          "source_url": "https://github.com/projectdiscovery/nuclei-templates/blob/main/http/cves/2026/CVE-2026-33497.yaml",
+          "published_at": null,
+          "source_updated_at": null,
+          "first_seen_at": "2026-09-25T10:13:45.154892+00:00",
+          "last_seen_at": "2026-10-06T10:32:19.072000+00:00",
+          "revision": 2,
+          "raw_document_id": "d35bd952-8969-4aae-ac10-2e1c46ac5beb",
+          "raw_sha256": "c4541b0a9dede821ac1cffb6e108fe1f928e7b9e863e2b14a864f6607a4a57f2",
+          "origin": "live",
+          "media_type": "application/x-ndjson",
+          "evidence_locator": "byte:2019144:2019593",
+          "metadata": {
+            "file_path": "http/cves/2026/CVE-2026-33497.yaml",
+            "template_severity": "high",
+            "template_info_only": true,
+            "template_executed": false,
+            "publication_date_known": false
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "cbd52763-61ee-4f0b-a674-b9204f98edc5",
+          "source_id": "nuclei-cves",
+          "external_id": "CVE-2026-9103",
+          "kind": "poc_template_metadata",
+          "title": "Langflow OSS - Superuser Token Issuance",
+          "description": "Langflow OSS with default AUTO_LOGIN exposes `/api/v1/auto_login`, which returns a superuser access token to any unauthenticated request.\n",
+          "source_url": "https://github.com/projectdiscovery/nuclei-templates/blob/main/http/cves/2026/CVE-2026-9103.yaml",
+          "published_at": null,
+          "source_updated_at": null,
+          "first_seen_at": "2026-09-25T10:13:45.154892+00:00",
+          "last_seen_at": "2026-10-06T10:32:19.072000+00:00",
+          "revision": 2,
+          "raw_document_id": "d35bd952-8969-4aae-ac10-2e1c46ac5beb",
+          "raw_sha256": "c4541b0a9dede821ac1cffb6e108fe1f928e7b9e863e2b14a864f6607a4a57f2",
+          "origin": "live",
+          "media_type": "application/x-ndjson",
+          "evidence_locator": "byte:2154804:2155147",
+          "metadata": {
+            "file_path": "http/cves/2026/CVE-2026-9103.yaml",
+            "template_severity": "critical",
+            "template_info_only": true,
+            "template_executed": false,
+            "publication_date_known": false
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "d589fa8c-fe5c-4e4c-96fa-a46d320683af",
+          "source_id": "nuclei-cves",
+          "external_id": "CVE-2026-30623",
+          "kind": "poc_template_metadata",
+          "title": "LiteLLM 1.18.10 - Command Injection",
+          "description": "LiteLLM 1.18.10 contains a remote code execution caused by lack of validation of arbitrary command and args in MCP server creation, letting attackers execute OS commands remotely, exploit requires crafted JSON configuration.\n",
+          "source_url": "https://github.com/projectdiscovery/nuclei-templates/blob/main/http/cves/2026/CVE-2026-30623.yaml",
+          "published_at": null,
+          "source_updated_at": null,
+          "first_seen_at": "2026-09-25T10:13:45.154892+00:00",
+          "last_seen_at": "2026-10-06T10:32:19.072000+00:00",
+          "revision": 2,
+          "raw_document_id": "d35bd952-8969-4aae-ac10-2e1c46ac5beb",
+          "raw_sha256": "c4541b0a9dede821ac1cffb6e108fe1f928e7b9e863e2b14a864f6607a4a57f2",
+          "origin": "live",
+          "media_type": "application/x-ndjson",
+          "evidence_locator": "byte:2004050:2004474",
+          "metadata": {
+            "file_path": "http/cves/2026/CVE-2026-30623.yaml",
+            "template_severity": "high",
+            "template_info_only": true,
+            "template_executed": false,
+            "publication_date_known": false
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "dce03e32-f459-4dec-bc96-a273f85f0531",
+          "source_id": "nuclei-cves",
+          "external_id": "CVE-2026-5027",
+          "kind": "poc_template_metadata",
+          "title": "Langflow <= 1.8.4 - Path Traversal to RCE via File Upload",
+          "description": "The application contains a path traversal vulnerability caused by unsanitized 'filename' parameter in the 'POST /api/v2/files' multipart form data, letting attackers write files to arbitrary filesystem locations, exploit requires crafted request.\n",
+          "source_url": "https://github.com/projectdiscovery/nuclei-templates/blob/main/http/cves/2026/CVE-2026-5027.yaml",
+          "published_at": null,
+          "source_updated_at": null,
+          "first_seen_at": "2026-09-25T10:13:45.154892+00:00",
+          "last_seen_at": "2026-10-06T10:32:19.072000+00:00",
+          "revision": 2,
+          "raw_document_id": "d35bd952-8969-4aae-ac10-2e1c46ac5beb",
+          "raw_sha256": "c4541b0a9dede821ac1cffb6e108fe1f928e7b9e863e2b14a864f6607a4a57f2",
+          "origin": "live",
+          "media_type": "application/x-ndjson",
+          "evidence_locator": "byte:2084323:2084794",
+          "metadata": {
+            "file_path": "http/cves/2026/CVE-2026-5027.yaml",
+            "template_severity": "high",
+            "template_info_only": true,
+            "template_executed": false,
+            "publication_date_known": false
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "e15eae18-2eca-4b02-960b-2e5d8fa9c98c",
+          "source_id": "nuclei-cves",
+          "external_id": "CVE-2026-54236",
+          "kind": "poc_template_metadata",
+          "title": "vLLM <= 0.23.0 - Anthropic Router Heap Address Information Leak",
+          "description": "vLLM <= 0.23.0 incompletely fixes CVE-2026-22778. The original fix added sanitize_message to the OpenAI router but the Anthropic-compatible router (/v1/messages) echoes str(exc) directly.\n",
+          "source_url": "https://github.com/projectdiscovery/nuclei-templates/blob/main/http/cves/2026/CVE-2026-54236.yaml",
+          "published_at": null,
+          "source_updated_at": null,
+          "first_seen_at": "2026-09-25T10:13:45.154892+00:00",
+          "last_seen_at": "2026-10-06T10:32:19.072000+00:00",
+          "revision": 2,
+          "raw_document_id": "d35bd952-8969-4aae-ac10-2e1c46ac5beb",
+          "raw_sha256": "c4541b0a9dede821ac1cffb6e108fe1f928e7b9e863e2b14a864f6607a4a57f2",
+          "origin": "live",
+          "media_type": "application/x-ndjson",
+          "evidence_locator": "byte:2095801:2096228",
+          "metadata": {
+            "file_path": "http/cves/2026/CVE-2026-54236.yaml",
+            "template_severity": "medium",
+            "template_info_only": true,
+            "template_executed": false,
+            "publication_date_known": false
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "7a6d2b0f-78ee-449d-91ac-c00088d09583",
+          "source_id": "federal-register-ai",
+          "external_id": "2026-16371",
+          "kind": "policy_metadata",
+          "title": "Request for Information (RFI) on Modernizing the National Vulnerability Database in the Age of Artificial Intelligence",
+          "description": "The National Institute of Standards and Technology (NIST) established and operates the National Vulnerability Database (NVD), which provides the U.S. government repository of standards-based vulnerability management data. NIST seeks stakeholder input on opportunities, challenges, and priorities for modernizing the NVD in an evolving cybersecurity landscape increasingly shaped by artificial intelligence (AI) and machine-consumable security data. NIST's goal is to improve the NVD's scalability, automation, interoperability, transparency, and utility.",
+          "source_url": "https://www.federalregister.gov/documents/2026/08/12/2026-16371/request-for-information-rfi-on-modernizing-the-national-vulnerability-database-in-the-age-of",
+          "published_at": "2026-08-12T00:00:00+00:00",
+          "source_updated_at": null,
+          "first_seen_at": "2026-09-30T07:08:59.714926+00:00",
+          "last_seen_at": "2026-10-06T10:32:17.899002+00:00",
+          "revision": 1,
+          "raw_document_id": "9d7c7ec8-1a94-458a-b89b-e63ffc7ceb01",
+          "raw_sha256": "c438e6edc977d09502b1abe905357352551a198c579989ff0f2cf3c166edeea3",
+          "origin": "live",
+          "media_type": "application/json",
+          "evidence_locator": "/results/47",
+          "metadata": {
+            "document_type": "Notice",
+            "agencies": [
+              "Commerce Department",
+              "National Institute of Standards and Technology"
+            ],
+            "metadata_only": true,
+            "legal_status_not_inferred": true
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "37c57930-b2ce-4bd3-8871-a1d2b6202a04",
+          "source_id": "federal-register-ai",
+          "external_id": "2026-13628",
+          "kind": "policy_metadata",
+          "title": "Policy Statement Concerning the Suppression of Accuracy in Artificial Intelligence Systems",
+          "description": "The Federal Trade Commission (\"Commission\") is proposing a policy statement regarding the application of the prohibition on deceptive acts or practices in section 5 of the Federal Trade Commission Act to companies that market artificial intelligence (\"AI\") systems.",
+          "source_url": "https://www.federalregister.gov/documents/2026/07/07/2026-13628/policy-statement-concerning-the-suppression-of-accuracy-in-artificial-intelligence-systems",
+          "published_at": "2026-07-07T00:00:00+00:00",
+          "source_updated_at": null,
+          "first_seen_at": "2026-09-30T07:08:59.714926+00:00",
+          "last_seen_at": "2026-10-01T13:14:37.680004+00:00",
+          "revision": 1,
+          "raw_document_id": "9d7c7ec8-1a94-458a-b89b-e63ffc7ceb01",
+          "raw_sha256": "c438e6edc977d09502b1abe905357352551a198c579989ff0f2cf3c166edeea3",
+          "origin": "live",
+          "media_type": "application/json",
+          "evidence_locator": "/results/94",
+          "metadata": {
+            "document_type": "Notice",
+            "agencies": [
+              "Federal Trade Commission"
+            ],
+            "metadata_only": true,
+            "legal_status_not_inferred": true
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "1bb10eeb-13a3-45d1-9ee0-b57c130b1acc",
+          "source_id": "hf-blog",
+          "external_id": "6aa290c6981227aa96810cbf",
+          "kind": "blog",
+          "title": "Rebuilding AUTOMATIC1111 with Gradio Workflow",
+          "description": "",
+          "source_url": "https://huggingface.co/blog/gradio-workflow-1111",
+          "published_at": "2026-09-10T00:00:00.743000+00:00",
+          "source_updated_at": "2026-09-10T00:00:00.743000+00:00",
+          "first_seen_at": "2026-09-25T10:13:44.217678+00:00",
+          "last_seen_at": "2026-09-25T10:13:44.217678+00:00",
+          "revision": 1,
+          "raw_document_id": "676d9c6f-77c5-4c7a-8c70-d47a5c6e2e9a",
+          "raw_sha256": "6ced1edc940b45d69b4b533ac1086793e6e0ac0c0db2af86ec9e25bccc2d1d55",
+          "origin": "replay",
+          "media_type": "application/json",
+          "evidence_locator": "/allBlogs/9",
+          "metadata": {
+            "blog_index_only": true,
+            "body_available": false,
+            "slug": "gradio-workflow-1111"
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "2a385ec4-8065-4060-8e74-adc309597233",
+          "source_id": "hf-blog",
+          "external_id": "6ab2b45f592f1520937cf21b",
+          "kind": "blog",
+          "title": "How UK AISI and EvalEval Are Making Benchmark Results Reproducible",
+          "description": "",
+          "source_url": "https://huggingface.co/blog/evaleval-aisi",
+          "published_at": "2026-09-22T00:00:00.748000+00:00",
+          "source_updated_at": "2026-09-22T00:00:00.748000+00:00",
+          "first_seen_at": "2026-09-25T10:13:44.217678+00:00",
+          "last_seen_at": "2026-09-25T10:13:44.217678+00:00",
+          "revision": 1,
+          "raw_document_id": "676d9c6f-77c5-4c7a-8c70-d47a5c6e2e9a",
+          "raw_sha256": "6ced1edc940b45d69b4b533ac1086793e6e0ac0c0db2af86ec9e25bccc2d1d55",
+          "origin": "replay",
+          "media_type": "application/json",
+          "evidence_locator": "/allBlogs/2",
+          "metadata": {
+            "blog_index_only": true,
+            "body_available": false,
+            "slug": "evaleval-aisi"
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "3c87e760-27c2-4b88-a672-54b60a468cef",
+          "source_id": "hf-blog",
+          "external_id": "6aa7b13d6acc3cd467ee423d",
+          "kind": "blog",
+          "title": "Async GRPO with LoRA across HF Jobs: a bucket, a proxy, and no NCCL",
+          "description": "",
+          "source_url": "https://huggingface.co/blog/asyncgrpo-lora-hfjobs",
+          "published_at": "2026-09-10T00:00:00.744000+00:00",
+          "source_updated_at": "2026-09-10T00:00:00.744000+00:00",
+          "first_seen_at": "2026-09-25T10:13:44.217678+00:00",
+          "last_seen_at": "2026-09-25T10:13:44.217678+00:00",
+          "revision": 1,
+          "raw_document_id": "676d9c6f-77c5-4c7a-8c70-d47a5c6e2e9a",
+          "raw_sha256": "6ced1edc940b45d69b4b533ac1086793e6e0ac0c0db2af86ec9e25bccc2d1d55",
+          "origin": "replay",
+          "media_type": "application/json",
+          "evidence_locator": "/allBlogs/8",
+          "metadata": {
+            "blog_index_only": true,
+            "body_available": false,
+            "slug": "asyncgrpo-lora-hfjobs"
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "6011b4b9-7037-4b20-b80c-1f59eb1358da",
+          "source_id": "hf-blog",
+          "external_id": "6a995b23349425cc95c32a43",
+          "kind": "blog",
+          "title": "Fine-tuning a 350M Model for Better Structured Outputs in 100 GRPO Steps",
+          "description": "",
+          "source_url": "https://huggingface.co/blog/grpo-with-trl-ifstruct",
+          "published_at": "2026-09-03T00:00:00.742000+00:00",
+          "source_updated_at": "2026-09-03T00:00:00.742000+00:00",
+          "first_seen_at": "2026-09-25T10:13:44.217678+00:00",
+          "last_seen_at": "2026-09-25T10:13:44.217678+00:00",
+          "revision": 1,
+          "raw_document_id": "676d9c6f-77c5-4c7a-8c70-d47a5c6e2e9a",
+          "raw_sha256": "6ced1edc940b45d69b4b533ac1086793e6e0ac0c0db2af86ec9e25bccc2d1d55",
+          "origin": "replay",
+          "media_type": "application/json",
+          "evidence_locator": "/allBlogs/11",
+          "metadata": {
+            "blog_index_only": true,
+            "body_available": false,
+            "slug": "grpo-with-trl-ifstruct"
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "6c14f36c-5eef-47a6-8c9d-23582755da59",
+          "source_id": "hf-blog",
+          "external_id": "6a9928dfba44e6557130d615",
+          "kind": "blog",
+          "title": "Training a coding model to paint watercolours with TRL and OpenEnv",
+          "description": "",
+          "source_url": "https://huggingface.co/blog/train-to-paint-with-code",
+          "published_at": "2026-09-03T00:00:00.740000+00:00",
+          "source_updated_at": "2026-09-03T00:00:00.740000+00:00",
+          "first_seen_at": "2026-09-25T10:13:44.217678+00:00",
+          "last_seen_at": "2026-09-25T10:13:44.217678+00:00",
+          "revision": 1,
+          "raw_document_id": "676d9c6f-77c5-4c7a-8c70-d47a5c6e2e9a",
+          "raw_sha256": "6ced1edc940b45d69b4b533ac1086793e6e0ac0c0db2af86ec9e25bccc2d1d55",
+          "origin": "replay",
+          "media_type": "application/json",
+          "evidence_locator": "/allBlogs/13",
+          "metadata": {
+            "blog_index_only": true,
+            "body_available": false,
+            "slug": "train-to-paint-with-code"
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "7d65c54a-7fff-4992-95bd-473d52754347",
+          "source_id": "hf-blog",
+          "external_id": "6aa9488cd0f2229eb1e51287",
+          "kind": "blog",
+          "title": "Your Agent Aced the Task. Will It Do It Again?",
+          "description": "",
+          "source_url": "https://huggingface.co/blog/ibm-research/altk-evolve-consistency",
+          "published_at": "2026-09-15T16:00:44.002000+00:00",
+          "source_updated_at": "2026-09-16T12:30:13.217000+00:00",
+          "first_seen_at": "2026-09-25T10:13:44.217678+00:00",
+          "last_seen_at": "2026-09-25T10:13:44.217678+00:00",
+          "revision": 1,
+          "raw_document_id": "676d9c6f-77c5-4c7a-8c70-d47a5c6e2e9a",
+          "raw_sha256": "6ced1edc940b45d69b4b533ac1086793e6e0ac0c0db2af86ec9e25bccc2d1d55",
+          "origin": "replay",
+          "media_type": "application/json",
+          "evidence_locator": "/allBlogs/7",
+          "metadata": {
+            "blog_index_only": true,
+            "body_available": false,
+            "slug": "altk-evolve-consistency"
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "973e7501-be07-4ac0-b393-234658856370",
+          "source_id": "hf-blog",
+          "external_id": "6a9951d2f4b10725e5bbf319",
+          "kind": "blog",
+          "title": "Give Your Coding Agents a Memory You Own",
+          "description": "",
+          "source_url": "https://huggingface.co/blog/funes",
+          "published_at": "2026-09-03T00:00:00.741000+00:00",
+          "source_updated_at": "2026-09-03T00:00:00.741000+00:00",
+          "first_seen_at": "2026-09-25T10:13:44.217678+00:00",
+          "last_seen_at": "2026-09-25T10:13:44.217678+00:00",
+          "revision": 1,
+          "raw_document_id": "676d9c6f-77c5-4c7a-8c70-d47a5c6e2e9a",
+          "raw_sha256": "6ced1edc940b45d69b4b533ac1086793e6e0ac0c0db2af86ec9e25bccc2d1d55",
+          "origin": "replay",
+          "media_type": "application/json",
+          "evidence_locator": "/allBlogs/12",
+          "metadata": {
+            "blog_index_only": true,
+            "body_available": false,
+            "slug": "funes"
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "9e64c6c8-2ace-4caf-a3ca-5157bc32b228",
+          "source_id": "hf-blog",
+          "external_id": "6ab22525c8a38c2eb6b6cee3",
+          "kind": "blog",
+          "title": "Jun Kim, oMLX creator and maintainer, joins Hugging Face to support the MLX community",
+          "description": "",
+          "source_url": "https://huggingface.co/blog/omlx",
+          "published_at": "2026-09-22T00:00:00.746000+00:00",
+          "source_updated_at": "2026-09-22T00:00:00.746000+00:00",
+          "first_seen_at": "2026-09-25T10:13:44.217678+00:00",
+          "last_seen_at": "2026-09-25T10:13:44.217678+00:00",
+          "revision": 1,
+          "raw_document_id": "676d9c6f-77c5-4c7a-8c70-d47a5c6e2e9a",
+          "raw_sha256": "6ced1edc940b45d69b4b533ac1086793e6e0ac0c0db2af86ec9e25bccc2d1d55",
+          "origin": "replay",
+          "media_type": "application/json",
+          "evidence_locator": "/allBlogs/4",
+          "metadata": {
+            "blog_index_only": true,
+            "body_available": false,
+            "slug": "omlx"
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "a1533ea2-243d-44e6-8afd-7288a0747bb5",
+          "source_id": "hf-blog",
+          "external_id": "6ab52ef92c8debdc16323573",
+          "kind": "blog",
+          "title": "Accelerating vision-language models with LFM2.5-VL-DSpark",
+          "description": "",
+          "source_url": "https://huggingface.co/blog/LiquidAI/lfm2-5-vl-dspark",
+          "published_at": "2026-09-24T14:08:57.587000+00:00",
+          "source_updated_at": "2026-09-24T14:08:57.586000+00:00",
+          "first_seen_at": "2026-09-25T10:13:44.217678+00:00",
+          "last_seen_at": "2026-09-25T10:13:44.217678+00:00",
+          "revision": 1,
+          "raw_document_id": "676d9c6f-77c5-4c7a-8c70-d47a5c6e2e9a",
+          "raw_sha256": "6ced1edc940b45d69b4b533ac1086793e6e0ac0c0db2af86ec9e25bccc2d1d55",
+          "origin": "replay",
+          "media_type": "application/json",
+          "evidence_locator": "/allBlogs/0",
+          "metadata": {
+            "blog_index_only": true,
+            "body_available": false,
+            "slug": "lfm2-5-vl-dspark"
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "b611e6eb-02c6-4ec2-b970-5d57e161c00f",
+          "source_id": "hf-blog",
+          "external_id": "6aa9537077623897be630975",
+          "kind": "blog",
+          "title": "Pruning LLMs Like a Physicist: Block Removal as an Ising Optimization Problem",
+          "description": "",
+          "source_url": "https://huggingface.co/blog/MultiverseComputingCAI/pruning-llms-like-a-physicist-block-removal-as-an",
+          "published_at": "2026-09-21T13:44:34.765000+00:00",
+          "source_updated_at": "2026-09-21T13:44:34.765000+00:00",
+          "first_seen_at": "2026-09-25T10:13:44.217678+00:00",
+          "last_seen_at": "2026-09-25T10:13:44.217678+00:00",
+          "revision": 1,
+          "raw_document_id": "676d9c6f-77c5-4c7a-8c70-d47a5c6e2e9a",
+          "raw_sha256": "6ced1edc940b45d69b4b533ac1086793e6e0ac0c0db2af86ec9e25bccc2d1d55",
+          "origin": "replay",
+          "media_type": "application/json",
+          "evidence_locator": "/allBlogs/5",
+          "metadata": {
+            "blog_index_only": true,
+            "body_available": false,
+            "slug": "pruning-llms-like-a-physicist-block-removal-as-an"
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "ba8e89dc-7970-4810-bf05-dd1bdbaafe89",
+          "source_id": "hf-blog",
+          "external_id": "6ab3952cae2ca87ac18ac6d2",
+          "kind": "blog",
+          "title": "How to Use NVIDIA Warp and MjWarp to Accelerate Robotics Simulation and Learning Workflows",
+          "description": "",
+          "source_url": "https://huggingface.co/blog/nvidia/how-to-use-nvidia-warp-and-mjwarp",
+          "published_at": "2026-09-23T18:41:40.192000+00:00",
+          "source_updated_at": "2026-09-23T18:41:40.192000+00:00",
+          "first_seen_at": "2026-09-25T10:13:44.217678+00:00",
+          "last_seen_at": "2026-09-25T10:13:44.217678+00:00",
+          "revision": 1,
+          "raw_document_id": "676d9c6f-77c5-4c7a-8c70-d47a5c6e2e9a",
+          "raw_sha256": "6ced1edc940b45d69b4b533ac1086793e6e0ac0c0db2af86ec9e25bccc2d1d55",
+          "origin": "replay",
+          "media_type": "application/json",
+          "evidence_locator": "/allBlogs/1",
+          "metadata": {
+            "blog_index_only": true,
+            "body_available": false,
+            "slug": "how-to-use-nvidia-warp-and-mjwarp"
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "c377df83-14da-401d-a4cf-a24d6a8b970d",
+          "source_id": "hf-blog",
+          "external_id": "6ab138116aebbaae13f1ca97",
+          "kind": "blog",
+          "title": "tokenizers v1: encode, decode and scaling, measured",
+          "description": "",
+          "source_url": "https://huggingface.co/blog/tokenizers-v1",
+          "published_at": "2026-09-21T00:00:00.745000+00:00",
+          "source_updated_at": "2026-09-21T00:00:00.745000+00:00",
+          "first_seen_at": "2026-09-25T10:13:44.217678+00:00",
+          "last_seen_at": "2026-09-25T10:13:44.217678+00:00",
+          "revision": 1,
+          "raw_document_id": "676d9c6f-77c5-4c7a-8c70-d47a5c6e2e9a",
+          "raw_sha256": "6ced1edc940b45d69b4b533ac1086793e6e0ac0c0db2af86ec9e25bccc2d1d55",
+          "origin": "replay",
+          "media_type": "application/json",
+          "evidence_locator": "/allBlogs/6",
+          "metadata": {
+            "blog_index_only": true,
+            "body_available": false,
+            "slug": "tokenizers-v1"
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "c9ca4de5-56a1-4386-ba5c-a12a33797f59",
+          "source_id": "hf-blog",
+          "external_id": "6ab25a8c086fe376efffb545",
+          "kind": "blog",
+          "title": "Transformers now runs llama.cpp quants",
+          "description": "",
+          "source_url": "https://huggingface.co/blog/transformers-llama-cpp-quants",
+          "published_at": "2026-09-22T00:00:00.747000+00:00",
+          "source_updated_at": "2026-09-22T00:00:00.747000+00:00",
+          "first_seen_at": "2026-09-25T10:13:44.217678+00:00",
+          "last_seen_at": "2026-09-25T10:13:44.217678+00:00",
+          "revision": 1,
+          "raw_document_id": "676d9c6f-77c5-4c7a-8c70-d47a5c6e2e9a",
+          "raw_sha256": "6ced1edc940b45d69b4b533ac1086793e6e0ac0c0db2af86ec9e25bccc2d1d55",
+          "origin": "replay",
+          "media_type": "application/json",
+          "evidence_locator": "/allBlogs/3",
+          "metadata": {
+            "blog_index_only": true,
+            "body_available": false,
+            "slug": "transformers-llama-cpp-quants"
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        },
+        {
+          "id": "d844a174-de9a-40ad-9ea4-9172d26186e5",
+          "source_id": "hf-blog",
+          "external_id": "6a99728c80684925ca6dc20d",
+          "kind": "blog",
+          "title": "NeoMME: an efficient Multimodal-native and Multilingual Encoder",
+          "description": "",
+          "source_url": "https://huggingface.co/blog/Hcompany/neomme",
+          "published_at": "2026-09-03T13:13:48.024000+00:00",
+          "source_updated_at": "2026-09-03T14:42:52.712000+00:00",
+          "first_seen_at": "2026-09-25T10:13:44.217678+00:00",
+          "last_seen_at": "2026-09-25T10:13:44.217678+00:00",
+          "revision": 1,
+          "raw_document_id": "676d9c6f-77c5-4c7a-8c70-d47a5c6e2e9a",
+          "raw_sha256": "6ced1edc940b45d69b4b533ac1086793e6e0ac0c0db2af86ec9e25bccc2d1d55",
+          "origin": "replay",
+          "media_type": "application/json",
+          "evidence_locator": "/allBlogs/10",
+          "metadata": {
+            "blog_index_only": true,
+            "body_available": false,
+            "slug": "neomme"
+          },
+          "source_metadata_only": true,
+          "payload_executed": false
+        }
+      ],
+      "scope": "source_metadata_only_no_poc_execution"
+    }
+  }
+}

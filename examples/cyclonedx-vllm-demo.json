@@ -1,0 +1,23 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:00000000-0000-4000-8000-000000000004",
+  "version": 1,
+  "metadata": {
+    "component": {
+      "type": "application",
+      "name": "zhidu-demo-asset",
+      "version": "1.0.0"
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "pkg:pypi/vllm@0.6.2",
+      "name": "vllm",
+      "version": "0.6.2",
+      "purl": "pkg:pypi/vllm@0.6.2",
+      "cpe": "cpe:2.3:a:vllm_project:vllm:0.6.2:*:*:*:*:*:*:*"
+    }
+  ]
+}

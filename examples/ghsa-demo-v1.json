@@ -1,0 +1,22 @@
+{
+  "ghsa_id": "GHSA-aaaa-bbbb-cccc",
+  "cve_id": "CVE-2099-0001",
+  "summary": "[虚构演示数据] Example AI 推理组件输入校验问题",
+  "description": "此数据仅用于离线演示和测试，不对应真实漏洞。第一版公告尚未给出修复版本。",
+  "html_url": "https://example.org/demo/advisory",
+  "severity": "high",
+  "published_at": "2026-01-01T08:00:00Z",
+  "updated_at": "2026-01-01T08:00:00Z",
+  "withdrawn_at": null,
+  "vulnerabilities": [
+    {
+      "package": {"ecosystem": "pip", "name": "example-ai-demo"},
+      "vulnerable_version_range": ">= 1.0.0, < 1.2.0",
+      "first_patched_version": null
+    }
+  ],
+  "references": ["https://example.org/demo/advisory"],
+  "cvss": null,
+  "cwes": []
+}
+

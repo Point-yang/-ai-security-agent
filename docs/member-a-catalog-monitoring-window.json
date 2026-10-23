@@ -1,0 +1,126 @@
+{
+  "schema_version": "monitoring-window-v1",
+  "window_start": "2026-09-24T10:29:46.302798+00:00",
+  "window_end": "2026-09-25T10:29:46.302798+00:00",
+  "hours": 24,
+  "targets": [
+    {
+      "target_id": "ghsa-vllm",
+      "config_hash": "45b751c3da2766dd0fd2cee92b31a5fca48e42ff5ed1d1ea4e70c1977302c610",
+      "success_runs": 10,
+      "failed_runs": 0,
+      "freshness_horizon_seconds": 3600,
+      "freshness_covered_seconds": 26403.119,
+      "freshness_coverage": 0.305592,
+      "intervals": [
+        {
+          "from": "2026-09-24T10:29:46.302798+00:00",
+          "to": "2026-09-24T16:19:46.052807+00:00"
+        },
+        {
+          "from": "2026-09-24T17:11:19.362958+00:00",
+          "to": "2026-09-24T18:41:22.731862+00:00"
+        }
+      ]
+    },
+    {
+      "target_id": "ghsa-langchain",
+      "config_hash": "45a8d36c12cd7869ce293dce92223f1f22517f67ed04051f9021c0be4f71cb5c",
+      "success_runs": 10,
+      "failed_runs": 0,
+      "freshness_horizon_seconds": 3600,
+      "freshness_covered_seconds": 26894.176,
+      "freshness_coverage": 0.311275,
+      "intervals": [
+        {
+          "from": "2026-09-24T10:29:46.302798+00:00",
+          "to": "2026-09-24T15:27:57.028552+00:00"
+        },
+        {
+          "from": "2026-09-24T15:37:39.409097+00:00",
+          "to": "2026-09-24T16:37:39.409097+00:00"
+        },
+        {
+          "from": "2026-09-24T17:11:19.965993+00:00",
+          "to": "2026-09-24T18:41:23.416255+00:00"
+        }
+      ]
+    },
+    {
+      "target_id": "vllm-official",
+      "config_hash": "c1d8fab26e3f35ab6e0a924b0d38132b3a1f20f16c43409860704caca3354972",
+      "success_runs": 5,
+      "failed_runs": 1,
+      "freshness_horizon_seconds": 7200,
+      "freshness_covered_seconds": 24930.699,
+      "freshness_coverage": 0.28855,
+      "intervals": [
+        {
+          "from": "2026-09-24T10:29:46.302798+00:00",
+          "to": "2026-09-24T10:53:38.142697+00:00"
+        },
+        {
+          "from": "2026-09-24T11:56:20.133913+00:00",
+          "to": "2026-09-24T16:27:58.992752+00:00"
+        },
+        {
+          "from": "2026-09-24T17:11:11.013981+00:00",
+          "to": "2026-09-24T19:11:11.013981+00:00"
+        }
+      ]
+    },
+    {
+      "target_id": "nvd-vllm",
+      "config_hash": "5a9b9cd43ddb11e445f5c10a3715245a9b3da0afec4267325aa0512095a0d7f1",
+      "success_runs": 5,
+      "failed_runs": 0,
+      "freshness_horizon_seconds": 14400,
+      "freshness_covered_seconds": 38485.979,
+      "freshness_coverage": 0.44544,
+      "intervals": [
+        {
+          "from": "2026-09-24T10:29:46.302798+00:00",
+          "to": "2026-09-24T21:11:12.281908+00:00"
+        }
+      ]
+    },
+    {
+      "target_id": "cisa-ai",
+      "config_hash": "cca8edadb5e760ad4d4098ff39fc1d3aff58c0659943f35c0db698680a1525e6",
+      "success_runs": 6,
+      "failed_runs": 0,
+      "freshness_horizon_seconds": 7200,
+      "freshness_covered_seconds": 28693.071,
+      "freshness_coverage": 0.332096,
+      "intervals": [
+        {
+          "from": "2026-09-24T10:29:46.302798+00:00",
+          "to": "2026-09-24T16:27:59.373518+00:00"
+        },
+        {
+          "from": "2026-09-24T17:11:12.719108+00:00",
+          "to": "2026-09-24T19:11:12.719108+00:00"
+        }
+      ]
+    },
+    {
+      "target_id": "papers-prompt-injection",
+      "config_hash": "22b9d6d7054ac3e941176b3e45cac782e164dd9424f5cb01aea7caa04a0b909a",
+      "success_runs": 1,
+      "failed_runs": 1,
+      "freshness_horizon_seconds": 43200,
+      "freshness_covered_seconds": 33875.715,
+      "freshness_coverage": 0.39208,
+      "intervals": [
+        {
+          "from": "2026-09-24T10:29:46.302798+00:00",
+          "to": "2026-09-24T19:54:22.017437+00:00"
+        }
+      ]
+    }
+  ],
+  "status": "insufficient_coverage",
+  "process_uptime_measured": false,
+  "publication_latency_sla_proven": false,
+  "note": "Coverage uses successful polls and two configured intervals. It is not worker uptime, source availability or a <=6h publication SLA."
+}

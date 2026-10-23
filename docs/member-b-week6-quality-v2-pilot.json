@@ -1,0 +1,2223 @@
+{
+  "implementation_sha256": "48afe6df0f3fef45cd49f1444c463113ee32d12eb347a676a470ceb715d98f5b",
+  "version": "rag-benchmark-v2",
+  "dataset_sha256": "9db16599779a4c48d802cf9b21343a540a34f39aadd6a585b86bca01094261c3",
+  "corpus_sha256": "c71bb8e7f28d40fdbde7687e4dadfec9b8c55f239b74a397402d81a184b0d858",
+  "router": {
+    "version": "bounded-rag-v2",
+    "max_tools": 6,
+    "timeout_ms": 15000,
+    "candidate_limit": 40,
+    "semantic_min_score": 0.35,
+    "supplement": true,
+    "trace": true,
+    "query_rewrite": true,
+    "relevance_gate": true
+  },
+  "official_human_gold_scores": null,
+  "human_gold_status": "pending_independent_review",
+  "scope": "train_development_characterization_not_human_gold_or_test_score",
+  "hardware": {
+    "os": "macOS-15.4.1-arm64-arm-64bit",
+    "machine": "arm64",
+    "processor": "arm",
+    "logical_cpus": 8
+  },
+  "data_scale": {
+    "events": 574,
+    "search_chunks": 2724,
+    "event_revisions": 627
+  },
+  "concurrency": 1,
+  "repeats": 1,
+  "models": {
+    "generation": "extractive-packet-v4",
+    "embedding": "sentence-transformers/all-MiniLM-L6-v2",
+    "embedding_digest": "546177efd53c466b176e9a51e76e73e11d4bdbab28a33f09c3d3dea4a4479f83",
+    "reranker": "rrf60-cosine-v1",
+    "fastembed": "0.7.4"
+  },
+  "ttft_ms": null,
+  "streaming": false,
+  "latency_scope": "complete backend answer + citation checks + DB commit + JSON serialization; excludes HTTP transport",
+  "cache": "cold first request separated; warm model process, OS cache uncontrolled; no query/answer cache",
+  "modes": {
+    "lexical": {
+      "requests": 20,
+      "unique_cases": 20,
+      "class_accuracy": 0.65,
+      "refusal_correctness": 1.0,
+      "refusal_cases": 4,
+      "verbatim_consistency_rate": 1.0,
+      "citation_support_rate": 0.5,
+      "claim_count": 30,
+      "supported_claims": 15,
+      "recall_at_5": 0.53125,
+      "classes": {
+        "evidence": 7,
+        "refused": 11,
+        "partial": 2
+      },
+      "strata": {
+        "split": {
+          "development": {
+            "requests": 12,
+            "unique_cases": 12,
+            "class_accuracy": 0.6666666666666666,
+            "refusal_correctness": 1.0,
+            "refusal_cases": 4,
+            "verbatim_consistency_rate": 1.0,
+            "citation_support_rate": 0.42857142857142855,
+            "claim_count": 14,
+            "supported_claims": 6,
+            "recall_at_5": 0.4375,
+            "classes": {
+              "evidence": 3,
+              "refused": 8,
+              "partial": 1
+            }
+          },
+          "train": {
+            "requests": 8,
+            "unique_cases": 8,
+            "class_accuracy": 0.625,
+            "refusal_correctness": null,
+            "refusal_cases": 0,
+            "verbatim_consistency_rate": 1.0,
+            "citation_support_rate": 0.5625,
+            "claim_count": 16,
+            "supported_claims": 9,
+            "recall_at_5": 0.625,
+            "classes": {
+              "evidence": 4,
+              "refused": 3,
+              "partial": 1
+            }
+          }
+        },
+        "language": {
+          "en": {
+            "requests": 9,
+            "unique_cases": 9,
+            "class_accuracy": 1.0,
+            "refusal_correctness": 1.0,
+            "refusal_cases": 1,
+            "verbatim_consistency_rate": 1.0,
+            "citation_support_rate": 0.52,
+            "claim_count": 25,
+            "supported_claims": 13,
+            "recall_at_5": 0.9375,
+            "classes": {
+              "evidence": 6,
+              "partial": 2,
+              "refused": 1
+            }
+          },
+          "zh": {
+            "requests": 11,
+            "unique_cases": 11,
+            "class_accuracy": 0.36363636363636365,
+            "refusal_correctness": 1.0,
+            "refusal_cases": 3,
+            "verbatim_consistency_rate": 1.0,
+            "citation_support_rate": 0.4,
+            "claim_count": 5,
+            "supported_claims": 2,
+            "recall_at_5": 0.125,
+            "classes": {
+              "refused": 10,
+              "evidence": 1
+            }
+          }
+        }
+      },
+      "cold_first_request": {
+        "case_id": "case-0-en",
+        "split": "development",
+        "language": "en",
+        "run_id": "31849347-8b03-4be9-8336-f78b954830c9",
+        "expected_class": "evidence",
+        "answer_class": "evidence",
+        "reason": "source_excerpts",
+        "elapsed_ms": 314.0985840000212,
+        "class_correct": true,
+        "recall_at_k": 0.5,
+        "claims": 5,
+        "verbatim_claims": 5,
+        "supported_claims": 1,
+        "expected_event_ids": [
+          "517f2214-56bf-4df4-ae99-22f2479f9405",
+          "87d848cc-6fef-4e2d-b541-08617f1278db"
+        ],
+        "returned_event_ids": [
+          "05c65262-b183-41db-aa07-16a923f18a56",
+          "7fd03732-80f2-4dd4-8093-6ab3df377bad",
+          "87d848cc-6fef-4e2d-b541-08617f1278db",
+          "8dac501b-5e79-4c43-acb2-6dc6abc0ae03",
+          "bbaa0a59-8f35-4ac2-b531-11921163beba"
+        ],
+        "tool_calls": 2,
+        "cost": {
+          "external_requests": 0,
+          "billed_tokens": 0,
+          "api_usd": 0,
+          "local_compute_usd": null
+        }
+      },
+      "complete_answer_latency_ms": {
+        "samples": 20,
+        "min": 0.566167,
+        "p50": 105.407334,
+        "p95": 284.387417,
+        "max": 304.942875,
+        "unit": "ms"
+      },
+      "non_refusal_latency_ms": {
+        "samples": 9,
+        "min": 120.748666,
+        "p50": 182.744167,
+        "p95": 304.942875,
+        "max": 304.942875,
+        "unit": "ms"
+      },
+      "citation_support_definition": "exact source excerpt AND frozen expected event; not free-form entailment",
+      "unavailable_requests": 0,
+      "request_api_cost_usd": 0,
+      "local_compute_cost_usd": null,
+      "records": [
+        {
+          "case_id": "case-0-en",
+          "split": "development",
+          "language": "en",
+          "run_id": "0344e2a3-4448-4204-a4a8-134d513ee50e",
+          "expected_class": "evidence",
+          "answer_class": "evidence",
+          "reason": "source_excerpts",
+          "elapsed_ms": 284.3874169921037,
+          "class_correct": true,
+          "recall_at_k": 0.5,
+          "claims": 5,
+          "verbatim_claims": 5,
+          "supported_claims": 1,
+          "expected_event_ids": [
+            "517f2214-56bf-4df4-ae99-22f2479f9405",
+            "87d848cc-6fef-4e2d-b541-08617f1278db"
+          ],
+          "returned_event_ids": [
+            "05c65262-b183-41db-aa07-16a923f18a56",
+            "7fd03732-80f2-4dd4-8093-6ab3df377bad",
+            "87d848cc-6fef-4e2d-b541-08617f1278db",
+            "8dac501b-5e79-4c43-acb2-6dc6abc0ae03",
+            "bbaa0a59-8f35-4ac2-b531-11921163beba"
+          ],
+          "tool_calls": 2,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-0-zh",
+          "split": "development",
+          "language": "zh",
+          "run_id": "dd2a61da-557f-4031-9709-7ef091870cb7",
+          "expected_class": "evidence",
+          "answer_class": "refused",
+          "reason": "no_evidence",
+          "elapsed_ms": 104.78945801150985,
+          "class_correct": false,
+          "recall_at_k": 0.0,
+          "claims": 0,
+          "verbatim_claims": 0,
+          "supported_claims": 0,
+          "expected_event_ids": [
+            "517f2214-56bf-4df4-ae99-22f2479f9405",
+            "87d848cc-6fef-4e2d-b541-08617f1278db"
+          ],
+          "returned_event_ids": [],
+          "tool_calls": 1,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-1-en",
+          "split": "development",
+          "language": "en",
+          "run_id": "eff78b49-e4d0-47fb-8b0b-295eca29c94d",
+          "expected_class": "evidence",
+          "answer_class": "evidence",
+          "reason": "source_excerpts",
+          "elapsed_ms": 207.19862502301112,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 5,
+          "verbatim_claims": 5,
+          "supported_claims": 2,
+          "expected_event_ids": [
+            "a4ca73e9-b888-4ad2-896f-c5f504cccb91",
+            "f15d68eb-664a-4553-b6dd-bd3a312c6cef"
+          ],
+          "returned_event_ids": [
+            "05c65262-b183-41db-aa07-16a923f18a56",
+            "a4ca73e9-b888-4ad2-896f-c5f504cccb91",
+            "d7496da6-a1d5-4622-988a-ed94155c9734",
+            "e94e83f9-88cd-402d-85fc-aef1ec875fa2",
+            "f15d68eb-664a-4553-b6dd-bd3a312c6cef"
+          ],
+          "tool_calls": 2,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-1-zh",
+          "split": "development",
+          "language": "zh",
+          "run_id": "6b166431-18ce-40cc-8396-54efbd3c0106",
+          "expected_class": "evidence",
+          "answer_class": "refused",
+          "reason": "no_evidence",
+          "elapsed_ms": 105.40733399102464,
+          "class_correct": false,
+          "recall_at_k": 0.0,
+          "claims": 0,
+          "verbatim_claims": 0,
+          "supported_claims": 0,
+          "expected_event_ids": [
+            "a4ca73e9-b888-4ad2-896f-c5f504cccb91",
+            "f15d68eb-664a-4553-b6dd-bd3a312c6cef"
+          ],
+          "returned_event_ids": [],
+          "tool_calls": 1,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-2-en",
+          "split": "train",
+          "language": "en",
+          "run_id": "0029fb2e-3f20-4d1e-86aa-c9372660089b",
+          "expected_class": "evidence",
+          "answer_class": "evidence",
+          "reason": "source_excerpts",
+          "elapsed_ms": 304.9428749945946,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 2,
+          "verbatim_claims": 2,
+          "supported_claims": 2,
+          "expected_event_ids": [
+            "68a807bb-e7b4-4194-a9cd-688f46929b68",
+            "f5e72aff-6470-4832-a3be-fa46a38a79ea"
+          ],
+          "returned_event_ids": [
+            "68a807bb-e7b4-4194-a9cd-688f46929b68",
+            "f5e72aff-6470-4832-a3be-fa46a38a79ea"
+          ],
+          "tool_calls": 2,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-2-zh",
+          "split": "train",
+          "language": "zh",
+          "run_id": "0d10f060-5b16-4f40-8e85-345dcbcdd0e7",
+          "expected_class": "evidence",
+          "answer_class": "refused",
+          "reason": "no_evidence",
+          "elapsed_ms": 106.00654198788106,
+          "class_correct": false,
+          "recall_at_k": 0.0,
+          "claims": 0,
+          "verbatim_claims": 0,
+          "supported_claims": 0,
+          "expected_event_ids": [
+            "68a807bb-e7b4-4194-a9cd-688f46929b68",
+            "f5e72aff-6470-4832-a3be-fa46a38a79ea"
+          ],
+          "returned_event_ids": [],
+          "tool_calls": 1,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-3-en",
+          "split": "train",
+          "language": "en",
+          "run_id": "a632d246-758f-466d-9c9f-9779287ca043",
+          "expected_class": "evidence",
+          "answer_class": "evidence",
+          "reason": "source_excerpts",
+          "elapsed_ms": 190.81354199443012,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 4,
+          "verbatim_claims": 4,
+          "supported_claims": 2,
+          "expected_event_ids": [
+            "5e1e7d9a-7127-44f0-9128-1de01e5cc55d",
+            "a6e7cb4e-6701-4074-9cc7-848491137226"
+          ],
+          "returned_event_ids": [
+            "4b58931a-e263-4623-9bc8-985034462066",
+            "5e1e7d9a-7127-44f0-9128-1de01e5cc55d",
+            "a6e7cb4e-6701-4074-9cc7-848491137226",
+            "e86991be-2d57-4278-87fb-39c0197d9551"
+          ],
+          "tool_calls": 2,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-3-zh",
+          "split": "train",
+          "language": "zh",
+          "run_id": "006567e1-4893-43e5-a1a6-4bd21a42d8fa",
+          "expected_class": "evidence",
+          "answer_class": "evidence",
+          "reason": "source_excerpts",
+          "elapsed_ms": 136.31441700272262,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 5,
+          "verbatim_claims": 5,
+          "supported_claims": 2,
+          "expected_event_ids": [
+            "5e1e7d9a-7127-44f0-9128-1de01e5cc55d",
+            "a6e7cb4e-6701-4074-9cc7-848491137226"
+          ],
+          "returned_event_ids": [
+            "020f0ab0-ea75-4490-bd21-2680c321d3fd",
+            "4b58931a-e263-4623-9bc8-985034462066",
+            "5e1e7d9a-7127-44f0-9128-1de01e5cc55d",
+            "a6e7cb4e-6701-4074-9cc7-848491137226",
+            "e86991be-2d57-4278-87fb-39c0197d9551"
+          ],
+          "tool_calls": 2,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-4-en",
+          "split": "train",
+          "language": "en",
+          "run_id": "4e4719e2-18b0-42d7-98a1-fd268bc6dce6",
+          "expected_class": "evidence",
+          "answer_class": "evidence",
+          "reason": "source_excerpts",
+          "elapsed_ms": 158.15787500469014,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 3,
+          "verbatim_claims": 3,
+          "supported_claims": 1,
+          "expected_event_ids": [
+            "268981c6-4de0-41fb-a7ae-fc893cf9c622"
+          ],
+          "returned_event_ids": [
+            "0be395eb-ee36-49b3-bbae-f9de54773c9b",
+            "26281cae-d086-4a87-b6c8-dff907604b88",
+            "268981c6-4de0-41fb-a7ae-fc893cf9c622"
+          ],
+          "tool_calls": 2,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-4-zh",
+          "split": "train",
+          "language": "zh",
+          "run_id": "f6537ed2-e189-43e4-ac4e-248be4717b92",
+          "expected_class": "evidence",
+          "answer_class": "refused",
+          "reason": "no_evidence",
+          "elapsed_ms": 104.67533298651688,
+          "class_correct": false,
+          "recall_at_k": 0.0,
+          "claims": 0,
+          "verbatim_claims": 0,
+          "supported_claims": 0,
+          "expected_event_ids": [
+            "268981c6-4de0-41fb-a7ae-fc893cf9c622"
+          ],
+          "returned_event_ids": [],
+          "tool_calls": 1,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-5-en",
+          "split": "development",
+          "language": "en",
+          "run_id": "ff17ec9a-d98f-4a76-ac55-e947f936caec",
+          "expected_class": "evidence",
+          "answer_class": "evidence",
+          "reason": "source_excerpts",
+          "elapsed_ms": 182.7441670175176,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 3,
+          "verbatim_claims": 3,
+          "supported_claims": 2,
+          "expected_event_ids": [
+            "075f7288-3950-466d-b7cc-459c19fb156b",
+            "9e984085-a8f7-424c-bc0e-b66a957b694a"
+          ],
+          "returned_event_ids": [
+            "075f7288-3950-466d-b7cc-459c19fb156b",
+            "212c81fc-77c2-40c6-a286-a78bd214b067",
+            "9e984085-a8f7-424c-bc0e-b66a957b694a"
+          ],
+          "tool_calls": 2,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-5-zh",
+          "split": "development",
+          "language": "zh",
+          "run_id": "0eac501a-c82e-43c8-a0de-4a943af45864",
+          "expected_class": "evidence",
+          "answer_class": "refused",
+          "reason": "no_evidence",
+          "elapsed_ms": 104.67691699159332,
+          "class_correct": false,
+          "recall_at_k": 0.0,
+          "claims": 0,
+          "verbatim_claims": 0,
+          "supported_claims": 0,
+          "expected_event_ids": [
+            "075f7288-3950-466d-b7cc-459c19fb156b",
+            "9e984085-a8f7-424c-bc0e-b66a957b694a"
+          ],
+          "returned_event_ids": [],
+          "tool_calls": 1,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-6-en",
+          "split": "train",
+          "language": "en",
+          "run_id": "03054f36-d4e5-4e12-ae19-3909871db17e",
+          "expected_class": "partial",
+          "answer_class": "partial",
+          "reason": "partial_source_evidence",
+          "elapsed_ms": 120.74866599868983,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 2,
+          "verbatim_claims": 2,
+          "supported_claims": 2,
+          "expected_event_ids": [
+            "0845a5b6-8d49-402c-82a3-a0e25d1d438b",
+            "d6afdd5a-9db4-4cce-b65b-5267be515072"
+          ],
+          "returned_event_ids": [
+            "0845a5b6-8d49-402c-82a3-a0e25d1d438b",
+            "d6afdd5a-9db4-4cce-b65b-5267be515072"
+          ],
+          "tool_calls": 3,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-6-zh",
+          "split": "train",
+          "language": "zh",
+          "run_id": "4a2c4749-9cbb-402c-aef3-0150e3fee575",
+          "expected_class": "partial",
+          "answer_class": "refused",
+          "reason": "no_evidence",
+          "elapsed_ms": 3.067292011110112,
+          "class_correct": false,
+          "recall_at_k": 0.0,
+          "claims": 0,
+          "verbatim_claims": 0,
+          "supported_claims": 0,
+          "expected_event_ids": [
+            "0845a5b6-8d49-402c-82a3-a0e25d1d438b",
+            "d6afdd5a-9db4-4cce-b65b-5267be515072"
+          ],
+          "returned_event_ids": [],
+          "tool_calls": 1,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-7-en",
+          "split": "development",
+          "language": "en",
+          "run_id": "ac8ffbd7-8e27-441b-baae-da2f2f01f5b8",
+          "expected_class": "partial",
+          "answer_class": "partial",
+          "reason": "partial_source_evidence",
+          "elapsed_ms": 129.33283401071094,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 1,
+          "verbatim_claims": 1,
+          "supported_claims": 1,
+          "expected_event_ids": [
+            "69613c18-e247-497d-8db8-bea975067588"
+          ],
+          "returned_event_ids": [
+            "69613c18-e247-497d-8db8-bea975067588"
+          ],
+          "tool_calls": 3,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-7-zh",
+          "split": "development",
+          "language": "zh",
+          "run_id": "46d14acb-13ad-495d-831a-39d3bb87166c",
+          "expected_class": "partial",
+          "answer_class": "refused",
+          "reason": "no_evidence",
+          "elapsed_ms": 3.2288749935105443,
+          "class_correct": false,
+          "recall_at_k": 0.0,
+          "claims": 0,
+          "verbatim_claims": 0,
+          "supported_claims": 0,
+          "expected_event_ids": [
+            "69613c18-e247-497d-8db8-bea975067588"
+          ],
+          "returned_event_ids": [],
+          "tool_calls": 1,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "refuse-0",
+          "split": "development",
+          "language": "zh",
+          "run_id": "55eac43e-9a4a-4590-9cde-a063e30d57eb",
+          "expected_class": "refused",
+          "answer_class": "refused",
+          "reason": "explicit_asset_required",
+          "elapsed_ms": 0.6220829964149743,
+          "class_correct": true,
+          "recall_at_k": null,
+          "claims": 0,
+          "verbatim_claims": 0,
+          "supported_claims": 0,
+          "expected_event_ids": [],
+          "returned_event_ids": [],
+          "tool_calls": 0,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "refuse-1",
+          "split": "development",
+          "language": "zh",
+          "run_id": "8081171c-2655-4a33-a1cc-089191500e94",
+          "expected_class": "refused",
+          "answer_class": "refused",
+          "reason": "unsupported_verification_claim",
+          "elapsed_ms": 0.5661670002155006,
+          "class_correct": true,
+          "recall_at_k": null,
+          "claims": 0,
+          "verbatim_claims": 0,
+          "supported_claims": 0,
+          "expected_event_ids": [],
+          "returned_event_ids": [],
+          "tool_calls": 0,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "refuse-2",
+          "split": "development",
+          "language": "zh",
+          "run_id": "7733ba4e-4a4c-4d62-91a9-1c305bbe046e",
+          "expected_class": "refused",
+          "answer_class": "refused",
+          "reason": "unsupported_verification_claim",
+          "elapsed_ms": 0.6125410145614296,
+          "class_correct": true,
+          "recall_at_k": null,
+          "claims": 0,
+          "verbatim_claims": 0,
+          "supported_claims": 0,
+          "expected_event_ids": [],
+          "returned_event_ids": [],
+          "tool_calls": 0,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "refuse-3",
+          "split": "development",
+          "language": "en",
+          "run_id": "71d8f116-b3d9-4700-a9a5-a95d1c948648",
+          "expected_class": "refused",
+          "answer_class": "refused",
+          "reason": "no_evidence",
+          "elapsed_ms": 2.9913749895058572,
+          "class_correct": true,
+          "recall_at_k": null,
+          "claims": 0,
+          "verbatim_claims": 0,
+          "supported_claims": 0,
+          "expected_event_ids": [],
+          "returned_event_ids": [],
+          "tool_calls": 1,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        }
+      ]
+    },
+    "hybrid": {
+      "requests": 20,
+      "unique_cases": 20,
+      "class_accuracy": 0.9,
+      "refusal_correctness": 1.0,
+      "refusal_cases": 4,
+      "verbatim_consistency_rate": 1.0,
+      "citation_support_rate": 0.49019607843137253,
+      "claim_count": 51,
+      "supported_claims": 25,
+      "recall_at_5": 0.875,
+      "classes": {
+        "evidence": 12,
+        "partial": 2,
+        "refused": 6
+      },
+      "strata": {
+        "split": {
+          "development": {
+            "requests": 12,
+            "unique_cases": 12,
+            "class_accuracy": 0.9166666666666666,
+            "refusal_correctness": 1.0,
+            "refusal_cases": 4,
+            "verbatim_consistency_rate": 1.0,
+            "citation_support_rate": 0.48148148148148145,
+            "claim_count": 27,
+            "supported_claims": 13,
+            "recall_at_5": 0.875,
+            "classes": {
+              "evidence": 6,
+              "partial": 1,
+              "refused": 5
+            }
+          },
+          "train": {
+            "requests": 8,
+            "unique_cases": 8,
+            "class_accuracy": 0.875,
+            "refusal_correctness": null,
+            "refusal_cases": 0,
+            "verbatim_consistency_rate": 1.0,
+            "citation_support_rate": 0.5,
+            "claim_count": 24,
+            "supported_claims": 12,
+            "recall_at_5": 0.875,
+            "classes": {
+              "evidence": 6,
+              "partial": 1,
+              "refused": 1
+            }
+          }
+        },
+        "language": {
+          "en": {
+            "requests": 9,
+            "unique_cases": 9,
+            "class_accuracy": 1.0,
+            "refusal_correctness": 1.0,
+            "refusal_cases": 1,
+            "verbatim_consistency_rate": 1.0,
+            "citation_support_rate": 0.5833333333333334,
+            "claim_count": 24,
+            "supported_claims": 14,
+            "recall_at_5": 1.0,
+            "classes": {
+              "evidence": 6,
+              "partial": 2,
+              "refused": 1
+            }
+          },
+          "zh": {
+            "requests": 11,
+            "unique_cases": 11,
+            "class_accuracy": 0.8181818181818182,
+            "refusal_correctness": 1.0,
+            "refusal_cases": 3,
+            "verbatim_consistency_rate": 1.0,
+            "citation_support_rate": 0.4074074074074074,
+            "claim_count": 27,
+            "supported_claims": 11,
+            "recall_at_5": 0.75,
+            "classes": {
+              "evidence": 6,
+              "refused": 5
+            }
+          }
+        }
+      },
+      "cold_first_request": {
+        "case_id": "case-0-en",
+        "split": "development",
+        "language": "en",
+        "run_id": "4fc73b94-c643-4921-8c63-a75eb3976d8e",
+        "expected_class": "evidence",
+        "answer_class": "evidence",
+        "reason": "source_excerpts",
+        "elapsed_ms": 1089.596083998913,
+        "class_correct": true,
+        "recall_at_k": 1.0,
+        "claims": 5,
+        "verbatim_claims": 5,
+        "supported_claims": 2,
+        "expected_event_ids": [
+          "517f2214-56bf-4df4-ae99-22f2479f9405",
+          "87d848cc-6fef-4e2d-b541-08617f1278db"
+        ],
+        "returned_event_ids": [
+          "517f2214-56bf-4df4-ae99-22f2479f9405",
+          "87d848cc-6fef-4e2d-b541-08617f1278db",
+          "8dac501b-5e79-4c43-acb2-6dc6abc0ae03",
+          "a71c2700-3b7a-418d-8e89-1cdaacbd983d",
+          "bbaa0a59-8f35-4ac2-b531-11921163beba"
+        ],
+        "tool_calls": 2,
+        "cost": {
+          "external_requests": 0,
+          "billed_tokens": 0,
+          "api_usd": 0,
+          "local_compute_usd": null
+        }
+      },
+      "complete_answer_latency_ms": {
+        "samples": 20,
+        "min": 0.489625,
+        "p50": 387.274917,
+        "p95": 402.280167,
+        "max": 537.024834,
+        "unit": "ms"
+      },
+      "non_refusal_latency_ms": {
+        "samples": 14,
+        "min": 365.244792,
+        "p50": 394.267208,
+        "p95": 537.024834,
+        "max": 537.024834,
+        "unit": "ms"
+      },
+      "citation_support_definition": "exact source excerpt AND frozen expected event; not free-form entailment",
+      "unavailable_requests": 0,
+      "request_api_cost_usd": 0,
+      "local_compute_cost_usd": null,
+      "records": [
+        {
+          "case_id": "case-0-en",
+          "split": "development",
+          "language": "en",
+          "run_id": "c6d1e564-7189-48ff-9336-d0c9791ca0d4",
+          "expected_class": "evidence",
+          "answer_class": "evidence",
+          "reason": "source_excerpts",
+          "elapsed_ms": 401.6912500082981,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 5,
+          "verbatim_claims": 5,
+          "supported_claims": 2,
+          "expected_event_ids": [
+            "517f2214-56bf-4df4-ae99-22f2479f9405",
+            "87d848cc-6fef-4e2d-b541-08617f1278db"
+          ],
+          "returned_event_ids": [
+            "517f2214-56bf-4df4-ae99-22f2479f9405",
+            "87d848cc-6fef-4e2d-b541-08617f1278db",
+            "8dac501b-5e79-4c43-acb2-6dc6abc0ae03",
+            "a71c2700-3b7a-418d-8e89-1cdaacbd983d",
+            "bbaa0a59-8f35-4ac2-b531-11921163beba"
+          ],
+          "tool_calls": 2,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-0-zh",
+          "split": "development",
+          "language": "zh",
+          "run_id": "92c17ec3-dc7f-4a99-9926-6cd663a20f0f",
+          "expected_class": "evidence",
+          "answer_class": "evidence",
+          "reason": "source_excerpts",
+          "elapsed_ms": 389.22016602009535,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 4,
+          "verbatim_claims": 4,
+          "supported_claims": 2,
+          "expected_event_ids": [
+            "517f2214-56bf-4df4-ae99-22f2479f9405",
+            "87d848cc-6fef-4e2d-b541-08617f1278db"
+          ],
+          "returned_event_ids": [
+            "517f2214-56bf-4df4-ae99-22f2479f9405",
+            "700bb4e2-a94e-4e88-9a75-445cf31c5807",
+            "7fd03732-80f2-4dd4-8093-6ab3df377bad",
+            "87d848cc-6fef-4e2d-b541-08617f1278db"
+          ],
+          "tool_calls": 2,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-1-en",
+          "split": "development",
+          "language": "en",
+          "run_id": "44f6c14f-3ad3-4318-be4d-001487f38dd0",
+          "expected_class": "evidence",
+          "answer_class": "evidence",
+          "reason": "source_excerpts",
+          "elapsed_ms": 402.2801670071203,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 4,
+          "verbatim_claims": 4,
+          "supported_claims": 2,
+          "expected_event_ids": [
+            "a4ca73e9-b888-4ad2-896f-c5f504cccb91",
+            "f15d68eb-664a-4553-b6dd-bd3a312c6cef"
+          ],
+          "returned_event_ids": [
+            "a4ca73e9-b888-4ad2-896f-c5f504cccb91",
+            "d7496da6-a1d5-4622-988a-ed94155c9734",
+            "e94e83f9-88cd-402d-85fc-aef1ec875fa2",
+            "f15d68eb-664a-4553-b6dd-bd3a312c6cef"
+          ],
+          "tool_calls": 2,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-1-zh",
+          "split": "development",
+          "language": "zh",
+          "run_id": "8fd3d76f-efa0-441a-9eb3-a85124bd2ae4",
+          "expected_class": "evidence",
+          "answer_class": "evidence",
+          "reason": "source_excerpts",
+          "elapsed_ms": 537.0248339895625,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 5,
+          "verbatim_claims": 5,
+          "supported_claims": 2,
+          "expected_event_ids": [
+            "a4ca73e9-b888-4ad2-896f-c5f504cccb91",
+            "f15d68eb-664a-4553-b6dd-bd3a312c6cef"
+          ],
+          "returned_event_ids": [
+            "40809c2c-fd86-43f8-984f-3b4ea14d9c2d",
+            "a4ca73e9-b888-4ad2-896f-c5f504cccb91",
+            "bf22f914-ce60-411c-bd5e-38d698b06781",
+            "e94e83f9-88cd-402d-85fc-aef1ec875fa2",
+            "f15d68eb-664a-4553-b6dd-bd3a312c6cef"
+          ],
+          "tool_calls": 2,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-2-en",
+          "split": "train",
+          "language": "en",
+          "run_id": "f21c1bba-9ae9-47b5-a98e-641cc91a2df6",
+          "expected_class": "evidence",
+          "answer_class": "evidence",
+          "reason": "source_excerpts",
+          "elapsed_ms": 394.2672080011107,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 2,
+          "verbatim_claims": 2,
+          "supported_claims": 2,
+          "expected_event_ids": [
+            "68a807bb-e7b4-4194-a9cd-688f46929b68",
+            "f5e72aff-6470-4832-a3be-fa46a38a79ea"
+          ],
+          "returned_event_ids": [
+            "68a807bb-e7b4-4194-a9cd-688f46929b68",
+            "f5e72aff-6470-4832-a3be-fa46a38a79ea"
+          ],
+          "tool_calls": 2,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-2-zh",
+          "split": "train",
+          "language": "zh",
+          "run_id": "1ad8d254-2aca-48d5-a71d-f1d33341dcb2",
+          "expected_class": "evidence",
+          "answer_class": "evidence",
+          "reason": "source_excerpts",
+          "elapsed_ms": 400.54704100475647,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 5,
+          "verbatim_claims": 5,
+          "supported_claims": 2,
+          "expected_event_ids": [
+            "68a807bb-e7b4-4194-a9cd-688f46929b68",
+            "f5e72aff-6470-4832-a3be-fa46a38a79ea"
+          ],
+          "returned_event_ids": [
+            "22cf7dc6-fd35-4ca7-8b1c-1f399521aae7",
+            "68a807bb-e7b4-4194-a9cd-688f46929b68",
+            "68e6c5bf-dbfd-48f7-b9d6-cf46ded9111e",
+            "a71c2700-3b7a-418d-8e89-1cdaacbd983d",
+            "f5e72aff-6470-4832-a3be-fa46a38a79ea"
+          ],
+          "tool_calls": 2,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-3-en",
+          "split": "train",
+          "language": "en",
+          "run_id": "f301c42a-fd2f-4a3c-99d2-989c4800e6ca",
+          "expected_class": "evidence",
+          "answer_class": "evidence",
+          "reason": "source_excerpts",
+          "elapsed_ms": 402.04700001049787,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 4,
+          "verbatim_claims": 4,
+          "supported_claims": 2,
+          "expected_event_ids": [
+            "5e1e7d9a-7127-44f0-9128-1de01e5cc55d",
+            "a6e7cb4e-6701-4074-9cc7-848491137226"
+          ],
+          "returned_event_ids": [
+            "4b58931a-e263-4623-9bc8-985034462066",
+            "5e1e7d9a-7127-44f0-9128-1de01e5cc55d",
+            "a6e7cb4e-6701-4074-9cc7-848491137226",
+            "e86991be-2d57-4278-87fb-39c0197d9551"
+          ],
+          "tool_calls": 2,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-3-zh",
+          "split": "train",
+          "language": "zh",
+          "run_id": "00667715-a1da-42a9-bbb1-67286870ab2f",
+          "expected_class": "evidence",
+          "answer_class": "evidence",
+          "reason": "source_excerpts",
+          "elapsed_ms": 365.2447919885162,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 5,
+          "verbatim_claims": 5,
+          "supported_claims": 2,
+          "expected_event_ids": [
+            "5e1e7d9a-7127-44f0-9128-1de01e5cc55d",
+            "a6e7cb4e-6701-4074-9cc7-848491137226"
+          ],
+          "returned_event_ids": [
+            "020f0ab0-ea75-4490-bd21-2680c321d3fd",
+            "4b58931a-e263-4623-9bc8-985034462066",
+            "5e1e7d9a-7127-44f0-9128-1de01e5cc55d",
+            "a6e7cb4e-6701-4074-9cc7-848491137226",
+            "e86991be-2d57-4278-87fb-39c0197d9551"
+          ],
+          "tool_calls": 2,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-4-en",
+          "split": "train",
+          "language": "en",
+          "run_id": "6b17d0d9-bc4e-4d4a-b18d-749b0ecefae2",
+          "expected_class": "evidence",
+          "answer_class": "evidence",
+          "reason": "source_excerpts",
+          "elapsed_ms": 387.27491701138206,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 3,
+          "verbatim_claims": 3,
+          "supported_claims": 1,
+          "expected_event_ids": [
+            "268981c6-4de0-41fb-a7ae-fc893cf9c622"
+          ],
+          "returned_event_ids": [
+            "0be395eb-ee36-49b3-bbae-f9de54773c9b",
+            "26281cae-d086-4a87-b6c8-dff907604b88",
+            "268981c6-4de0-41fb-a7ae-fc893cf9c622"
+          ],
+          "tool_calls": 2,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-4-zh",
+          "split": "train",
+          "language": "zh",
+          "run_id": "bebf654d-d08c-4a73-b93a-eacc282eb9b9",
+          "expected_class": "evidence",
+          "answer_class": "evidence",
+          "reason": "source_excerpts",
+          "elapsed_ms": 393.5045000107493,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 3,
+          "verbatim_claims": 3,
+          "supported_claims": 1,
+          "expected_event_ids": [
+            "268981c6-4de0-41fb-a7ae-fc893cf9c622"
+          ],
+          "returned_event_ids": [
+            "0be395eb-ee36-49b3-bbae-f9de54773c9b",
+            "26281cae-d086-4a87-b6c8-dff907604b88",
+            "268981c6-4de0-41fb-a7ae-fc893cf9c622"
+          ],
+          "tool_calls": 2,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-5-en",
+          "split": "development",
+          "language": "en",
+          "run_id": "afd7eebd-bf64-4052-bfaf-050e14cd7379",
+          "expected_class": "evidence",
+          "answer_class": "evidence",
+          "reason": "source_excerpts",
+          "elapsed_ms": 372.72020798991434,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 3,
+          "verbatim_claims": 3,
+          "supported_claims": 2,
+          "expected_event_ids": [
+            "075f7288-3950-466d-b7cc-459c19fb156b",
+            "9e984085-a8f7-424c-bc0e-b66a957b694a"
+          ],
+          "returned_event_ids": [
+            "075f7288-3950-466d-b7cc-459c19fb156b",
+            "212c81fc-77c2-40c6-a286-a78bd214b067",
+            "9e984085-a8f7-424c-bc0e-b66a957b694a"
+          ],
+          "tool_calls": 2,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-5-zh",
+          "split": "development",
+          "language": "zh",
+          "run_id": "f4eb8fd4-6b02-4778-8734-88fee2a9c383",
+          "expected_class": "evidence",
+          "answer_class": "evidence",
+          "reason": "source_excerpts",
+          "elapsed_ms": 396.6695420094766,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 5,
+          "verbatim_claims": 5,
+          "supported_claims": 2,
+          "expected_event_ids": [
+            "075f7288-3950-466d-b7cc-459c19fb156b",
+            "9e984085-a8f7-424c-bc0e-b66a957b694a"
+          ],
+          "returned_event_ids": [
+            "075f7288-3950-466d-b7cc-459c19fb156b",
+            "212c81fc-77c2-40c6-a286-a78bd214b067",
+            "42defcb6-50e0-4e84-9be5-0be7e01511c4",
+            "4bfd7ea1-7c0a-428e-a967-2225674b22f9",
+            "9e984085-a8f7-424c-bc0e-b66a957b694a"
+          ],
+          "tool_calls": 2,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-6-en",
+          "split": "train",
+          "language": "en",
+          "run_id": "686a6996-0c09-42d8-9b91-2e83ca955406",
+          "expected_class": "partial",
+          "answer_class": "partial",
+          "reason": "partial_source_evidence",
+          "elapsed_ms": 399.3940000073053,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 2,
+          "verbatim_claims": 2,
+          "supported_claims": 2,
+          "expected_event_ids": [
+            "0845a5b6-8d49-402c-82a3-a0e25d1d438b",
+            "d6afdd5a-9db4-4cce-b65b-5267be515072"
+          ],
+          "returned_event_ids": [
+            "0845a5b6-8d49-402c-82a3-a0e25d1d438b",
+            "d6afdd5a-9db4-4cce-b65b-5267be515072"
+          ],
+          "tool_calls": 3,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-6-zh",
+          "split": "train",
+          "language": "zh",
+          "run_id": "f983d8ab-7798-4b5e-b389-be758a103093",
+          "expected_class": "partial",
+          "answer_class": "refused",
+          "reason": "no_evidence",
+          "elapsed_ms": 2.9349590186029673,
+          "class_correct": false,
+          "recall_at_k": 0.0,
+          "claims": 0,
+          "verbatim_claims": 0,
+          "supported_claims": 0,
+          "expected_event_ids": [
+            "0845a5b6-8d49-402c-82a3-a0e25d1d438b",
+            "d6afdd5a-9db4-4cce-b65b-5267be515072"
+          ],
+          "returned_event_ids": [],
+          "tool_calls": 1,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-7-en",
+          "split": "development",
+          "language": "en",
+          "run_id": "97c4253e-9a30-433d-ab6d-db8cea858846",
+          "expected_class": "partial",
+          "answer_class": "partial",
+          "reason": "partial_source_evidence",
+          "elapsed_ms": 381.8877089943271,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 1,
+          "verbatim_claims": 1,
+          "supported_claims": 1,
+          "expected_event_ids": [
+            "69613c18-e247-497d-8db8-bea975067588"
+          ],
+          "returned_event_ids": [
+            "69613c18-e247-497d-8db8-bea975067588"
+          ],
+          "tool_calls": 3,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-7-zh",
+          "split": "development",
+          "language": "zh",
+          "run_id": "dde70d59-860f-4769-9ddf-d90361ca6d05",
+          "expected_class": "partial",
+          "answer_class": "refused",
+          "reason": "no_evidence",
+          "elapsed_ms": 3.062959003727883,
+          "class_correct": false,
+          "recall_at_k": 0.0,
+          "claims": 0,
+          "verbatim_claims": 0,
+          "supported_claims": 0,
+          "expected_event_ids": [
+            "69613c18-e247-497d-8db8-bea975067588"
+          ],
+          "returned_event_ids": [],
+          "tool_calls": 1,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "refuse-0",
+          "split": "development",
+          "language": "zh",
+          "run_id": "24fbda55-9605-4075-a9b3-13fdd8c4cc92",
+          "expected_class": "refused",
+          "answer_class": "refused",
+          "reason": "explicit_asset_required",
+          "elapsed_ms": 0.5473750061355531,
+          "class_correct": true,
+          "recall_at_k": null,
+          "claims": 0,
+          "verbatim_claims": 0,
+          "supported_claims": 0,
+          "expected_event_ids": [],
+          "returned_event_ids": [],
+          "tool_calls": 0,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "refuse-1",
+          "split": "development",
+          "language": "zh",
+          "run_id": "099bf283-b938-479b-9a1c-55a46c082526",
+          "expected_class": "refused",
+          "answer_class": "refused",
+          "reason": "unsupported_verification_claim",
+          "elapsed_ms": 0.5584169994108379,
+          "class_correct": true,
+          "recall_at_k": null,
+          "claims": 0,
+          "verbatim_claims": 0,
+          "supported_claims": 0,
+          "expected_event_ids": [],
+          "returned_event_ids": [],
+          "tool_calls": 0,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "refuse-2",
+          "split": "development",
+          "language": "zh",
+          "run_id": "9a9c0796-440c-4dfb-981e-481afbca9f06",
+          "expected_class": "refused",
+          "answer_class": "refused",
+          "reason": "unsupported_verification_claim",
+          "elapsed_ms": 0.48962500295601785,
+          "class_correct": true,
+          "recall_at_k": null,
+          "claims": 0,
+          "verbatim_claims": 0,
+          "supported_claims": 0,
+          "expected_event_ids": [],
+          "returned_event_ids": [],
+          "tool_calls": 0,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "refuse-3",
+          "split": "development",
+          "language": "en",
+          "run_id": "f6364d9e-fcbe-4843-a3a2-597ef197ce8c",
+          "expected_class": "refused",
+          "answer_class": "refused",
+          "reason": "no_evidence",
+          "elapsed_ms": 2.886915986891836,
+          "class_correct": true,
+          "recall_at_k": null,
+          "claims": 0,
+          "verbatim_claims": 0,
+          "supported_claims": 0,
+          "expected_event_ids": [],
+          "returned_event_ids": [],
+          "tool_calls": 1,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        }
+      ]
+    },
+    "agentic": {
+      "requests": 20,
+      "unique_cases": 20,
+      "class_accuracy": 0.9,
+      "refusal_correctness": 1.0,
+      "refusal_cases": 4,
+      "verbatim_consistency_rate": 1.0,
+      "citation_support_rate": 0.49019607843137253,
+      "claim_count": 51,
+      "supported_claims": 25,
+      "recall_at_5": 0.875,
+      "classes": {
+        "evidence": 12,
+        "partial": 2,
+        "refused": 6
+      },
+      "strata": {
+        "split": {
+          "development": {
+            "requests": 12,
+            "unique_cases": 12,
+            "class_accuracy": 0.9166666666666666,
+            "refusal_correctness": 1.0,
+            "refusal_cases": 4,
+            "verbatim_consistency_rate": 1.0,
+            "citation_support_rate": 0.48148148148148145,
+            "claim_count": 27,
+            "supported_claims": 13,
+            "recall_at_5": 0.875,
+            "classes": {
+              "evidence": 6,
+              "partial": 1,
+              "refused": 5
+            }
+          },
+          "train": {
+            "requests": 8,
+            "unique_cases": 8,
+            "class_accuracy": 0.875,
+            "refusal_correctness": null,
+            "refusal_cases": 0,
+            "verbatim_consistency_rate": 1.0,
+            "citation_support_rate": 0.5,
+            "claim_count": 24,
+            "supported_claims": 12,
+            "recall_at_5": 0.875,
+            "classes": {
+              "evidence": 6,
+              "partial": 1,
+              "refused": 1
+            }
+          }
+        },
+        "language": {
+          "en": {
+            "requests": 9,
+            "unique_cases": 9,
+            "class_accuracy": 1.0,
+            "refusal_correctness": 1.0,
+            "refusal_cases": 1,
+            "verbatim_consistency_rate": 1.0,
+            "citation_support_rate": 0.5833333333333334,
+            "claim_count": 24,
+            "supported_claims": 14,
+            "recall_at_5": 1.0,
+            "classes": {
+              "evidence": 6,
+              "partial": 2,
+              "refused": 1
+            }
+          },
+          "zh": {
+            "requests": 11,
+            "unique_cases": 11,
+            "class_accuracy": 0.8181818181818182,
+            "refusal_correctness": 1.0,
+            "refusal_cases": 3,
+            "verbatim_consistency_rate": 1.0,
+            "citation_support_rate": 0.4074074074074074,
+            "claim_count": 27,
+            "supported_claims": 11,
+            "recall_at_5": 0.75,
+            "classes": {
+              "evidence": 6,
+              "refused": 5
+            }
+          }
+        }
+      },
+      "cold_first_request": {
+        "case_id": "case-0-en",
+        "split": "development",
+        "language": "en",
+        "run_id": "8ec6485e-fd53-4939-b46f-df10129205ec",
+        "expected_class": "evidence",
+        "answer_class": "evidence",
+        "reason": "source_excerpts",
+        "elapsed_ms": 1341.5714160073549,
+        "class_correct": true,
+        "recall_at_k": 1.0,
+        "claims": 5,
+        "verbatim_claims": 5,
+        "supported_claims": 2,
+        "expected_event_ids": [
+          "517f2214-56bf-4df4-ae99-22f2479f9405",
+          "87d848cc-6fef-4e2d-b541-08617f1278db"
+        ],
+        "returned_event_ids": [
+          "517f2214-56bf-4df4-ae99-22f2479f9405",
+          "87d848cc-6fef-4e2d-b541-08617f1278db",
+          "8dac501b-5e79-4c43-acb2-6dc6abc0ae03",
+          "a71c2700-3b7a-418d-8e89-1cdaacbd983d",
+          "bbaa0a59-8f35-4ac2-b531-11921163beba"
+        ],
+        "tool_calls": 4,
+        "cost": {
+          "external_requests": 0,
+          "billed_tokens": 0,
+          "api_usd": 0,
+          "local_compute_usd": null
+        }
+      },
+      "complete_answer_latency_ms": {
+        "samples": 20,
+        "min": 0.49025,
+        "p50": 432.789166,
+        "p95": 824.102625,
+        "max": 937.926291,
+        "unit": "ms"
+      },
+      "non_refusal_latency_ms": {
+        "samples": 14,
+        "min": 409.309167,
+        "p50": 781.420667,
+        "p95": 937.926291,
+        "max": 937.926291,
+        "unit": "ms"
+      },
+      "citation_support_definition": "exact source excerpt AND frozen expected event; not free-form entailment",
+      "unavailable_requests": 0,
+      "request_api_cost_usd": 0,
+      "local_compute_cost_usd": null,
+      "records": [
+        {
+          "case_id": "case-0-en",
+          "split": "development",
+          "language": "en",
+          "run_id": "ba44a5c0-c8e5-41c1-9b35-41bfa85c3a13",
+          "expected_class": "evidence",
+          "answer_class": "evidence",
+          "reason": "source_excerpts",
+          "elapsed_ms": 937.9262909933459,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 5,
+          "verbatim_claims": 5,
+          "supported_claims": 2,
+          "expected_event_ids": [
+            "517f2214-56bf-4df4-ae99-22f2479f9405",
+            "87d848cc-6fef-4e2d-b541-08617f1278db"
+          ],
+          "returned_event_ids": [
+            "517f2214-56bf-4df4-ae99-22f2479f9405",
+            "87d848cc-6fef-4e2d-b541-08617f1278db",
+            "8dac501b-5e79-4c43-acb2-6dc6abc0ae03",
+            "a71c2700-3b7a-418d-8e89-1cdaacbd983d",
+            "bbaa0a59-8f35-4ac2-b531-11921163beba"
+          ],
+          "tool_calls": 4,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-0-zh",
+          "split": "development",
+          "language": "zh",
+          "run_id": "75f01e50-0da6-40cf-9606-817fbf94aec3",
+          "expected_class": "evidence",
+          "answer_class": "evidence",
+          "reason": "source_excerpts",
+          "elapsed_ms": 785.4289579845499,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 4,
+          "verbatim_claims": 4,
+          "supported_claims": 2,
+          "expected_event_ids": [
+            "517f2214-56bf-4df4-ae99-22f2479f9405",
+            "87d848cc-6fef-4e2d-b541-08617f1278db"
+          ],
+          "returned_event_ids": [
+            "517f2214-56bf-4df4-ae99-22f2479f9405",
+            "700bb4e2-a94e-4e88-9a75-445cf31c5807",
+            "7fd03732-80f2-4dd4-8093-6ab3df377bad",
+            "87d848cc-6fef-4e2d-b541-08617f1278db"
+          ],
+          "tool_calls": 4,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-1-en",
+          "split": "development",
+          "language": "en",
+          "run_id": "1b93097b-9ea0-4994-afa2-cb684806fc24",
+          "expected_class": "evidence",
+          "answer_class": "evidence",
+          "reason": "source_excerpts",
+          "elapsed_ms": 794.5579580264166,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 4,
+          "verbatim_claims": 4,
+          "supported_claims": 2,
+          "expected_event_ids": [
+            "a4ca73e9-b888-4ad2-896f-c5f504cccb91",
+            "f15d68eb-664a-4553-b6dd-bd3a312c6cef"
+          ],
+          "returned_event_ids": [
+            "a4ca73e9-b888-4ad2-896f-c5f504cccb91",
+            "d7496da6-a1d5-4622-988a-ed94155c9734",
+            "e94e83f9-88cd-402d-85fc-aef1ec875fa2",
+            "f15d68eb-664a-4553-b6dd-bd3a312c6cef"
+          ],
+          "tool_calls": 4,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-1-zh",
+          "split": "development",
+          "language": "zh",
+          "run_id": "370b8d70-697f-4667-95e7-a1eebd27fae2",
+          "expected_class": "evidence",
+          "answer_class": "evidence",
+          "reason": "source_excerpts",
+          "elapsed_ms": 819.1615830000956,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 5,
+          "verbatim_claims": 5,
+          "supported_claims": 2,
+          "expected_event_ids": [
+            "a4ca73e9-b888-4ad2-896f-c5f504cccb91",
+            "f15d68eb-664a-4553-b6dd-bd3a312c6cef"
+          ],
+          "returned_event_ids": [
+            "40809c2c-fd86-43f8-984f-3b4ea14d9c2d",
+            "a4ca73e9-b888-4ad2-896f-c5f504cccb91",
+            "bf22f914-ce60-411c-bd5e-38d698b06781",
+            "e94e83f9-88cd-402d-85fc-aef1ec875fa2",
+            "f15d68eb-664a-4553-b6dd-bd3a312c6cef"
+          ],
+          "tool_calls": 4,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-2-en",
+          "split": "train",
+          "language": "en",
+          "run_id": "074acb7a-ff0b-4eb1-86ad-09a98a0b91c8",
+          "expected_class": "evidence",
+          "answer_class": "evidence",
+          "reason": "source_excerpts",
+          "elapsed_ms": 418.5247909917962,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 2,
+          "verbatim_claims": 2,
+          "supported_claims": 2,
+          "expected_event_ids": [
+            "68a807bb-e7b4-4194-a9cd-688f46929b68",
+            "f5e72aff-6470-4832-a3be-fa46a38a79ea"
+          ],
+          "returned_event_ids": [
+            "68a807bb-e7b4-4194-a9cd-688f46929b68",
+            "f5e72aff-6470-4832-a3be-fa46a38a79ea"
+          ],
+          "tool_calls": 3,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-2-zh",
+          "split": "train",
+          "language": "zh",
+          "run_id": "d2516b45-33e7-4cdc-a491-96205906f8ff",
+          "expected_class": "evidence",
+          "answer_class": "evidence",
+          "reason": "source_excerpts",
+          "elapsed_ms": 426.7547079944052,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 5,
+          "verbatim_claims": 5,
+          "supported_claims": 2,
+          "expected_event_ids": [
+            "68a807bb-e7b4-4194-a9cd-688f46929b68",
+            "f5e72aff-6470-4832-a3be-fa46a38a79ea"
+          ],
+          "returned_event_ids": [
+            "22cf7dc6-fd35-4ca7-8b1c-1f399521aae7",
+            "68a807bb-e7b4-4194-a9cd-688f46929b68",
+            "68e6c5bf-dbfd-48f7-b9d6-cf46ded9111e",
+            "a71c2700-3b7a-418d-8e89-1cdaacbd983d",
+            "f5e72aff-6470-4832-a3be-fa46a38a79ea"
+          ],
+          "tool_calls": 3,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-3-en",
+          "split": "train",
+          "language": "en",
+          "run_id": "d61ba6e1-9255-41a2-883b-cca345153d35",
+          "expected_class": "evidence",
+          "answer_class": "evidence",
+          "reason": "source_excerpts",
+          "elapsed_ms": 797.7919999975711,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 4,
+          "verbatim_claims": 4,
+          "supported_claims": 2,
+          "expected_event_ids": [
+            "5e1e7d9a-7127-44f0-9128-1de01e5cc55d",
+            "a6e7cb4e-6701-4074-9cc7-848491137226"
+          ],
+          "returned_event_ids": [
+            "4b58931a-e263-4623-9bc8-985034462066",
+            "5e1e7d9a-7127-44f0-9128-1de01e5cc55d",
+            "a6e7cb4e-6701-4074-9cc7-848491137226",
+            "e86991be-2d57-4278-87fb-39c0197d9551"
+          ],
+          "tool_calls": 4,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-3-zh",
+          "split": "train",
+          "language": "zh",
+          "run_id": "e4f85008-4c72-44c8-86f2-66b6e9a6ae02",
+          "expected_class": "evidence",
+          "answer_class": "evidence",
+          "reason": "source_excerpts",
+          "elapsed_ms": 781.4206669863779,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 5,
+          "verbatim_claims": 5,
+          "supported_claims": 2,
+          "expected_event_ids": [
+            "5e1e7d9a-7127-44f0-9128-1de01e5cc55d",
+            "a6e7cb4e-6701-4074-9cc7-848491137226"
+          ],
+          "returned_event_ids": [
+            "020f0ab0-ea75-4490-bd21-2680c321d3fd",
+            "4b58931a-e263-4623-9bc8-985034462066",
+            "5e1e7d9a-7127-44f0-9128-1de01e5cc55d",
+            "a6e7cb4e-6701-4074-9cc7-848491137226",
+            "e86991be-2d57-4278-87fb-39c0197d9551"
+          ],
+          "tool_calls": 4,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-4-en",
+          "split": "train",
+          "language": "en",
+          "run_id": "2a012bfe-6482-46cc-a0dc-339bb86200a1",
+          "expected_class": "evidence",
+          "answer_class": "evidence",
+          "reason": "source_excerpts",
+          "elapsed_ms": 409.30916700745,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 3,
+          "verbatim_claims": 3,
+          "supported_claims": 1,
+          "expected_event_ids": [
+            "268981c6-4de0-41fb-a7ae-fc893cf9c622"
+          ],
+          "returned_event_ids": [
+            "0be395eb-ee36-49b3-bbae-f9de54773c9b",
+            "26281cae-d086-4a87-b6c8-dff907604b88",
+            "268981c6-4de0-41fb-a7ae-fc893cf9c622"
+          ],
+          "tool_calls": 3,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-4-zh",
+          "split": "train",
+          "language": "zh",
+          "run_id": "25a33251-c865-49ce-95b1-7b5a836a4a27",
+          "expected_class": "evidence",
+          "answer_class": "evidence",
+          "reason": "source_excerpts",
+          "elapsed_ms": 432.7891659922898,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 3,
+          "verbatim_claims": 3,
+          "supported_claims": 1,
+          "expected_event_ids": [
+            "268981c6-4de0-41fb-a7ae-fc893cf9c622"
+          ],
+          "returned_event_ids": [
+            "0be395eb-ee36-49b3-bbae-f9de54773c9b",
+            "26281cae-d086-4a87-b6c8-dff907604b88",
+            "268981c6-4de0-41fb-a7ae-fc893cf9c622"
+          ],
+          "tool_calls": 3,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-5-en",
+          "split": "development",
+          "language": "en",
+          "run_id": "f1f63026-bbf3-4844-8645-f7d68fabdbcc",
+          "expected_class": "evidence",
+          "answer_class": "evidence",
+          "reason": "source_excerpts",
+          "elapsed_ms": 776.8586250022054,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 3,
+          "verbatim_claims": 3,
+          "supported_claims": 2,
+          "expected_event_ids": [
+            "075f7288-3950-466d-b7cc-459c19fb156b",
+            "9e984085-a8f7-424c-bc0e-b66a957b694a"
+          ],
+          "returned_event_ids": [
+            "075f7288-3950-466d-b7cc-459c19fb156b",
+            "212c81fc-77c2-40c6-a286-a78bd214b067",
+            "9e984085-a8f7-424c-bc0e-b66a957b694a"
+          ],
+          "tool_calls": 4,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-5-zh",
+          "split": "development",
+          "language": "zh",
+          "run_id": "542ae59b-e0e6-4b9c-9859-0e524119fd22",
+          "expected_class": "evidence",
+          "answer_class": "evidence",
+          "reason": "source_excerpts",
+          "elapsed_ms": 824.1026249888819,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 5,
+          "verbatim_claims": 5,
+          "supported_claims": 2,
+          "expected_event_ids": [
+            "075f7288-3950-466d-b7cc-459c19fb156b",
+            "9e984085-a8f7-424c-bc0e-b66a957b694a"
+          ],
+          "returned_event_ids": [
+            "075f7288-3950-466d-b7cc-459c19fb156b",
+            "212c81fc-77c2-40c6-a286-a78bd214b067",
+            "42defcb6-50e0-4e84-9be5-0be7e01511c4",
+            "4bfd7ea1-7c0a-428e-a967-2225674b22f9",
+            "9e984085-a8f7-424c-bc0e-b66a957b694a"
+          ],
+          "tool_calls": 4,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-6-en",
+          "split": "train",
+          "language": "en",
+          "run_id": "b6371258-c708-47bf-b379-03654fb5102f",
+          "expected_class": "partial",
+          "answer_class": "partial",
+          "reason": "partial_source_evidence",
+          "elapsed_ms": 787.2808339889161,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 2,
+          "verbatim_claims": 2,
+          "supported_claims": 2,
+          "expected_event_ids": [
+            "0845a5b6-8d49-402c-82a3-a0e25d1d438b",
+            "d6afdd5a-9db4-4cce-b65b-5267be515072"
+          ],
+          "returned_event_ids": [
+            "0845a5b6-8d49-402c-82a3-a0e25d1d438b",
+            "d6afdd5a-9db4-4cce-b65b-5267be515072"
+          ],
+          "tool_calls": 5,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-6-zh",
+          "split": "train",
+          "language": "zh",
+          "run_id": "89cd26f2-3a02-414c-888e-f4dc927c0eca",
+          "expected_class": "partial",
+          "answer_class": "refused",
+          "reason": "no_evidence",
+          "elapsed_ms": 3.1843330070842057,
+          "class_correct": false,
+          "recall_at_k": 0.0,
+          "claims": 0,
+          "verbatim_claims": 0,
+          "supported_claims": 0,
+          "expected_event_ids": [
+            "0845a5b6-8d49-402c-82a3-a0e25d1d438b",
+            "d6afdd5a-9db4-4cce-b65b-5267be515072"
+          ],
+          "returned_event_ids": [],
+          "tool_calls": 1,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-7-en",
+          "split": "development",
+          "language": "en",
+          "run_id": "42e86043-38fd-456c-b825-ae6072cd9dcf",
+          "expected_class": "partial",
+          "answer_class": "partial",
+          "reason": "partial_source_evidence",
+          "elapsed_ms": 766.6694170038681,
+          "class_correct": true,
+          "recall_at_k": 1.0,
+          "claims": 1,
+          "verbatim_claims": 1,
+          "supported_claims": 1,
+          "expected_event_ids": [
+            "69613c18-e247-497d-8db8-bea975067588"
+          ],
+          "returned_event_ids": [
+            "69613c18-e247-497d-8db8-bea975067588"
+          ],
+          "tool_calls": 5,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "case-7-zh",
+          "split": "development",
+          "language": "zh",
+          "run_id": "ea975901-e990-40f6-9ae2-c42d0e95eaaf",
+          "expected_class": "partial",
+          "answer_class": "refused",
+          "reason": "no_evidence",
+          "elapsed_ms": 3.35783397895284,
+          "class_correct": false,
+          "recall_at_k": 0.0,
+          "claims": 0,
+          "verbatim_claims": 0,
+          "supported_claims": 0,
+          "expected_event_ids": [
+            "69613c18-e247-497d-8db8-bea975067588"
+          ],
+          "returned_event_ids": [],
+          "tool_calls": 1,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "refuse-0",
+          "split": "development",
+          "language": "zh",
+          "run_id": "ae4c61ee-34e1-4d8c-9e6b-805d78b52aae",
+          "expected_class": "refused",
+          "answer_class": "refused",
+          "reason": "explicit_asset_required",
+          "elapsed_ms": 0.588875001994893,
+          "class_correct": true,
+          "recall_at_k": null,
+          "claims": 0,
+          "verbatim_claims": 0,
+          "supported_claims": 0,
+          "expected_event_ids": [],
+          "returned_event_ids": [],
+          "tool_calls": 0,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "refuse-1",
+          "split": "development",
+          "language": "zh",
+          "run_id": "1e369c95-72a1-4277-bf33-d163dcdabcab",
+          "expected_class": "refused",
+          "answer_class": "refused",
+          "reason": "unsupported_verification_claim",
+          "elapsed_ms": 0.5395409825723618,
+          "class_correct": true,
+          "recall_at_k": null,
+          "claims": 0,
+          "verbatim_claims": 0,
+          "supported_claims": 0,
+          "expected_event_ids": [],
+          "returned_event_ids": [],
+          "tool_calls": 0,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "refuse-2",
+          "split": "development",
+          "language": "zh",
+          "run_id": "a9519687-56b4-492f-8be2-f92640843442",
+          "expected_class": "refused",
+          "answer_class": "refused",
+          "reason": "unsupported_verification_claim",
+          "elapsed_ms": 0.49024997861124575,
+          "class_correct": true,
+          "recall_at_k": null,
+          "claims": 0,
+          "verbatim_claims": 0,
+          "supported_claims": 0,
+          "expected_event_ids": [],
+          "returned_event_ids": [],
+          "tool_calls": 0,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        },
+        {
+          "case_id": "refuse-3",
+          "split": "development",
+          "language": "en",
+          "run_id": "2c5c4267-b85b-422d-bf84-c77780e3a6ee",
+          "expected_class": "refused",
+          "answer_class": "refused",
+          "reason": "no_evidence",
+          "elapsed_ms": 3.0024170118849725,
+          "class_correct": true,
+          "recall_at_k": null,
+          "claims": 0,
+          "verbatim_claims": 0,
+          "supported_claims": 0,
+          "expected_event_ids": [],
+          "returned_event_ids": [],
+          "tool_calls": 1,
+          "cost": {
+            "external_requests": 0,
+            "billed_tokens": 0,
+            "api_usd": 0,
+            "local_compute_usd": null
+          }
+        }
+      ]
+    }
+  },
+  "report_sha256": "e479c5884355253ac20cd5d527c3fc8ea5b955b24cf67be07725beaf5cc6d920"
+}

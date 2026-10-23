@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-12T17:41:45Z",
+  "prices": [
+    {
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "aliases": ["deepseek-v4-flash", "deepseek-v4-flash-vision-exp"],
+      "served_model": "DeepSeek-V4.1-Flash",
+      "currency": "USD",
+      "source_url": "https://api-docs.deepseek.com/quick_start/pricing/",
+      "effective_source_url": "https://api-docs.deepseek.com/news/news260910/",
+      "checked_at": "2026-10-12T17:41:45Z",
+      "effective_from": "2026-09-10T04:00:00Z",
+      "effective_to": null,
+      "pricing_rule": "deepseek_peak_offpeak",
+      "rates_per_million": {
+        "offpeak": {"input_cache_hit": "0.003", "input_cache_miss": "0.15", "output": "0.6"},
+        "peak": {"input_cache_hit": "0.006", "input_cache_miss": "0.30", "output": "1.2"}
+      },
+      "assumptions": [
+        "Published USD rates; no currency conversion, credit deduction, tax or account discount is inferred.",
+        "Legacy Flash request names route to DeepSeek-V4.1-Flash at the Flash price according to the checked pricing page.",
+        "Peak is Monday-Friday 01:00-04:00 and 06:00-10:00 UTC, excluding Chinese public holidays. No holiday calendar is bundled: ambiguous peak dates yield a price interval.",
+        "This catalog records a checked price snapshot; it does not retrospectively reprice frozen experiments or certify invoice charges."
+      ]
+    }
+  ],
+  "custom_price_example": {
+    "note": "Copy into prices, replace all values and pass this catalog using model_pricing_path. Explicit zero rates are allowed for an intentionally free self-hosted model.",
+    "provider": "ollama",
+    "model": "replace-with-your-model",
+    "currency": "CNY",
+    "source_url": "operator-configured",
+    "checked_at": "2026-10-12T17:41:45Z",
+    "effective_from": "2026-10-12T17:41:45Z",
+    "pricing_rule": "flat",
+    "rates_per_million": {
+      "flat": {"input_cache_hit": "0", "input_cache_miss": "0", "output": "0"}
+    },
+    "assumptions": ["Operator supplied token rates; hardware, power and fixed hosting costs are excluded."]
+  }
+}

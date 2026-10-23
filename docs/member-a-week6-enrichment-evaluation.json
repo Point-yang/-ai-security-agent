@@ -1,0 +1,668 @@
+{
+  "id": "c4db15f2-f77d-4e3a-b8b4-1abf5c511830",
+  "suite_version": "member-a-week6-v1",
+  "run_at": "2026-09-22 11:00:30.624037+00:00",
+  "case_count": 8,
+  "assertion_count": 80,
+  "assertion_accuracy": 1.0,
+  "expected_fact_recall": 1.0,
+  "evidence_verifiable_rate": 1.0,
+  "details": [
+    {
+      "id": "github-version-cvss",
+      "source_id": "github-advisories",
+      "external_id": "GHSA-2pc9-4j83-qjmr",
+      "revision_id": "4fe983be-39fa-4833-bdf8-65d8b96e6b10",
+      "revision_fingerprint": "edfa50cff229dc6774a0a8bf8f4433584627d097f13c99fd2b65d67ceb0d703d",
+      "assertions": [
+        {
+          "name": "event_exists",
+          "passed": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "enrichment_exists",
+          "passed": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "kind",
+          "passed": true,
+          "expected": "vulnerability",
+          "actual": "vulnerability"
+        },
+        {
+          "name": "severity",
+          "passed": true,
+          "expected": "high",
+          "actual": "high"
+        },
+        {
+          "name": "quality_flags",
+          "passed": true,
+          "expected": [],
+          "actual": []
+        },
+        {
+          "name": "entity:cve:CVE-2026-22807",
+          "passed": true,
+          "expected": {
+            "type": "cve",
+            "value": "CVE-2026-22807",
+            "ecosystem": null
+          },
+          "actual": null
+        },
+        {
+          "name": "entity:package:vllm",
+          "passed": true,
+          "expected": {
+            "type": "package",
+            "value": "vllm",
+            "ecosystem": "pip"
+          },
+          "actual": null
+        },
+        {
+          "name": "package:pip:vllm",
+          "passed": true,
+          "expected": {
+            "ecosystem": "pip",
+            "name": "vllm",
+            "vulnerable_raw": ">= 0.10.1, < 0.14.0"
+          },
+          "actual": null
+        },
+        {
+          "name": "has_cvss",
+          "passed": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "has_cpe",
+          "passed": true,
+          "expected": false,
+          "actual": false
+        },
+        {
+          "name": "has_version_scope",
+          "passed": true,
+          "expected": true,
+          "actual": true
+        }
+      ],
+      "passed": true,
+      "evidence_pass": true
+    },
+    {
+      "id": "vendor-missing-cvss",
+      "source_id": "vllm-vendor",
+      "external_id": "GHSA-33cg-gxv8-3p8g",
+      "revision_id": "68ced0e5-4402-437c-95ff-4bf72c4f1232",
+      "revision_fingerprint": "6d436aa4e30001e2b571663cbc9a29c4726b03df4d023570996d5748fb82a506",
+      "assertions": [
+        {
+          "name": "event_exists",
+          "passed": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "enrichment_exists",
+          "passed": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "kind",
+          "passed": true,
+          "expected": "vulnerability",
+          "actual": "vulnerability"
+        },
+        {
+          "name": "severity",
+          "passed": true,
+          "expected": "medium",
+          "actual": "medium"
+        },
+        {
+          "name": "quality_flags",
+          "passed": true,
+          "expected": [
+            "missing_cvss"
+          ],
+          "actual": [
+            "missing_cvss"
+          ]
+        },
+        {
+          "name": "entity:package:vllm",
+          "passed": true,
+          "expected": {
+            "type": "package",
+            "value": "vllm",
+            "ecosystem": "pip"
+          },
+          "actual": null
+        },
+        {
+          "name": "package:pip:vllm",
+          "passed": true,
+          "expected": {
+            "ecosystem": "pip",
+            "name": "vllm",
+            "vulnerable_raw": ">=0.12.0"
+          },
+          "actual": null
+        },
+        {
+          "name": "has_cvss",
+          "passed": true,
+          "expected": false,
+          "actual": false
+        },
+        {
+          "name": "has_cpe",
+          "passed": true,
+          "expected": false,
+          "actual": false
+        },
+        {
+          "name": "has_version_scope",
+          "passed": true,
+          "expected": true,
+          "actual": true
+        }
+      ],
+      "passed": true,
+      "evidence_pass": true
+    },
+    {
+      "id": "vendor-opaque-range",
+      "source_id": "vllm-vendor",
+      "external_id": "GHSA-3f6c-7fw2-ppm4",
+      "revision_id": "74be0352-b21b-4495-9a17-0f18e649e016",
+      "revision_fingerprint": "a8072d39daab2211f3ab8c194b51e040923a687f1db0ed5dcded503fb8bc7f5d",
+      "assertions": [
+        {
+          "name": "event_exists",
+          "passed": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "enrichment_exists",
+          "passed": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "kind",
+          "passed": true,
+          "expected": "vulnerability",
+          "actual": "vulnerability"
+        },
+        {
+          "name": "severity",
+          "passed": true,
+          "expected": "high",
+          "actual": "high"
+        },
+        {
+          "name": "quality_flags",
+          "passed": true,
+          "expected": [
+            "unparsed_version_range"
+          ],
+          "actual": [
+            "unparsed_version_range"
+          ]
+        },
+        {
+          "name": "entity:cve:CVE-2025-6242",
+          "passed": true,
+          "expected": {
+            "type": "cve",
+            "value": "CVE-2025-6242",
+            "ecosystem": null
+          },
+          "actual": null
+        },
+        {
+          "name": "package:pip:vllm",
+          "passed": true,
+          "expected": {
+            "ecosystem": "pip",
+            "name": "vllm",
+            "vulnerable_raw": ">=0.5.0"
+          },
+          "actual": null
+        },
+        {
+          "name": "has_cvss",
+          "passed": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "has_cpe",
+          "passed": true,
+          "expected": false,
+          "actual": false
+        },
+        {
+          "name": "has_version_scope",
+          "passed": true,
+          "expected": true,
+          "actual": true
+        }
+      ],
+      "passed": true,
+      "evidence_pass": true
+    },
+    {
+      "id": "nvd-cpe-cvss",
+      "source_id": "nvd",
+      "external_id": "CVE-2026-34755",
+      "revision_id": "693f422d-30a8-4dfb-85d7-4ad8d1c5fdc8",
+      "revision_fingerprint": "a2f0e8d3cacf8cc98c6ab1b9dd7a827dd4e383c1657e40a3bb61a67612fabba2",
+      "assertions": [
+        {
+          "name": "event_exists",
+          "passed": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "enrichment_exists",
+          "passed": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "kind",
+          "passed": true,
+          "expected": "vulnerability",
+          "actual": "vulnerability"
+        },
+        {
+          "name": "severity",
+          "passed": true,
+          "expected": "unknown",
+          "actual": "unknown"
+        },
+        {
+          "name": "quality_flags",
+          "passed": true,
+          "expected": [],
+          "actual": []
+        },
+        {
+          "name": "entity:vendor:vllm",
+          "passed": true,
+          "expected": {
+            "type": "vendor",
+            "value": "vllm",
+            "ecosystem": null
+          },
+          "actual": null
+        },
+        {
+          "name": "entity:product:vllm",
+          "passed": true,
+          "expected": {
+            "type": "product",
+            "value": "vllm",
+            "ecosystem": null
+          },
+          "actual": null
+        },
+        {
+          "name": "has_cvss",
+          "passed": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "has_cpe",
+          "passed": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "has_version_scope",
+          "passed": true,
+          "expected": false,
+          "actual": false
+        }
+      ],
+      "passed": true,
+      "evidence_pass": true
+    },
+    {
+      "id": "nvd-scope-gap",
+      "source_id": "nvd",
+      "external_id": "CVE-2026-37237",
+      "revision_id": "0c9991b3-cc04-498c-af46-95c05c0060b8",
+      "revision_fingerprint": "b9174481da4b46c0447d79cba845fa6528719f3505f6bedca537963761881c66",
+      "assertions": [
+        {
+          "name": "event_exists",
+          "passed": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "enrichment_exists",
+          "passed": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "kind",
+          "passed": true,
+          "expected": "vulnerability",
+          "actual": "vulnerability"
+        },
+        {
+          "name": "severity",
+          "passed": true,
+          "expected": "unknown",
+          "actual": "unknown"
+        },
+        {
+          "name": "quality_flags",
+          "passed": true,
+          "expected": [
+            "missing_affected_scope",
+            "missing_cpe_scope"
+          ],
+          "actual": [
+            "missing_affected_scope",
+            "missing_cpe_scope"
+          ]
+        },
+        {
+          "name": "entity:cve:CVE-2026-37237",
+          "passed": true,
+          "expected": {
+            "type": "cve",
+            "value": "CVE-2026-37237",
+            "ecosystem": null
+          },
+          "actual": null
+        },
+        {
+          "name": "has_cvss",
+          "passed": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "has_cpe",
+          "passed": true,
+          "expected": false,
+          "actual": false
+        },
+        {
+          "name": "has_version_scope",
+          "passed": true,
+          "expected": false,
+          "actual": false
+        }
+      ],
+      "passed": true,
+      "evidence_pass": true
+    },
+    {
+      "id": "kev-catalog-boundary",
+      "source_id": "cisa-kev",
+      "external_id": "CVE-2025-3248",
+      "revision_id": "31227adc-a794-4125-8b17-bbd8e44dd049",
+      "revision_fingerprint": "cb1360a2c2a0df629f2dce3f178caa3d95e928b39835e1e587392841f0293be8",
+      "assertions": [
+        {
+          "name": "event_exists",
+          "passed": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "enrichment_exists",
+          "passed": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "kind",
+          "passed": true,
+          "expected": "exploitation_alert",
+          "actual": "exploitation_alert"
+        },
+        {
+          "name": "severity",
+          "passed": true,
+          "expected": "unknown",
+          "actual": "unknown"
+        },
+        {
+          "name": "quality_flags",
+          "passed": true,
+          "expected": [
+            "catalog_scope_only"
+          ],
+          "actual": [
+            "catalog_scope_only"
+          ]
+        },
+        {
+          "name": "entity:vendor:Langflow",
+          "passed": true,
+          "expected": {
+            "type": "vendor",
+            "value": "Langflow",
+            "ecosystem": null
+          },
+          "actual": null
+        },
+        {
+          "name": "entity:product:Langflow",
+          "passed": true,
+          "expected": {
+            "type": "product",
+            "value": "Langflow",
+            "ecosystem": null
+          },
+          "actual": null
+        },
+        {
+          "name": "has_cvss",
+          "passed": true,
+          "expected": false,
+          "actual": false
+        },
+        {
+          "name": "has_cpe",
+          "passed": true,
+          "expected": false,
+          "actual": false
+        },
+        {
+          "name": "has_version_scope",
+          "passed": true,
+          "expected": false,
+          "actual": false
+        }
+      ],
+      "passed": true,
+      "evidence_pass": true
+    },
+    {
+      "id": "crossref-metadata-boundary",
+      "source_id": "crossref",
+      "external_id": "10.1001/jamanetworkopen.2025.49963",
+      "revision_id": "446d7eec-3389-4a6c-8aee-8af2d47ea02e",
+      "revision_fingerprint": "f2f887f8c3d9879074db55cd6b82cb903d9b977fd708f9c795b72c426d39c965",
+      "assertions": [
+        {
+          "name": "event_exists",
+          "passed": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "enrichment_exists",
+          "passed": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "kind",
+          "passed": true,
+          "expected": "paper",
+          "actual": "paper"
+        },
+        {
+          "name": "severity",
+          "passed": true,
+          "expected": "unknown",
+          "actual": "unknown"
+        },
+        {
+          "name": "quality_flags",
+          "passed": true,
+          "expected": [
+            "metadata_only"
+          ],
+          "actual": [
+            "metadata_only"
+          ]
+        },
+        {
+          "name": "entity:doi:10.1001/jamanetworkopen.2025.49963",
+          "passed": true,
+          "expected": {
+            "type": "doi",
+            "value": "10.1001/jamanetworkopen.2025.49963",
+            "ecosystem": null
+          },
+          "actual": null
+        },
+        {
+          "name": "has_cvss",
+          "passed": true,
+          "expected": false,
+          "actual": false
+        },
+        {
+          "name": "has_cpe",
+          "passed": true,
+          "expected": false,
+          "actual": false
+        },
+        {
+          "name": "has_version_scope",
+          "passed": true,
+          "expected": false,
+          "actual": false
+        }
+      ],
+      "passed": true,
+      "evidence_pass": true
+    },
+    {
+      "id": "github-second-version-case",
+      "source_id": "github-advisories",
+      "external_id": "GHSA-3mwp-wvh9-7528",
+      "revision_id": "7d2ec479-a327-4493-aa77-b77c10841a68",
+      "revision_fingerprint": "5a72aaee3f7b2ce1a9e48ebad83793a9c164bd0e764593e1a91d280a53d7c526",
+      "assertions": [
+        {
+          "name": "event_exists",
+          "passed": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "enrichment_exists",
+          "passed": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "kind",
+          "passed": true,
+          "expected": "vulnerability",
+          "actual": "vulnerability"
+        },
+        {
+          "name": "severity",
+          "passed": true,
+          "expected": "medium",
+          "actual": "medium"
+        },
+        {
+          "name": "quality_flags",
+          "passed": true,
+          "expected": [],
+          "actual": []
+        },
+        {
+          "name": "entity:cve:CVE-2026-34756",
+          "passed": true,
+          "expected": {
+            "type": "cve",
+            "value": "CVE-2026-34756",
+            "ecosystem": null
+          },
+          "actual": null
+        },
+        {
+          "name": "entity:package:vllm",
+          "passed": true,
+          "expected": {
+            "type": "package",
+            "value": "vllm",
+            "ecosystem": "pip"
+          },
+          "actual": null
+        },
+        {
+          "name": "package:pip:vllm",
+          "passed": true,
+          "expected": {
+            "ecosystem": "pip",
+            "name": "vllm",
+            "vulnerable_raw": ">= 0.1.0, < 0.19.0"
+          },
+          "actual": null
+        },
+        {
+          "name": "has_cvss",
+          "passed": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "has_cpe",
+          "passed": true,
+          "expected": false,
+          "actual": false
+        },
+        {
+          "name": "has_version_scope",
+          "passed": true,
+          "expected": true,
+          "actual": true
+        }
+      ],
+      "passed": true,
+      "evidence_pass": true
+    }
+  ],
+  "metric_scope": "regression characterization assertions derived from inspected outputs; not independently human-labeled gold data and not population-wide enrichment accuracy or recall",
+  "status": "passed"
+}

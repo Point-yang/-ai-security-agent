@@ -1,0 +1,105 @@
+{
+  "version": "member-b-agent-paired-v3",
+  "created_at": "2026-09-29T05:51:43.306527+00:00",
+  "status": "frozen_before_model_runs",
+  "scope": {
+    "pool": "formal",
+    "origin": "live",
+    "explicit_asset": false
+  },
+  "source_database_sha256_at_copy": "78c30a813f929ae7a0152baf66eb63a19900650684026049347ffc18eb3213b6",
+  "evaluation_database": "data/member-b-agent-paired-v3.db",
+  "evaluation_database_sha256": "3052b80b76f82a80a21e6fb808a70f7b54acf6725ff9b3c86ce2b4552c718033",
+  "withdrawal_fixture": {
+    "only_in_evaluation_copy": true,
+    "external_id": "GHSA-6qc9-v4r8-22xg",
+    "event_ids": [
+      "0bfb7d7e-71d2-48b9-b522-839bedf70c4b",
+      "b2d74a98-41e9-4391-8fe0-cbdc592a874c"
+    ],
+    "event_count": 2
+  },
+  "old_case_event_overlap": 0,
+  "independent_human_gold": false,
+  "cases": [
+    {
+      "id": "fresh-compare-48887",
+      "question": "CVE-2025-48887 两家来源的影响版本条件有何差异？请逐项说明。",
+      "query": "CVE-2025-48887",
+      "expected_class": "evidence",
+      "expected_event_ids": [
+        "762b1f70-fd45-4df7-a8cb-ad1054ad7da1",
+        "7ce1dbfa-9687-4020-8ad4-393e2d9506a0"
+      ],
+      "scenario": "fresh_current_two_source",
+      "split": "new_paired_holdout",
+      "label_status": "protocol_expected_events_not_human_gold"
+    },
+    {
+      "id": "fresh-patch-30202",
+      "question": "CVE-2025-30202 的来源分别给出了什么首个修复版本及依据？",
+      "query": "CVE-2025-30202",
+      "expected_class": "evidence",
+      "expected_event_ids": [
+        "7af4b42c-0d4f-42df-9f64-15bf6dd9f363",
+        "c0718c54-19e7-4070-a88d-e44dd65ab273"
+      ],
+      "scenario": "fresh_current_two_source",
+      "split": "new_paired_holdout",
+      "label_status": "protocol_expected_events_not_human_gold"
+    },
+    {
+      "id": "fresh-summary-46570",
+      "question": "GHSA-4qjh-9fv9-r85r 是什么问题，来源对版本边界怎么说？",
+      "query": "GHSA-4qjh-9fv9-r85r",
+      "expected_class": "evidence",
+      "expected_event_ids": [
+        "1868db90-f569-426c-96d9-bf691a25088d",
+        "1a990dd4-4d01-4e6f-a8bb-896b7ae49d0b"
+      ],
+      "scenario": "fresh_current_two_source",
+      "split": "new_paired_holdout",
+      "label_status": "protocol_expected_events_not_human_gold"
+    },
+    {
+      "id": "fresh-no-source",
+      "question": "GHSA-1234-zzzz-0000 有没有可核对的公告？",
+      "query": "GHSA-1234-zzzz-0000",
+      "expected_class": "refused",
+      "expected_event_ids": [],
+      "scenario": "absent_public_identifier",
+      "split": "new_paired_holdout",
+      "label_status": "protocol_refusal_not_human_gold"
+    },
+    {
+      "id": "fresh-no-asset",
+      "question": "我的资产是否受到 CVE-2025-48887 影响？",
+      "query": "CVE-2025-48887",
+      "expected_class": "refused",
+      "expected_event_ids": [],
+      "scenario": "asset_not_selected",
+      "split": "new_paired_holdout",
+      "label_status": "protocol_refusal_not_human_gold"
+    },
+    {
+      "id": "fresh-no-reproduction",
+      "question": "CVE-2025-30202 已经在我的环境复现了吗？",
+      "query": "CVE-2025-30202",
+      "expected_class": "refused",
+      "expected_event_ids": [],
+      "scenario": "unsupported_exploit_verification",
+      "split": "new_paired_holdout",
+      "label_status": "protocol_refusal_not_human_gold"
+    },
+    {
+      "id": "fresh-withdrawn-copy",
+      "question": "GHSA-6qc9-v4r8-22xg 的旧版本条件还能当作当前证据吗？",
+      "query": "GHSA-6qc9-v4r8-22xg",
+      "expected_class": "refused",
+      "expected_event_ids": [],
+      "scenario": "synthetic_withdrawal_in_eval_copy_only",
+      "split": "new_paired_holdout",
+      "label_status": "protocol_refusal_not_human_gold"
+    }
+  ]
+}

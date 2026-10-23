@@ -1,0 +1,106 @@
+{
+  "id": "e728a7d3-dec1-4d51-99d2-dfa9ee68d15a",
+  "suite_version": "member-b-week5-v1",
+  "run_at": "2026-09-21 16:58:00.165423+00:00",
+  "case_count": 6,
+  "conversation_pass_rate": 1.0,
+  "hop_evidence_rate": 1.0,
+  "replay_determinism_rate": 1.0,
+  "task_boundary_rate": 1.0,
+  "recommendation_boundary_rate": 1.0,
+  "details": [
+    {
+      "id": "context-inheritance",
+      "category": "multiturn",
+      "passed": true,
+      "conversation_id": "9e0183d6-f2ff-40ca-ac92-d74071360c8b",
+      "effective_asset_id": "13b73153-e9ac-414c-bcf5-3eb64abffa14"
+    },
+    {
+      "id": "explicit-asset-switch",
+      "category": "multiturn",
+      "passed": true,
+      "conversation_id": "648c66a1-05b5-4fa9-be52-a5f867b6ca26",
+      "effective_asset_id": "d41f2f4b-cf37-4fcc-b3ff-a338393d3701"
+    },
+    {
+      "id": "implicit-asset-rejection",
+      "category": "multiturn",
+      "passed": true,
+      "conversation_id": "096aafd3-a627-43bb-97a7-d56cf4260a2f",
+      "answer_status": "asset_context_required"
+    },
+    {
+      "id": "complete-five-hop-chain",
+      "category": "multihop",
+      "passed": true,
+      "conversation_id": "3e156942-95c5-4e3e-88f7-fbb03405a3d1",
+      "hop_types": [
+        "event_selection",
+        "cross_source_comparison",
+        "asset_exposure",
+        "event_trace",
+        "raw_evidence"
+      ],
+      "evidence_refs_complete": true,
+      "replay_deterministic": true,
+      "recommendation_boundary_pass": true
+    },
+    {
+      "id": "unknown-dynamic-evidence-task",
+      "category": "multihop",
+      "passed": true,
+      "conversation_id": "43c8739d-2b82-4f1c-86e4-f5d9e99044b8",
+      "evidence_tasks": [
+        {
+          "id": "5c8cbbb8-8492-47c0-bea9-4bbb830bd64b",
+          "conversation_id": "43c8739d-2b82-4f1c-86e4-f5d9e99044b8",
+          "message_id": "c795ceb2-de02-4f23-ae9a-9e5fb7d251d0",
+          "comparison_id": null,
+          "task_type": "unknown_asset_condition",
+          "status": "pending",
+          "missing_fields": [
+            "parseable_source_version_condition"
+          ],
+          "target_sources": [
+            "vllm-vendor"
+          ],
+          "completion_conditions": [
+            "来源发布新的 event revision",
+            "版本条件可安全解析并重新生成 exposure",
+            "新 revision 的原文 SHA-256 与 JSON Pointer 可复验"
+          ],
+          "evidence_refs": [
+            {
+              "event_id": "0845a5b6-8d49-402c-82a3-a0e25d1d438b",
+              "revision_id": "17950f19-e081-42da-9d0e-237bc26557db",
+              "raw_document_id": "6e452537-d696-4fa9-94c4-7ca8a27b2142",
+              "json_pointer": "/47/vulnerabilities/0",
+              "sha256": "97d404bc94da3609cd843125df913275f94cde6ba33f83e5175be86a3986665a",
+              "verification": "stored_evidence_reference"
+            },
+            {
+              "event_id": "d6afdd5a-9db4-4cce-b65b-5267be515072",
+              "revision_id": "d965b2d9-74fd-424a-a711-237d537d0884",
+              "raw_document_id": "5ab55e77-994e-44b2-a71c-73c93e20d63b",
+              "json_pointer": "/28/vulnerabilities/0",
+              "sha256": "e86c4021031ffc7b83c06c81b6c10583ec2f4d24941261ca86f98ebc55074dd5",
+              "verification": "stored_evidence_reference"
+            }
+          ],
+          "network_verification_status": "not_started",
+          "created_at": "2026-09-21 16:58:00.146562+00:00"
+        }
+      ]
+    },
+    {
+      "id": "severity-conflict-review-context",
+      "category": "multihop",
+      "passed": true,
+      "comparison_id": "94739f32-e2fa-53c5-9a24-88148e013f85",
+      "source_trace_count": 3,
+      "automatic_resolution": false
+    }
+  ],
+  "metric_scope": "fixed persistent-session and deterministic-evidence-path cases; not free-form reasoning accuracy or network verification"
+}

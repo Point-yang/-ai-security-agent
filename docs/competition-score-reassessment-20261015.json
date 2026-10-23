@@ -1,0 +1,348 @@
+{
+  "schema_version": "competition-current-reassessment-v1",
+  "date": "2026-10-15",
+  "checked_at_shanghai": "2026-10-15T14:14:13.243534+08:00",
+  "official_score": false,
+  "reviewer": "AI project internal reassessment",
+  "supersedes_for_current_estimate": "docs/competition-score-after-evaluation-20261009.json",
+  "initial_estimate": {
+    "score": 81,
+    "maximum": 100
+  },
+  "final_readiness_estimate": {
+    "score": 74,
+    "maximum": 100,
+    "actual_defense_observed": false
+  },
+  "criteria": [
+    {
+      "key": "monitoring_completeness",
+      "label": "情报监测完整性",
+      "initial_max": 15,
+      "initial_score": 12,
+      "final_max": 10,
+      "final_score": 8,
+      "evidence_state": "current+historical",
+      "rationale": "主库九个来源适配器、八种项目来源类别，含28条live扩展目录记录；按来源采集支持计入≥5类良好档，元数据目录不等于全文或关联。当前超期与失败不支持实时优秀档。"
+    },
+    {
+      "key": "enrichment_completeness",
+      "label": "情报富化完整性",
+      "initial_max": 15,
+      "initial_score": 12,
+      "final_max": 10,
+      "final_score": 8,
+      "evidence_state": "implemented+limited_evaluation",
+      "rationale": "实体、原始版本范围、CVSS、CPE、资产条件、跨源比较已实现；论文/POC/政策的语义关联仍未完成充分验收。"
+    },
+    {
+      "key": "qa_completeness",
+      "label": "情报问答完整性",
+      "initial_max": 15,
+      "initial_score": 14,
+      "final_max": 10,
+      "final_score": 8,
+      "evidence_state": "implemented+mixed_outcomes",
+      "rationale": "语义检索、多轮、跨文档工具、原文引用与显式资产上下文已接入；复杂回答完整性及个性化推荐效果仍不稳定，功能实现与性能分开。"
+    },
+    {
+      "key": "monitoring_timeliness",
+      "label": "监测时效／稳定性",
+      "initial_max": 5,
+      "initial_score": 3,
+      "final_max": 5,
+      "final_score": 2,
+      "evidence_state": "provisional_historical_sample",
+      "rationale": "10月9日25条已发现漏洞样本全部≤12小时，但非全源SLA；本次运维degraded、近期采集失败多，保留初赛基础暂评分及较低决赛稳定性分，不声称当前全源达标。"
+    },
+    {
+      "key": "enrichment_accuracy",
+      "label": "富化准确率／召回率",
+      "initial_max": 5,
+      "initial_score": 4,
+      "final_max": 5,
+      "final_score": 4,
+      "evidence_state": "bounded_AI_reference_regression",
+      "rationale": "冻结test24条99事实全部匹配，127条事实精确率99.87%/召回100%；仅结构化来源事实回归，未覆盖完整语义相关性、版本判断和真实资产命中。AI金标已获采用，不因非人工自动扣分。"
+    },
+    {
+      "key": "qa_quality",
+      "label": "问答深度／质量",
+      "initial_max": 5,
+      "initial_score": 4,
+      "final_max": 10,
+      "final_score": 6,
+      "evidence_state": "provisional_not_threshold_certified",
+      "rationale": "有深度处理、来源解释及历史小样本正确答案，但六题复杂对照的整题通过不足，最新首个规划请求超时。初赛按已展示深度处理估分；决赛6为部分能力暂估，不宣称现版已同时达到≥75%且≤5s。"
+    },
+    {
+      "key": "agent",
+      "label": "Agent 架构／运用",
+      "initial_max": 15,
+      "initial_score": 12,
+      "final_max": 15,
+      "final_score": 11,
+      "evidence_state": "implemented+real_role_traces",
+      "rationale": "LangChain实际工具循环、LangGraph多角色分工、任务拆解、自主选择工具、补查/重写、持久化与预算审计。初赛对应多角色自主编排12档；决赛综合协作能力与未充分验证的稳定效果暂估11，属9/12参考档之间的内部部分给分，不把未证明RAG增益等同无框架能力。"
+    },
+    {
+      "key": "automation",
+      "label": "自动化／工程化",
+      "initial_max": 10,
+      "initial_score": 8,
+      "final_max": 10,
+      "final_score": 8,
+      "evidence_state": "implemented+regression",
+      "rationale": "采集/富化/问答自动化、容器、日志、监控、备份恢复和CI配置具备；存在持续来源失败，未证明完整自愈与生产DevOps闭环。"
+    },
+    {
+      "key": "documentation",
+      "label": "技术文档",
+      "initial_max": 15,
+      "initial_score": 12,
+      "final_max": 10,
+      "final_score": 8,
+      "evidence_state": "artifacts_present_but_stale",
+      "rationale": "仓库接口/设计/实验/失败记录详细；正式Word/PPT最近完整交付仍为10月7日版本，需要纳入后续Agent、评测与界面改动，不把新Markdown审计当正式材料已同步。"
+    },
+    {
+      "key": "live_demo",
+      "label": "答辩演示准备度",
+      "initial_max": 0,
+      "initial_score": 0,
+      "final_max": 10,
+      "final_score": 7,
+      "evidence_state": "preparation_only",
+      "rationale": "有PPT、演示脚本、历史82秒分段视频和新版界面部署检查；未观察到本轮真人计时答辩或新完整视频。此分只评准备度，实际答辩成绩未知。"
+    },
+    {
+      "key": "innovation",
+      "label": "创新与实用性",
+      "initial_max": 0,
+      "initial_score": 0,
+      "final_max": 5,
+      "final_score": 4,
+      "evidence_state": "reviewer_judgment",
+      "rationale": "来源修订、逐字证据、正文ID、资产隐私与可恢复审计形成领域特色；实际部署收益和Agent相对基线的效果尚未充分证明。"
+    }
+  ],
+  "method": {
+    "rubric": "original competition reference scoring tables, pages 2-4",
+    "partial_credit": "Reviewer judgment, not an organizer formula or probability estimate. Between-tier values are explicitly provisional.",
+    "functional_vs_performance": "Award evidenced implementation independently from unproven accuracy/efficiency; absence of RAG gain does not erase framework/multi-role capability.",
+    "no_extra_official_requirements": [
+      "No fixed 127-case requirement",
+      "No mandatory dual-human review inferred",
+      "No requirement that every role use a different model or own tool loop",
+      "No mandatory framework brand or self-developed framework inferred"
+    ],
+    "source_category_policy": "Count real live metadata sources as acquisition support, while not awarding them as full-text enrichment/semantic associations or real-time SLA.",
+    "uncertainty": "Not a statistical confidence interval. Quality/timeliness partial credit remains provisional until relevant current-version performance is measured."
+  },
+  "current_observation": {
+    "events_total": 1289,
+    "active_events": 1286,
+    "source_adapters_with_data": 9,
+    "project_source_categories_with_live_support": 8,
+    "live_catalog_records": 28,
+    "replay_catalog_records": 14,
+    "chunks": 7040,
+    "vectors": 7040,
+    "assets_in_main_database": 0,
+    "recorded_7day_collection_completed": 423,
+    "recorded_7day_collection_total": 1534,
+    "recorded_7day_completed_rate": 0.2757496740547588,
+    "collection_rate_is_uptime": false,
+    "service": {
+      "checked_at_utc": "2026-10-15T06:10:59.708342+00:00",
+      "read_only_gets": true,
+      "model_api_calls": 0,
+      "checks": [
+        {
+          "path": "/health/ready",
+          "http_status": 200,
+          "keys": [
+            "status",
+            "checks"
+          ],
+          "observed": {
+            "status": "ready",
+            "checks": {
+              "database": true,
+              "monitor_config": true,
+              "raw_storage": true
+            }
+          }
+        },
+        {
+          "path": "/api/v1/monitoring/worker",
+          "http_status": 200,
+          "keys": [
+            "status",
+            "checked_at",
+            "pulse_age_seconds",
+            "check_method",
+            "target_progress_heartbeat_used",
+            "process_uptime_measured"
+          ],
+          "observed": {
+            "status": "healthy"
+          }
+        },
+        {
+          "path": "/api/v1/operations/status",
+          "http_status": 200,
+          "keys": [
+            "schema_version",
+            "run_at",
+            "status",
+            "collection",
+            "enrichment",
+            "integrity",
+            "checks",
+            "limitations"
+          ],
+          "observed": {
+            "status": "degraded",
+            "checks": [
+              {
+                "id": "raw_integrity",
+                "passed": null,
+                "required": false
+              },
+              {
+                "id": "enrichment_coverage",
+                "passed": true,
+                "required": true
+              },
+              {
+                "id": "index_event_count",
+                "passed": true,
+                "required": true
+              },
+              {
+                "id": "index_chunk_count",
+                "passed": true,
+                "required": true
+              },
+              {
+                "id": "enrichment_state_count",
+                "passed": true,
+                "required": true
+              },
+              {
+                "id": "monitor_configs_current",
+                "passed": true,
+                "required": true
+              },
+              {
+                "id": "monitor_freshness",
+                "passed": false,
+                "required": true
+              },
+              {
+                "id": "no_failed_targets",
+                "passed": false,
+                "required": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "active_event_origins": [
+      {
+        "source_id": "cisa-kev",
+        "category": "government_alert",
+        "origin": "live",
+        "records": 7
+      },
+      {
+        "source_id": "crossref",
+        "category": "academic_metadata",
+        "origin": "live",
+        "records": 1043
+      },
+      {
+        "source_id": "github-advisories",
+        "category": "vulnerability_database",
+        "origin": "live",
+        "records": 75
+      },
+      {
+        "source_id": "nvd",
+        "category": "vulnerability_database",
+        "origin": "live",
+        "records": 57
+      },
+      {
+        "source_id": "vllm-vendor",
+        "category": "vendor_advisory",
+        "origin": "live",
+        "records": 104
+      }
+    ]
+  },
+  "engineering_validation": {
+    "python_tests_passed": 1018,
+    "frontend_tests_passed": 50,
+    "model_calls_this_reassessment": 0,
+    "paid_inference_this_reassessment": false
+  },
+  "changes_from_previous": {
+    "initial": {
+      "previous": 72,
+      "now": 81,
+      "monitoring_completeness_delta": 3,
+      "agent_delta": 6
+    },
+    "final": {
+      "previous_range": [
+        69,
+        71
+      ],
+      "now": 74,
+      "agent_delta": 5,
+      "qa_quality": "Previous 6-8 range now uses 6 due to latest performance/availability limitations."
+    }
+  },
+  "rubric_source": {
+    "path": "~/Downloads/关于第三届 “中国电子杯” 高校 ICT 产教融合创新大赛报名的通知/附件2：第三届“中国电子杯”高校ICT产教融合创新大赛命题/9 赛题九：网信产业应用赛道-智能体驱动的AI安全知识情报系统设计与实现（奇安信科技集团股份有限公司）.pdf",
+    "sha256": "37f28bc38db91ec0407551b1254c8bc882432a8488ce896c681e1210814c6cf3"
+  },
+  "evidence_sha256": {
+    "docs/competition-score-after-evaluation-20261009.json": "8a38009fad8576ea94b4cd101419efddfa53b8ab5d8192066c1a626c752a7795",
+    "docs/member-a-catalog-live-acceptance-20260930.md": "dc090927e1b7b4edee2543462c70b46f4231494dc04d3440d241c119b4118d79",
+    "docs/member-a-monitoring-enrichment-evaluation-20261009.md": "ce518c7b4491a2082c4f8c05f35560e0abdf3b27bdef6037af1842ccbe608459",
+    "output/member-a-monitoring-enrichment-evaluation-20261009/frozen-enrichment.json": "0969790f15a0fc24b06fc66598d62430a0e11f9f4da9d3e4e663fb05e8d13b0e",
+    "docs/member-b-collector-recovery-acceptance-20261007.md": "4dfd89ca279d160fa3331d96478dbf4557c31c6ef737c8896ffa46c739c5be45",
+    "docs/member-a-week8-acceptance.md": "bc39ba0580105b61e2601033700c83a8284cc136558c9f606842e81b378339b2",
+    "output/agent-stage6-release-20261013/report.json": "0b66d8f73b21d6b5a7e229910e62efb5d5394962e5604eadb5a8f3d9c26d54f7",
+    "output/agent-navigation-development-v2-20261015/development-quote-review.json": "db73c2af401af062a2ba677ae5357542d565a10efabac424ec0a038e3ab32ff3",
+    "output/agent-allocation-development-20261015/engineering-audit.json": "001ded57daacf26175e1f54d58be3263fefa094e30c4229effdd57f14d5615f1",
+    "output/agent-allocation-development-20261015/execution-audit.json": "c3fbea9b71846f92703a408c8c26cd20afd8b8abe1c5416a71a0c12542b8adf6",
+    "output/agent-allocation-development-20261015/deployment-audit.json": "e1d17ce18ad113abbfa1651f501bba9988827841618f2ad0ed3c7b7d41f9efbc",
+    "src/zhidu/agent_team.py": "0e70744e4d9bf30824a262b88bc163f9624e74ca3d5a2c7bfd7887b632db73e1",
+    "src/zhidu/agent_research.py": "f35a439fcfa70e95b0ef404d894e315e89e4d713de2086ea56325cd03b4faea8",
+    "src/zhidu/research_plan.py": "93f804dd8994fa0f6affa19d9913055f2571c72987c7b7cff19d7a3f79462073",
+    "src/zhidu/research_allocation.py": "31aa7c740c3370772ca07956d5b6ffe3d7e4e03c7a2aac750f1cf3f1525d459b",
+    "src/zhidu/langchain_tools.py": "4490b620a639dc2abb7e645967dc2c01b0d0b8c61200fac7906fdcb0e895f172",
+    "src/zhidu/model_provider.py": "d014adde1a0645af10ba5e59301f5eb87cfb3ef5e08b42d0825b97fc10baebac",
+    ".github/workflows/verify.yml": "c36c4d9f8167872eeefeaba8d79e173ba2b52c5fdbd4657ce1a57053d16ccf85",
+    "config/sources.json": "4aa2a77fdaba189a3dec8b2dea8593fe006654c69eaa8ab706ea8832540db4f1",
+    "output/member-b-collector-recovery-20261007/知盾技术报告采集恢复更新版.docx": "99ee2df83b1ba0b660c85c90884e76d5e9dff59f1928e2132f5c402c1d6a1648",
+    "output/member-b-collector-recovery-20261007/知盾答辩采集恢复验收版.pptx": "9984162a392913abf3170f73c950c55b1e3c4a450dce8f2edc5aae70d6c46c42",
+    "output/member-b-delivery/知盾真实界面分段演示.mp4": "54e1c1145e33eadc3c4501a87d2a125c6a7a8bcc14af86c28ecd8d9e26b31835",
+    "output/score-review-20261015/local-observation.json": "1d6fb2f5be09fdc0b5e7d727db95c2d7af6d3278dfe8cc8ac174bb5aa5f82ea7",
+    "output/score-review-20261015/service-observation.json": "cbf09bad3be65adc2962ef1ec3a61de45a229748c92293c669b71ffcad2c14fd",
+    "output/score-review-20261015/event-origins.json": "edb77a96a66e2dc8150bfab3871ddc24e9ce965d40f4a85c7d1816a3690d764b"
+  },
+  "old_experiments_modified": false,
+  "accuracy_reports_relabelled": false,
+  "priorities": [
+    "Complete stable end-to-end complex answers and independent source-grounded validation",
+    "Restore sustained collection and verify publication-to-discovery delay",
+    "Update formal technical report/PPT/video to current implementation and rehearse",
+    "Then pursue highest-tier Agent innovation/effect evidence without changing old results"
+  ]
+}

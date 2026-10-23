@@ -1,0 +1,45 @@
+{
+  "version": "member-b-internal-score-corrected-v1",
+  "date": "2026-09-30",
+  "supersedes": "docs/member-b-final-score-human-20260929.json",
+  "reason": "The prior report added a 13/15 internal QA composite to competition categories capped at 5 and 10 points.",
+  "qa_internal_composite": {"score": 13, "maximum": 15},
+  "qa_competition_estimate": {
+    "initial": {"score": 4, "maximum": 5},
+    "final_readiness": {"score": 9, "maximum": 10}
+  },
+  "initial": {
+    "score": 65,
+    "maximum": 100,
+    "breakdown": {
+      "monitoring_completeness": 9,
+      "enrichment_completeness": 12,
+      "qa_completeness": 14,
+      "monitoring_timeliness": 0,
+      "enrichment_accuracy": 0,
+      "qa_quality": 4,
+      "agent": 6,
+      "automation": 8,
+      "documentation": 12
+    }
+  },
+  "final_readiness": {
+    "score": 66,
+    "maximum": 100,
+    "breakdown": {
+      "monitoring_completeness": 8,
+      "enrichment_completeness": 8,
+      "qa_completeness": 8,
+      "monitoring_timeliness_and_stability": 0,
+      "enrichment_accuracy_and_recall": 0,
+      "qa_quality": 9,
+      "agent": 6,
+      "automation": 8,
+      "documentation": 8,
+      "live_demo": 7,
+      "innovation": 4
+    }
+  },
+  "official_score": false,
+  "independent_two_reviewer_claim": false
+}

@@ -1,0 +1,425 @@
+{
+  "checked_at": "2026-09-24T07:56:14.297554+00:00",
+  "schema_version": "week7-release-evidence-v1",
+  "engineering_checks": {
+    "raw_integrity": true,
+    "field_evidence": true,
+    "operational_health": true,
+    "semantic_completeness": true
+  },
+  "engineering_status": "passed",
+  "release_ready": false,
+  "release_gaps": [
+    "independent_human_gold_pending",
+    "B_answer_quality_reacceptance_pending",
+    "continuous_monitoring_SLA_unproven",
+    "blog_standard_policy_POC_sources_pending"
+  ],
+  "counts": {
+    "events": 669,
+    "event_revisions": 798,
+    "comparison_review_changes": 0,
+    "active_comparisons": 175,
+    "inactive_comparisons": 0
+  },
+  "evidence": {
+    "schema_version": "evidence-audit-v1",
+    "status": "passed",
+    "events": 669,
+    "revisions": 798,
+    "raw_documents": 57,
+    "field_evidence_total": 4789,
+    "field_evidence_verified": 4789,
+    "field_evidence_failed": 0,
+    "dispositions": {
+      "current": 669,
+      "superseded": 129
+    },
+    "failure_samples": [],
+    "scope": "stored raw bytes, SHA-256, JSON Pointer and captured field value equality"
+  },
+  "operations": {
+    "schema_version": "operations-v1",
+    "run_at": "2026-09-24 07:56:09.820089+00:00",
+    "status": "passed",
+    "collection": {
+      "configured_targets": 6,
+      "configured_sources": 5,
+      "configured_categories": 4,
+      "targets": [
+        {
+          "id": "ghsa-vllm",
+          "source_id": "github-advisories",
+          "category": "vulnerability_database",
+          "enabled": true,
+          "interval_seconds": 1800,
+          "status": "completed",
+          "config_current": true,
+          "consecutive_failures": 0,
+          "has_pending_pages": false,
+          "last_success_at": "2026-09-24 07:53:28.572171+00:00",
+          "heartbeat_at": "2026-09-24 07:53:28.572171+00:00",
+          "seconds_since_success": 161.058,
+          "fresh_within_two_intervals": true,
+          "last_run_status": "completed"
+        },
+        {
+          "id": "ghsa-langchain",
+          "source_id": "github-advisories",
+          "category": "vulnerability_database",
+          "enabled": true,
+          "interval_seconds": 1800,
+          "status": "completed",
+          "config_current": true,
+          "consecutive_failures": 0,
+          "has_pending_pages": false,
+          "last_success_at": "2026-09-24 07:53:29.762120+00:00",
+          "heartbeat_at": "2026-09-24 07:53:29.762120+00:00",
+          "seconds_since_success": 159.868,
+          "fresh_within_two_intervals": true,
+          "last_run_status": "completed"
+        },
+        {
+          "id": "vllm-official",
+          "source_id": "vllm-vendor",
+          "category": "vendor_advisory",
+          "enabled": true,
+          "interval_seconds": 3600,
+          "status": "completed",
+          "config_current": true,
+          "consecutive_failures": 0,
+          "has_pending_pages": false,
+          "last_success_at": "2026-09-24 07:53:32.404380+00:00",
+          "heartbeat_at": "2026-09-24 07:53:32.404380+00:00",
+          "seconds_since_success": 157.226,
+          "fresh_within_two_intervals": true,
+          "last_run_status": "completed"
+        },
+        {
+          "id": "nvd-vllm",
+          "source_id": "nvd",
+          "category": "vulnerability_database",
+          "enabled": true,
+          "interval_seconds": 7200,
+          "status": "completed",
+          "config_current": true,
+          "consecutive_failures": 0,
+          "has_pending_pages": false,
+          "last_success_at": "2026-09-24 07:53:33.786741+00:00",
+          "heartbeat_at": "2026-09-24 07:53:33.786741+00:00",
+          "seconds_since_success": 155.843,
+          "fresh_within_two_intervals": true,
+          "last_run_status": "completed"
+        },
+        {
+          "id": "cisa-ai",
+          "source_id": "cisa-kev",
+          "category": "government_alert",
+          "enabled": true,
+          "interval_seconds": 3600,
+          "status": "completed",
+          "config_current": true,
+          "consecutive_failures": 0,
+          "has_pending_pages": false,
+          "last_success_at": "2026-09-24 07:53:35.687009+00:00",
+          "heartbeat_at": "2026-09-24 07:53:35.687009+00:00",
+          "seconds_since_success": 153.943,
+          "fresh_within_two_intervals": true,
+          "last_run_status": "completed"
+        },
+        {
+          "id": "papers-prompt-injection",
+          "source_id": "crossref",
+          "category": "academic_metadata",
+          "enabled": true,
+          "interval_seconds": 21600,
+          "status": "completed",
+          "config_current": true,
+          "consecutive_failures": 0,
+          "has_pending_pages": false,
+          "last_success_at": "2026-09-24 07:54:22.017437+00:00",
+          "heartbeat_at": "2026-09-24 07:54:22.017437+00:00",
+          "seconds_since_success": 107.613,
+          "fresh_within_two_intervals": true,
+          "last_run_status": "completed"
+        }
+      ],
+      "targets_current": 6,
+      "targets_fresh": 6,
+      "targets_failed": 0,
+      "targets_with_pending_pages": 0,
+      "run_status_counts": {
+        "completed": 25,
+        "failed": 4,
+        "partial": 2
+      },
+      "run_duration": {
+        "samples": 31,
+        "min": 0.89582,
+        "p50": 1.898875,
+        "p95": 43.982241,
+        "max": 46.328057,
+        "unit": "seconds"
+      },
+      "observed_publication_to_first_seen": {
+        "samples": 187,
+        "min": 9.388165,
+        "p50": 2402.756508,
+        "p95": 13099.045665,
+        "max": 14398.26373,
+        "unit": "hours"
+      },
+      "delay_exclusions": {
+        "non_vulnerability_publication_semantics": 482
+      },
+      "observation_delay_is_sla_evidence": false,
+      "observation_delay_note": "Includes historical backfill and proves only database observation delay; continuous daemon uptime is required before claiming a monitoring SLA."
+    },
+    "enrichment": {
+      "events": 669,
+      "enriched_events": 669,
+      "coverage": 1.0,
+      "with_entities": 669,
+      "with_cvss": 181,
+      "with_version_scope": 153,
+      "with_cpe_scope": 7,
+      "quality_flag_counts": {
+        "catalog_scope_only": 7,
+        "metadata_only": 475,
+        "missing_affected_scope": 27,
+        "missing_cpe_scope": 27,
+        "missing_cvss": 6,
+        "unknown_package_identity": 3,
+        "unparsed_version_range": 9
+      },
+      "asset_exposure_counts": {},
+      "comparison_counts": {
+        "agreement": 96,
+        "conflict": 4,
+        "variation": 75
+      },
+      "coverage_is_accuracy": false,
+      "accuracy_note": "Coverage metrics do not establish correctness; use a labeled suite."
+    },
+    "integrity": {
+      "raw_documents": 83,
+      "verified": 83,
+      "failed": 0,
+      "failure_samples": []
+    },
+    "checks": [
+      {
+        "id": "raw_integrity",
+        "passed": true,
+        "required": true
+      },
+      {
+        "id": "enrichment_coverage",
+        "passed": true,
+        "required": true
+      },
+      {
+        "id": "index_event_count",
+        "passed": true,
+        "required": true
+      },
+      {
+        "id": "index_chunk_count",
+        "passed": true,
+        "required": true
+      },
+      {
+        "id": "enrichment_state_count",
+        "passed": true,
+        "required": true
+      },
+      {
+        "id": "monitor_configs_current",
+        "passed": true,
+        "required": true
+      },
+      {
+        "id": "monitor_freshness",
+        "passed": true,
+        "required": true
+      },
+      {
+        "id": "no_failed_targets",
+        "passed": true,
+        "required": true
+      }
+    ],
+    "limitations": [
+      "Historical publication-to-first-seen delay is not a continuous-monitoring SLA.",
+      "Enrichment coverage is not enrichment accuracy or recall.",
+      "A passed integrity check validates stored bytes and references, not upstream truth."
+    ]
+  },
+  "semantic": {
+    "status": "ready",
+    "valid": 3120,
+    "chunks": 3120,
+    "model_digest": "546177efd53c466b176e9a51e76e73e11d4bdbab28a33f09c3d3dea4a4479f83"
+  },
+  "monitoring_window": {
+    "schema_version": "monitoring-window-v1",
+    "window_start": "2026-09-23T07:56:13.858399+00:00",
+    "window_end": "2026-09-24T07:56:13.858399+00:00",
+    "hours": 24,
+    "targets": [
+      {
+        "target_id": "ghsa-vllm",
+        "config_hash": "45b751c3da2766dd0fd2cee92b31a5fca48e42ff5ed1d1ea4e70c1977302c610",
+        "success_runs": 1,
+        "failed_runs": 0,
+        "freshness_horizon_seconds": 3600,
+        "freshness_covered_seconds": 165.286,
+        "freshness_coverage": 0.001913,
+        "intervals": [
+          {
+            "from": "2026-09-24T07:53:28.572171+00:00",
+            "to": "2026-09-24T07:56:13.858399+00:00"
+          }
+        ]
+      },
+      {
+        "target_id": "ghsa-langchain",
+        "config_hash": "45a8d36c12cd7869ce293dce92223f1f22517f67ed04051f9021c0be4f71cb5c",
+        "success_runs": 1,
+        "failed_runs": 0,
+        "freshness_horizon_seconds": 3600,
+        "freshness_covered_seconds": 164.096,
+        "freshness_coverage": 0.001899,
+        "intervals": [
+          {
+            "from": "2026-09-24T07:53:29.762120+00:00",
+            "to": "2026-09-24T07:56:13.858399+00:00"
+          }
+        ]
+      },
+      {
+        "target_id": "vllm-official",
+        "config_hash": "c1d8fab26e3f35ab6e0a924b0d38132b3a1f20f16c43409860704caca3354972",
+        "success_runs": 1,
+        "failed_runs": 0,
+        "freshness_horizon_seconds": 7200,
+        "freshness_covered_seconds": 161.454,
+        "freshness_coverage": 0.001869,
+        "intervals": [
+          {
+            "from": "2026-09-24T07:53:32.404380+00:00",
+            "to": "2026-09-24T07:56:13.858399+00:00"
+          }
+        ]
+      },
+      {
+        "target_id": "nvd-vllm",
+        "config_hash": "5a9b9cd43ddb11e445f5c10a3715245a9b3da0afec4267325aa0512095a0d7f1",
+        "success_runs": 1,
+        "failed_runs": 0,
+        "freshness_horizon_seconds": 14400,
+        "freshness_covered_seconds": 160.072,
+        "freshness_coverage": 0.001853,
+        "intervals": [
+          {
+            "from": "2026-09-24T07:53:33.786741+00:00",
+            "to": "2026-09-24T07:56:13.858399+00:00"
+          }
+        ]
+      },
+      {
+        "target_id": "cisa-ai",
+        "config_hash": "cca8edadb5e760ad4d4098ff39fc1d3aff58c0659943f35c0db698680a1525e6",
+        "success_runs": 1,
+        "failed_runs": 0,
+        "freshness_horizon_seconds": 7200,
+        "freshness_covered_seconds": 158.171,
+        "freshness_coverage": 0.001831,
+        "intervals": [
+          {
+            "from": "2026-09-24T07:53:35.687009+00:00",
+            "to": "2026-09-24T07:56:13.858399+00:00"
+          }
+        ]
+      },
+      {
+        "target_id": "papers-prompt-injection",
+        "config_hash": "22b9d6d7054ac3e941176b3e45cac782e164dd9424f5cb01aea7caa04a0b909a",
+        "success_runs": 1,
+        "failed_runs": 0,
+        "freshness_horizon_seconds": 43200,
+        "freshness_covered_seconds": 111.841,
+        "freshness_coverage": 0.001294,
+        "intervals": [
+          {
+            "from": "2026-09-24T07:54:22.017437+00:00",
+            "to": "2026-09-24T07:56:13.858399+00:00"
+          }
+        ]
+      }
+    ],
+    "status": "insufficient_coverage",
+    "process_uptime_measured": false,
+    "publication_latency_sla_proven": false,
+    "note": "Coverage uses successful polls and two configured intervals. It is not worker uptime, source availability or a <=6h publication SLA."
+  },
+  "code_sha256": "b1a1f0f7e83087a5386e30eece837a895367b1d1c82a19ce008ba587032a3cb1",
+  "files": {
+    "migrations/env.py": "cb1b22aae9642cb3c98184573b1a5ba7ee273763f6b76a3d8cab76e68042c0f0",
+    "migrations/versions/401eb620e41a_week1_intelligence_data_foundation.py": "393bfc9f880a96bd4e7de3aa1f59f8002ac8a9010394021e3cddea220cfa6d01",
+    "migrations/versions/5e755300bd0b_persist_bounded_source_pagination_.py": "77a05237f483705dbd1ef57a8d215ccf7a6c774fb4d7e5e322dc5086a92a32b6",
+    "migrations/versions/7be63e40fdce_week2_monitor_and_explainable_triage.py": "38c082070d9fa829f40f5dd85b930ba68c7bd02fcacea6923edad8116eb550d9",
+    "migrations/versions/a41c27d0e944_member_a_week4_assets_and_comparisons.py": "44999cbdaa762a93455518ec6d323da25d402b609e3a27bf9ab0960c33c63bc8",
+    "migrations/versions/a730cf924be1_member_a_week7_audit_retention.py": "a4fc1ce368ee9ba596b11cb38986102a242e4309afa145b2e0e2a5fb0ec41062",
+    "migrations/versions/b7c94e6a0d31_member_b_week4_asset_context_and_.py": "9a18532ba42d64874f208f90af8debf7cc2490a0bc34debcb818962755c84bb5",
+    "migrations/versions/c6b724a88e51_member_b_week2_persistent_index_and_.py": "09952bd5e9aeb09ec209337978c5cf75c519237a3d240a89faaaf20f9bd8a01f",
+    "migrations/versions/d4f86b29a5c0_member_b_week5_conversations_and_hops.py": "b84e298894f2fd1bf31e5b9e9e8b9828a4383df7d4292c8f4932b178a96c0956",
+    "migrations/versions/e82a91c640d7_member_a_week6_operations.py": "abf8ed3cecc7fc6fbba9d9797d024ec93f65e26d78aeec3e3b147ce1a5393726",
+    "migrations/versions/ea1a2de37f80_member_a_week3_structured_enrichment.py": "5fc4368d8cfa1dda5e93552b6bbf7491c3fe25d9ee4dffe0f13afc5dfd76059b",
+    "migrations/versions/f3a91c024b17_member_b_week3_safety_evaluation_.py": "ce85fea0a16b0fac2ec5a62da188a53f0c51f71a3b582049bd9a05c9d66b1cec",
+    "migrations/versions/f6b104e37a92_member_b_week6_rag.py": "f63b100bce300563c635ab03a4b01ab76d458decc4f419d09baab9d36c2fcd65",
+    "src/zhidu/__init__.py": "6068214158cbd4063bbcf4b2be6afe10271500e15bf8def9c6786f6bab69a2cf",
+    "src/zhidu/__main__.py": "a846f26ec0daf3d8badd634a0d352d41a8a24fcc2d026253553fac27866d5c5f",
+    "src/zhidu/answers.py": "57d0bd43dc66db5a691d9aa5319a89042dab7492063390d384a1de6f52d70d13",
+    "src/zhidu/api.py": "1188cd928a210761b5b88fba37318f3dfca3b60cf5291568e8aea5533dc396d8",
+    "src/zhidu/asset_evaluation.py": "0e31cc472e221d1d8df7befeca5fed2023ef72bf6c9b8aa6a54e89597647514e",
+    "src/zhidu/asset_matching.py": "4afa2ab2593402e9f948088b43f259755edbce3475cd17ae9d7da0720aa417fb",
+    "src/zhidu/classification.py": "8d14f265a0cefc78f99446d1b48ec354b24277e5b997abe62205538321b69ddb",
+    "src/zhidu/cli.py": "dc08e52165f962ec0070f03e8e97c332ed5b4fddc68cf1655e36058cb799d929",
+    "src/zhidu/collector.py": "08e816bfa68d7557eae5812e84a63e78b290e663efd17f8771fab29baf47a000",
+    "src/zhidu/comparisons.py": "2f7205ff43223f81eae2f29abfb977ebf8d5e4a74d120a73d7e490eac3b14a16",
+    "src/zhidu/config.py": "b5d9e6ca8221ce904c22b6e5b6e283f94ebb4324c09620b50188c496e5d189d2",
+    "src/zhidu/conversation_evaluation.py": "1ec98612dd45ff4e6c53186a10705aa37aec91bea6d5e9729861c68959b4802c",
+    "src/zhidu/conversations.py": "c9574cd5079e9ae0f1b8062a8847964fef358b5c30d85527a0845f80e8b3ad8d",
+    "src/zhidu/db.py": "14285635c1e3e7d50ba13c8a4c1811a2e71f840582f602ac887c8099ca549165",
+    "src/zhidu/enrichment.py": "474be57fa1ca83e19ae27ed04a7e3fe6c1aa7a4bacbf61eaf3323c9a021a1567",
+    "src/zhidu/enrichment_evaluation.py": "aef38eaafe9e4727085c5edbe753537346a1cc9810edbe8e4043577339d39a1b",
+    "src/zhidu/evaluation.py": "83c62d287c63111dc09968eefcf3a8c4c0320907bd4e6078414c47db95298a00",
+    "src/zhidu/evidence.py": "29a05bdd7d01d0902aae36687755ba0ef1c7f034f0fbe3281e681fd38e9e0d0c",
+    "src/zhidu/gold_review.py": "d964b89b9dee1ed29e92c630284297f5648484ae6ab59a249301af4198430b04",
+    "src/zhidu/indexing.py": "df7c587d87f8d0fb57c7f54ff521e2200329dc87282e47d9fd2968555a634993",
+    "src/zhidu/ingest.py": "838fa65858d3dda85fff512ac3d8dabb74f8eaeb5d171552c28dcf5d75cb9994",
+    "src/zhidu/locking.py": "c9175ac8da019f9f3b3d1a5a6bb685a3aec3406962746d8d32b43da2abc591bf",
+    "src/zhidu/models.py": "4bf10fb5d4183fb61be3f6fe12d8c189b551879b0de3908231e3369ecc603cd0",
+    "src/zhidu/monitor.py": "fa395a52653193e2af42e7719ae6183f23eec24246d0152e7e474fc1997b2f85",
+    "src/zhidu/monitoring_experiment.py": "08a92e9f4444530b390a26128653141dcbd0b8e7df39daffb330f9708c3b207c",
+    "src/zhidu/observability.py": "6e56c7c30baa243999b9dc7e4a7081e74b1b3c2b4ec22b080f5410fc9f73131b",
+    "src/zhidu/operations.py": "9472e1d33849c489606eedc7f887a3e64312ae926caa85a9ac68593f5b03deb5",
+    "src/zhidu/query_policy.py": "e2ed75b9812414b2e4f7697a760831e6914cf326f50f1ed33cf68e4c8bc7cd16",
+    "src/zhidu/rag.py": "436ac010ae717738a6159621e9b2b5d8346931abe0b6346d8c63df4c6970c292",
+    "src/zhidu/rag_api.py": "a2bcd388e111efd6e26e1dbfd2a60f06d7b514bb9d36c7729621ab2071c95ab8",
+    "src/zhidu/rag_benchmark.py": "6b75ed13800d9a6a34b45a7861b256c4cc7da1b39e6558994f1c2db1382bda00",
+    "src/zhidu/rag_cli.py": "79990849e76f86987592390c20c2964777d7b07e8a17d69186caa94c52e7bd3d",
+    "src/zhidu/rag_dataset.py": "24a7425edefc72531730e0674823d9bc2f8f87f1d6956b012d639444ea71c09e",
+    "src/zhidu/rag_metrics.py": "3a359e9fe00fc10ce34e52ad170d1b645634ff757073acc001ea9a2fa8f3497b",
+    "src/zhidu/retrieval.py": "ef6d914bb856bf42d525554fdd659aaf07a9ee2f7716e0cb63139dd159d418bb",
+    "src/zhidu/schemas.py": "3f76270f96eda4ab7ac164860b74bc3ddeee66cece3de5b714ee85ad0e55f446",
+    "src/zhidu/semantic.py": "d269a28a9565a5937893b6e4980d5d6fb62e8ac3e4ad7dd222a2b41d502a7f58",
+    "src/zhidu/semantic_maintenance.py": "f51a720df50c0328498c3719a9c610abc284c4af3ffdd6418692deec10642c44",
+    "src/zhidu/sources.py": "55b051c570b4f09fb7edadcbc1b8de5e772e059cc1d5e8eb399972744baf2a3a",
+    "src/zhidu/storage.py": "c4975c07f35ced4aa1bfdd634b284210cc24e6f95c26a916feb9a4ba6c23e38b",
+    "src/zhidu/worker_health.py": "8b71d3ec66147135719b888b2c3f5ae8e0e546fa7e8401ea32dc333748a8b562",
+    "tests/test_member_a_week7.py": "e5a4286f91ef014cb7510d730363c5891ff76a0cdb18ba1ee7d35d799fa4d5e3"
+  },
+  "note": "Read-only engineering evidence; not permission to freeze or a competition score."
+}

@@ -1,0 +1,94 @@
+{
+  "version": "catalog-live-probe-v1",
+  "created_at": "2026-09-30T07:02:59.262768+00:00",
+  "read_only": true,
+  "database_mutated": false,
+  "sources": [
+    {
+      "target": "hf-blog-index",
+      "source": "hf-blog",
+      "status": "parsed",
+      "source_url": "https://huggingface.co/api/blog",
+      "response_sha256": "1f22734a1b1b27c30b5c5ba0310e86e427d876d597bbc7f79a0b9a2a88179f03",
+      "response_bytes": 37733,
+      "parsed_records": 14,
+      "has_next": false,
+      "not_modified": false,
+      "first_records": [
+        {
+          "external_id": "6ab4c191bfe19f5359c8d517",
+          "title": "NVIDIA Kumo Tabular Sets a New Accuracy-Efficiency Frontier for Tabular Prediction",
+          "locator": "/allBlogs/0"
+        },
+        {
+          "external_id": "6aa956e72ac9a2fd21adb408",
+          "title": "Getting the Source Right, Not Just the Fact: Source-Aware Verification for MCP Agents",
+          "locator": "/allBlogs/1"
+        },
+        {
+          "external_id": "6aba30ad41e973b84d6e7315",
+          "title": "Holo4: powering generalist computer-use agents",
+          "locator": "/allBlogs/2"
+        }
+      ]
+    },
+    {
+      "target": "nist-ai-rmf-100-1",
+      "source": "nist-ai-rmf",
+      "status": "parsed",
+      "source_url": "https://api.crossref.org/works/10.6028/NIST.AI.100-1",
+      "response_sha256": "29a2ec3f0202923b60244a1dc4690d1eb8db7699698ba386164c772993f15741",
+      "response_bytes": 3619,
+      "parsed_records": 1,
+      "has_next": false,
+      "not_modified": false,
+      "first_records": [
+        {
+          "external_id": "10.6028/nist.ai.100-1",
+          "title": "Artificial Intelligence Risk Management Framework (AI RMF 1.0)",
+          "locator": "/message"
+        }
+      ]
+    },
+    {
+      "target": "federal-register-ai-index",
+      "source": "federal-register-ai",
+      "status": "parsed",
+      "source_url": "https://www.federalregister.gov/api/v1/documents.json?conditions%5Bterm%5D=artificial+intelligence&per_page=20&order=newest",
+      "response_sha256": "c2de98a33f372d6168e3c221f54888248bb5860918275cc9a0d34460353aa751",
+      "response_bytes": 43244,
+      "parsed_records": 0,
+      "has_next": false,
+      "not_modified": false,
+      "first_records": []
+    },
+    {
+      "target": "nuclei-cve-index",
+      "source": "nuclei-cves",
+      "status": "parsed",
+      "source_url": "https://raw.githubusercontent.com/projectdiscovery/nuclei-templates/main/cves.json",
+      "response_sha256": "c4541b0a9dede821ac1cffb6e108fe1f928e7b9e863e2b14a864f6607a4a57f2",
+      "response_bytes": 2217099,
+      "parsed_records": 22,
+      "has_next": false,
+      "not_modified": false,
+      "first_records": [
+        {
+          "external_id": "CVE-2023-43654",
+          "title": "PyTorch TorchServe SSRF",
+          "locator": "byte:1310727:1311741"
+        },
+        {
+          "external_id": "CVE-2024-37014",
+          "title": "Langflow <= 1.0.12 - Remote Code Execution",
+          "locator": "byte:1542931:1543399"
+        },
+        {
+          "external_id": "CVE-2024-37032",
+          "title": "Ollama - Remote Code Execution",
+          "locator": "byte:1543400:1543859"
+        }
+      ]
+    }
+  ]
+}
